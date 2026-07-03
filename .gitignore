@@ -1,0 +1,9 @@
+.next/
+node_modules/
+.vercel/
+out/
+dist/
+*.log
+.env*
+!.env.example
+/uzair_pic.png
