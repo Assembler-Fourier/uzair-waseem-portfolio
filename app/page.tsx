@@ -228,7 +228,7 @@ const structuredData = [
     "@type": "Person",
     name: "Uzair Waseem",
     url: siteUrl,
-    image: `${siteUrl}/og-image.png`,
+    image: `${siteUrl}/opengraph-image`,
     email: contact.email,
     telephone: contact.phone,
     address: {

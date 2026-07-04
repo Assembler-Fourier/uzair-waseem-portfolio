@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   creator: "Uzair Waseem",
   publisher: "Uzair Waseem",
   alternates: {
-    canonical: "/"
+    canonical: "https://uzairwaseem.com/"
   },
   keywords: [
     "Uzair Waseem",

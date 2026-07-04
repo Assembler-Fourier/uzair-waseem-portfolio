@@ -150,7 +150,7 @@ svg {
 
 .hero {
   position: relative;
-  min-height: 700px;
+  min-height: 650px;
   overflow: hidden;
   isolation: isolate;
 }
@@ -187,11 +187,11 @@ svg {
 
 .hero-shell {
   display: grid;
-  grid-template-columns: minmax(0, 0.97fr) minmax(380px, 0.78fr);
-  gap: 42px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.72fr);
+  gap: 30px;
   align-items: center;
-  min-height: 700px;
-  padding: 96px 0 54px;
+  min-height: 650px;
+  padding: 84px 0 42px;
 }
 
 .hero-copy {
@@ -201,7 +201,7 @@ svg {
 .eyebrow-row {
   gap: 8px;
   flex-wrap: wrap;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .eyebrow,
@@ -228,7 +228,7 @@ svg {
 }
 
 .intro-label {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: var(--teal);
   font-size: 1rem;
   font-weight: 900;
@@ -242,19 +242,19 @@ p {
 }
 
 h1 {
-  max-width: 860px;
-  margin-bottom: 18px;
-  font-size: clamp(3rem, 6.4vw, 5.6rem);
+  max-width: 740px;
+  margin-bottom: 16px;
+  font-size: 3.35rem;
   font-weight: 930;
-  line-height: 0.92;
+  line-height: 0.94;
   letter-spacing: 0;
 }
 
 .hero-lede {
   max-width: 710px;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   color: var(--text-soft);
-  font-size: clamp(1.04rem, 1.5vw, 1.28rem);
+  font-size: 1.12rem;
 }
 
 .stack-chips,
@@ -283,7 +283,7 @@ h1 {
 .hero-actions {
   gap: 9px;
   flex-wrap: wrap;
-  margin-top: 28px;
+  margin-top: 22px;
 }
 
 .button,
@@ -626,7 +626,7 @@ h1 {
 .education-copy h2,
 .contact-copy h2 {
   margin: 0;
-  font-size: clamp(2rem, 4.4vw, 4.2rem);
+  font-size: 3.35rem;
   font-weight: 930;
   line-height: 0.98;
   letter-spacing: 0;
@@ -1367,6 +1367,17 @@ h1 {
 }
 
 @media (max-width: 1080px) {
+  h1 {
+    font-size: 3.18rem;
+  }
+
+  .section-heading h2,
+  .sticky-heading h2,
+  .education-copy h2,
+  .contact-copy h2 {
+    font-size: 2.95rem;
+  }
+
   .hero-shell {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -1410,6 +1421,17 @@ h1 {
 }
 
 @media (max-width: 860px) {
+  h1 {
+    font-size: 2.82rem;
+  }
+
+  .section-heading h2,
+  .sticky-heading h2,
+  .education-copy h2,
+  .contact-copy h2 {
+    font-size: 2.45rem;
+  }
+
   .shell {
     width: min(100% - 28px, 1120px);
   }
@@ -1469,8 +1491,15 @@ h1 {
 
 @media (max-width: 620px) {
   h1 {
-    font-size: clamp(2.18rem, 11.2vw, 3.45rem);
+    font-size: 2.38rem;
     line-height: 0.96;
+  }
+
+  .section-heading h2,
+  .sticky-heading h2,
+  .education-copy h2,
+  .contact-copy h2 {
+    font-size: 2.08rem;
   }
 
   .brand span:last-child {
