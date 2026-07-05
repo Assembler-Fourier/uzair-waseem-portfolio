@@ -25,7 +25,7 @@ npm run build
 
 ## CV Generation
 
-The downloadable CV is generated from `scripts/generate_cv.py`. The script creates one-page recruiter CV variants and copies them into `public/`.
+The downloadable CV is generated from `scripts/generate_cv.py`. The script creates one canonical one-page recruiter CV and copies it into the main download path plus legacy role-specific CV URLs so old links keep working.
 
 ```bash
 python scripts/generate_cv.py
