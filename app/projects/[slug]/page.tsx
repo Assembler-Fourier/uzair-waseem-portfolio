@@ -45,15 +45,17 @@ const caseStudies = {
   },
   sentryscan: {
     title: "SentryScan Threat Monitoring",
-    label: "Security-aware backend prototype",
+    label: "Live FastAPI security triage demo",
     repo: "https://github.com/Assembler-Fourier/sentryscan-threat-monitoring",
-    live: "",
+    live: "https://sentryscan-threat-monitoring.vercel.app/",
     problem:
       "Security-event payloads are hard to triage when alerts arrive without normalized fields, explainable risk scoring or review status.",
     role:
       "Built and documented a FastAPI-style security-event triage prototype that connects software engineering with cybersecurity-aware thinking.",
-    stack: ["Python", "FastAPI", "Risk scoring", "Security event modeling", "Testing"],
+    stack: ["Python", "FastAPI", "Dashboard", "Risk scoring", "Security event modeling", "Testing"],
     features: [
+      "Live dashboard for ranked event triage",
+      "FastAPI health, docs and ranking endpoint",
       "Event normalization concept",
       "Rule-based risk scoring",
       "Severity explanations",
@@ -62,23 +64,24 @@ const caseStudies = {
     ],
     testing: [
       "Current prototype has test-focused scoring logic",
+      "Production smoke checks verified dashboard, docs, health and POST ranking endpoint",
       "Proof v1 issues track Pytest coverage for ingestion, scoring, status and dashboard behavior"
     ],
     deployment:
-      "Not currently deployed. Deployment is planned after PostgreSQL persistence, API coverage and example payload documentation are implemented.",
+      "Deployed on Vercel at sentryscan-threat-monitoring.vercel.app with a FastAPI app serving the dashboard, /docs, /health and /events/rank.",
     security:
       "The project is framed as a triage prototype, not a SOC platform. Security notes avoid overstating production readiness.",
     tradeoffs:
-      "Keeps the cybersecurity angle practical and software-focused instead of pretending senior security operations experience.",
+      "Keeps the cybersecurity angle practical and software-focused instead of pretending senior security operations experience or SOC-grade detection accuracy.",
     next: [
       "Add PostgreSQL and SQLAlchemy models",
       "Add event ingestion and triage notes",
       "Add dashboard summary and filters",
       "Add Docker Compose and GitHub Actions",
-      "Deploy API and add screenshots"
+      "Add production screenshots"
     ],
     proves:
-      "FastAPI backend thinking, security-event modeling, explainable scoring and the MSc Cybersecurity differentiator inside software engineering."
+      "Live FastAPI deployment, security-event modeling, explainable scoring and the MSc Cybersecurity differentiator inside software engineering."
   },
   "qa-automation-lab": {
     title: "QA Automation Lab",
@@ -121,15 +124,17 @@ const caseStudies = {
   },
   documind: {
     title: "DocuMind RAG Assistant",
-    label: "AI/data retrieval project",
+    label: "Live FastAPI retrieval demo",
     repo: "https://github.com/Assembler-Fourier/documind-rag-assistant",
-    live: "",
+    live: "https://documind-rag-assistant.vercel.app/",
     problem:
       "Internal notes are hard to use when answers need supporting source context instead of loose summaries.",
     role:
-      "Built a Python document retrieval assistant that chunks Markdown knowledge, ranks relevant context and returns grounded answer drafts with visible citations.",
-    stack: ["Python", "RAG", "Document retrieval", "Ranking", "Citations", "Unit tests"],
+      "Built a Python/FastAPI document retrieval assistant that chunks Markdown knowledge, ranks relevant context and returns grounded answer drafts with visible citations.",
+    stack: ["Python", "FastAPI", "RAG", "Document retrieval", "Ranking", "Citations", "Unit tests"],
     features: [
+      "Live browser demo for retrieval questions",
+      "FastAPI health, docs and answer endpoint",
       "Markdown knowledge-base loader",
       "Document chunking by heading and paragraph",
       "Lightweight term-vector ranking",
@@ -139,16 +144,16 @@ const caseStudies = {
     testing: [
       "Unit tests cover release-readiness retrieval",
       "Unit tests verify citations are returned",
+      "Production smoke checks verified dashboard, docs, health and POST answer endpoint",
       "Package structure supports future evaluation and model-provider wiring"
     ],
     deployment:
-      "Currently a runnable Python package and repository proof. A hosted UI/API can be added after selecting a lightweight app runtime.",
+      "Deployed on Vercel at documind-rag-assistant.vercel.app with a FastAPI app serving the dashboard, /docs, /health and /answer.",
     security:
       "Uses local sample knowledge files and no secrets. Future LLM/provider integration should add environment-based secrets and data-handling controls.",
     tradeoffs:
       "Uses a transparent local retriever instead of pretending to be a production vector database or enterprise LLM assistant.",
     next: [
-      "Add FastAPI or Streamlit demo UI",
       "Add vector database integration",
       "Add retrieval quality metrics",
       "Add model-provider abstraction",

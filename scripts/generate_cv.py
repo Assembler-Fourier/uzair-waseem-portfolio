@@ -100,11 +100,12 @@ PROJECTS = [
     },
     {
         "title": "SentryScan Threat Monitoring",
-        "stack": "Python, FastAPI, risk scoring, security-event modeling, tests",
+        "stack": "Python, FastAPI, dashboard, risk scoring, security-event modeling, tests",
         "url": "https://github.com/Assembler-Fourier/sentryscan-threat-monitoring",
+        "live": "https://sentryscan-threat-monitoring.vercel.app/",
         "bullet": (
-            "Built a FastAPI security-event triage prototype that normalizes event payloads, applies "
-            "rule-based risk scoring, returns explainable severity decisions, and documents limitations honestly."
+            "Built and deployed a FastAPI security-event triage demo that normalizes event payloads, applies "
+            "rule-based risk scoring, returns explainable severity decisions, and exposes dashboard/API docs."
         ),
     },
     {
@@ -118,11 +119,12 @@ PROJECTS = [
     },
     {
         "title": "DocuMind RAG Assistant",
-        "stack": "Python, RAG architecture, document retrieval, ranking, citations, unit tests",
+        "stack": "Python, FastAPI, RAG architecture, document retrieval, ranking, citations, unit tests",
         "url": "https://github.com/Assembler-Fourier/documind-rag-assistant",
+        "live": "https://documind-rag-assistant.vercel.app/",
         "bullet": (
-            "Built a document retrieval assistant that chunks Markdown knowledge, ranks relevant context, "
-            "returns grounded answer drafts with citations, and includes tests for retrieval behavior."
+            "Built and deployed a retrieval assistant that chunks Markdown knowledge, ranks relevant context, "
+            "returns grounded answer drafts with citations, and exposes a FastAPI answer endpoint."
         ),
     },
 ]
@@ -343,9 +345,10 @@ GitHub: https://github.com/Assembler-Fourier/securetaskops-workflow-platform
 - Built and deployed a workflow dashboard/API for tasks, blockers, and release-readiness signals with validation, risk scoring, task creation, unit tests, Docker setup, GitHub Actions CI, and security notes.
 
 SentryScan Threat Monitoring
-Stack: Python, FastAPI, risk scoring, security-event modeling, tests
+Stack: Python, FastAPI, dashboard, risk scoring, security-event modeling, tests
+Live: https://sentryscan-threat-monitoring.vercel.app/
 GitHub: https://github.com/Assembler-Fourier/sentryscan-threat-monitoring
-- Built a FastAPI security-event triage prototype that normalizes event payloads, applies rule-based risk scoring, returns explainable severity decisions, and documents limitations honestly.
+- Built and deployed a FastAPI security-event triage demo that normalizes event payloads, applies rule-based risk scoring, returns explainable severity decisions, and exposes dashboard/API docs.
 
 QA Automation Lab
 Stack: Playwright, API testing, GitHub Actions
@@ -353,9 +356,10 @@ GitHub: https://github.com/Assembler-Fourier/qa-automation-lab
 - Created a Playwright API testing suite for SecureTaskOps covering health checks, task filtering, release-readiness behavior, validation errors, task creation, and CI report artifacts.
 
 DocuMind RAG Assistant
-Stack: Python, RAG architecture, document retrieval, ranking, citations, unit tests
+Stack: Python, FastAPI, RAG architecture, document retrieval, ranking, citations, unit tests
+Live: https://documind-rag-assistant.vercel.app/
 GitHub: https://github.com/Assembler-Fourier/documind-rag-assistant
-- Built a document retrieval assistant that chunks Markdown knowledge, ranks relevant context, returns grounded answer drafts with citations, and includes tests for retrieval behavior.
+- Built and deployed a retrieval assistant that chunks Markdown knowledge, ranks relevant context, returns grounded answer drafts with citations, and exposes a FastAPI answer endpoint.
 
 Education
 MSc Cybersecurity, National College of Ireland, Dublin | 2025 - 2026

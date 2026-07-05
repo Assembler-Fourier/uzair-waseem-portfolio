@@ -73,12 +73,12 @@ const projects = [
     problem: "Security event payloads are hard to triage when alerts arrive without risk context or explainable severity.",
     solution: "Built a FastAPI prototype that normalizes event payloads, applies risk scoring and returns triage reasons.",
     outcome:
-      "Shows backend API design, security-event modeling, testable scoring logic and clear documentation without claiming SOC production use.",
-    proof: "FastAPI structure, API design, risk scoring, tests, security notes.",
-    limits: "Portfolio prototype; next step is deeper event ingestion, auth and deployment hardening.",
-    stack: ["Python", "FastAPI", "REST API", "Risk scoring", "Testing"],
+      "Now works as a live FastAPI demo with dashboard, API docs, health endpoint and POST ranking endpoint verified in production.",
+    proof: "FastAPI app, live dashboard, API docs, risk scoring, tests, security notes.",
+    limits: "Demo data and scoring are transparent heuristics; persistent storage, auth and deeper event workflows are next hardening steps.",
+    stack: ["Python", "FastAPI", "Dashboard", "REST API", "Risk scoring", "Testing"],
     repository: "https://github.com/Assembler-Fourier/sentryscan-threat-monitoring",
-    live: "",
+    live: "https://sentryscan-threat-monitoring.vercel.app/",
     caseStudy: "/projects/sentryscan"
   },
   {
@@ -103,12 +103,12 @@ const projects = [
     problem: "Internal notes are hard to use when answers need supporting source context instead of loose summaries.",
     solution: "Built a Python retrieval assistant that chunks Markdown knowledge, ranks context and returns grounded answer drafts with citations.",
     outcome:
-      "Shows AI/data engineering thinking without pretending to have production LLM metrics: retrieval, citation handling and testable ranking logic.",
-    proof: "Python package structure, document chunking, local retriever, citations, unit tests, RAG-ready design.",
-    limits: "Uses a transparent local retriever; LangChain/vector database and evaluation metrics are next steps.",
-    stack: ["Python", "RAG", "Retrieval", "Vector search", "Unit tests"],
+      "Now works as a live FastAPI retrieval demo with question input, ranked citations, answer endpoint and API docs verified in production.",
+    proof: "Python package structure, FastAPI demo, document chunking, local retriever, citations, unit tests, RAG-ready design.",
+    limits: "Uses a transparent local retriever; vector database, external model provider and evaluation metrics are next steps.",
+    stack: ["Python", "FastAPI", "RAG", "Retrieval", "Citations", "Unit tests"],
     repository: "https://github.com/Assembler-Fourier/documind-rag-assistant",
-    live: "",
+    live: "https://documind-rag-assistant.vercel.app/",
     caseStudy: "/projects/documind"
   }
 ];
