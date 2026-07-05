@@ -62,7 +62,8 @@ const projects = [
     proof: "Node.js service, REST API examples, risk/readiness scoring, tests, Docker, GitHub Actions, README depth.",
     limits: "Current portfolio build; authentication, database persistence and live deployment hardening are planned next steps.",
     stack: ["Node.js", "REST API", "Tests", "Docker", "GitHub Actions"],
-    repository: "https://github.com/Assembler-Fourier/securetaskops-workflow-platform"
+    repository: "https://github.com/Assembler-Fourier/securetaskops-workflow-platform",
+    caseStudy: "/projects/securetaskops"
   },
   {
     title: "SentryScan Threat Monitoring",
@@ -75,7 +76,8 @@ const projects = [
     proof: "FastAPI structure, API design, risk scoring, tests, security notes.",
     limits: "Portfolio prototype; next step is deeper event ingestion, auth and deployment hardening.",
     stack: ["Python", "FastAPI", "REST API", "Risk scoring", "Testing"],
-    repository: "https://github.com/Assembler-Fourier/sentryscan-threat-monitoring"
+    repository: "https://github.com/Assembler-Fourier/sentryscan-threat-monitoring",
+    caseStudy: "/projects/sentryscan"
   },
   {
     title: "QA Automation Lab",
@@ -88,7 +90,8 @@ const projects = [
     proof: "Playwright APIRequestContext, validation tests, smoke checks, GitHub Actions, HTML report artifacts.",
     limits: "Current suite targets the existing API; auth, CRUD UI and role tests are queued after SecureTaskOps adds those features.",
     stack: ["Playwright", "API testing", "GitHub Actions", "QA strategy", "Regression checks"],
-    repository: "https://github.com/Assembler-Fourier/qa-automation-lab"
+    repository: "https://github.com/Assembler-Fourier/qa-automation-lab",
+    caseStudy: "/projects/qa-automation-lab"
   },
   {
     title: "Portfolio Website",
@@ -101,7 +104,8 @@ const projects = [
     proof: "Next.js, SEO metadata, Vercel deployment, downloadable ATS CV, GitHub links, structured content.",
     limits: "Project case-study pages are the next website upgrade so proof is deeper than a homepage card.",
     stack: ["Next.js", "React", "TypeScript", "SEO", "Vercel"],
-    repository: "https://github.com/Assembler-Fourier/uzair-waseem-portfolio"
+    repository: "https://github.com/Assembler-Fourier/uzair-waseem-portfolio",
+    caseStudy: "/projects/portfolio"
   }
 ];
 
@@ -626,16 +630,26 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
             <li key={tag}>{tag}</li>
           ))}
         </ul>
-        <a
-          className="project-link"
-          href={project.repository}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`View ${project.title} repository on GitHub`}
-        >
-          View GitHub repo
-          <ArrowUpRight size={16} aria-hidden="true" />
-        </a>
+        <div className="project-actions-row">
+          <a
+            className="project-link"
+            href={project.caseStudy}
+            aria-label={`Read ${project.title} case study`}
+          >
+            Case study
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+          <a
+            className="project-link ghost"
+            href={project.repository}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${project.title} repository on GitHub`}
+          >
+            GitHub
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+        </div>
       </div>
     </article>
   );

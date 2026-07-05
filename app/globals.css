@@ -860,6 +860,23 @@ h1 {
     background 180ms ease;
 }
 
+.project-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+.project-actions-row .project-link {
+  margin-top: 0;
+}
+
+.project-link.ghost {
+  border-color: var(--line);
+  color: var(--text-soft);
+  background: rgba(148, 163, 184, 0.06);
+}
+
 .project-link:hover {
   transform: translateY(-2px);
   border-color: rgba(45, 212, 191, 0.48);
@@ -1402,6 +1419,112 @@ h1 {
     linear-gradient(180deg, #071018, #051018);
 }
 
+.case-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 82% 12%, rgba(45, 212, 191, 0.14), transparent 30%),
+    var(--bg);
+}
+
+.case-hero {
+  padding: 118px 0 50px;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(7, 11, 18, 0.74), rgba(8, 16, 27, 0.94)),
+    repeating-linear-gradient(90deg, transparent 0 78px, rgba(148, 163, 184, 0.05) 79px 80px);
+}
+
+.case-shell {
+  max-width: 900px;
+}
+
+.case-back {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  margin-bottom: 22px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  font-weight: 900;
+  background: rgba(15, 23, 42, 0.66);
+}
+
+.case-hero h1 {
+  max-width: 860px;
+  margin: 8px 0 16px;
+  font-size: 3.1rem;
+  font-weight: 930;
+  line-height: 0.98;
+}
+
+.case-hero p:not(.intro-label) {
+  max-width: 780px;
+  color: var(--text-soft);
+  font-size: 1.08rem;
+}
+
+.case-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.case-actions a {
+  min-height: 44px;
+  padding: 11px 13px;
+  border: 1px solid rgba(45, 212, 191, 0.28);
+  border-radius: 8px;
+  color: #d9fff8;
+  background: rgba(45, 212, 191, 0.08);
+  font-weight: 900;
+}
+
+.case-content {
+  background: var(--bg-2);
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.case-card {
+  min-height: 178px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.68);
+}
+
+.case-card h2 {
+  margin: 0 0 10px;
+  color: var(--teal);
+  font-size: 0.92rem;
+  text-transform: uppercase;
+}
+
+.case-card p,
+.case-card li {
+  color: var(--text-soft);
+  font-size: 0.93rem;
+}
+
+.case-card p {
+  margin-bottom: 0;
+}
+
+.case-card ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+}
+
 .contact-section::before {
   position: absolute;
   inset: 0;
@@ -1646,6 +1769,7 @@ h1 {
   .about-layout,
   .skills-grid,
   .project-grid,
+  .case-grid,
   .experience-layout,
   .education-layout,
   .contact-layout,
@@ -1756,6 +1880,10 @@ h1 {
   .contact-card a {
     align-items: flex-start;
     word-break: break-word;
+  }
+
+  .case-hero h1 {
+    font-size: 2.28rem;
   }
 }
 
