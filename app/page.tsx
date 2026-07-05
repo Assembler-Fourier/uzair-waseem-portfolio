@@ -6,9 +6,11 @@ import {
   CheckCircle2,
   Cloud,
   Code2,
+  Download,
   GraduationCap,
   Mail,
   MapPin,
+  MessageCircle,
   Phone,
   ShieldCheck,
   Sparkles,
@@ -20,6 +22,8 @@ const siteUrl = "https://uzairwaseem.com";
 const contact = {
   email: "uzairwaseem29@gmail.com",
   phone: "+353 89 973 9932",
+  whatsapp: "https://wa.me/353899739932?text=Hi%20Uzair%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect.",
+  cv: "/Uzair-Waseem-CV.pdf",
   linkedin: "https://www.linkedin.com/in/uzair-waseem",
   github: "https://github.com/Assembler-Fourier"
 };
@@ -342,6 +346,10 @@ function Hero() {
             <a className="button primary" href={`mailto:${contact.email}`}>
               <Mail size={18} aria-hidden="true" />
               Email me
+            </a>
+            <a className="button secondary" href={contact.cv} download>
+              <Download size={18} aria-hidden="true" />
+              Download CV
             </a>
             <a className="button secondary" href="#work">
               <Sparkles size={18} aria-hidden="true" />
@@ -681,7 +689,8 @@ function ContactCTA() {
           <p>
             Uzair Waseem is based in Dublin and open to software, AI/data,
             cloud/DevOps, cybersecurity, QA automation, technical product and support
-            opportunities across Ireland, hybrid and remote markets.
+            opportunities across Ireland, hybrid and remote markets. Recruiters can
+            email, call, WhatsApp or download a current CV in one click.
           </p>
         </div>
         <div className="contact-card reveal">
@@ -690,9 +699,19 @@ function ContactCTA() {
             Email Uzair Waseem
             <ArrowUpRight size={18} aria-hidden="true" />
           </a>
+          <a href={contact.cv} download>
+            <Download size={19} aria-hidden="true" />
+            Download CV
+            <ArrowUpRight size={17} aria-hidden="true" />
+          </a>
           <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>
             <Phone size={19} aria-hidden="true" />
             {contact.phone}
+            <ArrowUpRight size={17} aria-hidden="true" />
+          </a>
+          <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
+            <MessageCircle size={19} aria-hidden="true" />
+            WhatsApp {contact.phone}
             <ArrowUpRight size={17} aria-hidden="true" />
           </a>
           <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
