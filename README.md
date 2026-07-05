@@ -38,7 +38,7 @@ Generated PDFs are copied into `public/` so they can be served from the live sit
 - [SecureTaskOps Workflow Platform](https://github.com/Assembler-Fourier/securetaskops-workflow-platform)
 - [SentryScan Threat Monitoring](https://github.com/Assembler-Fourier/sentryscan-threat-monitoring)
 - [QA Automation Lab](https://github.com/Assembler-Fourier/qa-automation-lab)
-- [Portfolio Website](https://github.com/Assembler-Fourier/uzair-waseem-portfolio)
+- [DocuMind RAG Assistant](https://github.com/Assembler-Fourier/documind-rag-assistant)
 
 ## Live Site
 

@@ -4,41 +4,44 @@ import { notFound } from "next/navigation";
 const caseStudies = {
   securetaskops: {
     title: "SecureTaskOps Workflow Platform",
-    label: "Flagship backend workflow build",
+    label: "Deployed workflow dashboard",
     repo: "https://github.com/Assembler-Fourier/securetaskops-workflow-platform",
-    live: "",
+    live: "https://securetaskops-workflow-platform.vercel.app/",
     problem:
-      "Recruiters and engineering managers need more than a polished project card. They need runnable code, tests, CI, Docker instructions, security notes and a clear roadmap.",
+      "Small teams need a fast way to see blockers, security-sensitive work and release readiness before shipping.",
     role:
-      "Designed and built the current Node.js workflow API, risk/readiness scoring, tests, Docker setup, GitHub Actions workflow, README and security notes.",
-    stack: ["Node.js", "REST APIs", "Docker", "GitHub Actions", "Node test runner", "JavaScript"],
+      "Built the dashboard, Node.js request handler, Vercel deployment, API routes, risk/readiness scoring, tests, Docker setup, GitHub Actions workflow, README and security notes.",
+    stack: ["Node.js", "REST APIs", "Dashboard", "Vercel", "Docker", "GitHub Actions", "JavaScript"],
     features: [
-      "Workflow task API with seeded data",
+      "Public dashboard for release signal, filters and workflow queue",
+      "Workflow task API with seeded demo data",
+      "Task creation form backed by API validation",
       "Risk scoring for severity, blockers, due dates and security-sensitive items",
       "Release-readiness summary endpoint",
-      "Validation errors for invalid task creation",
-      "Docker and CI-ready setup"
+      "Docker and CI-ready setup",
+      "Live Vercel deployment"
     ],
     testing: [
       "Domain tests for validation, filtering, release summary and risk scoring",
       "QA Automation Lab Playwright API tests run against this API",
-      "CI workflow runs syntax checks and tests"
+      "CI workflow runs syntax checks and tests",
+      "Production smoke checks verified dashboard, API endpoints and task creation"
     ],
     deployment:
-      "Current version is repository proof, not a hosted production app. Backend/frontend/database deployment is tracked in the Proof v1 GitHub issues.",
+      "Deployed on Vercel at securetaskops-workflow-platform.vercel.app with a static dashboard and Node/Vercel API surface.",
     security:
-      "Current notes cover validation, secrets handling and risk-aware modeling. Authentication, role-based access and audit logging are planned issues before production-style claims are made.",
+      "Validation, secrets handling and risk-aware modeling are implemented/documented. Authentication, role-based access and audit logging remain planned hardening work.",
     tradeoffs:
-      "Uses in-memory sample data to keep reviewer setup fast. PostgreSQL persistence, auth and UI are intentionally not claimed yet.",
+      "Uses runtime demo data to keep the live app public and easy to review. PostgreSQL persistence, auth and RBAC are intentionally listed as next hardening steps.",
     next: [
       "Add PostgreSQL and Prisma",
       "Add authentication and role-based access",
-      "Add Swagger/OpenAPI docs",
-      "Deploy backend, frontend and database",
-      "Add screenshots and demo credentials"
+      "Add audit logs and role-specific views",
+      "Add browser smoke tests",
+      "Add OpenAPI documentation"
     ],
     proves:
-      "Backend API structure, testable domain logic, Docker/CI awareness, honest documentation and a roadmap toward production-style software."
+      "Deployed product demo, backend API structure, testable domain logic, Docker/CI awareness, honest documentation and a practical roadmap toward production hardening."
   },
   sentryscan: {
     title: "SentryScan Threat Monitoring",
@@ -116,41 +119,43 @@ const caseStudies = {
     proves:
       "Practical QA automation, API testing, CI report thinking and honest dependency between test coverage and app capability."
   },
-  portfolio: {
-    title: "Portfolio Website",
-    label: "Recruiter proof hub",
-    repo: "https://github.com/Assembler-Fourier/uzair-waseem-portfolio",
-    live: "https://uzairwaseem.com",
+  documind: {
+    title: "DocuMind RAG Assistant",
+    label: "AI/data retrieval project",
+    repo: "https://github.com/Assembler-Fourier/documind-rag-assistant",
+    live: "",
     problem:
-      "The public profile needed to stop sounding broad and start giving recruiters a fast, consistent proof path.",
+      "Internal notes are hard to use when answers need supporting source context instead of loose summaries.",
     role:
-      "Built and deployed the Next.js portfolio, CV download flow, SEO metadata, contact actions and project proof structure.",
-    stack: ["Next.js", "React", "TypeScript", "CSS", "Vercel", "SEO metadata"],
+      "Built a Python document retrieval assistant that chunks Markdown knowledge, ranks relevant context and returns grounded answer drafts with visible citations.",
+    stack: ["Python", "RAG", "Document retrieval", "Ranking", "Citations", "Unit tests"],
     features: [
-      "Focused Ireland-based software engineering positioning",
-      "ATS CV download",
-      "GitHub and LinkedIn links",
-      "Proof-focused project cards",
-      "Structured metadata, sitemap and robots"
+      "Markdown knowledge-base loader",
+      "Document chunking by heading and paragraph",
+      "Lightweight term-vector ranking",
+      "Top context snippets with source citations",
+      "Grounded answer draft that separates evidence from generated wording"
     ],
     testing: [
-      "Production build passes",
-      "Live domain and CV download verified after deployment",
-      "PDF page count and link extraction checked locally"
+      "Unit tests cover release-readiness retrieval",
+      "Unit tests verify citations are returned",
+      "Package structure supports future evaluation and model-provider wiring"
     ],
     deployment:
-      "Deployed on Vercel and aliased to uzairwaseem.com.",
+      "Currently a runnable Python package and repository proof. A hosted UI/API can be added after selecting a lightweight app runtime.",
     security:
-      "Static portfolio with no user data collection. External links use safe target attributes where relevant.",
+      "Uses local sample knowledge files and no secrets. Future LLM/provider integration should add environment-based secrets and data-handling controls.",
     tradeoffs:
-      "The site is intentionally compact. Deep proof belongs in case studies and repositories rather than a bloated homepage.",
+      "Uses a transparent local retriever instead of pretending to be a production vector database or enterprise LLM assistant.",
     next: [
-      "Add screenshots from each flagship project",
-      "Add live demo links when backends are deployed",
-      "Add case-study metrics only when real numbers exist"
+      "Add FastAPI or Streamlit demo UI",
+      "Add vector database integration",
+      "Add retrieval quality metrics",
+      "Add model-provider abstraction",
+      "Add sample evaluation report"
     ],
     proves:
-      "Clear positioning, public deployment, technical SEO basics, recruiter workflow and consistency across CV/GitHub/LinkedIn."
+      "AI/data engineering fundamentals: document chunking, retrieval ranking, citation handling, testable RAG workflow design and honest limitations."
   }
 };
 

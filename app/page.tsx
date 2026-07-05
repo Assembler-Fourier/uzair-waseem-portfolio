@@ -53,16 +53,17 @@ const companyChips = ["Motion Sensors", "Outstanding Marketing", "LocalhostLabs"
 const projects = [
   {
     title: "SecureTaskOps Workflow Platform",
-    category: "Flagship full-stack/backend build",
+    category: "Deployed workflow dashboard",
     visual: "pipeline",
-    problem: "Recruiters need one project that proves more than a polished card: API structure, tests, Docker, CI and clear tradeoffs.",
-    solution: "Built a documented workflow API for tasks, incidents and release-readiness signals with runnable tests and deployment notes.",
+    problem: "Small teams need a fast way to see blockers, security-sensitive work and release readiness before shipping.",
+    solution: "Built and deployed a workflow dashboard with API-backed tasks, filters, item creation, risk scoring and release-readiness signals.",
     outcome:
-      "Creates a credible flagship repository that shows backend logic, reviewable setup, security notes and honest current limitations.",
-    proof: "Node.js service, REST API examples, risk/readiness scoring, tests, Docker, GitHub Actions, README depth.",
-    limits: "Current portfolio build; authentication, database persistence and live deployment hardening are planned next steps.",
-    stack: ["Node.js", "REST API", "Tests", "Docker", "GitHub Actions"],
+      "Now works as a live product demo: dashboard loads publicly, API endpoints return live data and task creation returns scored workflow items.",
+    proof: "Deployed dashboard, Node.js service, REST API examples, risk/readiness scoring, tests, Docker, GitHub Actions.",
+    limits: "Demo runtime data can reset; PostgreSQL persistence, auth, RBAC and audit logs are next hardening steps.",
+    stack: ["Node.js", "REST API", "Dashboard", "Vercel", "Docker", "GitHub Actions"],
     repository: "https://github.com/Assembler-Fourier/securetaskops-workflow-platform",
+    live: "https://securetaskops-workflow-platform.vercel.app/",
     caseStudy: "/projects/securetaskops"
   },
   {
@@ -77,6 +78,7 @@ const projects = [
     limits: "Portfolio prototype; next step is deeper event ingestion, auth and deployment hardening.",
     stack: ["Python", "FastAPI", "REST API", "Risk scoring", "Testing"],
     repository: "https://github.com/Assembler-Fourier/sentryscan-threat-monitoring",
+    live: "",
     caseStudy: "/projects/sentryscan"
   },
   {
@@ -91,21 +93,23 @@ const projects = [
     limits: "Current suite targets the existing API; auth, CRUD UI and role tests are queued after SecureTaskOps adds those features.",
     stack: ["Playwright", "API testing", "GitHub Actions", "QA strategy", "Regression checks"],
     repository: "https://github.com/Assembler-Fourier/qa-automation-lab",
+    live: "",
     caseStudy: "/projects/qa-automation-lab"
   },
   {
-    title: "Portfolio Website",
-    category: "Recruiter proof hub",
-    visual: "kanban",
-    problem: "Recruiters need a fast path to understand the role fit, CV, GitHub proof and honest project limitations.",
-    solution: "Built a focused Next.js portfolio that links CV, GitHub projects, contact actions, SEO metadata and recruiter-facing positioning.",
+    title: "DocuMind RAG Assistant",
+    category: "AI/data retrieval project",
+    visual: "rag",
+    problem: "Internal notes are hard to use when answers need supporting source context instead of loose summaries.",
+    solution: "Built a Python retrieval assistant that chunks Markdown knowledge, ranks context and returns grounded answer drafts with citations.",
     outcome:
-      "Keeps the public profile consistent around software engineering, backend APIs, testing, Docker/CI and security-aware delivery.",
-    proof: "Next.js, SEO metadata, Vercel deployment, downloadable ATS CV, GitHub links, structured content.",
-    limits: "Project case-study pages are the next website upgrade so proof is deeper than a homepage card.",
-    stack: ["Next.js", "React", "TypeScript", "SEO", "Vercel"],
-    repository: "https://github.com/Assembler-Fourier/uzair-waseem-portfolio",
-    caseStudy: "/projects/portfolio"
+      "Shows AI/data engineering thinking without pretending to have production LLM metrics: retrieval, citation handling and testable ranking logic.",
+    proof: "Python package structure, document chunking, local retriever, citations, unit tests, RAG-ready design.",
+    limits: "Uses a transparent local retriever; LangChain/vector database and evaluation metrics are next steps.",
+    stack: ["Python", "RAG", "Retrieval", "Vector search", "Unit tests"],
+    repository: "https://github.com/Assembler-Fourier/documind-rag-assistant",
+    live: "",
+    caseStudy: "/projects/documind"
   }
 ];
 
@@ -115,7 +119,7 @@ const roles = [
     title: "Full-stack Software Engineer",
     fit: "Build practical web apps, reusable UI, backend routes and maintainable product workflows.",
     tools: "React, Next.js, TypeScript, JavaScript, Node.js, REST APIs, SQL",
-    proof: "SecureTaskOps and the portfolio show workflow logic, product positioning and reviewable setup paths."
+    proof: "SecureTaskOps and DocuMind show workflow logic, API-backed product thinking and reviewable setup paths."
   },
   {
     icon: Workflow,
@@ -579,8 +583,8 @@ function SelectedWork() {
       <div className="shell">
         <SectionHeading
           eyebrow="Selected work"
-          title="Four focused projects that support full-stack and backend hiring."
-          text="Each project is framed honestly as a runnable portfolio project, prototype or case study, with limitations visible."
+          title="Four focused projects that support full-stack, backend, AI and QA hiring."
+          text="Each project is framed honestly as a deployed app, runnable project, prototype or testing proof, with limitations visible."
         />
         {/* TODO: Replace qualitative outcomes with verified metrics when production numbers are available. */}
         <div className="project-grid">
@@ -631,8 +635,20 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
           ))}
         </ul>
         <div className="project-actions-row">
+          {project.live ? (
+            <a
+              className="project-link"
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${project.title} live app`}
+            >
+              Live app
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+          ) : null}
           <a
-            className="project-link"
+            className={project.live ? "project-link ghost" : "project-link"}
             href={project.caseStudy}
             aria-label={`Read ${project.title} case study`}
           >

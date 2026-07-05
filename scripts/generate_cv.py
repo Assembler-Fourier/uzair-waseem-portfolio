@@ -90,11 +90,12 @@ EXPERIENCE = [
 PROJECTS = [
     {
         "title": "SecureTaskOps Workflow Platform",
-        "stack": "Node.js, REST APIs, Docker, GitHub Actions, tests",
+        "stack": "Node.js, REST APIs, dashboard UI, Vercel, Docker, GitHub Actions, tests",
         "url": "https://github.com/Assembler-Fourier/securetaskops-workflow-platform",
+        "live": "https://securetaskops-workflow-platform.vercel.app/",
         "bullet": (
-            "Built a workflow API for tasks, incidents, and release-readiness signals with validation, "
-            "risk scoring, unit tests, Docker setup, GitHub Actions CI, security notes, and reviewer-friendly documentation."
+            "Built and deployed a workflow dashboard/API for tasks, blockers, and release-readiness signals with "
+            "validation, risk scoring, task creation, unit tests, Docker setup, GitHub Actions CI, and security notes."
         ),
     },
     {
@@ -116,12 +117,12 @@ PROJECTS = [
         ),
     },
     {
-        "title": "Portfolio Website",
-        "stack": "Next.js, React, TypeScript, SEO, Vercel",
-        "url": "https://github.com/Assembler-Fourier/uzair-waseem-portfolio",
+        "title": "DocuMind RAG Assistant",
+        "stack": "Python, RAG architecture, document retrieval, ranking, citations, unit tests",
+        "url": "https://github.com/Assembler-Fourier/documind-rag-assistant",
         "bullet": (
-            "Built and deployed a recruiter-focused portfolio with project case studies, SEO metadata, "
-            "contact links, CV download, and links to live engineering proof."
+            "Built a document retrieval assistant that chunks Markdown knowledge, ranks relevant context, "
+            "returns grounded answer drafts with citations, and includes tests for retrieval behavior."
         ),
     },
 ]
@@ -255,6 +256,8 @@ def build_story(styles: dict[str, ParagraphStyle]) -> list:
     for project in PROJECTS:
         story.append(p(project["title"], styles["item"]))
         story.append(p(f"Stack: {project['stack']}", styles["meta"]))
+        if project.get("live"):
+            story.append(p(f"Live: <link href=\"{project['live']}\" color=\"#2563eb\">{project['live']}</link>", styles["link"]))
         story.append(p(f"GitHub: <link href=\"{project['url']}\" color=\"#2563eb\">{project['url']}</link>", styles["link"]))
         story.append(p(f"- {project['bullet']}", styles["bullet"]))
 
@@ -334,9 +337,10 @@ Pakistan | Jun 2024 - Dec 2024
 
 Selected Projects
 SecureTaskOps Workflow Platform
-Stack: Node.js, REST APIs, Docker, GitHub Actions, tests
+Stack: Node.js, REST APIs, dashboard UI, Vercel, Docker, GitHub Actions, tests
+Live: https://securetaskops-workflow-platform.vercel.app/
 GitHub: https://github.com/Assembler-Fourier/securetaskops-workflow-platform
-- Built a workflow API for tasks, incidents, and release-readiness signals with validation, risk scoring, unit tests, Docker setup, GitHub Actions CI, security notes, and reviewer-friendly documentation.
+- Built and deployed a workflow dashboard/API for tasks, blockers, and release-readiness signals with validation, risk scoring, task creation, unit tests, Docker setup, GitHub Actions CI, and security notes.
 
 SentryScan Threat Monitoring
 Stack: Python, FastAPI, risk scoring, security-event modeling, tests
@@ -348,11 +352,10 @@ Stack: Playwright, API testing, GitHub Actions
 GitHub: https://github.com/Assembler-Fourier/qa-automation-lab
 - Created a Playwright API testing suite for SecureTaskOps covering health checks, task filtering, release-readiness behavior, validation errors, task creation, and CI report artifacts.
 
-Portfolio Website
-Stack: Next.js, React, TypeScript, SEO, Vercel
-Live: https://uzairwaseem.com
-GitHub: https://github.com/Assembler-Fourier/uzair-waseem-portfolio
-- Built and deployed a recruiter-focused portfolio with project case studies, SEO metadata, contact links, CV download, and links to live engineering proof.
+DocuMind RAG Assistant
+Stack: Python, RAG architecture, document retrieval, ranking, citations, unit tests
+GitHub: https://github.com/Assembler-Fourier/documind-rag-assistant
+- Built a document retrieval assistant that chunks Markdown knowledge, ranks relevant context, returns grounded answer drafts with citations, and includes tests for retrieval behavior.
 
 Education
 MSc Cybersecurity, National College of Ireland, Dublin | 2025 - 2026

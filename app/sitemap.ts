@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const projectPages = ["securetaskops", "sentryscan", "qa-automation-lab", "portfolio"].map((slug) => ({
+  const projectPages = ["securetaskops", "sentryscan", "qa-automation-lab", "documind"].map((slug) => ({
     url: `https://uzairwaseem.com/projects/${slug}`,
     lastModified: new Date("2026-07-05"),
     changeFrequency: "monthly" as const,
