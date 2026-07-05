@@ -158,18 +158,29 @@ export function generateStaticParams() {
   return Object.keys(caseStudies).map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const study = caseStudies[params.slug as keyof typeof caseStudies];
+export const dynamicParams = false;
+
+type ProjectPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: ProjectPageProps) {
+  const { slug } = await params;
+  const study = caseStudies[slug as keyof typeof caseStudies];
   if (!study) return {};
 
   return {
     title: `${study.title} | Uzair Waseem Project Case Study`,
-    description: `${study.title} case study for Uzair Waseem: ${study.proves}`
+    description: `${study.title} case study for Uzair Waseem: ${study.proves}`,
+    alternates: {
+      canonical: `https://uzairwaseem.com/projects/${slug}`
+    }
   };
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const study = caseStudies[params.slug as keyof typeof caseStudies];
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = await params;
+  const study = caseStudies[slug as keyof typeof caseStudies];
   if (!study) notFound();
 
   return (
