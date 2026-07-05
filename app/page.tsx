@@ -1,10 +1,8 @@
 import {
   ArrowUpRight,
-  BrainCircuit,
   BriefcaseBusiness,
   Bug,
   CheckCircle2,
-  Cloud,
   Code2,
   Download,
   GraduationCap,
@@ -31,23 +29,23 @@ const contact = {
 const stackChips = [
   "React",
   "Next.js",
+  "TypeScript",
   "Node.js",
+  "Express",
   "Python",
   "FastAPI",
   "SQL",
-  "AWS",
-  "Azure",
   "Docker",
-  "Security"
+  "GitHub Actions"
 ];
 
 const proofItems = [
-  ["Location", "Dublin-based"],
+  ["Location", "Ireland-based"],
+  ["Relocation", "Open across Ireland"],
+  ["Target", "Full-stack / Backend"],
+  ["Testing", "QA automation"],
   ["Education", "MSc Cybersecurity"],
   ["Foundation", "BSc Computer Science"],
-  ["Delivery", "Remote product teams"],
-  ["Stack", "AI + cloud + security"],
-  ["Approach", "Production-focused"]
 ];
 
 const companyChips = ["Motion Sensors", "Outstanding Marketing", "LocalhostLabs"];
@@ -55,46 +53,54 @@ const companyChips = ["Motion Sensors", "Outstanding Marketing", "LocalhostLabs"
 const projects = [
   {
     title: "SentryScan Threat Monitoring",
-    category: "Security + AI",
+    category: "Security-aware backend prototype",
     visual: "radar",
-    problem: "Security and event signals are easy to miss when alerts arrive without risk context.",
-    solution: "Built a risk-ranked monitoring concept with anomaly detection, alert streams and a dashboard-ready API.",
+    problem: "Security event payloads are hard to triage when alerts arrive without risk context or explainable severity.",
+    solution: "Built a FastAPI prototype that normalizes event payloads, applies risk scoring and returns triage reasons.",
     outcome:
-      "Created a clearer path from raw events to incident triage without adding noisy manual reporting.",
-    stack: ["Python", "FastAPI", "scikit-learn", "SIEM", "Threat modeling"],
+      "Shows backend API design, security-event modeling, testable scoring logic and clear documentation without claiming SOC production use.",
+    proof: "FastAPI structure, API design, risk scoring, tests, security notes.",
+    limits: "Portfolio prototype; next step is deeper event ingestion, auth and deployment hardening.",
+    stack: ["Python", "FastAPI", "REST API", "Risk scoring", "Testing"],
     repository: "https://github.com/Assembler-Fourier/sentryscan-threat-monitoring"
   },
   {
     title: "TaskForge Workflow App",
-    category: "Full-stack product",
+    category: "Full-stack workflow project",
     visual: "kanban",
-    problem: "Team work was scattered across manual trackers, making ownership and sprint status harder to see.",
-    solution: "Designed a workflow app with task states, auth-ready product structure and API-first delivery.",
+    problem: "Task ownership and sprint status become unclear when work is spread across manual trackers.",
+    solution: "Built a workflow-management app with task-state modeling, REST-style routes and a lightweight board interface.",
     outcome:
-      "Centralized task flow and made release work easier to scan for engineering and non-technical stakeholders.",
-    stack: ["React", "Node.js", "MongoDB", "REST APIs", "Testing"],
+      "Demonstrates practical full-stack product thinking, backend routes, task logic and reviewer-friendly setup notes.",
+    proof: "Node.js backend, workflow logic, CRUD thinking, documentation.",
+    limits: "Portfolio project; stronger database persistence, auth and validation are planned improvements.",
+    stack: ["React", "Node.js", "REST APIs", "Task state", "Testing"],
     repository: "https://github.com/Assembler-Fourier/taskforge-workflow-app"
   },
   {
     title: "SecureFlow Delivery Dashboard",
-    category: "Delivery analytics",
+    category: "Dashboard case study",
     visual: "dashboard",
     problem: "Sprint health, blockers and release status were spread across tools and meetings.",
-    solution: "Connected delivery signals into a dashboard view for sprint health, blocker age and release readiness.",
+    solution: "Modeled sprint, blocker, QA and release-readiness signals into a compact engineering status view.",
     outcome:
-      "Improved release visibility and reduced the need for repeated status-reporting loops.",
-    stack: ["React", "Node.js", "Jira API", "PostgreSQL", "Dashboards"],
+      "Shows dashboard design, status modeling, QA awareness and stakeholder communication without inventing delivery metrics.",
+    proof: "Delivery analytics, sample data, status definitions, dashboard UX.",
+    limits: "Uses sample/project data; next step is stronger integrations and calculation tests.",
+    stack: ["Next.js", "TypeScript", "Dashboards", "QA signals", "CI/CD"],
     repository: "https://github.com/Assembler-Fourier/secureflow-delivery-dashboard"
   },
   {
     title: "DocuMind RAG Assistant",
-    category: "LLM workflow",
+    category: "AI/RAG project exposure",
     visual: "rag",
-    problem: "Internal knowledge was hard to search quickly across documents and repeated questions.",
-    solution: "Built a retrieval-augmented assistant pattern with document chunks, vector search and prompt evaluation.",
+    problem: "Local knowledge documents are hard to search when answers need source context and citations.",
+    solution: "Built a retrieval assistant that chunks documents, ranks relevant context and drafts grounded answers.",
     outcome:
-      "Turned static documents into a faster question-answering workflow with a production-minded architecture.",
-    stack: ["LangChain", "RAG", "Vector search", "Hugging Face", "Python"],
+      "Demonstrates transparent retrieval logic and RAG awareness while keeping limitations visible.",
+    proof: "Python engineering, chunking, retrieval ranking, citation handling.",
+    limits: "Prototype-level RAG; deeper embeddings, vector database and evaluation are future work.",
+    stack: ["Python", "RAG", "Document retrieval", "Citations", "Testing"],
     repository: "https://github.com/Assembler-Fourier/documind-rag-assistant"
   }
 ];
@@ -102,38 +108,31 @@ const projects = [
 const roles = [
   {
     icon: Code2,
-    title: "Software / Full-stack Engineer",
-    fit: "Build product interfaces, APIs, data models and reliable releases.",
-    tools: "React, Next.js, TypeScript, JavaScript, Node.js, REST APIs, PostgreSQL, MongoDB",
-    proof: "TaskForge and SecureFlow show product UI, backend and delivery-dashboard thinking."
+    title: "Full-stack Software Engineer",
+    fit: "Build practical web apps, reusable UI, backend routes and maintainable product workflows.",
+    tools: "React, Next.js, TypeScript, JavaScript, Node.js, REST APIs, SQL",
+    proof: "TaskForge and SecureFlow show product UI, workflow logic and dashboard thinking."
   },
   {
-    icon: BrainCircuit,
-    title: "AI / Data Engineer",
-    fit: "Turn data and documents into model-backed workflows and useful dashboards.",
-    tools: "Python, FastAPI, PyTorch, scikit-learn, Hugging Face, LangChain, RAG, ETL",
-    proof: "SentryScan and DocuMind show anomaly detection, vector search and evaluation patterns."
-  },
-  {
-    icon: Cloud,
-    title: "Cloud / DevOps Engineer",
-    fit: "Automate builds, containers, environments, monitoring and deployment paths.",
-    tools: "AWS, Azure, Docker, Kubernetes, Terraform, GitHub Actions, CI/CD",
-    proof: "Experience includes deployment automation, containerized workflows and release visibility."
-  },
-  {
-    icon: ShieldCheck,
-    title: "Cybersecurity Engineer",
-    fit: "Bring secure SDLC, risk and monitoring into product delivery.",
-    tools: "OWASP, secure SDLC, threat modeling, SIEM, ISO 27001, NIST CSF, GDPR",
-    proof: "MSc Cybersecurity plus SentryScan and RiskLens-style control mapping experience."
+    icon: Workflow,
+    title: "Backend Engineer",
+    fit: "Build APIs, model data, document setup paths and keep business logic testable.",
+    tools: "Node.js, Express, Python, FastAPI, SQL, PostgreSQL, MongoDB, Docker",
+    proof: "SentryScan and TaskForge show API design, service logic and runnable repository structure."
   },
   {
     icon: Bug,
     title: "QA Automation Engineer",
-    fit: "Add automated checks and edge-case thinking before production releases.",
-    tools: "Playwright, Selenium, Cypress, API testing, QA automation, Jira",
-    proof: "Experience includes regression/API testing, CI-integrated checks and defect triage."
+    fit: "Add browser/API checks, regression thinking and clearer release confidence.",
+    tools: "Playwright, Selenium, API testing, unit testing, integration testing, GitHub Actions",
+    proof: "Project work and experience emphasize testable logic, setup docs and CI-ready workflows."
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security-aware Software Engineer",
+    fit: "Apply secure SDLC thinking to authentication, authorization, validation and risk-aware delivery.",
+    tools: "OWASP basics, secure SDLC, auth, input validation, threat modeling basics",
+    proof: "MSc Cybersecurity strengthens the software engineering profile without making security the main identity."
   }
 ];
 
@@ -143,9 +142,9 @@ const experience = [
     location: "Remote - Canada",
     period: "Mar 2026 - Present",
     bullets: [
-      "Build ML-backed product features, APIs and automation workflows for distributed delivery.",
-      "Support secure deployment patterns with Docker, CI/CD thinking and monitoring-ready services.",
-      "Work across data, software and product requirements to turn prototypes into usable systems."
+      "Build software features, APIs and automation workflows for distributed product delivery.",
+      "Develop Python/FastAPI prototypes for risk ranking, document workflows and testable backend logic.",
+      "Support Dockerized services, CI/CD-aware delivery, automated testing and secure SDLC practices."
     ]
   },
   {
@@ -175,17 +174,74 @@ const education = [
     degree: "MSc Cybersecurity",
     school: "National College of Ireland, Dublin",
     period: "2025 - 2026",
-    focus: "Secure systems, risk, networks, governance and secure delivery."
+    focus: "Secure systems, authentication, risk, networks, governance and secure SDLC."
   },
   {
     degree: "BSc Computer Science",
     school: "FAST NUCES",
     period: "2020 - 2024",
-    focus: "Software engineering, databases, algorithms, AI/data foundations and systems."
+    focus: "Software engineering, databases, algorithms, web systems and computer science foundations."
+  }
+];
+
+const skillGroups = [
+  {
+    title: "Primary stack",
+    items: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Node.js",
+      "Express",
+      "Python",
+      "FastAPI",
+      "SQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Docker",
+      "GitHub Actions",
+      "REST APIs",
+      "Git"
+    ]
+  },
+  {
+    title: "Testing and QA",
+    items: ["Playwright", "Selenium", "API testing", "Unit testing", "Integration testing", "Test automation"]
+  },
+  {
+    title: "Security-aware development",
+    items: [
+      "OWASP basics",
+      "Secure SDLC",
+      "Authentication",
+      "Authorization",
+      "Threat modeling basics",
+      "Input validation",
+      "Secrets handling"
+    ]
+  },
+  {
+    title: "Working knowledge",
+    items: [
+      "AWS basics",
+      "Azure basics",
+      "CI/CD",
+      "Linux",
+      "Cloud deployment",
+      "RAG prototypes",
+      "LangChain basics",
+      "Vector search basics"
+    ]
   }
 ];
 
 const keywords = [
+  "Full-stack Software Engineer Ireland",
+  "Backend Engineer Ireland",
+  "Software Engineer Ireland",
+  "Junior Software Engineer Ireland",
+  "Graduate Software Engineer Ireland",
   "React",
   "Next.js",
   "TypeScript",
@@ -199,35 +255,27 @@ const keywords = [
   "REST APIs",
   "GitHub Actions",
   "Docker",
-  "Kubernetes",
   "AWS",
   "Azure",
-  "Terraform",
   "CI/CD",
   "Playwright",
   "Selenium",
-  "Cypress",
   "API testing",
   "QA automation",
-  "PyTorch",
-  "scikit-learn",
-  "Hugging Face",
-  "LangChain",
+  "Secure SDLC",
+  "OWASP",
+  "Authentication",
+  "Authorization",
   "RAG",
   "vector search",
-  "ETL",
   "dashboards",
-  "OWASP",
-  "secure SDLC",
-  "threat modeling",
-  "SIEM",
-  "ISO 27001",
-  "NIST CSF",
-  "GDPR",
-  "Jira",
-  "Confluence",
-  "Power BI",
-  "ITIL"
+  "Dublin",
+  "Cork",
+  "Galway",
+  "Limerick",
+  "Waterford",
+  "Remote",
+  "Hybrid"
 ];
 
 const structuredData = [
@@ -241,7 +289,7 @@ const structuredData = [
     telephone: contact.phone,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Dublin",
+      addressRegion: "Ireland",
       addressCountry: "IE"
     },
     alumniOf: [
@@ -256,11 +304,11 @@ const structuredData = [
     ],
     jobTitle: [
       "Software Engineer",
-      "AI Engineer",
-      "Data Engineer",
-      "Cloud Engineer",
-      "DevOps Engineer",
-      "Cybersecurity Engineer",
+      "Full-stack Software Engineer",
+      "Backend Engineer",
+      "Junior Software Engineer",
+      "Graduate Software Engineer",
+      "Security-aware Software Engineer",
       "QA Automation Engineer"
     ],
     knowsAbout: keywords,
@@ -273,7 +321,7 @@ const structuredData = [
     url: siteUrl,
     inLanguage: "en-IE",
     description:
-      "Portfolio website for Uzair Waseem, a Dublin-based software, AI, cloud, automation and cybersecurity engineer."
+      "Portfolio website for Uzair Waseem, an Ireland-based full-stack software engineer focused on backend APIs, testing, automation and security-aware development."
   }
 ];
 
@@ -290,6 +338,8 @@ export default function Home() {
       <main id="content">
         <Hero />
         <ProofStrip />
+        <About />
+        <Skills />
         <SelectedWork />
         <RoleFit />
         <ExperienceTimeline />
@@ -308,6 +358,7 @@ function Header() {
         <span>Uzair Waseem</span>
       </a>
       <nav className="nav-links">
+        <a href="#about">About</a>
         <a href="#work">Work</a>
         <a href="#roles">Roles</a>
         <a href="#experience">Experience</a>
@@ -327,15 +378,17 @@ function Hero() {
           <div className="eyebrow-row">
             <span className="eyebrow">
               <MapPin size={15} aria-hidden="true" />
-              Dublin, Ireland
+              Ireland-based
             </span>
-            <span className="eyebrow muted">Open to Ireland, hybrid and remote</span>
+            <span className="eyebrow muted">Open to relocate across Ireland</span>
           </div>
           <p className="intro-label">Uzair Waseem</p>
-          <h1>Software, AI & Security Engineer building production-ready systems.</h1>
+          <h1>Full-stack Software Engineer building tested web apps, APIs, and automation workflows.</h1>
           <p className="hero-lede">
-            I build web products, AI workflows, cloud automation, QA systems and secure
-            delivery pipelines for teams that need reliable software shipped fast.
+            I am an Ireland-based software engineer focused on React, Node.js,
+            Python, FastAPI, SQL, Docker and GitHub Actions. My cybersecurity
+            background helps me build practical systems with stronger attention
+            to testing, reliability, authentication and secure delivery.
           </p>
           <div className="stack-chips" aria-label="Core stack">
             {stackChips.map((chip) => (
@@ -353,7 +406,7 @@ function Hero() {
             </a>
             <a className="button secondary" href="#work">
               <Sparkles size={18} aria-hidden="true" />
-              View selected work
+              View projects
             </a>
             <a
               className="icon-link"
@@ -388,7 +441,7 @@ function HeroVisual() {
         <span />
         <span />
         <span />
-        <strong>secure-delivery.ts</strong>
+        <strong>tested-api-workflow.ts</strong>
       </div>
       <div className="visual-grid">
         <div className="visual-panel radar-panel">
@@ -398,26 +451,26 @@ function HeroVisual() {
             <span className="radar-dot dot-two" />
             <span className="radar-dot dot-three" />
           </div>
-          <p>Risk-ranked monitoring</p>
+          <p>Security-aware backend</p>
         </div>
         <div className="visual-panel code-panel">
-          <span>api.route("/release-health")</span>
-          <span>model.evaluate(events)</span>
-          <span>pipeline.deploy()</span>
-          <span>scan.owasp()</span>
+          <span>api.route("/tasks")</span>
+          <span>service.validate(input)</span>
+          <span>tests.run("api")</span>
+          <span>auth.check(role)</span>
         </div>
         <div className="visual-panel metric-panel">
           <div>
-            <span>CI/CD</span>
+            <span>Tests</span>
             <strong>ready</strong>
           </div>
           <div>
-            <span>QA</span>
+            <span>API</span>
             <strong>covered</strong>
           </div>
           <div>
-            <span>Cloud</span>
-            <strong>observable</strong>
+            <span>SDLC</span>
+            <strong>secure</strong>
           </div>
         </div>
         <div className="visual-panel flow-panel">
@@ -425,7 +478,7 @@ function HeroVisual() {
           <i />
           <span>Build</span>
           <i />
-          <span>Secure</span>
+          <span>Test</span>
           <i />
           <span>Ship</span>
         </div>
@@ -457,14 +510,73 @@ function ProofStrip() {
   );
 }
 
+function About() {
+  return (
+    <section className="section about-section" id="about">
+      <div className="shell about-layout">
+        <SectionHeading
+          eyebrow="About"
+          title="A focused software profile, with cybersecurity as the useful edge."
+          text="The target is software, full-stack, backend and QA automation roles across Ireland. Security is the differentiator, not the whole identity."
+        />
+        <div className="about-panel reveal">
+          <p>
+            I am an Ireland-based software engineer focused on full-stack
+            development, backend APIs, automation, testing and secure delivery.
+            I work mainly with React, Next.js, TypeScript, Node.js, Python,
+            FastAPI, SQL, Docker and GitHub Actions.
+          </p>
+          <p>
+            My MSc in Cybersecurity strengthens how I think about authentication,
+            secure SDLC, risk, testing and reliability. I am targeting software,
+            backend, full-stack and QA automation roles where I can ship practical
+            systems and improve them through clean code, tests and documentation.
+          </p>
+          <p>
+            I am open to relocating across Ireland for the right software
+            engineering opportunity, including Dublin, Cork, Galway, Limerick,
+            Waterford and remote or hybrid teams in Ireland.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Skills() {
+  return (
+    <section className="section skills-section" id="skills">
+      <div className="shell">
+        <SectionHeading
+          eyebrow="Skills"
+          title="Primary engineering stack first. Supporting tools clearly labeled."
+          text="This avoids pretending every tool is equally strong while still keeping recruiter keywords visible."
+        />
+        <div className="skills-grid">
+          {skillGroups.map((group) => (
+            <article className="skill-card reveal" key={group.title}>
+              <h3>{group.title}</h3>
+              <ul>
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function SelectedWork() {
   return (
     <section className="section selected-work" id="work">
       <div className="shell">
         <SectionHeading
           eyebrow="Selected work"
-          title="Four credible project stories, built for a fast recruiter scan."
-          text="Each card shows the problem, the system built and the honest outcome without inventing metrics."
+          title="Four focused projects that support full-stack and backend hiring."
+          text="Each project is framed honestly as a runnable portfolio project, prototype or case study, with limitations visible."
         />
         {/* TODO: Replace qualitative outcomes with verified metrics when production numbers are available. */}
         <div className="project-grid">
@@ -499,6 +611,14 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
           <div>
             <dt>Outcome</dt>
             <dd>{project.outcome}</dd>
+          </div>
+          <div>
+            <dt>Proves</dt>
+            <dd>{project.proof}</dd>
+          </div>
+          <div>
+            <dt>Limits</dt>
+            <dd>{project.limits}</dd>
           </div>
         </dl>
         <ul className="tag-list" aria-label={`${project.title} stack`}>
@@ -587,8 +707,8 @@ function RoleFit() {
       <div className="shell">
         <SectionHeading
           eyebrow="Role fit"
-          title="Focused for the roles most likely to match."
-          text="Broad enough for the market, tight enough for a recruiter to understand quickly."
+          title="Focused on the roles that match the proof."
+          text="Primary target: full-stack/backend software engineering. Supporting target: QA automation and security-aware software roles."
         />
         <div className="role-grid">
           {roles.map((role) => {
@@ -620,7 +740,7 @@ function ExperienceTimeline() {
             <BriefcaseBusiness size={17} aria-hidden="true" />
             Experience
           </div>
-          <h2>Remote delivery experience across product, software, data and security.</h2>
+          <h2>Software delivery experience across web apps, APIs, automation and testing.</h2>
         </div>
         <div className="timeline">
           {experience.map((item) => (
@@ -687,10 +807,10 @@ function ContactCTA() {
           </div>
           <h2>Send me the role. I will map my work to it quickly.</h2>
           <p>
-            Uzair Waseem is based in Dublin and open to software, AI/data,
-            cloud/DevOps, cybersecurity, QA automation, technical product and support
-            opportunities across Ireland, hybrid and remote markets. Recruiters can
-            email, call, WhatsApp or download a current CV in one click.
+            Uzair Waseem is Ireland-based and open to software engineering,
+            full-stack, backend, QA automation and security-aware software roles
+            across Ireland. I am willing to relocate for the right opportunity.
+            Recruiters can email, call, WhatsApp or download a current CV in one click.
           </p>
         </div>
         <div className="contact-card reveal">
@@ -728,7 +848,7 @@ function ContactCTA() {
       </div>
       <div className="shell footer-line">
         <span>Uzair Waseem</span>
-        <span>Software, AI & Cybersecurity Engineer in Dublin</span>
+        <span>Full-stack Software Engineer in Ireland</span>
         <span>{siteUrl.replace("https://", "")}</span>
       </div>
     </footer>
