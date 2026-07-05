@@ -766,6 +766,32 @@ h1 {
   padding: 6px 8px;
 }
 
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  min-height: 40px;
+  margin-top: 18px;
+  padding: 9px 11px;
+  border: 1px solid rgba(45, 212, 191, 0.26);
+  border-radius: 8px;
+  color: #d9fff8;
+  background: rgba(45, 212, 191, 0.08);
+  font-size: 0.82rem;
+  font-weight: 900;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.project-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(45, 212, 191, 0.48);
+  background: rgba(45, 212, 191, 0.14);
+}
+
 .pv-ring,
 .pv-sweep,
 .pv-alert,

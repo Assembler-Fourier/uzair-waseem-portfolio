@@ -57,7 +57,8 @@ const projects = [
     solution: "Built a risk-ranked monitoring concept with anomaly detection, alert streams and a dashboard-ready API.",
     outcome:
       "Created a clearer path from raw events to incident triage without adding noisy manual reporting.",
-    stack: ["Python", "FastAPI", "scikit-learn", "SIEM", "Threat modeling"]
+    stack: ["Python", "FastAPI", "scikit-learn", "SIEM", "Threat modeling"],
+    repository: "https://github.com/Assembler-Fourier/sentryscan-threat-monitoring"
   },
   {
     title: "TaskForge Workflow App",
@@ -67,7 +68,8 @@ const projects = [
     solution: "Designed a workflow app with task states, auth-ready product structure and API-first delivery.",
     outcome:
       "Centralized task flow and made release work easier to scan for engineering and non-technical stakeholders.",
-    stack: ["React", "Node.js", "MongoDB", "REST APIs", "Testing"]
+    stack: ["React", "Node.js", "MongoDB", "REST APIs", "Testing"],
+    repository: "https://github.com/Assembler-Fourier/taskforge-workflow-app"
   },
   {
     title: "SecureFlow Delivery Dashboard",
@@ -77,7 +79,8 @@ const projects = [
     solution: "Connected delivery signals into a dashboard view for sprint health, blocker age and release readiness.",
     outcome:
       "Improved release visibility and reduced the need for repeated status-reporting loops.",
-    stack: ["React", "Node.js", "Jira API", "PostgreSQL", "Dashboards"]
+    stack: ["React", "Node.js", "Jira API", "PostgreSQL", "Dashboards"],
+    repository: "https://github.com/Assembler-Fourier/secureflow-delivery-dashboard"
   },
   {
     title: "DocuMind RAG Assistant",
@@ -87,7 +90,8 @@ const projects = [
     solution: "Built a retrieval-augmented assistant pattern with document chunks, vector search and prompt evaluation.",
     outcome:
       "Turned static documents into a faster question-answering workflow with a production-minded architecture.",
-    stack: ["LangChain", "RAG", "Vector search", "Hugging Face", "Python"]
+    stack: ["LangChain", "RAG", "Vector search", "Hugging Face", "Python"],
+    repository: "https://github.com/Assembler-Fourier/documind-rag-assistant"
   }
 ];
 
@@ -494,6 +498,16 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
             <li key={tag}>{tag}</li>
           ))}
         </ul>
+        <a
+          className="project-link"
+          href={project.repository}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`View ${project.title} repository on GitHub`}
+        >
+          View GitHub repo
+          <ArrowUpRight size={16} aria-hidden="true" />
+        </a>
       </div>
     </article>
   );
