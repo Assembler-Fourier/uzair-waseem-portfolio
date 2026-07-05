@@ -78,30 +78,30 @@ const projects = [
     repository: "https://github.com/Assembler-Fourier/sentryscan-threat-monitoring"
   },
   {
-    title: "TaskForge Workflow App",
-    category: "Full-stack workflow project",
-    visual: "kanban",
-    problem: "Task ownership and sprint status become unclear when work is spread across manual trackers.",
-    solution: "Built a workflow-management app with task-state modeling, REST-style routes and a lightweight board interface.",
+    title: "QA Automation Lab",
+    category: "Testing proof repo",
+    visual: "dashboard",
+    problem: "A portfolio can claim testing experience, but hiring managers need visible tests, CI behavior and clear coverage limits.",
+    solution: "Created a Playwright API testing suite that runs against SecureTaskOps and checks smoke, filtering, validation and release-readiness paths.",
     outcome:
-      "Demonstrates practical full-stack product thinking, backend routes, task logic and reviewer-friendly setup notes.",
-    proof: "Node.js backend, workflow logic, CRUD thinking, documentation.",
-    limits: "Portfolio project; stronger database persistence, auth and validation are planned improvements.",
-    stack: ["React", "Node.js", "REST APIs", "Task state", "Testing"],
-    repository: "https://github.com/Assembler-Fourier/taskforge-workflow-app"
+      "Turns QA automation into reviewable proof: six Playwright API checks pass locally, with CI configured to start the target app and upload reports.",
+    proof: "Playwright APIRequestContext, validation tests, smoke checks, GitHub Actions, HTML report artifacts.",
+    limits: "Current suite targets the existing API; auth, CRUD UI and role tests are queued after SecureTaskOps adds those features.",
+    stack: ["Playwright", "API testing", "GitHub Actions", "QA strategy", "Regression checks"],
+    repository: "https://github.com/Assembler-Fourier/qa-automation-lab"
   },
   {
-    title: "SecureFlow Delivery Dashboard",
-    category: "Dashboard case study",
-    visual: "dashboard",
-    problem: "Sprint health, blockers and release status were spread across tools and meetings.",
-    solution: "Modeled sprint, blocker, QA and release-readiness signals into a compact engineering status view.",
+    title: "Portfolio Website",
+    category: "Recruiter proof hub",
+    visual: "kanban",
+    problem: "Recruiters need a fast path to understand the role fit, CV, GitHub proof and honest project limitations.",
+    solution: "Built a focused Next.js portfolio that links CV, GitHub projects, contact actions, SEO metadata and recruiter-facing positioning.",
     outcome:
-      "Shows dashboard design, status modeling, QA awareness and stakeholder communication without inventing delivery metrics.",
-    proof: "Delivery analytics, sample data, status definitions, dashboard UX.",
-    limits: "Uses sample/project data; next step is stronger integrations and calculation tests.",
-    stack: ["Next.js", "TypeScript", "Dashboards", "QA signals", "CI/CD"],
-    repository: "https://github.com/Assembler-Fourier/secureflow-delivery-dashboard"
+      "Keeps the public profile consistent around software engineering, backend APIs, testing, Docker/CI and security-aware delivery.",
+    proof: "Next.js, SEO metadata, Vercel deployment, downloadable ATS CV, GitHub links, structured content.",
+    limits: "Project case-study pages are the next website upgrade so proof is deeper than a homepage card.",
+    stack: ["Next.js", "React", "TypeScript", "SEO", "Vercel"],
+    repository: "https://github.com/Assembler-Fourier/uzair-waseem-portfolio"
   }
 ];
 
@@ -111,21 +111,21 @@ const roles = [
     title: "Full-stack Software Engineer",
     fit: "Build practical web apps, reusable UI, backend routes and maintainable product workflows.",
     tools: "React, Next.js, TypeScript, JavaScript, Node.js, REST APIs, SQL",
-    proof: "SecureTaskOps, TaskForge and SecureFlow show workflow logic, product UI and dashboard thinking."
+    proof: "SecureTaskOps and the portfolio show workflow logic, product positioning and reviewable setup paths."
   },
   {
     icon: Workflow,
     title: "Backend Engineer",
     fit: "Build APIs, model data, document setup paths and keep business logic testable.",
     tools: "Node.js, Express, Python, FastAPI, SQL, PostgreSQL, MongoDB, Docker",
-    proof: "SecureTaskOps, SentryScan and TaskForge show API design, service logic and runnable repository structure."
+    proof: "SecureTaskOps and SentryScan show API design, service logic and runnable repository structure."
   },
   {
     icon: Bug,
     title: "QA Automation Engineer",
     fit: "Add browser/API checks, regression thinking and clearer release confidence.",
     tools: "Playwright, Selenium, API testing, unit testing, integration testing, GitHub Actions",
-    proof: "Project work and experience emphasize testable logic, setup docs and CI-ready workflows."
+    proof: "QA Automation Lab now shows visible Playwright API tests and CI-ready reporting."
   },
   {
     icon: ShieldCheck,
