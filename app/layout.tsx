@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://uzairwaseem.com/"
   },
+  icons: {
+    icon: "/uzair-waseem-logo.svg",
+    shortcut: "/uzair-waseem-logo.svg",
+    apple: "/uzair-waseem-logo.svg"
+  },
   keywords: [
     "Uzair Waseem",
     "Full-stack Software Engineer Ireland",

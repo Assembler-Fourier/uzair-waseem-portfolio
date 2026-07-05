@@ -52,6 +52,19 @@ const companyChips = ["Motion Sensors", "Outstanding Marketing", "LocalhostLabs"
 
 const projects = [
   {
+    title: "SecureTaskOps Workflow Platform",
+    category: "Flagship full-stack/backend build",
+    visual: "pipeline",
+    problem: "Recruiters need one project that proves more than a polished card: API structure, tests, Docker, CI and clear tradeoffs.",
+    solution: "Built a documented workflow API for tasks, incidents and release-readiness signals with runnable tests and deployment notes.",
+    outcome:
+      "Creates a credible flagship repository that shows backend logic, reviewable setup, security notes and honest current limitations.",
+    proof: "Node.js service, REST API examples, risk/readiness scoring, tests, Docker, GitHub Actions, README depth.",
+    limits: "Current portfolio build; authentication, database persistence and live deployment hardening are planned next steps.",
+    stack: ["Node.js", "REST API", "Tests", "Docker", "GitHub Actions"],
+    repository: "https://github.com/Assembler-Fourier/securetaskops-workflow-platform"
+  },
+  {
     title: "SentryScan Threat Monitoring",
     category: "Security-aware backend prototype",
     visual: "radar",
@@ -89,19 +102,6 @@ const projects = [
     limits: "Uses sample/project data; next step is stronger integrations and calculation tests.",
     stack: ["Next.js", "TypeScript", "Dashboards", "QA signals", "CI/CD"],
     repository: "https://github.com/Assembler-Fourier/secureflow-delivery-dashboard"
-  },
-  {
-    title: "DocuMind RAG Assistant",
-    category: "AI/RAG project exposure",
-    visual: "rag",
-    problem: "Local knowledge documents are hard to search when answers need source context and citations.",
-    solution: "Built a retrieval assistant that chunks documents, ranks relevant context and drafts grounded answers.",
-    outcome:
-      "Demonstrates transparent retrieval logic and RAG awareness while keeping limitations visible.",
-    proof: "Python engineering, chunking, retrieval ranking, citation handling.",
-    limits: "Prototype-level RAG; deeper embeddings, vector database and evaluation are future work.",
-    stack: ["Python", "RAG", "Document retrieval", "Citations", "Testing"],
-    repository: "https://github.com/Assembler-Fourier/documind-rag-assistant"
   }
 ];
 
@@ -111,14 +111,14 @@ const roles = [
     title: "Full-stack Software Engineer",
     fit: "Build practical web apps, reusable UI, backend routes and maintainable product workflows.",
     tools: "React, Next.js, TypeScript, JavaScript, Node.js, REST APIs, SQL",
-    proof: "TaskForge and SecureFlow show product UI, workflow logic and dashboard thinking."
+    proof: "SecureTaskOps, TaskForge and SecureFlow show workflow logic, product UI and dashboard thinking."
   },
   {
     icon: Workflow,
     title: "Backend Engineer",
     fit: "Build APIs, model data, document setup paths and keep business logic testable.",
     tools: "Node.js, Express, Python, FastAPI, SQL, PostgreSQL, MongoDB, Docker",
-    proof: "SentryScan and TaskForge show API design, service logic and runnable repository structure."
+    proof: "SecureTaskOps, SentryScan and TaskForge show API design, service logic and runnable repository structure."
   },
   {
     icon: Bug,
@@ -354,7 +354,7 @@ function Header() {
   return (
     <header className="site-header" aria-label="Primary navigation">
       <a className="brand" href="#top" aria-label="Uzair Waseem portfolio home">
-        <span className="brand-mark" aria-hidden="true" />
+        <img className="brand-logo" src="/uzair-waseem-logo.svg" alt="" aria-hidden="true" />
         <span>Uzair Waseem</span>
       </a>
       <nav className="nav-links">
@@ -684,6 +684,22 @@ function ProjectVisual({ variant }: { variant: string }) {
             <span />
             <span />
             <span />
+          </div>
+        </div>
+      )}
+      {variant === "pipeline" && (
+        <div className="pipeline-map">
+          <span className="pipe-node active">API</span>
+          <i />
+          <span className="pipe-node">Tests</span>
+          <i />
+          <span className="pipe-node">Docker</span>
+          <i />
+          <span className="pipe-node ready">CI</span>
+          <div className="release-card">
+            <b />
+            <b />
+            <b />
           </div>
         </div>
       )}
