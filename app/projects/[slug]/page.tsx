@@ -2,165 +2,145 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const caseStudies = {
-  securetaskops: {
-    title: "SecureTaskOps Workflow Platform",
-    label: "Deployed workflow dashboard",
-    repo: "https://github.com/Assembler-Fourier/securetaskops-workflow-platform",
-    live: "https://securetaskops-workflow-platform.vercel.app/",
+  "roster-command": {
+    title: "Roster Command",
+    label: "Flagship workforce operations product",
+    repo: "https://github.com/Assembler-Fourier/employee-roster-command",
+    live: "https://employee-roster-command.vercel.app/?demo=1",
     problem:
-      "Small teams need a fast way to see blockers, security-sensitive work and release readiness before shipping.",
+      "A weekly spreadsheet process made it difficult to distinguish genuinely urgent coverage gaps from future planning work, explain who could cover safely, and keep manager actions auditable.",
     role:
-      "Built the dashboard, Node.js request handler, Vercel deployment, API routes, risk/readiness scoring, tests, Docker setup, GitHub Actions workflow, README and security notes.",
-    stack: ["Node.js", "REST APIs", "Dashboard", "Vercel", "Docker", "GitHub Actions", "JavaScript"],
+      "I designed and built the manager command centre, scheduling domain logic, employee experience, scoped APIs, import workflows, testing strategy, privacy boundary and Vercel delivery path.",
+    stack: [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Node.js serverless APIs",
+      "Supabase PostgreSQL",
+      "Vitest",
+      "Playwright",
+      "GitHub Actions",
+      "PWA"
+    ],
     features: [
-      "Public dashboard for release signal, filters and workflow queue",
-      "Workflow task API with seeded demo data",
-      "Task creation form backed by API validation",
-      "Risk scoring for severity, blockers, due dates and security-sensitive items",
-      "Release-readiness summary endpoint",
-      "Docker and CI-ready setup",
-      "Live Vercel deployment"
+      "Urgency ranking across critical, high, medium, planning, future and missed work",
+      "Explainable cover suggestions using conflicts, holidays, recency and working patterns",
+      "Weekly planner plus employee, site, holiday, communication and review workflows",
+      "Separate mobile employee route with scoped visibility and shift controls",
+      "Read-only roster import with staged diffs, normalization and audit records"
     ],
     testing: [
-      "Domain tests for validation, filtering, release summary and risk scoring",
-      "QA Automation Lab Playwright API tests run against this API",
-      "CI workflow runs syntax checks and tests",
-      "Production smoke checks verified dashboard, API endpoints and task creation"
+      "Unit tests cover yellow rows, workflow timing, lead time, overlap, holidays and specialist behavior",
+      "The public demo test rejects mutation attempts",
+      "CI runs type checking, lint, tests and a production build",
+      "The latest public GitHub Actions run is passing"
     ],
     deployment:
-      "Deployed on Vercel at securetaskops-workflow-platform.vercel.app with a static dashboard and Node/Vercel API surface.",
+      "The same Vercel application supports the private manager system and a locked recruiter demo. Use demo@rostercommand.app with password threadstone-demo for the synthetic, read-only path.",
     security:
-      "Validation, secrets handling and risk-aware modeling are implemented/documented. Authentication, role-based access and audit logging remain planned hardening work.",
+      "Opaque HttpOnly sessions, CSRF protection, SameSite cookies, rate limits and role checks protect the private workflow. Demo routing branches before database initialization, serves bundled synthetic data and rejects writes server-side.",
     tradeoffs:
-      "Uses runtime demo data to keep the live app public and easy to review. PostgreSQL persistence, auth and RBAC are intentionally listed as next hardening steps.",
+      "Operational records and provider credentials stay private. The public repository contains privacy-scrubbed history, selected production domain code, synthetic fixtures, tests and architecture notes rather than exposing workforce data.",
     next: [
-      "Add PostgreSQL and Prisma",
-      "Add authentication and role-based access",
-      "Add audit logs and role-specific views",
-      "Add browser smoke tests",
-      "Add OpenAPI documentation"
+      "Expand browser coverage for manager exception workflows",
+      "Add external error monitoring and service-level alerts",
+      "Continue simplifying dense planner states on small screens"
     ],
     proves:
-      "Deployed product demo, backend API structure, testable domain logic, Docker/CI awareness, honest documentation and a practical roadmap toward production hardening."
+      "A real operational problem taken through product design, domain modeling, privacy-aware architecture, automated testing and live delivery."
   },
-  sentryscan: {
-    title: "SentryScan Threat Monitoring",
-    label: "Live FastAPI security triage demo",
-    repo: "https://github.com/Assembler-Fourier/sentryscan-threat-monitoring",
-    live: "https://sentryscan-threat-monitoring.vercel.app/",
+  housefair: {
+    title: "HouseFair",
+    label: "Full-stack shared-living SaaS",
+    repo: "https://github.com/Assembler-Fourier/housefair-ai",
+    live: "https://housemates-sand.vercel.app",
     problem:
-      "Security-event payloads are hard to triage when alerts arrive without normalized fields, explainable risk scoring or review status.",
+      "In a six-person home, chores, groceries, shared spending and house issues were scattered across chat and memory, making fairness difficult to see and even harder to discuss.",
     role:
-      "Built and documented a FastAPI-style security-event triage prototype that connects software engineering with cybersecurity-aware thinking.",
-    stack: ["Python", "FastAPI", "Dashboard", "Risk scoring", "Security event modeling", "Testing"],
+      "I built the product end to end, then moved it from a single-house workflow to a multi-household system with authentication, scoped data access, private storage and a mobile-first PWA experience.",
+    stack: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Supabase Auth",
+      "PostgreSQL and RLS",
+      "Zod",
+      "Stripe foundation",
+      "Playwright",
+      "Vercel"
+    ],
     features: [
-      "Live dashboard for ranked event triage",
-      "FastAPI health, docs and ranking endpoint",
-      "Event normalization concept",
-      "Rule-based risk scoring",
-      "Severity explanations",
-      "Security-aware README framing",
-      "Roadmap for PostgreSQL, notes and status tracking"
+      "Recurring chores, swaps, carry-over and camera-based proof",
+      "Shared groceries, shopping mode and restock suggestions",
+      "Expense splits, IOUs, settlements, receipts and budgets",
+      "Calmer reminder, cleanup request and formal issue paths",
+      "Explainable, recommendation-only fairness planning"
     ],
     testing: [
-      "Current prototype has test-focused scoring logic",
-      "Production smoke checks verified dashboard, docs, health and POST ranking endpoint",
-      "Proof v1 issues track Pytest coverage for ingestion, scoring, status and dashboard behavior"
+      "Mobile Playwright coverage runs across Android and iPhone PWA viewports",
+      "Regression paths cover identity, tasks, proof, groceries, money, notifications and settings",
+      "GitHub Actions runs lint, production build and the mobile suite",
+      "The latest CI run is passing"
     ],
     deployment:
-      "Deployed on Vercel at sentryscan-threat-monitoring.vercel.app with a FastAPI app serving the dashboard, /docs, /health and /events/rank.",
+      "Deployed on Vercel as a controlled free early-access build with an installable PWA shell.",
     security:
-      "The project is framed as a triage prototype, not a SOC platform. Security notes avoid overstating production readiness.",
+      "Every commercial request resolves the authenticated user, active household and membership. Zod validation, route authorization, rate limits, private Storage and PostgreSQL RLS create layered boundaries.",
     tradeoffs:
-      "Keeps the cybersecurity angle practical and software-focused instead of pretending senior security operations experience or SOC-grade detection accuracy.",
+      "Paid access remains off until SMTP, full Stripe test-mode verification, legal copy, external monitoring and physical-device checks are complete.",
     next: [
-      "Add PostgreSQL and SQLAlchemy models",
-      "Add event ingestion and triage notes",
-      "Add dashboard summary and filters",
-      "Add Docker Compose and GitHub Actions",
-      "Add production screenshots"
+      "Complete physical-device install, camera and notification checks",
+      "Add external error monitoring",
+      "Finish paid-access operational verification"
     ],
     proves:
-      "Live FastAPI deployment, security-event modeling, explainable scoring and the MSc Cybersecurity differentiator inside software engineering."
+      "Full-stack product engineering across UX, transactions, household-scoped data, authentication, testing, PWA delivery and honest launch gates."
   },
-  "qa-automation-lab": {
-    title: "QA Automation Lab",
-    label: "Testing proof repo",
-    repo: "https://github.com/Assembler-Fourier/qa-automation-lab",
-    live: "",
+  "theory-test-coach": {
+    title: "Irish Theory Test Coach",
+    label: "Pre-launch EdTech product",
+    repo: "https://github.com/Assembler-Fourier/irish-theory-test-coach",
+    live: "https://irish-theory-test-coach-assembler-fourier-job-work.vercel.app",
     problem:
-      "Testing claims are weak unless reviewers can see executable tests, CI behavior, reports and clear limitations.",
+      "Learner drivers need structured practice, useful revision feedback and trustworthy progress signals without exposing premium answers or relying on unsupported exam-frequency claims.",
     role:
-      "Created a Playwright API testing repo that targets SecureTaskOps and documents the test strategy, CI flow and future auth/CRUD/role coverage.",
-    stack: ["Playwright", "APIRequestContext", "GitHub Actions", "JavaScript", "HTML reports"],
+      "I built the product design, learner experience, content pipeline, serverless APIs, database model, payment flows, passwordless accounts, operator tooling, automated QA and deployment evidence.",
+    stack: [
+      "Modern JavaScript",
+      "Vercel Functions",
+      "Neon PostgreSQL",
+      "Stripe Checkout",
+      "Passwordless sessions",
+      "PWA",
+      "Accessibility automation",
+      "Node and Python QA tooling"
+    ],
     features: [
-      "Health endpoint smoke test",
-      "Task API response-shape checks",
-      "Severity filter test",
-      "Release-readiness endpoint test",
-      "Validation error test",
-      "Valid task creation test"
+      "Free preview, revision modes and server-generated timed mocks",
+      "Answer coaching, flags, missed-question review and study recommendations",
+      "Passwordless progress restoration and cross-device accounts",
+      "Stripe learner passes and instructor-code workflows",
+      "Role-protected operations, content QA, support and audit views"
     ],
     testing: [
-      "6 Playwright API tests pass locally against SecureTaskOps",
-      "GitHub Actions workflow starts SecureTaskOps and runs the QA suite",
-      "HTML report artifact upload configured"
+      "The current pipeline validates 1,277 structured practice items",
+      "18 of 18 Stripe sandbox scenarios pass",
+      "11 of 11 post-deploy checks pass",
+      "Accessibility checks cover seven product states with no critical axe findings in the latest audit"
     ],
     deployment:
-      "This is a testing repository, not a deployed app. Its CI is the primary proof surface.",
+      "The full commercial build is available as a Vercel preview using Stripe sandbox payments. It is an independent practice product and is not affiliated with RSA or Prometric.",
     security:
-      "Role and auth tests are planned after SecureTaskOps implements authentication and role-based access.",
+      "Premium sessions are selected server-side, correct answers are withheld until submission, payments use signed idempotent webhooks, and admin endpoints enforce server-side roles.",
     tradeoffs:
-      "Current tests target the API that exists today. The README clearly marks auth, CRUD UI and role tests as future work.",
+      "Production promotion is deliberately gated on custom-domain activation, credential rotation and legal/content review. The website does not claim official exam frequency or guaranteed outcomes.",
     next: [
-      "Add auth flow tests",
-      "Add project/task CRUD tests",
-      "Add role restriction tests",
-      "Add browser smoke tests",
-      "Add report screenshots to README"
+      "Complete legal and content-rights review",
+      "Activate and verify the custom domain",
+      "Rotate final production credentials before promotion"
     ],
     proves:
-      "Practical QA automation, API testing, CI report thinking and honest dependency between test coverage and app capability."
-  },
-  documind: {
-    title: "DocuMind RAG Assistant",
-    label: "Live FastAPI retrieval demo",
-    repo: "https://github.com/Assembler-Fourier/documind-rag-assistant",
-    live: "https://documind-rag-assistant.vercel.app/",
-    problem:
-      "Internal notes are hard to use when answers need supporting source context instead of loose summaries.",
-    role:
-      "Built a Python/FastAPI document retrieval assistant that chunks Markdown knowledge, ranks relevant context and returns grounded answer drafts with visible citations.",
-    stack: ["Python", "FastAPI", "RAG", "Document retrieval", "Ranking", "Citations", "Unit tests"],
-    features: [
-      "Live browser demo for retrieval questions",
-      "FastAPI health, docs and answer endpoint",
-      "Markdown knowledge-base loader",
-      "Document chunking by heading and paragraph",
-      "Lightweight term-vector ranking",
-      "Top context snippets with source citations",
-      "Grounded answer draft that separates evidence from generated wording"
-    ],
-    testing: [
-      "Unit tests cover release-readiness retrieval",
-      "Unit tests verify citations are returned",
-      "Production smoke checks verified dashboard, docs, health and POST answer endpoint",
-      "Package structure supports future evaluation and model-provider wiring"
-    ],
-    deployment:
-      "Deployed on Vercel at documind-rag-assistant.vercel.app with a FastAPI app serving the dashboard, /docs, /health and /answer.",
-    security:
-      "Uses local sample knowledge files and no secrets. Future LLM/provider integration should add environment-based secrets and data-handling controls.",
-    tradeoffs:
-      "Uses a transparent local retriever instead of pretending to be a production vector database or enterprise LLM assistant.",
-    next: [
-      "Add vector database integration",
-      "Add retrieval quality metrics",
-      "Add model-provider abstraction",
-      "Add sample evaluation report"
-    ],
-    proves:
-      "AI/data engineering fundamentals: document chunking, retrieval ranking, citation handling, testable RAG workflow design and honest limitations."
+      "End-to-end product delivery across UX, serverless architecture, data quality, payments, security, accessibility and release operations."
   }
 };
 
@@ -181,10 +161,8 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 
   return {
     title: `${study.title} | Uzair Waseem Project Case Study`,
-    description: `${study.title} case study for Uzair Waseem: ${study.proves}`,
-    alternates: {
-      canonical: `https://uzairwaseem.com/projects/${slug}`
-    }
+    description: `${study.title} case study by Uzair Waseem: ${study.proves}`,
+    alternates: { canonical: `https://uzairwaseem.com/projects/${slug}` }
   };
 }
 
@@ -202,8 +180,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <h1>{study.title}</h1>
           <p>{study.proves}</p>
           <div className="case-actions">
-            <a href={study.repo} target="_blank" rel="noopener noreferrer">View GitHub repo</a>
-            {study.live ? <a href={study.live} target="_blank" rel="noopener noreferrer">Open live site</a> : null}
+            <a href={study.live} target="_blank" rel="noopener noreferrer">Open live product</a>
+            <a href={study.repo} target="_blank" rel="noopener noreferrer">Review source</a>
           </div>
         </div>
       </section>
@@ -211,7 +189,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="shell case-grid">
           <CaseBlock title="Problem" text={study.problem} />
           <CaseBlock title="My Role" text={study.role} />
-          <CaseBlock title="Tech Stack" items={study.stack} />
+          <CaseBlock title="Technology" items={study.stack} />
           <CaseBlock title="Key Features" items={study.features} />
           <CaseBlock title="Testing" items={study.testing} />
           <CaseBlock title="Deployment" text={study.deployment} />
@@ -230,11 +208,7 @@ function CaseBlock({ title, text, items }: { title: string; text?: string; items
     <article className="case-card">
       <h2>{title}</h2>
       {text ? <p>{text}</p> : null}
-      {items ? (
-        <ul>
-          {items.map((item) => <li key={item}>{item}</li>)}
-        </ul>
-      ) : null}
+      {items ? <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul> : null}
     </article>
   );
 }

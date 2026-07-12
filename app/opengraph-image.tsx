@@ -36,17 +36,18 @@ export default function Image() {
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 72, fontWeight: 900, lineHeight: 0.98, maxWidth: 900 }}>
-            Software, AI & Cybersecurity Engineer in Dublin
+            Software engineer building reliable products, APIs and automation.
           </div>
           <div style={{ marginTop: 28, color: "#bad6d2", fontSize: 30, maxWidth: 920 }}>
-            Production-ready web products, data workflows, QA systems and secure delivery pipelines.
+            Dublin-based · Full-stack and backend · QA automation · Security-aware delivery
           </div>
         </div>
         <div style={{ display: "flex", gap: 14, color: "#99f6e4", fontSize: 24 }}>
           <span>React</span>
           <span>Next.js</span>
-          <span>Python</span>
-          <span>AWS</span>
+          <span>Node.js</span>
+          <span>PostgreSQL</span>
+          <span>Playwright</span>
           <span>Secure SDLC</span>
         </div>
       </div>
