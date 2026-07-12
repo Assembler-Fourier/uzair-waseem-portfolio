@@ -6,8 +6,7 @@ dist/
 tmp/
 output/
 *.log
+*.tsbuildinfo
 .env*
 !.env.example
 /uzair_pic.png
-
-.vercel
