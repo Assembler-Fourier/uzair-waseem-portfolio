@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   ArrowUpRight,
   BriefcaseBusiness,
@@ -11,8 +12,7 @@ import {
   MessageCircle,
   Phone,
   ShieldCheck,
-  Sparkles,
-  Workflow
+  Sparkles
 } from "lucide-react";
 
 const siteUrl = "https://uzairwaseem.com";
@@ -20,159 +20,144 @@ const siteUrl = "https://uzairwaseem.com";
 const contact = {
   email: "uzairwaseem29@gmail.com",
   phone: "+353 89 973 9932",
-  whatsapp: "https://wa.me/353899739932?text=Hi%20Uzair%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect.",
+  whatsapp:
+    "https://wa.me/353899739932?text=Hi%20Uzair%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect.",
   cv: "/Uzair-Waseem-CV.pdf",
   linkedin: "https://www.linkedin.com/in/uzair-waseem",
   github: "https://github.com/Assembler-Fourier"
 };
 
 const stackChips = [
+  "TypeScript",
   "React",
   "Next.js",
-  "TypeScript",
   "Node.js",
-  "Express",
   "Python",
-  "FastAPI",
-  "SQL",
+  "PostgreSQL",
+  "Playwright",
   "Docker",
-  "GitHub Actions"
+  "CI/CD",
+  "Secure SDLC"
 ];
 
 const proofItems = [
-  ["Location", "Ireland-based"],
-  ["Relocation", "Open across Ireland"],
-  ["Target", "Full-stack / Backend"],
-  ["Testing", "QA automation"],
+  ["Location", "Dublin, Ireland"],
+  ["Product proof", "3 live builds"],
+  ["Backend", "Node.js + PostgreSQL"],
+  ["Quality", "CI + Playwright"],
   ["Education", "MSc Cybersecurity"],
-  ["Foundation", "BSc Computer Science"],
+  ["Open to", "Ireland / hybrid / remote"]
 ];
 
-const companyChips = ["Motion Sensors", "Outstanding Marketing", "LocalhostLabs"];
+const companies = [
+  {
+    name: "Outstanding Marketing",
+    url: "https://outstanding-marketing.de/en"
+  },
+  {
+    name: "LocalhostLabs",
+    url: "https://localhostlabs.tech"
+  }
+];
 
 const projects = [
   {
-    title: "SecureTaskOps Workflow Platform",
-    category: "Deployed workflow dashboard",
-    visual: "pipeline",
-    problem: "Small teams need a fast way to see blockers, security-sensitive work and release readiness before shipping.",
-    solution: "Built and deployed a workflow dashboard with API-backed tasks, filters, item creation, risk scoring and release-readiness signals.",
+    title: "Roster Command",
+    category: "Flagship · Workforce operations",
+    visual: "roster",
+    summary:
+      "Turned a spreadsheet-heavy weekly scheduling process into a manager command centre that ranks coverage gaps and explains who can realistically help.",
     outcome:
-      "Now works as a live product demo: dashboard loads publicly, API endpoints return live data and task creation returns scored workflow items.",
-    proof: "Deployed dashboard, Node.js service, REST API examples, risk/readiness scoring, tests, Docker, GitHub Actions.",
-    limits: "Demo runtime data can reset; PostgreSQL persistence, auth, RBAC and audit logs are next hardening steps.",
-    stack: ["Node.js", "REST API", "Dashboard", "Vercel", "Docker", "GitHub Actions"],
-    repository: "https://github.com/Assembler-Fourier/securetaskops-workflow-platform",
-    live: "https://securetaskops-workflow-platform.vercel.app/",
-    caseStudy: "/projects/securetaskops"
+      "The private system supports real operations; the recruiter demo uses a signed, read-only synthetic session and rejects writes server-side.",
+    proof:
+      "React, TypeScript, Node.js APIs, Supabase PostgreSQL, Vitest, Playwright, PWA and GitHub Actions.",
+    status: "Live product · Privacy-safe recruiter demo",
+    stack: ["TypeScript", "React", "PostgreSQL", "Playwright", "PWA", "CI"],
+    repository: "https://github.com/Assembler-Fourier/employee-roster-command",
+    live: "https://employee-roster-command.vercel.app/?demo=1",
+    caseStudy: "/projects/roster-command"
   },
   {
-    title: "SentryScan Threat Monitoring",
-    category: "Security-aware backend prototype",
-    visual: "radar",
-    problem: "Security event payloads are hard to triage when alerts arrive without risk context or explainable severity.",
-    solution: "Built a FastAPI prototype that normalizes event payloads, applies risk scoring and returns triage reasons.",
+    title: "HouseFair",
+    category: "Full-stack SaaS · Shared living",
+    visual: "house",
+    summary:
+      "Built a mobile-first household workspace for recurring chores, groceries, shared expenses and calmer issue reporting.",
     outcome:
-      "Now works as a live FastAPI demo with dashboard, API docs, health endpoint and POST ranking endpoint verified in production.",
-    proof: "FastAPI app, live dashboard, API docs, risk scoring, tests, security notes.",
-    limits: "Demo data and scoring are transparent heuristics; persistent storage, auth and deeper event workflows are next hardening steps.",
-    stack: ["Python", "FastAPI", "Dashboard", "REST API", "Risk scoring", "Testing"],
-    repository: "https://github.com/Assembler-Fourier/sentryscan-threat-monitoring",
-    live: "https://sentryscan-threat-monitoring.vercel.app/",
-    caseStudy: "/projects/sentryscan"
+      "The multi-household build isolates data by membership, keeps AI recommendations explainable and ships as an installable PWA.",
+    proof:
+      "Next.js 16, React 19, TypeScript, Supabase Auth/PostgreSQL/RLS, Stripe foundation and mobile Playwright regression tests.",
+    status: "Live early access · CI passing",
+    stack: ["Next.js", "TypeScript", "Supabase", "Stripe", "Playwright", "PWA"],
+    repository: "https://github.com/Assembler-Fourier/housefair-ai",
+    live: "https://housemates-sand.vercel.app",
+    caseStudy: "/projects/housefair"
   },
   {
-    title: "QA Automation Lab",
-    category: "Testing proof repo",
-    visual: "dashboard",
-    problem: "A portfolio can claim testing experience, but hiring managers need visible tests, CI behavior and clear coverage limits.",
-    solution: "Created a Playwright API testing suite that runs against SecureTaskOps and checks smoke, filtering, validation and release-readiness paths.",
+    title: "Irish Theory Test Coach",
+    category: "EdTech · Serverless product",
+    visual: "learning",
+    summary:
+      "Built an independent study product with timed mock exams, progress coaching, protected premium flows and operator tooling.",
     outcome:
-      "Turns QA automation into reviewable proof: six Playwright API checks pass locally, with CI configured to start the target app and upload reports.",
-    proof: "Playwright APIRequestContext, validation tests, smoke checks, GitHub Actions, HTML report artifacts.",
-    limits: "Current suite targets the existing API; auth, CRUD UI and role tests are queued after SecureTaskOps adds those features.",
-    stack: ["Playwright", "API testing", "GitHub Actions", "QA strategy", "Regression checks"],
-    repository: "https://github.com/Assembler-Fourier/qa-automation-lab",
-    live: "",
-    caseStudy: "/projects/qa-automation-lab"
-  },
-  {
-    title: "DocuMind RAG Assistant",
-    category: "AI/data retrieval project",
-    visual: "rag",
-    problem: "Internal notes are hard to use when answers need supporting source context instead of loose summaries.",
-    solution: "Built a Python retrieval assistant that chunks Markdown knowledge, ranks context and returns grounded answer drafts with citations.",
-    outcome:
-      "Now works as a live FastAPI retrieval demo with question input, ranked citations, answer endpoint and API docs verified in production.",
-    proof: "Python package structure, FastAPI demo, document chunking, local retriever, citations, unit tests, RAG-ready design.",
-    limits: "Uses a transparent local retriever; vector database, external model provider and evaluation metrics are next steps.",
-    stack: ["Python", "FastAPI", "RAG", "Retrieval", "Citations", "Unit tests"],
-    repository: "https://github.com/Assembler-Fourier/documind-rag-assistant",
-    live: "https://documind-rag-assistant.vercel.app/",
-    caseStudy: "/projects/documind"
+      "The current preview validates 1,277 structured items, 18 sandbox payment scenarios and 11 post-deploy checks without claiming RSA affiliation.",
+    proof:
+      "Vercel Functions, Neon PostgreSQL, Stripe, passwordless sessions, PWA, accessibility checks, content QA and security runbooks.",
+    status: "Pre-launch · Legal/content review remains a release gate",
+    stack: ["JavaScript", "Neon", "Stripe", "Security", "Accessibility", "PWA"],
+    repository: "https://github.com/Assembler-Fourier/irish-theory-test-coach",
+    live: "https://irish-theory-test-coach-assembler-fourier-job-work.vercel.app",
+    caseStudy: "/projects/theory-test-coach"
   }
 ];
 
 const roles = [
   {
     icon: Code2,
-    title: "Full-stack Software Engineer",
-    fit: "Build practical web apps, reusable UI, backend routes and maintainable product workflows.",
-    tools: "React, Next.js, TypeScript, JavaScript, Node.js, REST APIs, SQL",
-    proof: "SecureTaskOps and DocuMind show workflow logic, API-backed product thinking and reviewable setup paths."
-  },
-  {
-    icon: Workflow,
-    title: "Backend Engineer",
-    fit: "Build APIs, model data, document setup paths and keep business logic testable.",
-    tools: "Node.js, Express, Python, FastAPI, SQL, PostgreSQL, MongoDB, Docker",
-    proof: "SecureTaskOps and SentryScan show API design, service logic and runnable repository structure."
+    title: "Full-stack / Backend Engineer",
+    fit: "Product UI, APIs, data models and server-side workflows built as one coherent system.",
+    tools: "TypeScript, React, Next.js, Node.js, Python, REST APIs, PostgreSQL",
+    proof: "Roster Command, HouseFair and Irish Theory Test Coach"
   },
   {
     icon: Bug,
     title: "QA Automation Engineer",
-    fit: "Add browser/API checks, regression thinking and clearer release confidence.",
-    tools: "Playwright, Selenium, API testing, unit testing, integration testing, GitHub Actions",
-    proof: "QA Automation Lab now shows visible Playwright API tests and CI-ready reporting."
+    fit: "UI and API checks, regression coverage, release gates and failure-focused product thinking.",
+    tools: "Playwright, Vitest, Pytest, API testing, accessibility, GitHub Actions",
+    proof: "Mobile regression suites and CI-backed deployment checks"
   },
   {
     icon: ShieldCheck,
     title: "Security-aware Software Engineer",
-    fit: "Apply secure SDLC thinking to authentication, authorization, validation and risk-aware delivery.",
-    tools: "OWASP basics, secure SDLC, auth, input validation, threat modeling basics",
-    proof: "MSc Cybersecurity strengthens the software engineering profile without making security the main identity."
+    fit: "Authentication, authorization, data isolation and secure delivery inside product engineering.",
+    tools: "Secure SDLC, OWASP, RLS, sessions, CSRF, rate limiting, threat modeling",
+    proof: "MSc Cybersecurity plus documented security boundaries in live products"
   }
 ];
 
 const experience = [
   {
-    company: "Motion Sensors",
-    location: "Remote - Canada",
-    period: "Mar 2026 - Present",
-    bullets: [
-      "Build software features, APIs and automation workflows for distributed product delivery.",
-      "Develop Python/FastAPI prototypes for risk ranking, document workflows and testable backend logic.",
-      "Support Dockerized services, CI/CD-aware delivery, automated testing and secure SDLC practices."
-    ]
-  },
-  {
     company: "Outstanding Marketing",
-    location: "Remote - Germany",
-    period: "Feb 2025 - Jan 2026",
+    companyUrl: "https://outstanding-marketing.de/en",
+    title: "Software Engineer (Full-Stack)",
+    location: "Remote · Germany",
+    period: "Feb 2025 - May 2026",
     bullets: [
-      "Shipped web products and dashboards using React, TypeScript, Node.js and API integrations.",
-      "Automated reporting and QA checks to improve release confidence across remote teams.",
-      "Translated stakeholder requirements into scoped product work, user stories and delivery updates."
+      "Delivered React and TypeScript web features, internal dashboards and Node.js/API integrations for remote e-commerce and growth workflows.",
+      "Automated reporting and repeatable QA checks to improve release visibility and reduce manual review.",
+      "Converted stakeholder requirements into scoped tasks, delivery updates and reviewable product work."
     ]
   },
   {
     company: "LocalhostLabs",
-    location: "On-site - Pakistan",
+    companyUrl: "https://localhostlabs.tech",
+    title: "Junior Software Engineer",
+    location: "Pakistan",
     period: "Jun 2024 - Dec 2024",
     bullets: [
-      "Built frontend and backend features, fixed defects and supported sprint delivery.",
-      "Wrote tests, documented workflows and helped with version control, QA and technical support.",
-      "Worked with software engineering foundations across databases, APIs and responsive interfaces."
+      "Built responsive front-end and back-end features across web applications, APIs and databases.",
+      "Fixed defects, documented workflows and supported version control, QA triage and release handoffs.",
+      "Worked with product and engineering requirements in a consultancy delivery environment."
     ]
   }
 ];
@@ -180,110 +165,47 @@ const experience = [
 const education = [
   {
     degree: "MSc Cybersecurity",
-    school: "National College of Ireland, Dublin",
+    school: "National College of Ireland · Dublin",
     period: "2025 - 2026",
-    focus: "Secure systems, authentication, risk, networks, governance and secure SDLC."
+    focus: "Secure systems, authentication, risk, networks, governance and secure software delivery."
   },
   {
     degree: "BSc Computer Science",
-    school: "FAST NUCES",
+    school: "FAST NUCES · Pakistan",
     period: "2020 - 2024",
-    focus: "Software engineering, databases, algorithms, web systems and computer science foundations."
-  }
-];
-
-const skillGroups = [
-  {
-    title: "Primary stack",
-    items: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "JavaScript",
-      "Node.js",
-      "Express",
-      "Python",
-      "FastAPI",
-      "SQL",
-      "PostgreSQL",
-      "MongoDB",
-      "Docker",
-      "GitHub Actions",
-      "REST APIs",
-      "Git"
-    ]
-  },
-  {
-    title: "Testing and QA",
-    items: ["Playwright", "Selenium", "API testing", "Unit testing", "Integration testing", "Test automation"]
-  },
-  {
-    title: "Security-aware development",
-    items: [
-      "OWASP basics",
-      "Secure SDLC",
-      "Authentication",
-      "Authorization",
-      "Threat modeling basics",
-      "Input validation",
-      "Secrets handling"
-    ]
-  },
-  {
-    title: "Working knowledge",
-    items: [
-      "AWS basics",
-      "Azure basics",
-      "CI/CD",
-      "Linux",
-      "Cloud deployment",
-      "RAG prototypes",
-      "LangChain basics",
-      "Vector search basics"
-    ]
+    focus: "Software engineering, databases, algorithms, web systems and AI foundations.",
+    project: {
+      label: "Team FYP: Style Sense AI Wardrobe",
+      url: "https://github.com/mbg11rao/Style-Sense-AI-powerd-Wardrobe-FYP-"
+    }
   }
 ];
 
 const keywords = [
-  "Full-stack Software Engineer Ireland",
-  "Backend Engineer Ireland",
-  "Software Engineer Ireland",
-  "Junior Software Engineer Ireland",
-  "Graduate Software Engineer Ireland",
+  "TypeScript",
   "React",
   "Next.js",
-  "TypeScript",
-  "JavaScript",
   "Node.js",
   "Python",
   "FastAPI",
-  "SQL",
-  "PostgreSQL",
-  "MongoDB",
   "REST APIs",
-  "GitHub Actions",
+  "PostgreSQL",
+  "Supabase",
+  "Neon",
   "Docker",
-  "AWS",
-  "Azure",
-  "CI/CD",
+  "GitHub Actions",
   "Playwright",
-  "Selenium",
   "API testing",
-  "QA automation",
-  "Secure SDLC",
-  "OWASP",
+  "PWA",
+  "Stripe",
   "Authentication",
   "Authorization",
-  "RAG",
-  "vector search",
-  "dashboards",
+  "OWASP",
+  "Secure SDLC",
   "Dublin",
-  "Cork",
-  "Galway",
-  "Limerick",
-  "Waterford",
-  "Remote",
-  "Hybrid"
+  "Ireland",
+  "Hybrid",
+  "Remote"
 ];
 
 const structuredData = [
@@ -292,32 +214,24 @@ const structuredData = [
     "@type": "Person",
     name: "Uzair Waseem",
     url: siteUrl,
-    image: `${siteUrl}/opengraph-image`,
+    image: `${siteUrl}/uzair-waseem-portrait.jpg`,
     email: contact.email,
     telephone: contact.phone,
     address: {
       "@type": "PostalAddress",
-      addressRegion: "Ireland",
+      addressLocality: "Dublin",
       addressCountry: "IE"
     },
     alumniOf: [
-      {
-        "@type": "CollegeOrUniversity",
-        name: "National College of Ireland"
-      },
-      {
-        "@type": "CollegeOrUniversity",
-        name: "FAST NUCES"
-      }
+      { "@type": "CollegeOrUniversity", name: "National College of Ireland" },
+      { "@type": "CollegeOrUniversity", name: "FAST NUCES" }
     ],
     jobTitle: [
       "Software Engineer",
       "Full-stack Software Engineer",
       "Backend Engineer",
-      "Junior Software Engineer",
-      "Graduate Software Engineer",
-      "Security-aware Software Engineer",
-      "QA Automation Engineer"
+      "QA Automation Engineer",
+      "Security-aware Software Engineer"
     ],
     knowsAbout: keywords,
     sameAs: [contact.linkedin, contact.github]
@@ -325,11 +239,11 @@ const structuredData = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Uzair Waseem Portfolio",
+    name: "Uzair Waseem",
     url: siteUrl,
     inLanguage: "en-IE",
     description:
-      "Portfolio website for Uzair Waseem, an Ireland-based full-stack software engineer focused on backend APIs, testing, automation and security-aware development."
+      "Portfolio for Uzair Waseem, a Dublin-based software engineer building full-stack products, APIs, QA automation and security-aware delivery workflows."
   }
 ];
 
@@ -346,8 +260,6 @@ export default function Home() {
       <main id="content">
         <Hero />
         <ProofStrip />
-        <About />
-        <Skills />
         <SelectedWork />
         <RoleFit />
         <ExperienceTimeline />
@@ -362,13 +274,12 @@ function Header() {
   return (
     <header className="site-header" aria-label="Primary navigation">
       <a className="brand" href="#top" aria-label="Uzair Waseem portfolio home">
-        <img className="brand-logo" src="/uzair-waseem-logo.svg" alt="" aria-hidden="true" />
+        <Image className="brand-logo" src="/uzair-waseem-logo.svg" alt="" width={28} height={28} aria-hidden="true" />
         <span>Uzair Waseem</span>
       </a>
       <nav className="nav-links">
-        <a href="#about">About</a>
         <a href="#work">Work</a>
-        <a href="#roles">Roles</a>
+        <a href="#roles">Fit</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -386,19 +297,16 @@ function Hero() {
           <div className="eyebrow-row">
             <span className="eyebrow">
               <MapPin size={15} aria-hidden="true" />
-              Ireland-based
+              Dublin, Ireland
             </span>
-            <span className="eyebrow muted">Open to relocate across Ireland</span>
+            <span className="eyebrow muted">Open to Ireland · hybrid · remote</span>
           </div>
-          <p className="intro-label">Uzair Waseem</p>
-          <h1>Full-stack Software Engineer building tested web apps, APIs, and automation workflows.</h1>
+          <p className="intro-label">Uzair Waseem · Software Engineer</p>
+          <h1>Building reliable products, APIs and automation.</h1>
           <p className="hero-lede">
-            I am an Ireland-based software engineer focused on React, Node.js,
-            Python, FastAPI, SQL, Docker and GitHub Actions. My cybersecurity
-            background helps me build practical systems with stronger attention
-            to testing, reliability, authentication and secure delivery.
+            I am a full-stack and backend engineer who turns real operational problems into tested software. My cybersecurity MSc adds practical depth in authentication, data isolation and secure delivery.
           </p>
-          <div className="stack-chips" aria-label="Core stack">
+          <div className="stack-chips" aria-label="Core engineering stack">
             {stackChips.map((chip) => (
               <span key={chip}>{chip}</span>
             ))}
@@ -414,7 +322,7 @@ function Hero() {
             </a>
             <a className="button secondary" href="#work">
               <Sparkles size={18} aria-hidden="true" />
-              View projects
+              Selected work
             </a>
             <a
               className="icon-link"
@@ -443,52 +351,50 @@ function Hero() {
 }
 
 function HeroVisual() {
+  const signals = [
+    ["01", "Roster Command", "Live workforce system"],
+    ["02", "HouseFair", "Full-stack PWA · CI passing"],
+    ["03", "MSc Cybersecurity", "Secure delivery edge"]
+  ];
+
   return (
-    <div className="hero-visual reveal" aria-label="Technical dashboard visual">
-      <div className="terminal-bar">
-        <span />
-        <span />
-        <span />
-        <strong>tested-api-workflow.ts</strong>
+    <div className="hero-visual reveal" aria-label="Portrait and current engineering proof">
+      <div className="portrait-panel">
+        <Image
+          src="/uzair-waseem-portrait.jpg"
+          alt="Uzair Waseem, software engineer based in Dublin"
+          fill
+          priority
+          sizes="(max-width: 980px) 100vw, 220px"
+        />
+        <div className="portrait-overlay" aria-hidden="true" />
+        <div className="portrait-caption">
+          <span>Based in</span>
+          <strong>Dublin, Ireland</strong>
+        </div>
       </div>
-      <div className="visual-grid">
-        <div className="visual-panel radar-panel">
-          <div className="radar">
-            <span className="radar-sweep" />
-            <span className="radar-dot dot-one" />
-            <span className="radar-dot dot-two" />
-            <span className="radar-dot dot-three" />
-          </div>
-          <p>Security-aware backend</p>
+      <div className="proof-console">
+        <div className="terminal-bar">
+          <span />
+          <span />
+          <span />
+          <strong>current-proof.json</strong>
         </div>
-        <div className="visual-panel code-panel">
-          <span>api.route("/tasks")</span>
-          <span>service.validate(input)</span>
-          <span>tests.run("api")</span>
-          <span>auth.check(role)</span>
+        <p className="console-label">Proof, not promises</p>
+        <div className="signal-list">
+          {signals.map(([number, title, detail], index) => (
+            <div className="proof-signal" key={title}>
+              <span>{number}</span>
+              <div>
+                <strong>{title}</strong>
+                <small>{detail}</small>
+              </div>
+              <b>{index < 2 ? "LIVE" : "2026"}</b>
+            </div>
+          ))}
         </div>
-        <div className="visual-panel metric-panel">
-          <div>
-            <span>Tests</span>
-            <strong>ready</strong>
-          </div>
-          <div>
-            <span>API</span>
-            <strong>covered</strong>
-          </div>
-          <div>
-            <span>SDLC</span>
-            <strong>secure</strong>
-          </div>
-        </div>
-        <div className="visual-panel flow-panel">
-          <span>Design</span>
-          <i />
-          <span>Build</span>
-          <i />
-          <span>Test</span>
-          <i />
-          <span>Ship</span>
+        <div className="console-flow" aria-hidden="true">
+          <span>Design</span><i /><span>Build</span><i /><span>Test</span><i /><span>Ship</span>
         </div>
       </div>
     </div>
@@ -507,69 +413,13 @@ function ProofStrip() {
             </article>
           ))}
         </div>
-        <div className="company-row reveal" aria-label="Experience companies">
-          <span>Experience across</span>
-          {companyChips.map((company) => (
-            <strong key={company}>{company}</strong>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function About() {
-  return (
-    <section className="section about-section" id="about">
-      <div className="shell about-layout">
-        <SectionHeading
-          eyebrow="About"
-          title="A focused software profile, with cybersecurity as the useful edge."
-          text="The target is software, full-stack, backend and QA automation roles across Ireland. Security is the differentiator, not the whole identity."
-        />
-        <div className="about-panel reveal">
-          <p>
-            I am an Ireland-based software engineer focused on full-stack
-            development, backend APIs, automation, testing and secure delivery.
-            I work mainly with React, Next.js, TypeScript, Node.js, Python,
-            FastAPI, SQL, Docker and GitHub Actions.
-          </p>
-          <p>
-            My MSc in Cybersecurity strengthens how I think about authentication,
-            secure SDLC, risk, testing and reliability. I am targeting software,
-            backend, full-stack and QA automation roles where I can ship practical
-            systems and improve them through clean code, tests and documentation.
-          </p>
-          <p>
-            I am open to relocating across Ireland for the right software
-            engineering opportunity, including Dublin, Cork, Galway, Limerick,
-            Waterford and remote or hybrid teams in Ireland.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Skills() {
-  return (
-    <section className="section skills-section" id="skills">
-      <div className="shell">
-        <SectionHeading
-          eyebrow="Skills"
-          title="Primary engineering stack first. Supporting tools clearly labeled."
-          text="This avoids pretending every tool is equally strong while still keeping recruiter keywords visible."
-        />
-        <div className="skills-grid">
-          {skillGroups.map((group) => (
-            <article className="skill-card reveal" key={group.title}>
-              <h3>{group.title}</h3>
-              <ul>
-                {group.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
+        <div className="company-row reveal" aria-label="Verified experience companies">
+          <span>Experience</span>
+          {companies.map((company) => (
+            <a key={company.name} href={company.url} target="_blank" rel="noopener noreferrer">
+              <strong>{company.name}</strong>
+              <ArrowUpRight size={14} aria-hidden="true" />
+            </a>
           ))}
         </div>
       </div>
@@ -583,10 +433,9 @@ function SelectedWork() {
       <div className="shell">
         <SectionHeading
           eyebrow="Selected work"
-          title="Four focused projects that support full-stack, backend, AI and QA hiring."
-          text="Each project is framed honestly as a deployed app, runnable project, prototype or testing proof, with limitations visible."
+          title="Three products with real workflows and reviewable proof."
+          text="Start with the live experience, then inspect the source, tests, security boundary and current limitations."
         />
-        {/* TODO: Replace qualitative outcomes with verified metrics when production numbers are available. */}
         <div className="project-grid">
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
@@ -607,51 +456,38 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
           <ArrowUpRight size={18} aria-hidden="true" />
         </div>
         <h3>{project.title}</h3>
+        <p className="project-summary">{project.summary}</p>
         <dl className="project-story">
-          <div>
-            <dt>Problem</dt>
-            <dd>{project.problem}</dd>
-          </div>
-          <div>
-            <dt>Solution</dt>
-            <dd>{project.solution}</dd>
-          </div>
           <div>
             <dt>Outcome</dt>
             <dd>{project.outcome}</dd>
           </div>
           <div>
-            <dt>Proves</dt>
+            <dt>Proof</dt>
             <dd>{project.proof}</dd>
           </div>
           <div>
-            <dt>Limits</dt>
-            <dd>{project.limits}</dd>
+            <dt>Status</dt>
+            <dd>{project.status}</dd>
           </div>
         </dl>
-        <ul className="tag-list" aria-label={`${project.title} stack`}>
+        <ul className="tag-list" aria-label={`${project.title} technology stack`}>
           {project.stack.map((tag) => (
             <li key={tag}>{tag}</li>
           ))}
         </ul>
         <div className="project-actions-row">
-          {project.live ? (
-            <a
-              className="project-link"
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Open ${project.title} live app`}
-            >
-              Live app
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
-          ) : null}
           <a
-            className={project.live ? "project-link ghost" : "project-link"}
-            href={project.caseStudy}
-            aria-label={`Read ${project.title} case study`}
+            className="project-link"
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${project.title} live app`}
           >
+            Live app
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+          <a className="project-link ghost" href={project.caseStudy}>
             Case study
             <ArrowUpRight size={16} aria-hidden="true" />
           </a>
@@ -660,9 +496,9 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
             href={project.repository}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`View ${project.title} repository on GitHub`}
+            aria-label={`View ${project.title} source on GitHub`}
           >
-            GitHub
+            Source
             <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         </div>
@@ -674,75 +510,34 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
 function ProjectVisual({ variant }: { variant: string }) {
   return (
     <div className={`project-visual visual-${variant}`} aria-hidden="true">
-      {variant === "radar" && (
-        <>
-          <span className="pv-ring one" />
-          <span className="pv-ring two" />
-          <span className="pv-sweep" />
-          <span className="pv-alert a" />
-          <span className="pv-alert b" />
-          <span className="pv-alert c" />
-          <div className="alert-feed">
-            <i />
-            <i />
-            <i />
+      {variant === "roster" ? (
+        <div className="roster-preview">
+          <div className="preview-toolbar"><span>Week 28</span><b>3 coverage gaps</b></div>
+          <div className="roster-days"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span></div>
+          <div className="roster-cells">
+            {Array.from({ length: 15 }, (_, index) => <i key={index} />)}
           </div>
-        </>
-      )}
-      {variant === "kanban" && (
-        <div className="mini-board">
-          {[0, 1, 2].map((col) => (
-            <div key={col}>
-              <span />
-              <i />
-              <i />
-              {col !== 2 && <i />}
-            </div>
-          ))}
+          <div className="roster-alert"><strong>Critical · 18:00</strong><span>2 evidence-backed options</span></div>
         </div>
-      )}
-      {variant === "dashboard" && (
-        <div className="mini-dashboard">
-          <div className="chart-line" />
-          <div className="chart-bars">
-            <i />
-            <i />
-            <i />
-            <i />
-          </div>
-          <div className="status-list">
-            <span />
-            <span />
-            <span />
-          </div>
+      ) : null}
+      {variant === "house" ? (
+        <div className="house-preview">
+          <div className="house-top"><span>HOUSEFAIR</span><b>Today</b></div>
+          <div className="house-metric chores"><strong>4</strong><span>Chores</span></div>
+          <div className="house-metric groceries"><strong>7</strong><span>Groceries</span></div>
+          <div className="house-metric money"><strong>€42</strong><span>To settle</span></div>
+          <div className="fairness-line"><span /><span /><span /><b>Fair plan ready</b></div>
         </div>
-      )}
-      {variant === "pipeline" && (
-        <div className="pipeline-map">
-          <span className="pipe-node active">API</span>
-          <i />
-          <span className="pipe-node">Tests</span>
-          <i />
-          <span className="pipe-node">Docker</span>
-          <i />
-          <span className="pipe-node ready">CI</span>
-          <div className="release-card">
-            <b />
-            <b />
-            <b />
-          </div>
+      ) : null}
+      {variant === "learning" ? (
+        <div className="learning-preview">
+          <div className="learning-head"><span>Mock exam</span><b>31:42</b></div>
+          <div className="learning-progress"><i /><strong>12 / 40</strong></div>
+          <p>What should you check before moving off?</p>
+          <div className="answer-options"><span /><span /><span className="active" /></div>
+          <div className="coach-note"><b>Coach</b><span>Reasoning shown after submission</span></div>
         </div>
-      )}
-      {variant === "rag" && (
-        <div className="rag-map">
-          <span className="doc d1" />
-          <span className="doc d2" />
-          <span className="node n1" />
-          <span className="node n2" />
-          <span className="node n3" />
-          <span className="answer" />
-        </div>
-      )}
+      ) : null}
     </div>
   );
 }
@@ -753,8 +548,8 @@ function RoleFit() {
       <div className="shell">
         <SectionHeading
           eyebrow="Role fit"
-          title="Focused on the roles that match the proof."
-          text="Primary target: full-stack/backend software engineering. Supporting target: QA automation and security-aware software roles."
+          title="Focused enough to place quickly. Broad enough to contribute across delivery."
+          text="Primary target: full-stack and backend engineering. Strong adjacent fit: QA automation and security-aware product engineering."
         />
         <div className="role-grid">
           {roles.map((role) => {
@@ -766,7 +561,7 @@ function RoleFit() {
                   <h3>{role.title}</h3>
                 </div>
                 <p><strong>Where I fit:</strong> {role.fit}</p>
-                <p><strong>Relevant tools:</strong> {role.tools}</p>
+                <p><strong>Tools:</strong> {role.tools}</p>
                 <p><strong>Proof:</strong> {role.proof}</p>
               </article>
             );
@@ -786,22 +581,24 @@ function ExperienceTimeline() {
             <BriefcaseBusiness size={17} aria-hidden="true" />
             Experience
           </div>
-          <h2>Software delivery experience across web apps, APIs, automation and testing.</h2>
+          <h2>Remote delivery experience, kept concise and verifiable.</h2>
         </div>
         <div className="timeline">
           {experience.map((item) => (
             <article className="timeline-card reveal" key={item.company}>
               <div className="timeline-top">
                 <div>
-                  <h3>{item.company}</h3>
-                  <p>{item.location}</p>
+                  <h3>
+                    <a href={item.companyUrl} target="_blank" rel="noopener noreferrer">
+                      {item.company}<ArrowUpRight size={16} aria-hidden="true" />
+                    </a>
+                  </h3>
+                  <p>{item.title} · {item.location}</p>
                 </div>
                 <span>{item.period}</span>
               </div>
               <ul>
-                {item.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
+                {item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
               </ul>
             </article>
           ))}
@@ -820,7 +617,7 @@ function Education() {
             <GraduationCap size={17} aria-hidden="true" />
             Education
           </div>
-          <h2>Computer science foundation with cybersecurity specialization.</h2>
+          <h2>Computer science foundation. Security specialization.</h2>
         </div>
         <div className="education-cards">
           {education.map((item) => (
@@ -829,14 +626,17 @@ function Education() {
               <h3>{item.degree}</h3>
               <p>{item.school}</p>
               <small>{item.focus}</small>
+              {item.project ? (
+                <a className="education-link" href={item.project.url} target="_blank" rel="noopener noreferrer">
+                  {item.project.label}<ArrowUpRight size={15} aria-hidden="true" />
+                </a>
+              ) : null}
             </article>
           ))}
         </div>
       </div>
       <div className="shell keyword-strip reveal" aria-label="Recruiter keyword strip">
-        {keywords.map((keyword) => (
-          <span key={keyword}>{keyword}</span>
-        ))}
+        {keywords.map((keyword) => <span key={keyword}>{keyword}</span>)}
       </div>
     </section>
   );
@@ -847,69 +647,43 @@ function ContactCTA() {
     <footer className="contact-section" id="contact">
       <div className="shell contact-layout">
         <div className="contact-copy reveal">
-          <div className="section-eyebrow">
-            <Mail size={17} aria-hidden="true" />
-            Contact
-          </div>
-          <h2>Send me the role. I will map my work to it quickly.</h2>
+          <div className="section-eyebrow"><Mail size={17} aria-hidden="true" />Contact</div>
+          <h2>Send me the role. I will map my proof to it quickly.</h2>
           <p>
-            Uzair Waseem is Ireland-based and open to software engineering,
-            full-stack, backend, QA automation and security-aware software roles
-            across Ireland. I am willing to relocate for the right opportunity.
-            Recruiters can email, call, WhatsApp or download a current CV in one click.
+            Uzair Waseem is based in Dublin and open to software engineering, full-stack, backend and QA automation opportunities across Ireland, hybrid and remote teams.
           </p>
         </div>
         <div className="contact-card reveal">
           <a className="contact-primary" href={`mailto:${contact.email}`}>
-            <Mail size={20} aria-hidden="true" />
-            Email Uzair Waseem
-            <ArrowUpRight size={18} aria-hidden="true" />
+            <Mail size={20} aria-hidden="true" />Email Uzair Waseem<ArrowUpRight size={18} aria-hidden="true" />
           </a>
           <a href={contact.cv} download>
-            <Download size={19} aria-hidden="true" />
-            Download CV
-            <ArrowUpRight size={17} aria-hidden="true" />
+            <Download size={19} aria-hidden="true" />Download CV<ArrowUpRight size={17} aria-hidden="true" />
           </a>
           <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>
-            <Phone size={19} aria-hidden="true" />
-            {contact.phone}
-            <ArrowUpRight size={17} aria-hidden="true" />
+            <Phone size={19} aria-hidden="true" />{contact.phone}<ArrowUpRight size={17} aria-hidden="true" />
           </a>
           <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
-            <MessageCircle size={19} aria-hidden="true" />
-            WhatsApp {contact.phone}
-            <ArrowUpRight size={17} aria-hidden="true" />
+            <MessageCircle size={19} aria-hidden="true" />WhatsApp {contact.phone}<ArrowUpRight size={17} aria-hidden="true" />
           </a>
           <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
-            <BriefcaseBusiness size={19} aria-hidden="true" />
-            LinkedIn profile
-            <ArrowUpRight size={17} aria-hidden="true" />
+            <BriefcaseBusiness size={19} aria-hidden="true" />LinkedIn profile<ArrowUpRight size={17} aria-hidden="true" />
           </a>
           <a href={contact.github} target="_blank" rel="noopener noreferrer">
-            <Code2 size={19} aria-hidden="true" />
-            GitHub projects
-            <ArrowUpRight size={17} aria-hidden="true" />
+            <Code2 size={19} aria-hidden="true" />GitHub projects<ArrowUpRight size={17} aria-hidden="true" />
           </a>
         </div>
       </div>
       <div className="shell footer-line">
         <span>Uzair Waseem</span>
-        <span>Full-stack Software Engineer in Ireland</span>
+        <span>Software Engineer · Dublin, Ireland</span>
         <span>{siteUrl.replace("https://", "")}</span>
       </div>
     </footer>
   );
 }
 
-function SectionHeading({
-  eyebrow,
-  title,
-  text
-}: {
-  eyebrow: string;
-  title: string;
-  text: string;
-}) {
+function SectionHeading({ eyebrow, title, text }: { eyebrow: string; title: string; text: string }) {
   return (
     <div className="section-heading reveal">
       <div className="section-eyebrow">

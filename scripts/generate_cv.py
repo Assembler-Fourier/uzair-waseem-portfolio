@@ -7,7 +7,8 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
-from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
+from reportlab.pdfgen.canvas import Canvas
+from reportlab.platypus import HRFlowable, KeepTogether, Paragraph, SimpleDocTemplate, Spacer
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,103 +31,77 @@ LINKEDIN = "https://linkedin.com/in/uzair-waseem"
 EMAIL = "uzairwaseem29@gmail.com"
 PHONE = "+353 89 973 9932"
 
+SUMMARY = (
+    "Dublin-based software engineer with remote experience delivering React and TypeScript web products, "
+    "backend APIs, automation and QA workflows. Builds production-shaped systems with Node.js, Python, "
+    "PostgreSQL, Playwright, Docker and GitHub Actions. MSc Cybersecurity adds practical depth in authentication, "
+    "authorization, data isolation and secure software delivery."
+)
 
-SECTIONS = [
-    (
-        "Professional Summary",
-        [
-            (
-                "Ireland-based software engineer focused on full-stack and backend product delivery. "
-                "Strongest stack includes React, Next.js, TypeScript, Node.js, Python/FastAPI, PostgreSQL, "
-                "REST APIs, Docker, GitHub Actions, and automated testing. MSc Cybersecurity adds practical "
-                "strength in secure SDLC, authentication, authorization, validation, and risk-aware engineering."
-            )
-        ],
-    ),
-    (
-        "Technical Skills",
-        [
-            "<b>Frontend:</b> React, Next.js, TypeScript, JavaScript, Tailwind CSS",
-            "<b>Backend:</b> Node.js, Express, Python, FastAPI, REST APIs, authentication, authorization, validation",
-            "<b>Databases:</b> PostgreSQL, MongoDB, SQL, Prisma, SQLAlchemy",
-            "<b>Testing:</b> Playwright, Selenium, Cypress, Jest/Vitest, Pytest, Supertest, API testing, regression testing",
-            "<b>DevOps:</b> Docker, Docker Compose, GitHub Actions, CI/CD, Linux, Vercel, Render/Fly.io/Railway, basic AWS/Azure",
-            "<b>Security-aware delivery:</b> OWASP basics, secure SDLC, input validation, secrets handling, role-based access, risk-aware design",
-        ],
-    ),
+SKILLS = [
+    ("Frontend", "TypeScript, React, Next.js, JavaScript, HTML, CSS, responsive UI, PWA"),
+    ("Backend", "Node.js, Express, REST APIs, Python, FastAPI, validation, serverless functions"),
+    ("Data and cloud", "PostgreSQL, Supabase, Neon, SQL, MongoDB, Docker, Vercel, CI/CD"),
+    ("Quality", "Playwright, Vitest, Pytest, API testing, regression testing, accessibility testing, GitHub Actions"),
+    ("Security", "Authentication, authorization, RLS, secure sessions, CSRF, rate limiting, OWASP, secure SDLC"),
 ]
-
 
 EXPERIENCE = [
     {
-        "title": "Software Engineer - Motion Sensors",
-        "meta": "Remote - Canada | Mar 2026 - Present",
-        "bullets": [
-            "Build backend APIs, automation workflows, and testable service logic for distributed product delivery.",
-            "Develop Python/FastAPI prototypes for risk ranking, document workflows, and structured data processing.",
-            "Support Dockerized services, CI/CD-aware delivery, documentation, and secure SDLC practices for reviewable engineering work.",
-        ],
-    },
-    {
         "title": "Software Engineer (Full-Stack) - Outstanding Marketing",
-        "meta": "Remote - Germany | Feb 2025 - Jan 2026",
+        "meta": "Remote - Germany | Feb 2025 - May 2026 | outstanding-marketing.de",
         "bullets": [
-            "Shipped React/TypeScript dashboards and web product features backed by Node.js services and third-party API integrations.",
-            "Converted stakeholder requirements into scoped tasks, delivery updates, and reviewable work across remote teams.",
-            "Added reporting automation and QA checks to improve visibility into releases and reduce repeated manual review.",
+            "Delivered React and TypeScript web features, internal dashboards and Node.js/API integrations for remote e-commerce and growth workflows.",
+            "Automated reporting and repeatable QA checks to improve release visibility and reduce manual review.",
+            "Converted stakeholder requirements into scoped tasks, delivery updates and reviewable product work.",
         ],
     },
     {
         "title": "Junior Software Engineer - LocalhostLabs",
-        "meta": "Pakistan | Jun 2024 - Dec 2024",
+        "meta": "Pakistan | Jun 2024 - Dec 2024 | localhostlabs.tech",
         "bullets": [
-            "Built front-end and back-end features across web applications, APIs, databases, and responsive interfaces.",
-            "Fixed defects, documented workflows, used version control, and supported QA triage and technical support tasks.",
+            "Built responsive front-end and back-end features across web applications, APIs and databases.",
+            "Fixed defects, documented workflows and supported version control, QA triage and release handoffs in a consultancy delivery environment.",
         ],
     },
 ]
 
-
 PROJECTS = [
     {
-        "title": "SecureTaskOps Workflow Platform",
-        "stack": "Node.js, REST APIs, dashboard UI, Vercel, Docker, GitHub Actions, tests",
-        "url": "https://github.com/Assembler-Fourier/securetaskops-workflow-platform",
-        "live": "https://securetaskops-workflow-platform.vercel.app/",
-        "bullet": (
-            "Built and deployed a workflow dashboard/API for tasks, blockers, and release-readiness signals with "
-            "validation, risk scoring, task creation, unit tests, Docker setup, GitHub Actions CI, and security notes."
-        ),
+        "title": "Roster Command - Workforce Operations Platform",
+        "stack": "TypeScript, React, Node.js APIs, Supabase PostgreSQL, Vitest, Playwright, PWA, GitHub Actions",
+        "live": "https://employee-roster-command.vercel.app/?demo=1",
+        "repo": "https://github.com/Assembler-Fourier/employee-roster-command",
+        "bullets": [
+            "Built a live manager and employee system that ranks roster gaps, explains cover suggestions and supports weekly planning, holidays, communications and review workflows.",
+            "Separated private workforce data from a signed read-only recruiter demo using synthetic records and server-side write rejection; CI verifies type checks, tests and build.",
+        ],
     },
     {
-        "title": "SentryScan Threat Monitoring",
-        "stack": "Python, FastAPI, dashboard, risk scoring, security-event modeling, tests",
-        "url": "https://github.com/Assembler-Fourier/sentryscan-threat-monitoring",
-        "live": "https://sentryscan-threat-monitoring.vercel.app/",
-        "bullet": (
-            "Built and deployed a FastAPI security-event triage demo that normalizes event payloads, applies "
-            "rule-based risk scoring, returns explainable severity decisions, and exposes dashboard/API docs."
-        ),
+        "title": "HouseFair - Multi-Household Shared-Living PWA",
+        "stack": "Next.js 16, React 19, TypeScript, Supabase Auth/PostgreSQL/RLS, Zod, Playwright, Stripe foundation",
+        "live": "https://housemates-sand.vercel.app",
+        "repo": "https://github.com/Assembler-Fourier/housefair-ai",
+        "bullets": [
+            "Built an installable product for recurring chores, groceries, expense splits, settlements and calmer house-issue workflows.",
+            "Enforced household-scoped access with authenticated server routes and PostgreSQL RLS; mobile Playwright regression tests run in passing CI.",
+        ],
     },
     {
-        "title": "QA Automation Lab",
-        "stack": "Playwright, API testing, GitHub Actions",
-        "url": "https://github.com/Assembler-Fourier/qa-automation-lab",
-        "bullet": (
-            "Created a Playwright API testing suite for SecureTaskOps covering health checks, task filtering, "
-            "release-readiness behavior, validation errors, task creation, and CI report artifacts."
-        ),
+        "title": "Irish Theory Test Coach - Pre-Launch EdTech Product",
+        "stack": "JavaScript, Vercel Functions, Neon PostgreSQL, Stripe, passwordless sessions, PWA, accessibility automation",
+        "live": "https://irish-theory-test-coach-assembler-fourier-job-work.vercel.app",
+        "repo": "https://github.com/Assembler-Fourier/irish-theory-test-coach",
+        "bullets": [
+            "Built timed mock exams, progress coaching, protected premium flows, payment handling and role-protected operator tooling for an independent practice product.",
+            "Validated a 1,277-item content pipeline, 18 of 18 Stripe sandbox scenarios and 11 of 11 post-deploy checks; production remains gated on legal/content review.",
+        ],
     },
-    {
-        "title": "DocuMind RAG Assistant",
-        "stack": "Python, FastAPI, RAG architecture, document retrieval, ranking, citations, unit tests",
-        "url": "https://github.com/Assembler-Fourier/documind-rag-assistant",
-        "live": "https://documind-rag-assistant.vercel.app/",
-        "bullet": (
-            "Built and deployed a retrieval assistant that chunks Markdown knowledge, ranks relevant context, "
-            "returns grounded answer drafts with citations, and exposes a FastAPI answer endpoint."
-        ),
-    },
+]
+
+EDUCATION = [
+    "MSc Cybersecurity - National College of Ireland, Dublin | 2025 - 2026",
+    "BSc Computer Science - FAST NUCES, Pakistan | 2020 - 2024",
 ]
 
 
@@ -137,84 +112,84 @@ def make_styles() -> dict[str, ParagraphStyle]:
             "Name",
             parent=base["Normal"],
             fontName="Helvetica-Bold",
-            fontSize=18.5,
-            leading=20.0,
+            fontSize=23.5,
+            leading=25.5,
             textColor=colors.HexColor("#111827"),
-            spaceAfter=1.8,
+            spaceAfter=2.2,
         ),
         "headline": ParagraphStyle(
             "Headline",
             parent=base["Normal"],
             fontName="Helvetica-Bold",
-            fontSize=8.5,
-            leading=9.8,
-            textColor=colors.HexColor("#111827"),
-            spaceAfter=2.2,
+            fontSize=10.0,
+            leading=11.7,
+            textColor=colors.HexColor("#0f766e"),
+            spaceAfter=3.0,
         ),
         "contact": ParagraphStyle(
             "Contact",
             parent=base["Normal"],
             fontName="Helvetica",
-            fontSize=7.0,
-            leading=8.2,
+            fontSize=8.15,
+            leading=9.75,
             textColor=colors.HexColor("#374151"),
-            spaceAfter=1.0,
+            spaceAfter=1.3,
         ),
         "section": ParagraphStyle(
             "Section",
             parent=base["Normal"],
             fontName="Helvetica-Bold",
-            fontSize=8.2,
-            leading=9.2,
-            textColor=colors.HexColor("#111827"),
-            spaceBefore=4.5,
-            spaceAfter=1.4,
+            fontSize=9.7,
+            leading=11.0,
+            textColor=colors.HexColor("#0f766e"),
+            spaceBefore=7.0,
+            spaceAfter=2.3,
         ),
         "body": ParagraphStyle(
             "Body",
             parent=base["Normal"],
             fontName="Helvetica",
-            fontSize=7.2,
-            leading=8.25,
+            fontSize=8.45,
+            leading=10.2,
             textColor=colors.HexColor("#111827"),
-            spaceAfter=1.5,
+            spaceAfter=1.9,
         ),
         "item": ParagraphStyle(
             "Item",
             parent=base["Normal"],
             fontName="Helvetica-Bold",
-            fontSize=7.45,
-            leading=8.35,
+            fontSize=8.8,
+            leading=10.3,
             textColor=colors.HexColor("#111827"),
-            spaceBefore=1.2,
-            spaceAfter=0.4,
+            spaceBefore=2.5,
+            spaceAfter=0.7,
         ),
         "meta": ParagraphStyle(
             "Meta",
             parent=base["Normal"],
             fontName="Helvetica",
-            fontSize=6.8,
-            leading=7.7,
+            fontSize=7.8,
+            leading=9.1,
             textColor=colors.HexColor("#4b5563"),
-            spaceAfter=0.5,
+            spaceAfter=0.7,
         ),
         "bullet": ParagraphStyle(
             "Bullet",
             parent=base["Normal"],
             fontName="Helvetica",
-            fontSize=7.0,
-            leading=8.05,
-            leftIndent=7,
-            firstLineIndent=-7,
+            fontSize=8.3,
+            leading=10.0,
+            leftIndent=8,
+            firstLineIndent=-8,
             textColor=colors.HexColor("#111827"),
-            spaceAfter=0.6,
+            spaceAfter=1.0,
         ),
         "link": ParagraphStyle(
             "Link",
             parent=base["Normal"],
             fontName="Helvetica",
-            fontSize=6.75,
-            leading=7.6,
+            fontSize=7.7,
+            leading=8.8,
             textColor=colors.HexColor("#2563eb"),
             spaceAfter=0.8,
         ),
@@ -227,54 +202,97 @@ def p(text: str, style: ParagraphStyle) -> Paragraph:
 
 def add_section(story: list, title: str, styles: dict[str, ParagraphStyle]) -> None:
     story.append(p(title.upper(), styles["section"]))
+    story.append(
+        HRFlowable(
+            width="100%",
+            thickness=0.45,
+            color=colors.HexColor("#cbd5d1"),
+            spaceBefore=0,
+            spaceAfter=1.8,
+        )
+    )
+
+
+def project_links(project: dict, styles: dict[str, ParagraphStyle]) -> Paragraph:
+    return p(
+        f"<link href=\"{project['live']}\" color=\"#2563eb\">Live product</link>"
+        f" | <link href=\"{project['repo']}\" color=\"#2563eb\">GitHub source</link>",
+        styles["link"],
+    )
 
 
 def build_story(styles: dict[str, ParagraphStyle]) -> list:
     story: list = [
         p("Uzair Waseem", styles["name"]),
-        p("Software Engineer | Full-Stack & Backend | Testing & Security-Aware Delivery", styles["headline"]),
-        p(f"Ireland-based | {PHONE} | <link href=\"mailto:{EMAIL}\" color=\"#2563eb\">{EMAIL}</link>", styles["contact"]),
+        p("FULL-STACK SOFTWARE ENGINEER | BACKEND APIs | QA AUTOMATION | SECURE DELIVERY", styles["headline"]),
         p(
-            f"Portfolio: <link href=\"{SITE}\" color=\"#2563eb\">{SITE}</link> | "
-            f"LinkedIn: <link href=\"{LINKEDIN}\" color=\"#2563eb\">{LINKEDIN}</link> | "
-            f"GitHub: <link href=\"{GITHUB}\" color=\"#2563eb\">{GITHUB}</link>",
+            f"Dublin, Ireland | {PHONE} | <link href=\"mailto:{EMAIL}\" color=\"#2563eb\">{EMAIL}</link>",
+            styles["contact"],
+        ),
+        p(
+            f"<link href=\"{SITE}\" color=\"#2563eb\">uzairwaseem.com</link> | "
+            f"<link href=\"{LINKEDIN}\" color=\"#2563eb\">linkedin.com/in/uzair-waseem</link> | "
+            f"<link href=\"{GITHUB}\" color=\"#2563eb\">github.com/Assembler-Fourier</link>",
             styles["contact"],
         ),
     ]
 
-    for title, lines in SECTIONS:
-        add_section(story, title, styles)
-        for line in lines:
-            story.append(p(line, styles["body"]))
+    add_section(story, "Professional Summary", styles)
+    story.append(p(SUMMARY, styles["body"]))
+
+    add_section(story, "Technical Skills", styles)
+    for label, value in SKILLS:
+        story.append(p(f"<b>{label}:</b> {value}", styles["body"]))
 
     add_section(story, "Professional Experience", styles)
     for role in EXPERIENCE:
-        story.append(p(role["title"], styles["item"]))
-        story.append(p(role["meta"], styles["meta"]))
-        for bullet in role["bullets"]:
-            story.append(p(f"- {bullet}", styles["bullet"]))
+        block = [p(role["title"], styles["item"]), p(role["meta"], styles["meta"])]
+        block.extend(p(f"- {bullet}", styles["bullet"]) for bullet in role["bullets"])
+        story.append(KeepTogether(block))
 
-    add_section(story, "Selected Projects", styles)
+    add_section(story, "Selected Engineering Projects", styles)
     for project in PROJECTS:
-        story.append(p(project["title"], styles["item"]))
-        story.append(p(f"Stack: {project['stack']}", styles["meta"]))
-        if project.get("live"):
-            story.append(p(f"Live: <link href=\"{project['live']}\" color=\"#2563eb\">{project['live']}</link>", styles["link"]))
-        story.append(p(f"GitHub: <link href=\"{project['url']}\" color=\"#2563eb\">{project['url']}</link>", styles["link"]))
-        story.append(p(f"- {project['bullet']}", styles["bullet"]))
+        block = [
+            p(project["title"], styles["item"]),
+            p(f"<b>Stack:</b> {project['stack']}", styles["meta"]),
+            project_links(project, styles),
+        ]
+        block.extend(p(f"- {bullet}", styles["bullet"]) for bullet in project["bullets"])
+        story.append(KeepTogether(block))
 
     add_section(story, "Education", styles)
-    story.append(p("MSc Cybersecurity, National College of Ireland, Dublin | 2025 - 2026", styles["body"]))
-    story.append(p("BSc Computer Science, FAST NUCES, Pakistan | 2020 - 2024", styles["body"]))
-
-    add_section(story, "Availability", styles)
+    for line in EDUCATION:
+        story.append(p(line, styles["body"]))
     story.append(
         p(
-            "Open to software engineering roles across Ireland, including Dublin, Cork, Galway, Limerick, Waterford, remote, and hybrid teams.",
+            "Team final-year project: <link href=\"https://github.com/mbg11rao/Style-Sense-AI-powerd-Wardrobe-FYP-/\" "
+            "color=\"#2563eb\">Style Sense AI Wardrobe</link> - deep learning and image-recognition application.",
             styles["body"],
         )
     )
+    add_section(story, "Availability", styles)
+    story.append(
+        p(
+            "Open to full-stack, backend, graduate software and QA automation roles across Ireland, including hybrid and remote teams.",
+            styles["body"],
+        )
+    )
+    story.append(Spacer(1, 2.5))
     return story
+
+
+def draw_footer(canvas: Canvas, doc: SimpleDocTemplate) -> None:
+    canvas.saveState()
+    width, _ = A4
+    y = 10 * mm
+    canvas.setStrokeColor(colors.HexColor("#cbd5d1"))
+    canvas.setLineWidth(0.45)
+    canvas.line(doc.leftMargin, y + 7, width - doc.rightMargin, y + 7)
+    canvas.setFont("Helvetica", 7.0)
+    canvas.setFillColor(colors.HexColor("#4b5563"))
+    canvas.drawString(doc.leftMargin, y - 1, "Dublin, Ireland | Open to full-stack, backend and QA automation roles across Ireland")
+    canvas.drawRightString(width - doc.rightMargin, y - 1, "uzairwaseem.com")
+    canvas.restoreState()
 
 
 def build_pdf() -> Path:
@@ -283,105 +301,79 @@ def build_pdf() -> Path:
     doc = SimpleDocTemplate(
         str(output_path),
         pagesize=A4,
-        leftMargin=11 * mm,
-        rightMargin=11 * mm,
-        topMargin=11 * mm,
-        bottomMargin=11 * mm,
-        title="Uzair Waseem - ATS Software Engineer CV",
+        leftMargin=17 * mm,
+        rightMargin=17 * mm,
+        topMargin=12 * mm,
+        bottomMargin=17 * mm,
+        title="Uzair Waseem - Full-Stack Software Engineer CV",
         author="Uzair Waseem",
         subject="ATS-friendly software engineering CV",
         keywords=(
             "Software Engineer, Full Stack Engineer, Backend Engineer, QA Automation Engineer, "
-            "React, Next.js, TypeScript, Node.js, Python, FastAPI, PostgreSQL, Docker, GitHub Actions, Playwright"
+            "TypeScript, React, Next.js, Node.js, Python, PostgreSQL, Docker, GitHub Actions, Playwright"
         ),
     )
-    doc.build(build_story(make_styles()))
+    doc.build(build_story(make_styles()), onFirstPage=draw_footer, onLaterPages=draw_footer)
     return output_path
 
 
 def write_plain_text_cv() -> None:
-    plain = """Uzair Waseem
-Ireland-based | +353 89 973 9932 | uzairwaseem29@gmail.com
-Portfolio: https://uzairwaseem.com
-LinkedIn: https://linkedin.com/in/uzair-waseem
-GitHub: https://github.com/Assembler-Fourier
-
-Software Engineer | Full-Stack & Backend | Testing & Security-Aware Delivery
-
-Professional Summary
-Ireland-based software engineer focused on full-stack and backend product delivery. Strongest stack includes React, Next.js, TypeScript, Node.js, Python/FastAPI, PostgreSQL, REST APIs, Docker, GitHub Actions, and automated testing. MSc Cybersecurity adds practical strength in secure SDLC, authentication, authorization, validation, and risk-aware engineering.
-
-Technical Skills
-Frontend: React, Next.js, TypeScript, JavaScript, Tailwind CSS
-Backend: Node.js, Express, Python, FastAPI, REST APIs, authentication, authorization, validation
-Databases: PostgreSQL, MongoDB, SQL, Prisma, SQLAlchemy
-Testing: Playwright, Selenium, Cypress, Jest/Vitest, Pytest, Supertest, API testing, regression testing
-DevOps: Docker, Docker Compose, GitHub Actions, CI/CD, Linux, Vercel, Render/Fly.io/Railway, basic AWS/Azure
-Security-aware delivery: OWASP basics, secure SDLC, input validation, secrets handling, role-based access, risk-aware design
-
-Professional Experience
-Software Engineer - Motion Sensors
-Remote - Canada | Mar 2026 - Present
-- Build backend APIs, automation workflows, and testable service logic for distributed product delivery.
-- Develop Python/FastAPI prototypes for risk ranking, document workflows, and structured data processing.
-- Support Dockerized services, CI/CD-aware delivery, documentation, and secure SDLC practices for reviewable engineering work.
-
-Software Engineer (Full-Stack) - Outstanding Marketing
-Remote - Germany | Feb 2025 - Jan 2026
-- Shipped React/TypeScript dashboards and web product features backed by Node.js services and third-party API integrations.
-- Converted stakeholder requirements into scoped tasks, delivery updates, and reviewable work across remote teams.
-- Added reporting automation and QA checks to improve visibility into releases and reduce repeated manual review.
-
-Junior Software Engineer - LocalhostLabs
-Pakistan | Jun 2024 - Dec 2024
-- Built front-end and back-end features across web applications, APIs, databases, and responsive interfaces.
-- Fixed defects, documented workflows, used version control, and supported QA triage and technical support tasks.
-
-Selected Projects
-SecureTaskOps Workflow Platform
-Stack: Node.js, REST APIs, dashboard UI, Vercel, Docker, GitHub Actions, tests
-Live: https://securetaskops-workflow-platform.vercel.app/
-GitHub: https://github.com/Assembler-Fourier/securetaskops-workflow-platform
-- Built and deployed a workflow dashboard/API for tasks, blockers, and release-readiness signals with validation, risk scoring, task creation, unit tests, Docker setup, GitHub Actions CI, and security notes.
-
-SentryScan Threat Monitoring
-Stack: Python, FastAPI, dashboard, risk scoring, security-event modeling, tests
-Live: https://sentryscan-threat-monitoring.vercel.app/
-GitHub: https://github.com/Assembler-Fourier/sentryscan-threat-monitoring
-- Built and deployed a FastAPI security-event triage demo that normalizes event payloads, applies rule-based risk scoring, returns explainable severity decisions, and exposes dashboard/API docs.
-
-QA Automation Lab
-Stack: Playwright, API testing, GitHub Actions
-GitHub: https://github.com/Assembler-Fourier/qa-automation-lab
-- Created a Playwright API testing suite for SecureTaskOps covering health checks, task filtering, release-readiness behavior, validation errors, task creation, and CI report artifacts.
-
-DocuMind RAG Assistant
-Stack: Python, FastAPI, RAG architecture, document retrieval, ranking, citations, unit tests
-Live: https://documind-rag-assistant.vercel.app/
-GitHub: https://github.com/Assembler-Fourier/documind-rag-assistant
-- Built and deployed a retrieval assistant that chunks Markdown knowledge, ranks relevant context, returns grounded answer drafts with citations, and exposes a FastAPI answer endpoint.
-
-Education
-MSc Cybersecurity, National College of Ireland, Dublin | 2025 - 2026
-BSc Computer Science, FAST NUCES, Pakistan | 2020 - 2024
-
-Availability
-Open to software engineering roles across Ireland, including Dublin, Cork, Galway, Limerick, Waterford, remote, and hybrid teams.
-"""
-    (OUTPUT_DIR / "Uzair-Waseem-CV-ATS.txt").write_text(plain, encoding="utf-8")
+    lines = [
+        "Uzair Waseem",
+        "Dublin, Ireland | +353 89 973 9932 | uzairwaseem29@gmail.com",
+        "Portfolio: https://uzairwaseem.com",
+        "LinkedIn: https://linkedin.com/in/uzair-waseem",
+        "GitHub: https://github.com/Assembler-Fourier",
+        "",
+        "FULL-STACK SOFTWARE ENGINEER | BACKEND APIs | QA AUTOMATION | SECURE DELIVERY",
+        "",
+        "PROFESSIONAL SUMMARY",
+        SUMMARY,
+        "",
+        "TECHNICAL SKILLS",
+    ]
+    lines.extend(f"{label}: {value}" for label, value in SKILLS)
+    lines.extend(["", "PROFESSIONAL EXPERIENCE"])
+    for role in EXPERIENCE:
+        lines.extend([role["title"], role["meta"]])
+        lines.extend(f"- {bullet}" for bullet in role["bullets"])
+        lines.append("")
+    lines.append("SELECTED ENGINEERING PROJECTS")
+    for project in PROJECTS:
+        lines.extend(
+            [
+                project["title"],
+                f"Stack: {project['stack']}",
+                f"Live: {project['live']}",
+                f"GitHub: {project['repo']}",
+            ]
+        )
+        lines.extend(f"- {bullet}" for bullet in project["bullets"])
+        lines.append("")
+    lines.extend(["EDUCATION", *EDUCATION])
+    lines.append("Team final-year project: Style Sense AI Wardrobe - deep learning and image-recognition application.")
+    lines.extend(
+        [
+            "",
+            "AVAILABILITY",
+            "Open to full-stack, backend, graduate software and QA automation roles across Ireland, including hybrid and remote teams.",
+        ]
+    )
+    (OUTPUT_DIR / "Uzair-Waseem-CV-ATS.txt").write_text("\n".join(lines).strip() + "\n", encoding="utf-8")
 
 
 def write_audit(master: Path) -> None:
     lines = [
-        "ATS/readability heuristic for Uzair Waseem CV",
-        "Heuristic result: plain one-column ATS-focused format",
+        "ATS/readability audit for Uzair Waseem CV",
+        "Result: one-page, single-column, text-based PDF",
         f"Generated file: {master.name}",
-        "Standard sections present: Professional Summary, Technical Skills, Professional Experience, Selected Projects, Education, Availability",
-        "Machine-readable formatting: real PDF text, standard headings, visible links, no icons, no graphics, no tables",
-        "Positioning: Ireland-based software engineer with full-stack/backend focus, QA automation support, and security-aware delivery as differentiator",
-        "Note: This is a local heuristic, not a vendor ATS guarantee.",
+        "Standard headings: Professional Summary, Technical Skills, Professional Experience, Selected Engineering Projects, Education, Availability",
+        "Machine-readable: selectable PDF text, standard fonts, visible descriptive links, no icons, no tables, no graphics",
+        "Evidence alignment: website, GitHub, company links and project status use the same dates and claims",
+        "Positioning: full-stack/backend primary; QA automation and security-aware delivery secondary",
+        "Note: no universal ATS score exists; this is a local structure, parsing and readability heuristic.",
     ]
-    (OUTPUT_DIR / "Uzair-Waseem-CV-ATS-Audit.txt").write_text("\n".join(lines), encoding="utf-8")
+    (OUTPUT_DIR / "Uzair-Waseem-CV-ATS-Audit.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def publish(master: Path) -> None:

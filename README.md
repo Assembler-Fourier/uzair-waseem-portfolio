@@ -1,6 +1,6 @@
 # Uzair Waseem Portfolio
 
-Recruiter-focused portfolio for Uzair Waseem, an Ireland-based full-stack software engineer focused on tested web apps, backend APIs, automation workflows, and security-aware delivery.
+Recruiter-focused portfolio for Uzair Waseem, a Dublin-based software engineer building full-stack products, backend APIs, QA automation, and security-aware delivery workflows.
 
 ## Stack
 
@@ -35,10 +35,9 @@ Generated PDFs are copied into `public/` so they can be served from the live sit
 
 ## Featured Proof
 
-- [SecureTaskOps Workflow Platform](https://github.com/Assembler-Fourier/securetaskops-workflow-platform)
-- [SentryScan Threat Monitoring](https://github.com/Assembler-Fourier/sentryscan-threat-monitoring)
-- [QA Automation Lab](https://github.com/Assembler-Fourier/qa-automation-lab)
-- [DocuMind RAG Assistant](https://github.com/Assembler-Fourier/documind-rag-assistant)
+- [Roster Command](https://github.com/Assembler-Fourier/employee-roster-command)
+- [HouseFair](https://github.com/Assembler-Fourier/housefair-ai)
+- [Irish Theory Test Coach](https://github.com/Assembler-Fourier/irish-theory-test-coach)
 
 ## Live Site
 

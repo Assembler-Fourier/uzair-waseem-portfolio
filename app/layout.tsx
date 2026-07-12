@@ -5,9 +5,9 @@ const siteUrl = "https://uzairwaseem.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Uzair Waseem | Full-stack Software Engineer in Ireland",
+  title: "Uzair Waseem | Full-Stack Software Engineer in Dublin",
   description:
-    "Ireland-based full-stack software engineer open to relocate across Ireland. Focused on React, Node.js, Python, FastAPI, backend APIs, automation, testing, Docker, GitHub Actions, and security-aware development.",
+    "Uzair Waseem is a Dublin-based software engineer building full-stack products, backend APIs, QA automation and security-aware delivery workflows with TypeScript, React, Node.js, PostgreSQL and Playwright.",
   applicationName: "Uzair Waseem Portfolio",
   authors: [{ name: "Uzair Waseem", url: siteUrl }],
   creator: "Uzair Waseem",
@@ -22,27 +22,28 @@ export const metadata: Metadata = {
   },
   keywords: [
     "Uzair Waseem",
+    "Full-stack Software Engineer Dublin",
     "Full-stack Software Engineer Ireland",
     "Backend Engineer Ireland",
     "Software Engineer Ireland",
     "React Developer Ireland",
     "Node.js Developer Ireland",
-    "Python FastAPI Developer Ireland",
+    "QA Automation Engineer Ireland",
     "Graduate Software Engineer Ireland",
     "Junior Software Engineer Ireland",
-    "QA Automation Engineer",
     "Security-aware Software Engineer",
     "React",
     "Next.js",
     "TypeScript",
     "Node.js",
     "Python",
-    "FastAPI",
+    "Supabase",
     "Docker",
     "GitHub Actions",
     "REST APIs",
     "SQL",
     "PostgreSQL",
+    "Playwright",
     "OWASP",
     "secure SDLC"
   ],
@@ -58,9 +59,9 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "Uzair Waseem | Full-stack Software Engineer in Ireland",
+    title: "Uzair Waseem | Full-Stack Software Engineer in Dublin",
     description:
-      "Ireland-based full-stack/backend software engineer focused on React, Node.js, Python, FastAPI, APIs, testing, Docker, GitHub Actions and security-aware delivery.",
+      "Dublin-based software engineer building full-stack products, backend APIs, QA automation and secure delivery workflows.",
     url: siteUrl,
     siteName: "Uzair Waseem Portfolio",
     locale: "en_IE",
@@ -70,15 +71,15 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Uzair Waseem portfolio preview"
+        alt: "Uzair Waseem, full-stack software engineer in Dublin"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Uzair Waseem | Full-stack Software Engineer in Ireland",
+    title: "Uzair Waseem | Full-Stack Software Engineer in Dublin",
     description:
-      "Ireland-based full-stack/backend software engineer open to roles across Ireland.",
+      "Dublin-based engineer building tested full-stack products, APIs and automation.",
     images: ["/opengraph-image"]
   }
 };
