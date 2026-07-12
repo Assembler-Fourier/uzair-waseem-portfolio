@@ -212,8 +212,10 @@ const structuredData = [
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${siteUrl}/#person`,
     name: "Uzair Waseem",
     url: siteUrl,
+    mainEntityOfPage: { "@id": `${siteUrl}/#profile` },
     image: `${siteUrl}/uzair-waseem-portrait.jpg`,
     email: contact.email,
     telephone: contact.phone,
@@ -239,11 +241,23 @@ const structuredData = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
     name: "Uzair Waseem",
     url: siteUrl,
     inLanguage: "en-IE",
     description:
       "Portfolio for Uzair Waseem, a Dublin-based software engineer building full-stack products, APIs, QA automation and security-aware delivery workflows."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${siteUrl}/#profile`,
+    url: siteUrl,
+    name: "Uzair Waseem | Full-Stack Software Engineer in Dublin",
+    dateModified: "2026-07-12",
+    inLanguage: "en-IE",
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    mainEntity: { "@id": `${siteUrl}/#person` }
   }
 ];
 
