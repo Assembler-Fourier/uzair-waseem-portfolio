@@ -42,7 +42,7 @@ const stackChips = [
 
 const proofItems = [
   ["Location", "Dublin, Ireland"],
-  ["Product proof", "3 live builds"],
+  ["Product proof", "3 reviewable builds"],
   ["Backend", "Node.js + PostgreSQL"],
   ["Quality", "CI + Playwright"],
   ["Education", "MSc Cybersecurity"],
@@ -72,6 +72,15 @@ const projects = [
     proof:
       "React, TypeScript, Node.js APIs, Supabase PostgreSQL, Vitest, Playwright, PWA and GitHub Actions.",
     status: "Live product · Privacy-safe recruiter demo",
+    image: "/projects/roster-command-product.png",
+    imageAlt: "Roster Command recruiter demo showing the read-only workforce operations dashboard",
+    imageMode: "dashboard",
+    evidence: [
+      ["Demo", "Read-only"],
+      ["CI", "Passing"],
+      ["Coverage", "Unit + browser"]
+    ],
+    ci: "https://github.com/Assembler-Fourier/employee-roster-command/actions/workflows/ci.yml",
     stack: ["TypeScript", "React", "PostgreSQL", "Playwright", "PWA", "CI"],
     repository: "https://github.com/Assembler-Fourier/employee-roster-command",
     live: "https://employee-roster-command.vercel.app/?demo=1",
@@ -88,6 +97,15 @@ const projects = [
     proof:
       "Next.js 16, React 19, TypeScript, Supabase Auth/PostgreSQL/RLS, Stripe foundation and mobile Playwright regression tests.",
     status: "Live early access · CI passing",
+    image: "/projects/housefair-product.jpg",
+    imageAlt: "HouseFair mobile product screens for chores, groceries, shared money and house planning",
+    imageMode: "contact-sheet",
+    evidence: [
+      ["Release", "Early access"],
+      ["CI", "Passing"],
+      ["Coverage", "Mobile E2E"]
+    ],
+    ci: "https://github.com/Assembler-Fourier/housefair-ai/actions/workflows/ci.yml",
     stack: ["Next.js", "TypeScript", "Supabase", "Stripe", "Playwright", "PWA"],
     repository: "https://github.com/Assembler-Fourier/housefair-ai",
     live: "https://housemates-sand.vercel.app",
@@ -104,6 +122,15 @@ const projects = [
     proof:
       "Vercel Functions, Neon PostgreSQL, Stripe, passwordless sessions, PWA, accessibility checks, content QA and security runbooks.",
     status: "Pre-launch · Legal/content review remains a release gate",
+    image: "/projects/theory-test-coach-product.png",
+    imageAlt: "Irish Theory Test Coach desktop practice workspace with secure preview questions",
+    imageMode: "dashboard",
+    evidence: [
+      ["Content", "1,277 items"],
+      ["Payments", "18 checks"],
+      ["Deploy", "11 checks"]
+    ],
+    ci: "https://github.com/Assembler-Fourier/irish-theory-test-coach/actions/workflows/security.yml",
     stack: ["JavaScript", "Neon", "Stripe", "Security", "Accessibility", "PWA"],
     repository: "https://github.com/Assembler-Fourier/irish-theory-test-coach",
     live: "https://irish-theory-test-coach-assembler-fourier-job-work.vercel.app",
@@ -254,7 +281,7 @@ const structuredData = [
     "@id": `${siteUrl}/#profile`,
     url: siteUrl,
     name: "Uzair Waseem | Full-Stack Software Engineer in Dublin",
-    dateModified: "2026-07-12",
+    dateModified: "2026-07-13",
     inLanguage: "en-IE",
     isPartOf: { "@id": `${siteUrl}/#website` },
     mainEntity: { "@id": `${siteUrl}/#person` }
@@ -270,6 +297,7 @@ export default function Home() {
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c")
         }}
       />
+      <a className="skip-link" href="#content">Skip to main content</a>
       <Header />
       <main id="content">
         <Hero />
@@ -316,9 +344,9 @@ function Hero() {
             <span className="eyebrow muted">Open to Ireland · hybrid · remote</span>
           </div>
           <p className="intro-label">Uzair Waseem · Software Engineer</p>
-          <h1>Building reliable products, APIs and automation.</h1>
+          <h1>Full-stack engineer shipping tested products and backend systems.</h1>
           <p className="hero-lede">
-            I am a full-stack and backend engineer who turns real operational problems into tested software. My cybersecurity MSc adds practical depth in authentication, data isolation and secure delivery.
+            I turn operational problems into production-shaped software with TypeScript, React, Node.js, PostgreSQL and Playwright. My cybersecurity MSc strengthens the way I design authentication, data isolation and delivery risk.
           </p>
           <div className="stack-chips" aria-label="Core engineering stack">
             {stackChips.map((chip) => (
@@ -447,8 +475,8 @@ function SelectedWork() {
       <div className="shell">
         <SectionHeading
           eyebrow="Selected work"
-          title="Three products with real workflows and reviewable proof."
-          text="Start with the live experience, then inspect the source, tests, security boundary and current limitations."
+          title="Real interfaces first. Architecture and verification one click behind."
+          text="Each product exposes a working review path, source, automated checks, security boundaries and the limitations that still remain."
         />
         <div className="project-grid">
           {projects.map((project) => (
@@ -463,7 +491,7 @@ function SelectedWork() {
 function ProjectCard({ project }: { project: (typeof projects)[number] }) {
   return (
     <article className="project-card reveal">
-      <ProjectVisual variant={project.visual} />
+      <ProjectVisual project={project} />
       <div className="project-content">
         <div className="project-meta">
           <span>{project.category}</span>
@@ -471,6 +499,14 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
         </div>
         <h3>{project.title}</h3>
         <p className="project-summary">{project.summary}</p>
+        <div className="evidence-grid" aria-label={`${project.title} engineering evidence`}>
+          {project.evidence.map(([label, value]) => (
+            <div key={label}>
+              <span>{label}</span>
+              <strong>{value}</strong>
+            </div>
+          ))}
+        </div>
         <dl className="project-story">
           <div>
             <dt>Outcome</dt>
@@ -515,43 +551,37 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
             Source
             <ArrowUpRight size={16} aria-hidden="true" />
           </a>
+          <a
+            className="project-link ghost"
+            href={project.ci}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Review ${project.title} continuous integration checks`}
+          >
+            CI checks
+            <CheckCircle2 size={16} aria-hidden="true" />
+          </a>
         </div>
       </div>
     </article>
   );
 }
 
-function ProjectVisual({ variant }: { variant: string }) {
+function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
   return (
-    <div className={`project-visual visual-${variant}`} aria-hidden="true">
-      {variant === "roster" ? (
-        <div className="roster-preview">
-          <div className="preview-toolbar"><span>Week 28</span><b>3 coverage gaps</b></div>
-          <div className="roster-days"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span></div>
-          <div className="roster-cells">
-            {Array.from({ length: 15 }, (_, index) => <i key={index} />)}
-          </div>
-          <div className="roster-alert"><strong>Critical · 18:00</strong><span>2 evidence-backed options</span></div>
-        </div>
-      ) : null}
-      {variant === "house" ? (
-        <div className="house-preview">
-          <div className="house-top"><span>HOUSEFAIR</span><b>Today</b></div>
-          <div className="house-metric chores"><strong>4</strong><span>Chores</span></div>
-          <div className="house-metric groceries"><strong>7</strong><span>Groceries</span></div>
-          <div className="house-metric money"><strong>€42</strong><span>To settle</span></div>
-          <div className="fairness-line"><span /><span /><span /><b>Fair plan ready</b></div>
-        </div>
-      ) : null}
-      {variant === "learning" ? (
-        <div className="learning-preview">
-          <div className="learning-head"><span>Mock exam</span><b>31:42</b></div>
-          <div className="learning-progress"><i /><strong>12 / 40</strong></div>
-          <p>What should you check before moving off?</p>
-          <div className="answer-options"><span /><span /><span className="active" /></div>
-          <div className="coach-note"><b>Coach</b><span>Reasoning shown after submission</span></div>
-        </div>
-      ) : null}
+    <div className={`project-visual visual-${project.visual} ${project.imageMode}`}>
+      <Image
+        className="product-shot"
+        src={project.image}
+        alt={project.imageAlt}
+        fill
+        sizes="(max-width: 860px) 100vw, 560px"
+      />
+      <div className="product-shot-overlay" aria-hidden="true" />
+      <div className="product-shot-label">
+        <span>Actual product</span>
+        <strong>{project.title}</strong>
+      </div>
     </div>
   );
 }
