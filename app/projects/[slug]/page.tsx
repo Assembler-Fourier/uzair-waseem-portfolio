@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -7,6 +8,16 @@ const caseStudies = {
     label: "Flagship workforce operations product",
     repo: "https://github.com/Assembler-Fourier/employee-roster-command",
     live: "https://employee-roster-command.vercel.app/?demo=1",
+    ci: "https://github.com/Assembler-Fourier/employee-roster-command/actions/workflows/ci.yml",
+    image: "/projects/roster-command-product.png",
+    imageAlt: "Roster Command read-only recruiter dashboard with synthetic workforce data",
+    evidence: [
+      ["Review path", "Signed read-only demo"],
+      ["Delivery", "Passing GitHub Actions"],
+      ["Quality", "Unit and browser tests"],
+      ["Boundary", "Synthetic data only"]
+    ],
+    architecture: ["React manager and employee UI", "Scoped Node.js APIs", "Supabase PostgreSQL", "Private provider integrations"],
     problem:
       "A weekly spreadsheet process made it difficult to distinguish genuinely urgent coverage gaps from future planning work, explain who could cover safely, and keep manager actions auditable.",
     role:
@@ -54,6 +65,16 @@ const caseStudies = {
     label: "Full-stack shared-living SaaS",
     repo: "https://github.com/Assembler-Fourier/housefair-ai",
     live: "https://housemates-sand.vercel.app",
+    ci: "https://github.com/Assembler-Fourier/housefair-ai/actions/workflows/ci.yml",
+    image: "/projects/housefair-product.jpg",
+    imageAlt: "HouseFair mobile screens for chores, groceries, money and house planning",
+    evidence: [
+      ["Release", "Free early access"],
+      ["Delivery", "Passing GitHub Actions"],
+      ["Quality", "Mobile Playwright suite"],
+      ["Boundary", "Household-scoped data"]
+    ],
+    architecture: ["Next.js PWA", "Validated server routes", "Household access resolver", "PostgreSQL RLS and private storage"],
     problem:
       "In a six-person home, chores, groceries, shared spending and house issues were scattered across chat and memory, making fairness difficult to see and even harder to discuss.",
     role:
@@ -101,6 +122,16 @@ const caseStudies = {
     label: "Pre-launch EdTech product",
     repo: "https://github.com/Assembler-Fourier/irish-theory-test-coach",
     live: "https://irish-theory-test-coach-assembler-fourier-job-work.vercel.app",
+    ci: "https://github.com/Assembler-Fourier/irish-theory-test-coach/actions/workflows/security.yml",
+    image: "/projects/theory-test-coach-product.png",
+    imageAlt: "Irish Theory Test Coach learner workspace with a protected preview question",
+    evidence: [
+      ["Content", "1,277 validated items"],
+      ["Payments", "18 sandbox checks"],
+      ["Delivery", "11 deploy checks"],
+      ["Boundary", "Pre-launch review"]
+    ],
+    architecture: ["Static learner PWA", "Vercel Functions", "Neon PostgreSQL", "Stripe and private content adapters"],
     problem:
       "Learner drivers need structured practice, useful revision feedback and trustworthy progress signals without exposing premium answers or relying on unsupported exam-frequency claims.",
     role:
@@ -174,39 +205,99 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <main className="case-page">
       <section className="case-hero">
-        <div className="shell case-shell">
-          <Link className="case-back" href="/#work">Back to selected work</Link>
-          <p className="intro-label">{study.label}</p>
-          <h1>{study.title}</h1>
-          <p>{study.proves}</p>
-          <div className="case-actions">
-            <a href={study.live} target="_blank" rel="noopener noreferrer">Open live product</a>
-            <a href={study.repo} target="_blank" rel="noopener noreferrer">Review source</a>
+        <div className="shell case-hero-grid">
+          <div className="case-hero-copy">
+            <Link className="case-back" href="/#work">Back to selected work</Link>
+            <p className="intro-label">{study.label}</p>
+            <h1>{study.title}</h1>
+            <p>{study.proves}</p>
+            <div className="case-actions">
+              <a href={study.live} target="_blank" rel="noopener noreferrer">Open live product</a>
+              <a href={study.repo} target="_blank" rel="noopener noreferrer">Review source</a>
+              <a href={study.ci} target="_blank" rel="noopener noreferrer">Inspect CI</a>
+            </div>
+          </div>
+          <div className="case-hero-media">
+            <Image src={study.image} alt={study.imageAlt} fill priority sizes="(max-width: 860px) 100vw, 520px" />
+            <div className="case-media-caption">
+              <span>Actual product</span>
+              <strong>{study.title}</strong>
+            </div>
           </div>
         </div>
       </section>
       <section className="section case-content">
-        <div className="shell case-grid">
-          <CaseBlock title="Problem" text={study.problem} />
-          <CaseBlock title="My Role" text={study.role} />
-          <CaseBlock title="Technology" items={study.stack} />
-          <CaseBlock title="Key Features" items={study.features} />
-          <CaseBlock title="Testing" items={study.testing} />
-          <CaseBlock title="Deployment" text={study.deployment} />
-          <CaseBlock title="Security" text={study.security} />
-          <CaseBlock title="Tradeoffs" text={study.tradeoffs} />
-          <CaseBlock title="Next Improvements" items={study.next} />
-          <CaseBlock title="What This Proves" text={study.proves} />
+        <div className="shell">
+          <div className="case-proof-grid" aria-label={`${study.title} evidence summary`}>
+            {study.evidence.map(([label, value]) => (
+              <div key={label}><span>{label}</span><strong>{value}</strong></div>
+            ))}
+          </div>
+
+          <CaseHeading number="01" title="Context and ownership" text="The problem, the decisions I owned and the boundary of my contribution." />
+          <div className="case-two-column">
+            <CasePanel title="Problem" text={study.problem} />
+            <CasePanel title="My role" text={study.role} />
+          </div>
+
+          <CaseHeading number="02" title="System and engineering decisions" text="A recruiter-readable map of the product path, followed by the implementation choices behind it." />
+          <div className="case-system-grid">
+            <div className="architecture-map" aria-label={`${study.title} architecture flow`}>
+              {study.architecture.map((item, index) => (
+                <div key={item}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong>{item}</strong>
+                </div>
+              ))}
+            </div>
+            <CasePanel title="Key product decisions" items={study.features} />
+          </div>
+          <ul className="case-stack" aria-label={`${study.title} technology stack`}>
+            {study.stack.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+
+          <CaseHeading number="03" title="Verification and release boundary" text="How the build is checked, delivered and kept honest about what is production-ready." />
+          <div className="case-two-column">
+            <CasePanel title="Automated verification" items={study.testing} />
+            <div className="case-panel-stack">
+              <CasePanel title="Deployment" text={study.deployment} />
+              <CasePanel title="Security" text={study.security} />
+            </div>
+          </div>
+
+          <CaseHeading number="04" title="Tradeoffs and next work" text="What remains incomplete is shown deliberately, because engineering judgment includes knowing what not to claim." />
+          <div className="case-two-column">
+            <CasePanel title="Current tradeoffs" text={study.tradeoffs} />
+            <CasePanel title="Next improvements" items={study.next} />
+          </div>
+
+          <div className="case-closing">
+            <span>What this proves</span>
+            <h2>{study.proves}</h2>
+            <div className="case-actions">
+              <a href={study.live} target="_blank" rel="noopener noreferrer">Try the product</a>
+              <a href={study.repo} target="_blank" rel="noopener noreferrer">Read the code</a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
 
-function CaseBlock({ title, text, items }: { title: string; text?: string; items?: string[] }) {
+function CaseHeading({ number, title, text }: { number: string; title: string; text: string }) {
   return (
-    <article className="case-card">
-      <h2>{title}</h2>
+    <div className="case-section-heading">
+      <span>{number}</span>
+      <div><h2>{title}</h2><p>{text}</p></div>
+    </div>
+  );
+}
+
+function CasePanel({ title, text, items }: { title: string; text?: string; items?: string[] }) {
+  return (
+    <article className="case-panel">
+      <h3>{title}</h3>
       {text ? <p>{text}</p> : null}
       {items ? <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul> : null}
     </article>
