@@ -2,18 +2,24 @@ import Image from "next/image";
 import {
   ArrowUpRight,
   BriefcaseBusiness,
+  Boxes,
+  Braces,
   Bug,
   CheckCircle2,
   Code2,
+  Database,
   Download,
   GraduationCap,
+  GitBranch,
   Mail,
   MapPin,
   MessageCircle,
   Phone,
+  ServerCog,
   ShieldCheck,
   Sparkles
 } from "lucide-react";
+import DeliverySystemScene from "./components/DeliverySystemScene";
 import EngineeringScene from "./components/EngineeringScene";
 
 const siteUrl = "https://uzairwaseem.com";
@@ -48,6 +54,44 @@ const proofItems = [
   ["Quality", "CI + Playwright"],
   ["Education", "MSc Cybersecurity"],
   ["Open to", "Ireland / hybrid / remote"]
+];
+
+const deliveryStages = [
+  {
+    icon: Boxes,
+    number: "01",
+    title: "Interface",
+    stack: "React + Next.js",
+    detail: "Role-aware product workflows"
+  },
+  {
+    icon: Braces,
+    number: "02",
+    title: "API",
+    stack: "Node.js + REST",
+    detail: "Typed contracts and validation"
+  },
+  {
+    icon: Database,
+    number: "03",
+    title: "Data",
+    stack: "PostgreSQL",
+    detail: "Scoped access and durable state"
+  },
+  {
+    icon: ShieldCheck,
+    number: "04",
+    title: "Quality",
+    stack: "Playwright + CI",
+    detail: "Automated release confidence"
+  },
+  {
+    icon: ServerCog,
+    number: "05",
+    title: "Delivery",
+    stack: "Docker + cloud",
+    detail: "Observable deployment paths"
+  }
 ];
 
 const companies = [
@@ -299,10 +343,12 @@ export default function Home() {
         }}
       />
       <a className="skip-link" href="#content">Skip to main content</a>
+      <div className="page-progress" aria-hidden="true" />
       <Header />
       <main id="content">
         <Hero />
         <ProofStrip />
+        <DeliverySystem />
         <SelectedWork />
         <RoleFit />
         <ExperienceTimeline />
@@ -470,6 +516,59 @@ function ProofStrip() {
             </a>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function DeliverySystem() {
+  return (
+    <section className="delivery-system" aria-labelledby="delivery-system-title">
+      <DeliverySystemScene />
+      <div className="delivery-scanlines" aria-hidden="true" />
+      <div className="shell delivery-shell">
+        <div className="delivery-copy reveal">
+          <span className="section-eyebrow">
+            <GitBranch size={16} aria-hidden="true" />
+            Engineering system
+          </span>
+          <h2 id="delivery-system-title">A live architecture, from click to cloud.</h2>
+          <p>
+            I work across the delivery path, connecting product interfaces to typed APIs, durable data,
+            automated checks and observable releases.
+          </p>
+          <dl className="render-budget" aria-label="3D scene performance envelope">
+            <div>
+              <dt>Render</dt>
+              <dd>30 FPS budget</dd>
+            </div>
+            <div>
+              <dt>Geometry</dt>
+              <dd>37 instanced objects</dd>
+            </div>
+            <div>
+              <dt>Runtime</dt>
+              <dd>Paused offscreen</dd>
+            </div>
+          </dl>
+        </div>
+        <div className="delivery-scene-space" aria-hidden="true" />
+        <ol className="delivery-layers reveal" aria-label="Software delivery layers">
+          {deliveryStages.map((stage) => {
+            const Icon = stage.icon;
+            return (
+              <li key={stage.title}>
+                <span>{stage.number}</span>
+                <Icon size={19} aria-hidden="true" />
+                <div>
+                  <strong>{stage.title}</strong>
+                  <small>{stage.stack}</small>
+                  <p>{stage.detail}</p>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );
