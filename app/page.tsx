@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Sparkles
 } from "lucide-react";
+import EngineeringScene from "./components/EngineeringScene";
 
 const siteUrl = "https://uzairwaseem.com";
 
@@ -332,6 +333,7 @@ function Header() {
 function Hero() {
   return (
     <section className="hero" id="top">
+      <EngineeringScene />
       <div className="hero-noise" aria-hidden="true" />
       <div className="hero-grid" aria-hidden="true" />
       <div className="shell hero-shell">
@@ -364,26 +366,30 @@ function Hero() {
             </a>
             <a className="button secondary" href="#work">
               <Sparkles size={18} aria-hidden="true" />
-              Selected work
+              View work
             </a>
-            <a
-              className="icon-link"
-              href={contact.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit Uzair Waseem on LinkedIn"
-            >
-              <BriefcaseBusiness size={19} aria-hidden="true" />
-            </a>
-            <a
-              className="icon-link"
-              href={contact.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit Uzair Waseem on GitHub"
-            >
-              <Code2 size={19} aria-hidden="true" />
-            </a>
+            <span className="social-actions">
+              <a
+                className="icon-link"
+                href={contact.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Uzair Waseem on LinkedIn"
+                title="LinkedIn"
+              >
+                <BriefcaseBusiness size={19} aria-hidden="true" />
+              </a>
+              <a
+                className="icon-link"
+                href={contact.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Uzair Waseem on GitHub"
+                title="GitHub"
+              >
+                <Code2 size={19} aria-hidden="true" />
+              </a>
+            </span>
           </div>
         </div>
         <HeroVisual />
