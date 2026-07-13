@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Maximize2 } from "lucide-react";
 import { notFound } from "next/navigation";
+import { SiteHeader } from "../../components/SiteHeader";
 
 const caseStudies = {
   "roster-command": {
@@ -11,6 +13,7 @@ const caseStudies = {
     ci: "https://github.com/Assembler-Fourier/employee-roster-command/actions/workflows/ci.yml",
     image: "/projects/roster-command-product.png",
     imageAlt: "Roster Command read-only recruiter dashboard with synthetic workforce data",
+    imageMode: "visual-roster",
     evidence: [
       ["Review path", "Signed read-only demo"],
       ["Delivery", "Passing GitHub Actions"],
@@ -68,6 +71,7 @@ const caseStudies = {
     ci: "https://github.com/Assembler-Fourier/housefair-ai/actions/workflows/ci.yml",
     image: "/projects/housefair-product.jpg",
     imageAlt: "HouseFair mobile screens for chores, groceries, money and house planning",
+    imageMode: "visual-house",
     evidence: [
       ["Release", "Free early access"],
       ["Delivery", "Passing GitHub Actions"],
@@ -125,6 +129,7 @@ const caseStudies = {
     ci: "https://github.com/Assembler-Fourier/irish-theory-test-coach/actions/workflows/security.yml",
     image: "/projects/theory-test-coach-product.png",
     imageAlt: "Irish Theory Test Coach learner workspace with a protected preview question",
+    imageMode: "visual-learning",
     evidence: [
       ["Content", "1,277 validated items"],
       ["Payments", "18 sandbox checks"],
@@ -203,7 +208,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!study) notFound();
 
   return (
-    <main className="case-page">
+    <>
+      <SiteHeader rootHref="/" sectionPrefix="/" />
+      <main className="case-page">
       <section className="case-hero">
         <div className="shell case-hero-grid">
           <div className="case-hero-copy">
@@ -217,8 +224,27 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <a href={study.ci} target="_blank" rel="noopener noreferrer">Inspect CI</a>
             </div>
           </div>
-          <div className="case-hero-media">
-            <Image src={study.image} alt={study.imageAlt} fill priority sizes="(max-width: 860px) 100vw, 520px" />
+          <div className={`case-hero-media ${study.imageMode}`}>
+            <div className="product-window">
+              <div className="product-window-bar" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+                <strong>{study.title}</strong>
+                <Maximize2 size={14} />
+              </div>
+              <div className="product-window-screen">
+                <Image
+                  className="product-shot"
+                  src={study.image}
+                  alt={study.imageAlt}
+                  fill
+                  priority
+                  quality={85}
+                  sizes="(max-width: 860px) calc(100vw - 56px), 520px"
+                />
+              </div>
+            </div>
             <div className="case-media-caption">
               <span>Actual product</span>
               <strong>{study.title}</strong>
@@ -281,7 +307,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }
 
