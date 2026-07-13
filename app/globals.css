@@ -71,8 +71,8 @@ svg {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(45, 212, 191, 0.5);
-  outline-offset: 4px;
+  outline: 3px solid #fbbf24;
+  outline-offset: 3px;
 }
 
 .skip-link {
@@ -133,8 +133,9 @@ svg {
   padding: 9px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(7, 11, 18, 0.68);
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+  border-color: rgba(148, 163, 184, 0.26);
+  background: rgba(5, 10, 17, 0.9);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.38);
   backdrop-filter: blur(18px);
 }
 
@@ -162,11 +163,11 @@ svg {
 }
 
 .brand-logo {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   flex: 0 0 auto;
-  border-radius: 8px;
-  box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.18), 0 0 28px rgba(45, 212, 191, 0.26);
+  border-radius: 9px;
+  box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.24), 0 0 30px rgba(45, 212, 191, 0.24);
 }
 
 .nav-links {
@@ -312,6 +313,15 @@ h1 {
   font-weight: 930;
   line-height: 0.96;
   letter-spacing: 0;
+}
+
+.headline-highlight {
+  color: #c9fff5;
+  text-decoration: underline;
+  text-decoration-color: rgba(45, 212, 191, 0.62);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.1em;
+  text-shadow: 0 0 32px rgba(45, 212, 191, 0.22);
 }
 
 .hero-lede {
@@ -1246,7 +1256,13 @@ h1 {
 }
 
 .project-card:hover .product-shot {
-  transform: perspective(1200px) scale(1.055) translateY(-3px) rotateX(0.7deg) rotateY(-1.2deg);
+  transform: scale(1.045);
+}
+
+.project-card:hover .product-window {
+  border-color: rgba(94, 234, 212, 0.46);
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.34);
+  transform: perspective(1100px) translateY(-4px) rotateX(0.8deg) rotateY(-1.2deg);
 }
 
 .project-card:hover .project-content {
@@ -1260,7 +1276,8 @@ h1 {
 }
 
 .project-visual {
-  min-height: 182px;
+  display: block;
+  min-height: 246px;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
   background:
@@ -1281,14 +1298,94 @@ h1 {
   transform: translateZ(16px);
 }
 
-.product-shot {
-  object-fit: cover;
-  object-position: center 22%;
-  transition: transform 360ms ease;
+.product-window {
+  position: absolute;
+  inset: 12px;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: 32px minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.34);
+  border-radius: 6px;
+  background: #071018;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28);
+  transform-style: preserve-3d;
+  transition:
+    transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 220ms ease,
+    box-shadow 360ms ease;
 }
 
-.project-visual.contact-sheet .product-shot {
-  object-position: center 10%;
+.product-window-bar {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 0 10px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  color: var(--muted);
+  background: rgba(7, 11, 18, 0.96);
+}
+
+.product-window-bar > span {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--rose);
+}
+
+.product-window-bar > span:nth-child(2) {
+  background: var(--amber);
+}
+
+.product-window-bar > span:nth-child(3) {
+  background: var(--teal);
+}
+
+.product-window-bar strong {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  margin-left: 4px;
+  color: #bfd0d2;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-window-bar svg {
+  flex: 0 0 auto;
+  color: var(--teal);
+}
+
+.product-window-screen {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background: #eef3f1;
+}
+
+.product-shot {
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.project-visual.visual-roster .product-shot {
+  object-position: center 5%;
+}
+
+.project-visual.visual-house .product-shot {
+  object-position: center 3%;
+}
+
+.project-visual.visual-learning .product-shot {
+  object-position: center 24%;
 }
 
 .product-shot-overlay {
@@ -1297,6 +1394,8 @@ h1 {
   background:
     linear-gradient(180deg, rgba(7, 11, 18, 0.02) 42%, rgba(7, 11, 18, 0.88) 100%),
     linear-gradient(90deg, rgba(7, 11, 18, 0.18), transparent 46%);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .product-shot-overlay::after {
@@ -1310,8 +1409,9 @@ h1 {
 
 .product-shot-label {
   position: absolute;
-  left: 14px;
-  bottom: 12px;
+  left: 24px;
+  bottom: 20px;
+  z-index: 4;
   display: grid;
   gap: 1px;
   transition: transform 240ms ease;
@@ -2047,10 +2147,33 @@ h1 {
 }
 
 .role-card {
+  position: relative;
+  overflow: hidden;
   padding: 16px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(15, 23, 42, 0.62);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.role-card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  content: "";
+  background: linear-gradient(180deg, var(--blue), var(--teal), var(--amber));
+  opacity: 0.72;
+}
+
+.role-card:hover {
+  border-color: rgba(45, 212, 191, 0.42);
+  background: rgba(15, 23, 42, 0.82);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
+  transform: translateY(-4px);
 }
 
 .role-heading {
@@ -2082,7 +2205,9 @@ h1 {
 
 .experience-section {
   color: #15201d;
-  background: #f4f6f3;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 89px, rgba(15, 118, 110, 0.045) 90px 91px),
+    #f4f6f3;
 }
 
 .experience-layout,
@@ -2100,8 +2225,21 @@ h1 {
 }
 
 .timeline {
+  position: relative;
   display: grid;
   gap: 12px;
+  padding-left: 26px;
+  counter-reset: experience;
+}
+
+.timeline::before {
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  left: 5px;
+  width: 1px;
+  content: "";
+  background: linear-gradient(180deg, #0f766e, rgba(15, 118, 110, 0.16));
 }
 
 .timeline-card,
@@ -2118,9 +2256,54 @@ h1 {
 }
 
 .experience-section .timeline-card {
+  position: relative;
+  counter-increment: experience;
   border-color: #d5ddd9;
+  border-left: 3px solid rgba(15, 118, 110, 0.5);
   background: #ffffff;
   box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.experience-section .timeline-card::before {
+  position: absolute;
+  top: 25px;
+  left: -34px;
+  width: 11px;
+  height: 11px;
+  border: 3px solid #f4f6f3;
+  border-radius: 999px;
+  content: "";
+  background: #0f766e;
+  box-shadow: 0 0 0 1px rgba(15, 118, 110, 0.38);
+}
+
+.experience-section .timeline-card::after {
+  position: absolute;
+  top: 22px;
+  right: 20px;
+  color: rgba(15, 118, 110, 0.1);
+  content: "0" counter(experience);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.experience-section .timeline-card:hover {
+  border-color: rgba(15, 118, 110, 0.46);
+  box-shadow: 0 24px 58px rgba(15, 23, 42, 0.12);
+  transform: translateX(4px);
+}
+
+.experience-section .timeline-top,
+.experience-section .timeline-card ul {
+  position: relative;
+  z-index: 1;
 }
 
 .experience-section .timeline-top {
@@ -2214,9 +2397,30 @@ h1 {
 }
 
 .education-card {
+  position: relative;
+  overflow: hidden;
   padding: 18px;
   border-color: #d2dcd7;
   background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.05);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.education-card::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  content: "";
+  background: linear-gradient(90deg, #0f766e, #38bdf8, #fbbf24);
+}
+
+.education-card:hover {
+  border-color: rgba(15, 118, 110, 0.36);
+  box-shadow: 0 22px 48px rgba(15, 23, 42, 0.09);
+  transform: translateY(-4px);
 }
 
 .education-card small {
@@ -2336,11 +2540,28 @@ h1 {
   object-position: center top;
 }
 
+.case-hero-media .product-window {
+  inset: 14px;
+}
+
+.case-hero-media.visual-roster .product-shot {
+  object-position: center 5%;
+}
+
+.case-hero-media.visual-house .product-shot {
+  object-position: center 3%;
+}
+
+.case-hero-media.visual-learning .product-shot {
+  object-position: center 24%;
+}
+
 .case-media-caption {
   position: absolute;
   left: 14px;
   right: 14px;
   bottom: 14px;
+  z-index: 4;
   display: grid;
   gap: 2px;
   padding: 11px;
@@ -2995,7 +3216,7 @@ h1 {
   }
 
   .project-card:first-child .project-visual {
-    min-height: 182px;
+    min-height: 246px;
     border-right: 0;
     border-bottom: 1px solid var(--line);
   }
@@ -3221,7 +3442,23 @@ h1 {
 
   .project-visual,
   .project-card:first-child .project-visual {
-    min-height: 164px;
+    min-height: 230px;
+  }
+
+  .timeline {
+    padding-left: 19px;
+  }
+
+  .timeline::before {
+    left: 3px;
+  }
+
+  .experience-section .timeline-card::before {
+    left: -26px;
+  }
+
+  .experience-section .timeline-card::after {
+    display: none;
   }
 
   .roster-preview,

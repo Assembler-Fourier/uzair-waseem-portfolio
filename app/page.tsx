@@ -13,6 +13,7 @@ import {
   GitBranch,
   Mail,
   MapPin,
+  Maximize2,
   MessageCircle,
   Phone,
   ServerCog,
@@ -21,6 +22,7 @@ import {
 } from "lucide-react";
 import DeliverySystemScene from "./components/DeliverySystemScene";
 import EngineeringScene from "./components/EngineeringScene";
+import { SiteHeader } from "./components/SiteHeader";
 
 const siteUrl = "https://uzairwaseem.com";
 
@@ -344,7 +346,7 @@ export default function Home() {
       />
       <a className="skip-link" href="#content">Skip to main content</a>
       <div className="page-progress" aria-hidden="true" />
-      <Header />
+      <SiteHeader />
       <main id="content">
         <Hero />
         <ProofStrip />
@@ -356,23 +358,6 @@ export default function Home() {
         <ContactCTA />
       </main>
     </>
-  );
-}
-
-function Header() {
-  return (
-    <header className="site-header" aria-label="Primary navigation">
-      <a className="brand" href="#top" aria-label="Uzair Waseem portfolio home">
-        <Image className="brand-logo" src="/uzair-waseem-logo.svg" alt="" width={28} height={28} aria-hidden="true" />
-        <span>Uzair Waseem</span>
-      </a>
-      <nav className="nav-links">
-        <a href="#work">Work</a>
-        <a href="#roles">Fit</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
   );
 }
 
@@ -392,7 +377,9 @@ function Hero() {
             <span className="eyebrow muted">Open to Ireland · hybrid · remote</span>
           </div>
           <p className="intro-label">Uzair Waseem · Software Engineer</p>
-          <h1>Full-stack engineer shipping tested products and backend systems.</h1>
+          <h1>
+            Full-stack engineer shipping <span className="headline-highlight">tested products</span> and backend systems.
+          </h1>
           <p className="hero-lede">
             I turn operational problems into production-shaped software with TypeScript, React, Node.js, PostgreSQL and Playwright. My cybersecurity MSc strengthens the way I design authentication, data isolation and delivery risk.
           </p>
@@ -580,8 +567,8 @@ function SelectedWork() {
       <div className="shell">
         <SectionHeading
           eyebrow="Selected work"
-          title="Real interfaces first. Architecture and verification one click behind."
-          text="Each product exposes a working review path, source, automated checks, security boundaries and the limitations that still remain."
+          title="Real products. Live systems. Evidence one click behind."
+          text="Each product pairs a real interface with a working review path, source, automated checks, security boundaries and honest limitations."
         />
         <div className="project-grid">
           {projects.map((project) => (
@@ -674,20 +661,37 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
 
 function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
   return (
-    <div className={`project-visual visual-${project.visual} ${project.imageMode}`}>
-      <Image
-        className="product-shot"
-        src={project.image}
-        alt={project.imageAlt}
-        fill
-        sizes="(max-width: 860px) 100vw, 560px"
-      />
-      <div className="product-shot-overlay" aria-hidden="true" />
+    <a
+      className={`project-visual visual-${project.visual} ${project.imageMode}`}
+      href={project.caseStudy}
+      aria-label={`Explore the ${project.title} case study`}
+      title={`Open ${project.title} case study`}
+    >
+      <div className="product-window">
+        <div className="product-window-bar" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <strong>{project.title}</strong>
+          <Maximize2 size={14} />
+        </div>
+        <div className="product-window-screen">
+          <Image
+            className="product-shot"
+            src={project.image}
+            alt={project.imageAlt}
+            fill
+            quality={85}
+            sizes="(max-width: 860px) calc(100vw - 28px), (max-width: 1200px) 50vw, 560px"
+          />
+          <div className="product-shot-overlay" aria-hidden="true" />
+        </div>
+      </div>
       <div className="product-shot-label">
         <span>Actual product</span>
         <strong>{project.title}</strong>
       </div>
-    </div>
+    </a>
   );
 }
 
