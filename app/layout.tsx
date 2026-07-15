@@ -5,7 +5,7 @@ const siteUrl = "https://uzairwaseem.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Uzair Waseem | Full-Stack Software Engineer in Dublin",
+  title: "Uzair Waseem | Software Engineer in Dublin",
   description:
     "Uzair Waseem is a Dublin-based software engineer building full-stack products, backend APIs, QA automation and security-aware delivery workflows with TypeScript, React, Node.js, PostgreSQL and Playwright.",
   applicationName: "Uzair Waseem Portfolio",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "Uzair Waseem | Full-Stack Software Engineer in Dublin",
+    title: "Uzair Waseem | Software Engineer in Dublin",
     description:
       "Dublin-based software engineer building full-stack products, backend APIs, QA automation and secure delivery workflows.",
     url: siteUrl,
@@ -71,13 +71,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Uzair Waseem, full-stack software engineer in Dublin"
+        alt: "Uzair Waseem, software engineer in Dublin"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Uzair Waseem | Full-Stack Software Engineer in Dublin",
+    title: "Uzair Waseem | Software Engineer in Dublin",
     description:
       "Dublin-based engineer building tested full-stack products, APIs and automation.",
     images: ["/opengraph-image"]

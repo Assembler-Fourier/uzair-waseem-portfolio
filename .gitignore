@@ -5,6 +5,10 @@ out/
 dist/
 tmp/
 output/
+.audit/
+.next-server.pid
+playwright-report/
+test-results/
 *.log
 *.tsbuildinfo
 .env*

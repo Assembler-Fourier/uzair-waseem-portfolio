@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Uzair Waseem, Dublin full-stack engineer shipping tested products and backend systems";
+export const alt = "Uzair Waseem, Dublin software engineer building tested full-stack products and backend APIs";
 
 export const size = {
   width: 1200,
@@ -64,7 +64,7 @@ export default function Image() {
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ maxWidth: 940, fontSize: 72, fontWeight: 900, lineHeight: 0.98 }}>
-            Full-stack engineer shipping tested products and backend systems.
+            Software engineer building tested full-stack products and backend APIs.
           </div>
           <div style={{ maxWidth: 920, marginTop: 28, color: "#bad6d2", fontSize: 30 }}>
             Real products | Live systems | Security-aware delivery

@@ -2,52 +2,65 @@
 
 [![Portfolio CI](https://github.com/Assembler-Fourier/uzair-waseem-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Assembler-Fourier/uzair-waseem-portfolio/actions/workflows/ci.yml)
 [![Live site](https://img.shields.io/badge/live-uzairwaseem.com-0f766e)](https://uzairwaseem.com)
-[![Next.js](https://img.shields.io/badge/Next.js-16-111827)](https://nextjs.org/)
 
-Recruiter-focused portfolio for **Uzair Waseem**, a Dublin-based software engineer building full-stack products, backend APIs, QA automation, and security-aware delivery workflows.
+Recruiter-focused portfolio for **Uzair Waseem**, a Dublin-based software engineer working with TypeScript, React, Node.js, PostgreSQL and Playwright across tested full-stack products and backend APIs.
 
 ![Uzair Waseem portfolio showing live engineering proof](.github/assets/portfolio-preview.png)
 
 ## Reviewer Path
 
 1. Open the [live portfolio](https://uzairwaseem.com) for the concise hiring overview.
-2. Start with the privacy-safe [Roster Command demo](https://employee-roster-command.vercel.app/?demo=1).
-3. Inspect [HouseFair](https://github.com/Assembler-Fourier/housefair-ai) for authenticated Next.js, PostgreSQL RLS, PWA, and Playwright work.
-4. Inspect [Irish Theory Test Coach](https://github.com/Assembler-Fourier/irish-theory-test-coach) for serverless APIs, payments, accessibility, content QA, and explicit release gates.
-5. Download the [one-page CV](https://uzairwaseem.com/Uzair-Waseem-CV.pdf).
+2. Start with [HouseFair](https://github.com/Assembler-Fourier/housefair-ai), the primary full-stack flagship.
+3. Review the [Roster Command public engineering extract](https://github.com/Assembler-Fourier/employee-roster-command), which contains selected sanitised domain logic and synthetic fixtures rather than the private application.
+4. Inspect the [Irish Theory Test Coach](https://github.com/Assembler-Fourier/irish-theory-test-coach) pre-launch product and its explicit release blockers.
+5. Review the [QA Automation Lab](https://github.com/Assembler-Fourier/qa-automation-lab) for browser, API, accessibility, mocking and CI evidence.
+6. Download the [one-page software engineering CV](https://uzairwaseem.com/Uzair-Waseem-CV.pdf).
+
+## Public Project Status
+
+| Project | Public boundary | Review path |
+| --- | --- | --- |
+| HouseFair | Live free early-access product | App, source, mobile Playwright checks |
+| Roster Command | Public engineering extract; full application remains private | Sanitised logic, synthetic fixtures, 23 tests, separate read-only recruiter demo |
+| Irish Theory Test Coach | Pre-launch public preview | Custom domain, source, full local QA, documented commercial blockers |
+| QA Automation Lab | Public CI-backed test suite | 26 contracts, live read-only smoke, isolated local writes, failure artifacts |
 
 ## What This Repository Demonstrates
 
-- Responsive Next.js App Router implementation with semantic HTML and keyboard-visible focus states.
-- Compact case studies that link claims to live applications, source, tests, and current limitations.
-- Search metadata, canonical URLs, Open Graph output, `Person` and `WebSite` JSON-LD, robots, and sitemap routes.
-- A reproducible one-page PDF CV generator with stable legacy download URLs.
-- Permanent `www` to apex-domain redirects and a Vercel production deployment.
-- Reduced-motion support and custom CSS/SVG-style product visuals without stock project imagery.
+- Next.js App Router implementation with semantic HTML and keyboard-visible focus states.
+- Evidence-led case studies that distinguish live products, previews, demos and source extracts.
+- Canonical metadata, Open Graph output, `Person` and `WebSite` JSON-LD, robots and sitemap routes.
+- Responsive recruiter-path checks from 320px through desktop.
+- WebGL scene pixel-signal checks at mobile and desktop sizes.
+- Content Security Policy and baseline browser security headers.
+- A custom 404, reduced-motion support and accessible external-link labels.
 
 ## Architecture
 
 ```text
 app/
-  layout.tsx                 Global metadata and viewport configuration
-  page.tsx                   Hiring page and structured data
-  projects/[slug]/page.tsx   Evidence-led project case studies
-  opengraph-image.tsx        Generated social preview
-  robots.ts / sitemap.ts     Crawl configuration
-public/                      Portrait, logo, CV, and static assets
-scripts/generate_cv.py       Canonical CV generation and publishing
+  layout.tsx                   Global metadata and viewport configuration
+  page.tsx                     Hiring page, project evidence and JSON-LD
+  projects/[slug]/page.tsx     Four evidence-led case studies
+  components/                  Navigation and performance-bounded Three.js scenes
+  not-found.tsx                Recruiter-friendly 404
+  opengraph-image.tsx          Generated social preview
+  robots.ts / sitemap.ts       Crawl configuration
+public/                        Portrait, product screenshots, logo and CV
+tests/                         Playwright recruiter-path, responsive and WebGL checks
+scripts/generate_cv.py         Reproducible PDF generation
 ```
 
 ## Quality Gates
 
-Pull requests and pushes to `main` run the same checks used locally:
-
 ```bash
 npm ci
-npm run check
+npx playwright install chromium
+npm run qa
+npm run audit
 ```
 
-`npm run check` runs TypeScript validation followed by a production Next.js build. The public site is also checked after deployment for route availability, redirects, console errors, responsive overflow, and downloadable CV delivery.
+`npm run qa` runs ESLint, TypeScript, the production build, browser journeys, mobile overflow checks, the custom 404, CV delivery and nonblank WebGL assertions. GitHub Actions uploads Playwright reports and failure evidence for review.
 
 ## Local Development
 
@@ -56,21 +69,23 @@ npm ci
 npm run dev
 ```
 
-Open `http://localhost:3000` and use `npm run check` before proposing changes.
+Open `http://localhost:3000`. The Playwright configuration starts its own production server on port 4173.
 
 ## CV Generation
 
-The downloadable CV is generated from `scripts/generate_cv.py`. It creates one canonical, single-column recruiter CV and copies it to the primary download path plus legacy role-specific URLs so older links remain valid.
+The software/backend and QA automation CVs are generated from `scripts/generate_cv.py` and served from `public/`. The main download uses the software version, while the QA-specific route receives distinct QA content. Older role-specific routes remain available so links already submitted to recruiters do not break.
 
 ```bash
 python scripts/generate_cv.py
 ```
 
-Generated PDFs are published under `public/` and served by the live site.
+## Privacy And Accuracy
 
-## Security
-
-This repository contains no application secrets. See [SECURITY.md](SECURITY.md) for responsible reporting. Project pages distinguish public demos from private or pre-launch boundaries instead of presenting every build as production-ready.
+- The public portfolio does not publish a personal phone number or residential address.
+- Work-authorisation wording is intentionally absent until the exact current permission is confirmed.
+- Roster Command is labelled as an engineering extract, not a complete public application.
+- Theory Test Coach is labelled pre-launch until real provider, payment and commercial checks are complete.
+- Experience dates and titles require candidate confirmation before future changes.
 
 ## Contact
 

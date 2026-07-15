@@ -7,66 +7,64 @@ import { SiteHeader } from "../../components/SiteHeader";
 const caseStudies = {
   "roster-command": {
     title: "Roster Command",
-    label: "Flagship workforce operations product",
+    label: "Privacy-safe public engineering extract",
     repo: "https://github.com/Assembler-Fourier/employee-roster-command",
+    repoLabel: "Review public extract",
     live: "https://employee-roster-command.vercel.app/?demo=1",
     ci: "https://github.com/Assembler-Fourier/employee-roster-command/actions/workflows/ci.yml",
     image: "/projects/roster-command-product.png",
     imageAlt: "Roster Command read-only recruiter dashboard with synthetic workforce data",
     imageMode: "visual-roster",
     evidence: [
-      ["Review path", "Signed read-only demo"],
+      ["Source", "Selected domain logic"],
       ["Delivery", "Passing GitHub Actions"],
-      ["Quality", "Unit and browser tests"],
+      ["Quality", "23 Vitest checks"],
       ["Boundary", "Synthetic data only"]
     ],
-    architecture: ["React manager and employee UI", "Scoped Node.js APIs", "Supabase PostgreSQL", "Private provider integrations"],
+    architecture: ["Synthetic input contracts", "Coverage and urgency engines", "Explainable deterministic ranking", "Vitest edge-case suite"],
     problem:
       "A weekly spreadsheet process made it difficult to distinguish genuinely urgent coverage gaps from future planning work, explain who could cover safely, and keep manager actions auditable.",
     role:
-      "I designed and built the manager command centre, scheduling domain logic, employee experience, scoped APIs, import workflows, testing strategy, privacy boundary and Vercel delivery path.",
+      "I extracted, sanitised and documented the scheduling domain logic, then strengthened validation, deterministic ranking and edge-case coverage without publishing private operational code or data.",
     stack: [
-      "React 18",
       "TypeScript",
-      "Vite",
-      "Node.js serverless APIs",
-      "Supabase PostgreSQL",
       "Vitest",
-      "Playwright",
       "GitHub Actions",
-      "PWA"
+      "Synthetic fixtures",
+      "Domain modeling"
     ],
     features: [
       "Urgency ranking across critical, high, medium, planning, future and missed work",
       "Explainable cover suggestions using conflicts, holidays, recency and working patterns",
-      "Weekly planner plus employee, site, holiday, communication and review workflows",
-      "Separate mobile employee route with scoped visibility and shift controls",
-      "Read-only roster import with staged diffs, normalization and audit records"
+      "Employee lifecycle and site-restriction handling",
+      "Deterministic tie-breaking with evidence for every suggested employee",
+      "Strict invalid date/time and multi-day-shift handling"
     ],
     testing: [
-      "Unit tests cover yellow rows, workflow timing, lead time, overlap, holidays and specialist behavior",
-      "The public demo test rejects mutation attempts",
-      "CI runs type checking, lint, tests and a production build",
-      "The latest public GitHub Actions run is passing"
+      "Twenty-three tests cover overlap, overnight and multi-day shifts, invalid inputs and missing end times",
+      "Fixtures cover duplicate records, same-name employees and stable tie-breaking",
+      "Type checking and tests run together through the repository check command",
+      "GitHub Actions runs the same public verification command"
     ],
     deployment:
-      "The same Vercel application supports the private manager system and a locked recruiter demo. Use demo@rostercommand.app with password threadstone-demo for the synthetic, read-only path.",
+      "The public repository is not the complete application. A separate recruiter URL demonstrates a synthetic, read-only boundary; the extract contains selected scheduling logic and no private UI, database or provider integration.",
     security:
-      "Opaque HttpOnly sessions, CSRF protection, SameSite cookies, rate limits and role checks protect the private workflow. Demo routing branches before database initialization, serves bundled synthetic data and rejects writes server-side.",
+      "No employer, employee or client records are included. Employee IDs, deduplication and synthetic fixtures reduce accidental identity ambiguity in the public examples.",
     tradeoffs:
-      "Operational records and provider credentials stay private. The public repository contains privacy-scrubbed history, selected production domain code, synthetic fixtures, tests and architecture notes rather than exposing workforce data.",
+      "The extract proves scheduling decisions and test quality, not the private application's full React, database, authentication or deployment implementation.",
     next: [
-      "Expand browser coverage for manager exception workflows",
-      "Add external error monitoring and service-level alerts",
-      "Continue simplifying dense planner states on small screens"
+      "Add property-based coverage around interval boundaries",
+      "Document additional anonymised decision examples",
+      "Integrate the hardened domain package back into the private application after owner review"
     ],
     proves:
-      "A real operational problem taken through product design, domain modeling, privacy-aware architecture, automated testing and live delivery."
+      "Privacy-aware extraction, scheduling domain modeling, explainable ranking and disciplined edge-case testing."
   },
   housefair: {
     title: "HouseFair",
-    label: "Full-stack shared-living SaaS",
+    label: "Flagship full-stack shared-living product",
     repo: "https://github.com/Assembler-Fourier/housefair-ai",
+    repoLabel: "Review source",
     live: "https://housemates-sand.vercel.app",
     ci: "https://github.com/Assembler-Fourier/housefair-ai/actions/workflows/ci.yml",
     image: "/projects/housefair-product.jpg",
@@ -102,7 +100,7 @@ const caseStudies = {
       "Explainable, recommendation-only fairness planning"
     ],
     testing: [
-      "Mobile Playwright coverage runs across Android and iPhone PWA viewports",
+      "Twelve mobile Playwright checks pass across Android and iPhone PWA viewports",
       "Regression paths cover identity, tasks, proof, groceries, money, notifications and settings",
       "GitHub Actions runs lint, production build and the mobile suite",
       "The latest CI run is passing"
@@ -125,22 +123,23 @@ const caseStudies = {
     title: "Irish Theory Test Coach",
     label: "Pre-launch EdTech product",
     repo: "https://github.com/Assembler-Fourier/irish-theory-test-coach",
-    live: "https://irish-theory-test-coach-assembler-fourier-job-work.vercel.app",
+    repoLabel: "Review source",
+    live: "https://irishtheorycoach.ie",
     ci: "https://github.com/Assembler-Fourier/irish-theory-test-coach/actions/workflows/security.yml",
     image: "/projects/theory-test-coach-product.png",
     imageAlt: "Irish Theory Test Coach learner workspace with a protected preview question",
     imageMode: "visual-learning",
     evidence: [
       ["Content", "1,277 validated items"],
-      ["Payments", "18 sandbox checks"],
-      ["Delivery", "11 deploy checks"],
+      ["Quality", "Full local QA passing"],
+      ["Domain", "Custom URL active"],
       ["Boundary", "Pre-launch review"]
     ],
     architecture: ["Static learner PWA", "Vercel Functions", "Neon PostgreSQL", "Stripe and private content adapters"],
     problem:
       "Learner drivers need structured practice, useful revision feedback and trustworthy progress signals without exposing premium answers or relying on unsupported exam-frequency claims.",
     role:
-      "I built the product design, learner experience, content pipeline, serverless APIs, database model, payment flows, passwordless accounts, operator tooling, automated QA and deployment evidence.",
+      "I built the learner experience, content pipeline, serverless APIs, payment and passwordless-account adapters, operator tooling, automated QA and release documentation.",
     stack: [
       "Modern JavaScript",
       "Vercel Functions",
@@ -160,23 +159,79 @@ const caseStudies = {
     ],
     testing: [
       "The current pipeline validates 1,277 structured practice items",
-      "18 of 18 Stripe sandbox scenarios pass",
-      "11 of 11 post-deploy checks pass",
-      "Accessibility checks cover seven product states with no critical axe findings in the latest audit"
+      "Payment policy, webhook and entitlement transitions pass mocked automated checks",
+      "Mobile E2E checks cover learner, paywall, restore and legal routes",
+      "Accessibility checks cover ten states with no critical axe findings in the latest local run"
     ],
     deployment:
-      "The full commercial build is available as a Vercel preview using Stripe sandbox payments. It is an independent practice product and is not affiliated with RSA or Prometric.",
+      "The custom-domain public preview is active. It is an independent practice product and is not affiliated with RSA or Prometric; paid launch remains blocked pending real provider and commercial verification.",
     security:
       "Premium sessions are selected server-side, correct answers are withheld until submission, payments use signed idempotent webhooks, and admin endpoints enforce server-side roles.",
     tradeoffs:
-      "Production promotion is deliberately gated on custom-domain activation, credential rotation and legal/content review. The website does not claim official exam frequency or guaranteed outcomes.",
+      "Commercial launch is deliberately gated on real Stripe/database evidence, suitable business identity details and legal/content review. The website does not claim official exam frequency or guaranteed outcomes.",
     next: [
       "Complete legal and content-rights review",
-      "Activate and verify the custom domain",
-      "Rotate final production credentials before promotion"
+      "Run and record a real Stripe test-mode purchase, webhook and reconciliation flow",
+      "Configure production-only operator and database services before paid launch"
     ],
     proves:
       "End-to-end product delivery across UX, serverless architecture, data quality, payments, security, accessibility and release operations."
+  },
+  "qa-automation-lab": {
+    title: "QA Automation Lab",
+    label: "Playwright release-contract suite",
+    repo: "https://github.com/Assembler-Fourier/qa-automation-lab",
+    repoLabel: "Review test suite",
+    live: "https://github.com/Assembler-Fourier/qa-automation-lab/actions/workflows/ci.yml",
+    ci: "https://github.com/Assembler-Fourier/qa-automation-lab/actions/workflows/ci.yml",
+    image: "/projects/qa-automation-lab-product.png",
+    imageAlt: "Playwright report showing QA Automation Lab release-contract results",
+    imageMode: "visual-qa",
+    evidence: [
+      ["Coverage", "26 listed contracts"],
+      ["Live policy", "Read-only checks"],
+      ["UI", "Route-mocked regression"],
+      ["Evidence", "Trace, media and HTML"]
+    ],
+    architecture: ["Environment URL fixtures", "Page objects and HTTP helpers", "API and mocked UI suites", "CI reports and failure artifacts"],
+    problem:
+      "Public portfolios often drift: links fail, CVs disappear, live products change and API contracts break without a single release boundary detecting the regression.",
+    role:
+      "I designed the suite boundaries, fixtures, page objects, negative tests, route mocks, accessibility checks and CI jobs around public evidence that can be verified without private credentials.",
+    stack: [
+      "Playwright",
+      "Node.js",
+      "APIRequestContext",
+      "axe-core",
+      "GitHub Actions",
+      "HTML reports"
+    ],
+    features: [
+      "Mobile recruiter journey with stable role and label locators",
+      "SEO, JSON-LD, PDF, security-header and 404 contracts",
+      "Read-only live API smoke checks plus opt-in isolated writes",
+      "Deterministic UI regression through network interception",
+      "Data-driven filters and project case-study checks"
+    ],
+    testing: [
+      "Twenty-six tests are listed across five focused files",
+      "Thirteen local SecureTaskOps API/UI checks pass with isolated writes enabled",
+      "Seven live read-only API checks pass while three write checks are intentionally skipped",
+      "Dependency audit reports no known vulnerabilities"
+    ],
+    deployment:
+      "GitHub Actions separates local writable regression, live read-only smoke and portfolio/product contracts. Each job uploads HTML reports and failure evidence for 14 days.",
+    security:
+      "The suite contains no credentials, grants Actions read-only repository permissions and never enables mutation tests against the shared live deployment.",
+    tradeoffs:
+      "Public checks cannot verify private authentication, database isolation or payment settlement. Deep product tests remain in each owning repository.",
+    next: [
+      "Add authenticated storage-state reuse only when a dedicated non-production identity exists",
+      "Introduce contract versioning when APIs gain stable published schemas",
+      "Add scheduled availability checks after defining an incident ownership path"
+    ],
+    proves:
+      "QA automation across browser journeys, API contracts, accessibility, controlled test data, failure triage and CI evidence."
   }
 };
 
@@ -220,7 +275,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <p>{study.proves}</p>
             <div className="case-actions">
               <a href={study.live} target="_blank" rel="noopener noreferrer">Open live product</a>
-              <a href={study.repo} target="_blank" rel="noopener noreferrer">Review source</a>
+              <a href={study.repo} target="_blank" rel="noopener noreferrer">{study.repoLabel}</a>
               <a href={study.ci} target="_blank" rel="noopener noreferrer">Inspect CI</a>
             </div>
           </div>
