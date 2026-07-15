@@ -1199,6 +1199,18 @@ h1 {
   border-bottom: 0;
 }
 
+.project-card:last-child {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.18fr);
+}
+
+.project-card:last-child .project-visual {
+  min-height: 100%;
+  border-right: 1px solid var(--line);
+  border-bottom: 0;
+}
+
 .project-card {
   position: relative;
   overflow: hidden;
@@ -1243,6 +1255,10 @@ h1 {
 
 .project-card:nth-child(3)::after {
   animation-delay: 3.4s;
+}
+
+.project-card:nth-child(4)::after {
+  animation-delay: 5.1s;
 }
 
 .project-card:hover {
@@ -1386,6 +1402,10 @@ h1 {
 
 .project-visual.visual-learning .product-shot {
   object-position: center 24%;
+}
+
+.project-visual.visual-qa .product-shot {
+  object-position: center 8%;
 }
 
 .product-shot-overlay {
@@ -2556,6 +2576,58 @@ h1 {
   object-position: center 24%;
 }
 
+.case-hero-media.visual-qa .product-shot {
+  object-position: center 8%;
+}
+
+.not-found-page {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  overflow: hidden;
+  padding: 120px 20px 60px;
+  background:
+    radial-gradient(circle at 72% 24%, rgba(45, 212, 191, 0.14), transparent 32%),
+    var(--bg);
+}
+
+.not-found-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(94, 234, 212, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 234, 212, 0.12) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
+.not-found-content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 760px);
+}
+
+.not-found-content h1 {
+  max-width: 680px;
+  margin: 10px 0 18px;
+  font-size: clamp(2.4rem, 7vw, 5.4rem);
+  line-height: 0.98;
+}
+
+.not-found-content > p:not(.intro-label) {
+  max-width: 620px;
+  color: var(--text-soft);
+  font-size: 1.05rem;
+}
+
+.not-found-content .case-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .case-media-caption {
   position: absolute;
   left: 14px;
@@ -3215,7 +3287,17 @@ h1 {
     grid-template-columns: 1fr;
   }
 
+  .project-card:last-child {
+    grid-template-columns: 1fr;
+  }
+
   .project-card:first-child .project-visual {
+    min-height: 246px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project-card:last-child .project-visual {
     min-height: 246px;
     border-right: 0;
     border-bottom: 1px solid var(--line);
@@ -3441,7 +3523,8 @@ h1 {
   }
 
   .project-visual,
-  .project-card:first-child .project-visual {
+  .project-card:first-child .project-visual,
+  .project-card:last-child .project-visual {
     min-height: 230px;
   }
 

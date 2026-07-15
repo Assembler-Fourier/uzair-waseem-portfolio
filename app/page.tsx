@@ -14,8 +14,6 @@ import {
   Mail,
   MapPin,
   Maximize2,
-  MessageCircle,
-  Phone,
   ServerCog,
   ShieldCheck,
   Sparkles
@@ -28,9 +26,6 @@ const siteUrl = "https://uzairwaseem.com";
 
 const contact = {
   email: "uzairwaseem29@gmail.com",
-  phone: "+353 89 973 9932",
-  whatsapp:
-    "https://wa.me/353899739932?text=Hi%20Uzair%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect.",
   cv: "/Uzair-Waseem-CV.pdf",
   linkedin: "https://www.linkedin.com/in/uzair-waseem",
   github: "https://github.com/Assembler-Fourier"
@@ -51,7 +46,7 @@ const stackChips = [
 
 const proofItems = [
   ["Location", "Dublin, Ireland"],
-  ["Product proof", "3 reviewable builds"],
+  ["Product proof", "4 reviewable projects"],
   ["Backend", "Node.js + PostgreSQL"],
   ["Quality", "CI + Playwright"],
   ["Education", "MSc Cybersecurity"],
@@ -109,54 +104,58 @@ const companies = [
 
 const projects = [
   {
-    title: "Roster Command",
-    category: "Flagship · Workforce operations",
-    visual: "roster",
-    summary:
-      "Turned a spreadsheet-heavy weekly scheduling process into a manager command centre that ranks coverage gaps and explains who can realistically help.",
-    outcome:
-      "The private system supports real operations; the recruiter demo uses a signed, read-only synthetic session and rejects writes server-side.",
-    proof:
-      "React, TypeScript, Node.js APIs, Supabase PostgreSQL, Vitest, Playwright, PWA and GitHub Actions.",
-    status: "Live product · Privacy-safe recruiter demo",
-    image: "/projects/roster-command-product.png",
-    imageAlt: "Roster Command recruiter demo showing the read-only workforce operations dashboard",
-    imageMode: "dashboard",
-    evidence: [
-      ["Demo", "Read-only"],
-      ["CI", "Passing"],
-      ["Coverage", "Unit + browser"]
-    ],
-    ci: "https://github.com/Assembler-Fourier/employee-roster-command/actions/workflows/ci.yml",
-    stack: ["TypeScript", "React", "PostgreSQL", "Playwright", "PWA", "CI"],
-    repository: "https://github.com/Assembler-Fourier/employee-roster-command",
-    live: "https://employee-roster-command.vercel.app/?demo=1",
-    caseStudy: "/projects/roster-command"
-  },
-  {
     title: "HouseFair",
-    category: "Full-stack SaaS · Shared living",
+    category: "Flagship · Full-stack shared living product",
     visual: "house",
     summary:
       "Built a mobile-first household workspace for recurring chores, groceries, shared expenses and calmer issue reporting.",
     outcome:
-      "The multi-household build isolates data by membership, keeps AI recommendations explainable and ships as an installable PWA.",
+      "The early-access build scopes household data by membership and delivers shared-living workflows through an installable PWA.",
     proof:
-      "Next.js 16, React 19, TypeScript, Supabase Auth/PostgreSQL/RLS, Stripe foundation and mobile Playwright regression tests.",
-    status: "Live early access · CI passing",
+      "Next.js 16, React 19, TypeScript, Supabase Auth/PostgreSQL/RLS, Zod, Playwright and GitHub Actions.",
+    status: "Live product · Free early access",
     image: "/projects/housefair-product.jpg",
     imageAlt: "HouseFair mobile product screens for chores, groceries, shared money and house planning",
     imageMode: "contact-sheet",
     evidence: [
       ["Release", "Early access"],
       ["CI", "Passing"],
-      ["Coverage", "Mobile E2E"]
+      ["Coverage", "12 mobile E2E"]
     ],
     ci: "https://github.com/Assembler-Fourier/housefair-ai/actions/workflows/ci.yml",
-    stack: ["Next.js", "TypeScript", "Supabase", "Stripe", "Playwright", "PWA"],
+    stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Playwright", "PWA"],
     repository: "https://github.com/Assembler-Fourier/housefair-ai",
     live: "https://housemates-sand.vercel.app",
+    primaryLabel: "Live app",
+    sourceLabel: "Source",
     caseStudy: "/projects/housefair"
+  },
+  {
+    title: "Roster Command",
+    category: "Public engineering extract · Workforce operations",
+    visual: "roster",
+    summary:
+      "Published selected, sanitised scheduling logic from a private roster system without exposing employer or employee data.",
+    outcome:
+      "The extract demonstrates deterministic cover ranking, overlap handling, availability rules and explainable decisions across edge cases.",
+    proof:
+      "TypeScript domain modules, synthetic fixtures, 23 Vitest checks, architecture notes and GitHub Actions.",
+    status: "Public engineering extract · Synthetic data only",
+    image: "/projects/roster-command-product.png",
+    imageAlt: "Roster Command recruiter demo showing a synthetic read-only workforce operations dashboard",
+    imageMode: "dashboard",
+    evidence: [
+      ["Boundary", "Sanitised extract"],
+      ["CI", "Passing"],
+      ["Tests", "23 passing"]
+    ],
+    ci: "https://github.com/Assembler-Fourier/employee-roster-command/actions/workflows/ci.yml",
+    stack: ["TypeScript", "Vitest", "Domain modeling", "CI", "Synthetic data"],
+    repository: "https://github.com/Assembler-Fourier/employee-roster-command",
+    live: "https://employee-roster-command.vercel.app/?demo=1",
+    primaryLabel: "Recruiter demo",
+    sourceLabel: "Public engineering extract",
+    caseStudy: "/projects/roster-command"
   },
   {
     title: "Irish Theory Test Coach",
@@ -165,23 +164,52 @@ const projects = [
     summary:
       "Built an independent study product with timed mock exams, progress coaching, protected premium flows and operator tooling.",
     outcome:
-      "The current preview validates 1,277 structured items, 18 sandbox payment scenarios and 11 post-deploy checks without claiming RSA affiliation.",
+      "The custom-domain preview and full local QA suite pass; real provider, payment and legal/content evidence remain launch gates.",
     proof:
-      "Vercel Functions, Neon PostgreSQL, Stripe, passwordless sessions, PWA, accessibility checks, content QA and security runbooks.",
-    status: "Pre-launch · Legal/content review remains a release gate",
+      "Vercel Functions, passwordless-session and payment adapters, PWA, accessibility checks, content QA and security runbooks.",
+    status: "Pre-launch public preview · Provider verification pending",
     image: "/projects/theory-test-coach-product.png",
     imageAlt: "Irish Theory Test Coach desktop practice workspace with secure preview questions",
     imageMode: "dashboard",
     evidence: [
       ["Content", "1,277 items"],
-      ["Payments", "18 checks"],
-      ["Deploy", "11 checks"]
+      ["QA", "Full suite passing"],
+      ["Release", "Pre-launch"]
     ],
     ci: "https://github.com/Assembler-Fourier/irish-theory-test-coach/actions/workflows/security.yml",
     stack: ["JavaScript", "Neon", "Stripe", "Security", "Accessibility", "PWA"],
     repository: "https://github.com/Assembler-Fourier/irish-theory-test-coach",
-    live: "https://irish-theory-test-coach-assembler-fourier-job-work.vercel.app",
+    live: "https://irishtheorycoach.ie",
+    primaryLabel: "Public preview",
+    sourceLabel: "Source",
     caseStudy: "/projects/theory-test-coach"
+  },
+  {
+    title: "QA Automation Lab",
+    category: "QA automation · Release contracts",
+    visual: "qa",
+    summary:
+      "Built a Playwright suite that checks public hiring evidence, live product boundaries and a workflow API without private credentials.",
+    outcome:
+      "The suite separates read-only live checks from isolated local writes and retains traces, screenshots, video and HTML reports on failure.",
+    proof:
+      "Playwright, APIRequestContext, axe-core, page objects, fixtures, route interception, data-driven tests and GitHub Actions.",
+    status: "Public test suite · CI-enabled",
+    image: "/projects/qa-automation-lab-product.png",
+    imageAlt: "Playwright HTML report for the QA Automation Lab release-contract suite",
+    imageMode: "dashboard",
+    evidence: [
+      ["Suite", "26 contracts"],
+      ["API", "Read + negative"],
+      ["Evidence", "Trace + report"]
+    ],
+    ci: "https://github.com/Assembler-Fourier/qa-automation-lab/actions/workflows/ci.yml",
+    stack: ["Playwright", "Node.js", "API testing", "axe-core", "GitHub Actions"],
+    repository: "https://github.com/Assembler-Fourier/qa-automation-lab",
+    live: "https://github.com/Assembler-Fourier/qa-automation-lab/actions/workflows/ci.yml",
+    primaryLabel: "CI runs",
+    sourceLabel: "Test suite",
+    caseStudy: "/projects/qa-automation-lab"
   }
 ];
 
@@ -292,7 +320,6 @@ const structuredData = [
     mainEntityOfPage: { "@id": `${siteUrl}/#profile` },
     image: `${siteUrl}/uzair-waseem-portrait.jpg`,
     email: contact.email,
-    telephone: contact.phone,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Dublin",
@@ -328,7 +355,7 @@ const structuredData = [
     "@id": `${siteUrl}/#profile`,
     url: siteUrl,
     name: "Uzair Waseem | Full-Stack Software Engineer in Dublin",
-    dateModified: "2026-07-13",
+    dateModified: "2026-07-15",
     inLanguage: "en-IE",
     isPartOf: { "@id": `${siteUrl}/#website` },
     mainEntity: { "@id": `${siteUrl}/#person` }
@@ -378,10 +405,10 @@ function Hero() {
           </div>
           <p className="intro-label">Uzair Waseem · Software Engineer</p>
           <h1>
-            Full-stack engineer shipping <span className="headline-highlight">tested products</span> and backend systems.
+            Software engineer building <span className="headline-highlight">tested full-stack products</span> and backend APIs.
           </h1>
           <p className="hero-lede">
-            I turn operational problems into production-shaped software with TypeScript, React, Node.js, PostgreSQL and Playwright. My cybersecurity MSc strengthens the way I design authentication, data isolation and delivery risk.
+            I turn operational problems into reviewable software with TypeScript, React, Node.js, PostgreSQL and Playwright. My cybersecurity MSc strengthens how I approach authentication, data isolation and delivery risk.
           </p>
           <div className="stack-chips" aria-label="Core engineering stack">
             {stackChips.map((chip) => (
@@ -433,9 +460,9 @@ function Hero() {
 
 function HeroVisual() {
   const signals = [
-    ["01", "Roster Command", "Live workforce system"],
-    ["02", "HouseFair", "Full-stack PWA · CI passing"],
-    ["03", "MSc Cybersecurity", "Secure delivery edge"]
+    ["01", "HouseFair", "Full-stack PWA · CI passing"],
+    ["02", "Roster Command", "Privacy-safe logic extract"],
+    ["03", "QA Automation Lab", "Release-contract suite"]
   ];
 
   return (
@@ -522,7 +549,7 @@ function DeliverySystem() {
           <h2 id="delivery-system-title">A live architecture, from click to cloud.</h2>
           <p>
             I work across the delivery path, connecting product interfaces to typed APIs, durable data,
-            automated checks and observable releases.
+            automated checks and reviewable deployment paths.
           </p>
           <dl className="render-budget" aria-label="3D scene performance envelope">
             <div>
@@ -567,8 +594,8 @@ function SelectedWork() {
       <div className="shell">
         <SectionHeading
           eyebrow="Selected work"
-          title="Real products. Live systems. Evidence one click behind."
-          text="Each product pairs a real interface with a working review path, source, automated checks, security boundaries and honest limitations."
+          title="Verified projects. Honest boundaries. Evidence one click behind."
+          text="Each project pairs a review path with source, automated checks, current status and limitations a recruiter can inspect."
         />
         <div className="project-grid">
           {projects.map((project) => (
@@ -624,9 +651,9 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Open ${project.title} live app`}
+            aria-label={`Open ${project.title} ${project.primaryLabel.toLowerCase()}`}
           >
-            Live app
+            {project.primaryLabel}
             <ArrowUpRight size={16} aria-hidden="true" />
           </a>
           <a className="project-link ghost" href={project.caseStudy}>
@@ -638,9 +665,9 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
             href={project.repository}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`View ${project.title} source on GitHub`}
+            aria-label={`View ${project.title} ${project.sourceLabel.toLowerCase()} on GitHub`}
           >
-            Source
+            {project.sourceLabel}
             <ArrowUpRight size={16} aria-hidden="true" />
           </a>
           <a
@@ -812,12 +839,6 @@ function ContactCTA() {
           </a>
           <a href={contact.cv} download>
             <Download size={19} aria-hidden="true" />Download CV<ArrowUpRight size={17} aria-hidden="true" />
-          </a>
-          <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>
-            <Phone size={19} aria-hidden="true" />{contact.phone}<ArrowUpRight size={17} aria-hidden="true" />
-          </a>
-          <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
-            <MessageCircle size={19} aria-hidden="true" />WhatsApp {contact.phone}<ArrowUpRight size={17} aria-hidden="true" />
           </a>
           <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
             <BriefcaseBusiness size={19} aria-hidden="true" />LinkedIn profile<ArrowUpRight size={17} aria-hidden="true" />
