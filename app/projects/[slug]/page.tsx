@@ -121,7 +121,7 @@ const caseStudies = {
   },
   "theory-test-coach": {
     title: "Irish Theory Test Coach",
-    label: "Pre-launch EdTech product",
+    label: "Live deployed EdTech platform",
     repo: "https://github.com/Assembler-Fourier/irish-theory-test-coach",
     repoLabel: "Review source",
     live: "https://irishtheorycoach.ie",
@@ -131,9 +131,9 @@ const caseStudies = {
     imageMode: "visual-learning",
     evidence: [
       ["Content", "1,277 validated items"],
-      ["Quality", "Full local QA passing"],
+      ["Quality", "15 post-deploy checks"],
       ["Domain", "Custom URL active"],
-      ["Boundary", "Pre-launch review"]
+      ["Boundary", "Independent product"]
     ],
     architecture: ["Static learner PWA", "Vercel Functions", "Neon PostgreSQL", "Stripe and private content adapters"],
     problem:
@@ -159,16 +159,17 @@ const caseStudies = {
     ],
     testing: [
       "The current pipeline validates 1,277 structured practice items",
+      "Fifteen post-deploy smoke checks cover the public learner journey and release boundaries",
       "Payment policy, webhook and entitlement transitions pass mocked automated checks",
       "Mobile E2E checks cover learner, paywall, restore and legal routes",
       "Accessibility checks cover ten states with no critical axe findings in the latest local run"
     ],
     deployment:
-      "The custom-domain public preview is active. It is an independent practice product and is not affiliated with RSA or Prometric; paid launch remains blocked pending real provider and commercial verification.",
+      "The public product is live at irishtheorycoach.ie. It is an independent practice platform and is not affiliated with RSA or Prometric; this case study does not claim paid transactions or learner traction.",
     security:
       "Premium sessions are selected server-side, correct answers are withheld until submission, payments use signed idempotent webhooks, and admin endpoints enforce server-side roles.",
     tradeoffs:
-      "Commercial launch is deliberately gated on real Stripe/database evidence, suitable business identity details and legal/content review. The website does not claim official exam frequency or guaranteed outcomes.",
+      "The live deployment proves the product and delivery workflow, while payment settlement, commercial usage and final legal/content review remain separate evidence boundaries. The website does not claim official exam frequency or guaranteed outcomes.",
     next: [
       "Complete legal and content-rights review",
       "Run and record a real Stripe test-mode purchase, webhook and reconciliation flow",

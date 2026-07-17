@@ -1,0 +1,3 @@
+Graduate Software Engineer
+
+We are looking for a junior engineer with TypeScript, React, Node.js, REST API and PostgreSQL experience. You will build tested web products, collaborate with product stakeholders, investigate defects and contribute to CI/CD using GitHub Actions and Docker. Experience with Playwright and secure authentication is useful.

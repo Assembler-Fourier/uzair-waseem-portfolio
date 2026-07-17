@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "name": "Uzair Waseem",
+    "location": "Dublin, Ireland",
+    "email": "uzairwaseem29@gmail.com",
+    "portfolio": "https://uzairwaseem.com",
+    "linkedin": "https://linkedin.com/in/uzair-waseem",
+    "github": "https://github.com/Assembler-Fourier"
+  },
+  "experience": [
+    {
+      "title": "Software Engineer (Full-Stack)",
+      "company": "Outstanding Marketing",
+      "location": "Remote - Germany",
+      "period": "Feb 2025 - May 2026",
+      "url": "https://outstanding-marketing.de/en",
+      "bullets": [
+        {
+          "text": "Delivered React and TypeScript interfaces, internal dashboards and Node.js API integrations for remote e-commerce and growth workflows.",
+          "tags": ["React", "TypeScript", "Node.js", "REST APIs", "remote delivery"]
+        },
+        {
+          "text": "Automated recurring reporting and QA checks, centralising release visibility and reducing manual review.",
+          "tags": ["QA automation", "test automation", "reporting", "release quality"]
+        },
+        {
+          "text": "Translated stakeholder requirements into scoped tasks, implementation updates and reviewable product releases across a remote team.",
+          "tags": ["stakeholder delivery", "requirements", "Git", "remote delivery"]
+        }
+      ]
+    },
+    {
+      "title": "Junior Software Engineer",
+      "company": "LocalhostLabs",
+      "location": "Pakistan",
+      "period": "Jun 2024 - Dec 2024",
+      "url": "https://localhostlabs.tech",
+      "bullets": [
+        {
+          "text": "Built responsive web features and REST-connected backend workflows across client applications, APIs and databases.",
+          "tags": ["responsive UI", "REST APIs", "backend", "databases"]
+        },
+        {
+          "text": "Investigated defects, documented technical workflows and supported Git, QA triage and release handoffs in a consultancy environment.",
+          "tags": ["defect investigation", "technical documentation", "Git", "QA"]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "MSc Cybersecurity",
+      "school": "National College of Ireland, Dublin",
+      "period": "2025 - 2026"
+    },
+    {
+      "degree": "BSc Computer Science",
+      "school": "FAST NUCES, Pakistan",
+      "period": "2020 - 2024"
+    }
+  ],
+  "skills": {
+    "TypeScript": ["typescript", "ts"],
+    "JavaScript": ["javascript", "js", "ecmascript"],
+    "Python": ["python"],
+    "SQL": ["sql"],
+    "React": ["react", "react.js", "reactjs"],
+    "Next.js": ["next.js", "nextjs", "next js"],
+    "HTML": ["html", "html5"],
+    "CSS": ["css", "css3"],
+    "responsive UI": ["responsive", "responsive ui", "mobile first", "mobile-first"],
+    "PWA": ["pwa", "progressive web app", "service worker"],
+    "Node.js": ["node.js", "nodejs", "node js"],
+    "REST APIs": ["rest", "rest api", "restful", "api development", "web api"],
+    "FastAPI": ["fastapi", "fast api"],
+    "serverless functions": ["serverless", "vercel functions", "cloud functions"],
+    "PostgreSQL": ["postgresql", "postgres"],
+    "Supabase": ["supabase"],
+    "Neon": ["neon", "neon postgres"],
+    "Zod": ["zod", "runtime validation", "schema validation"],
+    "Playwright": ["playwright"],
+    "Vitest": ["vitest"],
+    "Pytest": ["pytest"],
+    "API testing": ["api testing", "api tests", "contract testing", "apirequestcontext"],
+    "browser E2E": ["end-to-end", "e2e", "browser testing", "ui automation"],
+    "regression testing": ["regression", "regression testing"],
+    "negative testing": ["negative testing", "negative tests", "edge cases"],
+    "accessibility testing": ["accessibility", "axe-core", "axe", "wcag"],
+    "fixtures": ["fixtures", "test fixtures", "test data"],
+    "page objects": ["page objects", "page object model", "pom"],
+    "route mocking": ["mocking", "route mocking", "network interception"],
+    "GitHub Actions": ["github actions", "github workflows"],
+    "CI/CD": ["ci/cd", "continuous integration", "continuous delivery", "deployment pipeline"],
+    "Docker": ["docker", "container", "containerisation", "containerization"],
+    "Vercel": ["vercel"],
+    "Git": ["git", "version control"],
+    "authentication": ["authentication", "auth", "identity"],
+    "authorization": ["authorization", "authorisation", "access control", "rbac"],
+    "RLS": ["row level security", "row-level security", "rls"],
+    "secure sessions": ["secure sessions", "session security", "passwordless"],
+    "CSRF": ["csrf", "cross-site request forgery"],
+    "rate limiting": ["rate limiting", "rate limit"],
+    "OWASP": ["owasp", "web security"],
+    "secure SDLC": ["secure sdlc", "secure software development", "application security"],
+    "threat modelling": ["threat modelling", "threat modeling"],
+    "defect investigation": ["defect investigation", "debugging", "root cause analysis", "troubleshooting"],
+    "technical documentation": ["technical documentation", "documentation"],
+    "stakeholder delivery": ["stakeholder", "requirements gathering", "cross-functional"]
+  },
+  "projects": {
+    "housefair": {
+      "title": "HouseFair - Shared-Living Full-Stack Product",
+      "stack": "Next.js 16, React 19, TypeScript, Supabase Auth/PostgreSQL/RLS, Zod, Playwright, PWA",
+      "links": [
+        ["Live product", "https://housemates-sand.vercel.app"],
+        ["GitHub source", "https://github.com/Assembler-Fourier/housefair-ai"]
+      ],
+      "bullets": [
+        "Designed and deployed an installable household workspace for recurring chores, groceries, shared expenses and calmer issue workflows.",
+        "Enforced server-resolved household membership with PostgreSQL RLS as a second boundary; 12 mobile Playwright checks pass across Android and iPhone PWA viewports."
+      ],
+      "tags": ["TypeScript", "React", "Next.js", "PostgreSQL", "Supabase", "Zod", "Playwright", "PWA", "authentication", "authorization", "RLS", "full-stack"]
+    },
+    "theory": {
+      "title": "Irish Theory Test Coach - Live Deployed EdTech Platform",
+      "stack": "JavaScript, Vercel Functions, PostgreSQL adapters, passwordless sessions, PWA, accessibility and deployment QA",
+      "links": [
+        ["Live website", "https://irishtheorycoach.ie"],
+        ["GitHub source", "https://github.com/Assembler-Fourier/irish-theory-test-coach"]
+      ],
+      "bullets": [
+        "Designed and deployed irishtheorycoach.ie, an independent Category B practice platform with 1,277 questions, timed mocks, road-sign drills, weak-area review and account-access flows.",
+        "Built serverless APIs, protected learner/operator routes, content-quality checks, accessibility coverage and a 15-check post-deploy smoke suite for the public release."
+      ],
+      "tags": ["JavaScript", "REST APIs", "serverless functions", "PostgreSQL", "Neon", "PWA", "authentication", "authorization", "secure sessions", "accessibility testing", "API testing", "CI/CD", "backend"]
+    },
+    "roster": {
+      "title": "Roster Command - Workforce Scheduling Engineering Extract",
+      "stack": "TypeScript, Vitest, synthetic fixtures, deterministic domain modelling, GitHub Actions",
+      "links": [
+        ["Case study", "https://uzairwaseem.com/projects/roster-command"],
+        ["Public engineering extract", "https://github.com/Assembler-Fourier/employee-roster-command"]
+      ],
+      "bullets": [
+        "Published selected, sanitised scheduling logic from a private roster system without employer, employee or client data.",
+        "Hardened overlap, overnight and multi-day shifts, lifecycle restrictions, deterministic cover ranking and same-name employee matching; 23 tests pass."
+      ],
+      "tags": ["TypeScript", "Vitest", "fixtures", "GitHub Actions", "test automation", "domain modelling", "backend", "privacy"]
+    },
+    "qa_lab": {
+      "title": "QA Automation Lab - Browser and API Release Contracts",
+      "stack": "Playwright, TypeScript, APIRequestContext, axe-core, fixtures, page objects, GitHub Actions",
+      "links": [
+        ["CI workflow", "https://github.com/Assembler-Fourier/qa-automation-lab/actions"],
+        ["GitHub source", "https://github.com/Assembler-Fourier/qa-automation-lab"]
+      ],
+      "bullets": [
+        "Built 26 browser and API contracts covering portfolio evidence, live read-only product boundaries and an isolated writable workflow target.",
+        "Separated smoke and negative checks from opt-in writes using stable role locators, fixtures, route interception, accessibility checks, traces, screenshots and HTML reports."
+      ],
+      "tags": ["Playwright", "TypeScript", "API testing", "browser E2E", "regression testing", "negative testing", "accessibility testing", "fixtures", "page objects", "route mocking", "GitHub Actions", "CI/CD", "QA"]
+    }
+  },
+  "tracks": {
+    "software": {
+      "headline": "SOFTWARE ENGINEER | TYPESCRIPT, REACT, NODE.JS AND POSTGRESQL",
+      "summary": "Dublin-based software engineer with remote delivery experience across React and TypeScript products, backend APIs and automated quality workflows. Builds deployed full-stack systems with Node.js, PostgreSQL, Playwright and GitHub Actions; MSc Cybersecurity strengthens authentication, authorization and data-isolation decisions.",
+      "skillGroups": [
+        ["Languages", ["TypeScript", "JavaScript", "Python", "SQL"]],
+        ["Product engineering", ["React", "Next.js", "Node.js", "REST APIs", "FastAPI", "responsive UI", "PWA"]],
+        ["Data and delivery", ["PostgreSQL", "Supabase", "Neon", "Docker", "Vercel", "GitHub Actions", "CI/CD"]],
+        ["Quality and security", ["Playwright", "Vitest", "Pytest", "API testing", "accessibility testing", "authentication", "authorization", "RLS", "OWASP"]]
+      ],
+      "projectOrder": ["housefair", "theory", "roster"],
+      "signals": ["software engineer", "graduate software", "junior software", "typescript", "react", "node.js", "product engineer"],
+      "outputFilename": "Uzair-Waseem-Software-Engineer-CV.pdf",
+      "publicFilename": "Uzair-Waseem-CV-Software-Engineer.pdf",
+      "subject": "ATS-readable software engineering CV",
+      "keywords": "Software Engineer, TypeScript, React, Next.js, Node.js, PostgreSQL, REST APIs, Playwright, CI/CD"
+    },
+    "full-stack": {
+      "headline": "FULL-STACK ENGINEER | REACT, NEXT.JS, NODE.JS AND POSTGRESQL",
+      "summary": "Dublin-based full-stack engineer with remote delivery experience spanning React interfaces, Node.js APIs, PostgreSQL data models and automated release checks. Ships deployed web products end to end, with Playwright coverage and security-aware authentication and access-control decisions.",
+      "skillGroups": [
+        ["Frontend", ["TypeScript", "React", "Next.js", "JavaScript", "HTML", "CSS", "responsive UI", "PWA"]],
+        ["Backend and data", ["Node.js", "REST APIs", "Python", "FastAPI", "PostgreSQL", "Supabase", "Neon", "Zod"]],
+        ["Testing and delivery", ["Playwright", "Vitest", "API testing", "GitHub Actions", "CI/CD", "Docker", "Vercel"]],
+        ["Application security", ["authentication", "authorization", "RLS", "secure sessions", "OWASP"]]
+      ],
+      "projectOrder": ["housefair", "theory", "roster"],
+      "signals": ["full stack", "full-stack", "fullstack", "frontend and backend", "react", "next.js", "node.js"],
+      "outputFilename": "Uzair-Waseem-Full-Stack-Engineer-CV.pdf",
+      "publicFilename": "Uzair-Waseem-CV-Full-Stack-Engineer.pdf",
+      "subject": "ATS-readable full-stack engineering CV",
+      "keywords": "Full-Stack Engineer, React, Next.js, TypeScript, Node.js, PostgreSQL, REST APIs, Playwright"
+    },
+    "backend": {
+      "headline": "BACKEND SOFTWARE ENGINEER | NODE.JS, PYTHON, REST APIs AND POSTGRESQL",
+      "summary": "Dublin-based backend-focused software engineer with remote delivery experience across Node.js integrations, REST APIs, PostgreSQL workflows and serverless web products. Builds validated, tested delivery paths with Python, FastAPI, GitHub Actions and security-aware authentication and authorization boundaries.",
+      "skillGroups": [
+        ["Languages and APIs", ["TypeScript", "JavaScript", "Python", "SQL", "Node.js", "REST APIs", "FastAPI", "serverless functions"]],
+        ["Data and validation", ["PostgreSQL", "Supabase", "Neon", "Zod", "RLS"]],
+        ["Quality and delivery", ["API testing", "Playwright", "Vitest", "Pytest", "GitHub Actions", "CI/CD", "Docker", "Vercel"]],
+        ["Security", ["authentication", "authorization", "secure sessions", "CSRF", "rate limiting", "OWASP"]]
+      ],
+      "projectOrder": ["theory", "roster", "housefair"],
+      "signals": ["backend", "back-end", "api engineer", "node.js", "python", "fastapi", "postgresql", "serverless", "database"],
+      "outputFilename": "Uzair-Waseem-Backend-Engineer-CV.pdf",
+      "publicFilename": "Uzair-Waseem-CV-Backend-Engineer.pdf",
+      "subject": "ATS-readable backend software engineering CV",
+      "keywords": "Backend Software Engineer, Node.js, Python, FastAPI, REST APIs, PostgreSQL, SQL, API Testing, CI/CD"
+    },
+    "qa": {
+      "headline": "QA AUTOMATION ENGINEER | PLAYWRIGHT, TYPESCRIPT, API TESTING AND CI/CD",
+      "summary": "Dublin-based QA automation and software engineer with remote delivery experience. Builds Playwright browser and API suites with isolated data, negative checks, accessibility coverage and CI evidence; product-engineering depth supports defect investigation across React interfaces, Node.js APIs and PostgreSQL workflows.",
+      "skillGroups": [
+        ["Automation", ["Playwright", "TypeScript", "browser E2E", "API testing", "regression testing", "negative testing"]],
+        ["Test design", ["fixtures", "page objects", "route mocking", "accessibility testing", "Vitest", "Pytest"]],
+        ["Investigation", ["defect investigation", "technical documentation", "REST APIs", "PostgreSQL", "authentication", "authorization"]],
+        ["CI and delivery", ["GitHub Actions", "CI/CD", "Node.js", "Docker", "Vercel", "Git"]]
+      ],
+      "projectOrder": ["qa_lab", "theory", "housefair"],
+      "signals": ["qa", "quality assurance", "test automation", "automation engineer", "sdet", "playwright", "api testing", "regression"],
+      "outputFilename": "Uzair-Waseem-QA-Automation-CV.pdf",
+      "publicFilename": "Uzair-Waseem-CV-QA-Automation-Engineer.pdf",
+      "subject": "ATS-readable QA automation and SDET CV",
+      "keywords": "QA Automation Engineer, Junior SDET, Playwright, TypeScript, API Testing, Test Automation, Accessibility Testing, GitHub Actions, CI/CD"
+    },
+    "security": {
+      "headline": "SECURITY-AWARE SOFTWARE ENGINEER | WEB APPLICATIONS, AUTH AND SECURE DELIVERY",
+      "summary": "Dublin-based software engineer and MSc Cybersecurity candidate building tested web products with explicit authentication, authorization and data-isolation boundaries. Combines TypeScript, React, Node.js and PostgreSQL delivery with OWASP-aware implementation, negative testing and documented release risk.",
+      "skillGroups": [
+        ["Software engineering", ["TypeScript", "JavaScript", "React", "Next.js", "Node.js", "REST APIs", "PostgreSQL"]],
+        ["Application security", ["authentication", "authorization", "RLS", "secure sessions", "CSRF", "rate limiting", "OWASP", "secure SDLC", "threat modelling"]],
+        ["Verification", ["Playwright", "API testing", "negative testing", "accessibility testing", "Vitest", "Pytest"]],
+        ["Delivery", ["GitHub Actions", "CI/CD", "Docker", "Vercel", "technical documentation"]]
+      ],
+      "projectOrder": ["housefair", "theory", "qa_lab"],
+      "signals": ["application security", "secure software", "security-aware", "secure sdlc", "owasp", "authentication", "authorization", "threat modelling"],
+      "outputFilename": "Uzair-Waseem-Security-Aware-Software-Engineer-CV.pdf",
+      "publicFilename": "Uzair-Waseem-CV-Security-Aware-Software-Engineer.pdf",
+      "subject": "ATS-readable security-aware software engineering CV",
+      "keywords": "Security-Aware Software Engineer, Application Security, TypeScript, Node.js, PostgreSQL, Authentication, Authorization, OWASP, Secure SDLC"
+    }
+  },
+  "unsupportedTerms": {
+    "AWS": ["aws", "amazon web services"],
+    "Azure": ["azure"],
+    "Google Cloud": ["gcp", "google cloud"],
+    "Kubernetes": ["kubernetes", "k8s"],
+    "Terraform": ["terraform"],
+    "Jenkins": ["jenkins"],
+    "Java": ["java", "spring boot", "spring framework"],
+    "C#/.NET": ["c#", ".net", "dotnet", "asp.net"],
+    "Go": ["golang", "go language"],
+    "Kafka": ["kafka"],
+    "RabbitMQ": ["rabbitmq"],
+    "GraphQL": ["graphql"],
+    "Cypress": ["cypress"],
+    "Selenium": ["selenium"],
+    "Cucumber": ["cucumber", "bdd"],
+    "Appium": ["appium"]
+  },
+  "factCheck": [
+    "Confirm Outstanding Marketing title, employment basis, dates and every bullet before submitting.",
+    "Confirm LocalhostLabs title, employment basis, dates and every bullet before submitting.",
+    "Confirm MSc Cybersecurity completion status and exact dates.",
+    "Add Irish work-permission wording only after checking the current IRP card and expiry date.",
+    "Add metrics only when a ticket, report, analytics record or manager can support them."
+  ]
+}

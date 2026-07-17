@@ -12,7 +12,7 @@ Recruiter-focused portfolio for **Uzair Waseem**, a Dublin-based software engine
 1. Open the [live portfolio](https://uzairwaseem.com) for the concise hiring overview.
 2. Start with [HouseFair](https://github.com/Assembler-Fourier/housefair-ai), the primary full-stack flagship.
 3. Review the [Roster Command public engineering extract](https://github.com/Assembler-Fourier/employee-roster-command), which contains selected sanitised domain logic and synthetic fixtures rather than the private application.
-4. Inspect the [Irish Theory Test Coach](https://github.com/Assembler-Fourier/irish-theory-test-coach) pre-launch product and its explicit release blockers.
+4. Inspect the live [Irish Theory Test Coach](https://irishtheorycoach.ie) product and its public engineering evidence.
 5. Review the [QA Automation Lab](https://github.com/Assembler-Fourier/qa-automation-lab) for browser, API, accessibility, mocking and CI evidence.
 6. Download the [one-page software engineering CV](https://uzairwaseem.com/Uzair-Waseem-CV.pdf).
 
@@ -22,7 +22,7 @@ Recruiter-focused portfolio for **Uzair Waseem**, a Dublin-based software engine
 | --- | --- | --- |
 | HouseFair | Live free early-access product | App, source, mobile Playwright checks |
 | Roster Command | Public engineering extract; full application remains private | Sanitised logic, synthetic fixtures, 23 tests, separate read-only recruiter demo |
-| Irish Theory Test Coach | Pre-launch public preview | Custom domain, source, full local QA, documented commercial blockers |
+| Irish Theory Test Coach | Live deployed EdTech platform | Custom domain, 1,277 practice items, protected routes and 15 post-deploy smoke checks |
 | QA Automation Lab | Public CI-backed test suite | 26 contracts, live read-only smoke, isolated local writes, failure artifacts |
 
 ## What This Repository Demonstrates
@@ -75,6 +75,8 @@ Open `http://localhost:3000`. The Playwright configuration starts its own produc
 
 The software/backend and QA automation CVs are generated from `scripts/generate_cv.py` and served from `public/`. The main download uses the software version, while the QA-specific route receives distinct QA content. Older role-specific routes remain available so links already submitted to recruiters do not break.
 
+The source of truth is `cv/profile.json`. Run `npm run cv:setup` once, `npm run cv:generate` to rebuild the five public role variants, or follow `cv/TAILORING_GUIDE.md` to create a job-specific PDF, DOCX, plain-text copy and match report without inventing unsupported requirements.
+
 ```bash
 python scripts/generate_cv.py
 ```
@@ -84,7 +86,7 @@ python scripts/generate_cv.py
 - The public portfolio does not publish a personal phone number or residential address.
 - Work-authorisation wording is intentionally absent until the exact current permission is confirmed.
 - Roster Command is labelled as an engineering extract, not a complete public application.
-- Theory Test Coach is labelled pre-launch until real provider, payment and commercial checks are complete.
+- Theory Test Coach is labelled as a live deployed product; paid transactions and learner traction are not claimed without evidence.
 - Experience dates and titles require candidate confirmation before future changes.
 
 ## Contact
