@@ -159,28 +159,28 @@ const projects = [
   },
   {
     title: "Irish Theory Test Coach",
-    category: "EdTech · Serverless product",
+    category: "Live EdTech · Serverless product",
     visual: "learning",
     summary:
-      "Built an independent study product with timed mock exams, progress coaching, protected premium flows and operator tooling.",
+      "Designed and deployed an independent Category B practice product with timed mocks, road-sign drills, weak-area review and account-access flows.",
     outcome:
-      "The custom-domain preview and full local QA suite pass; real provider, payment and legal/content evidence remain launch gates.",
+      "The public release is live on its custom domain, backed by 1,277 practice items and a 15-check post-deploy smoke suite.",
     proof:
-      "Vercel Functions, passwordless-session and payment adapters, PWA, accessibility checks, content QA and security runbooks.",
-    status: "Pre-launch public preview · Provider verification pending",
+      "Vercel Functions, protected learner and operator routes, passwordless sessions, PWA, accessibility checks and content QA.",
+    status: "Live deployed product · Independent practice platform",
     image: "/projects/theory-test-coach-product.png",
     imageAlt: "Irish Theory Test Coach desktop practice workspace with secure preview questions",
     imageMode: "dashboard",
     evidence: [
       ["Content", "1,277 items"],
-      ["QA", "Full suite passing"],
-      ["Release", "Pre-launch"]
+      ["QA", "15 smoke checks"],
+      ["Release", "Live"]
     ],
     ci: "https://github.com/Assembler-Fourier/irish-theory-test-coach/actions/workflows/security.yml",
     stack: ["JavaScript", "Neon", "Stripe", "Security", "Accessibility", "PWA"],
     repository: "https://github.com/Assembler-Fourier/irish-theory-test-coach",
     live: "https://irishtheorycoach.ie",
-    primaryLabel: "Public preview",
+    primaryLabel: "Live product",
     sourceLabel: "Source",
     caseStudy: "/projects/theory-test-coach"
   },

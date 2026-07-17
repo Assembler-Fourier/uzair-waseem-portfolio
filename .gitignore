@@ -1,5 +1,8 @@
 .next/
 node_modules/
+.venv-cv/
+__pycache__/
+*.pyc
 .vercel/
 out/
 dist/
