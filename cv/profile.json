@@ -154,6 +154,9 @@
         "Built a four-service fraud and account-security platform spanning Rust risk scoring, Go authentication and anomaly detection, Python/FastAPI agent orchestration and a Next.js operations dashboard.",
         "Added deterministic replay, synthetic-data boundaries and cross-language CI; full Docker Compose verification exposed and fixed persistence-serialization and WebSocket cleanup defects."
       ],
+      "compactBullets": [
+        "Built a four-service Rust, Go, Python/FastAPI and Next.js security platform with deterministic replay, synthetic-data boundaries, Docker Compose and cross-language CI."
+      ],
       "tags": ["Rust", "Go", "Python", "FastAPI", "scikit-learn", "Anthropic SDK", "agent orchestration", "TypeScript", "Next.js", "PostgreSQL", "Redis", "WebSockets", "Docker", "Docker Compose", "GitHub Actions", "CI/CD", "authentication", "JWT", "Argon2id", "rate limiting", "tamper-evident audit", "event-driven architecture", "backend", "security", "AI"]
     },
     "doctor_system": {
@@ -180,6 +183,9 @@
         "Designed and deployed an installable household workspace for recurring chores, groceries, shared expenses and calmer issue workflows.",
         "Enforced server-resolved household membership with PostgreSQL RLS as a second boundary; 12 mobile Playwright checks pass across Android and iPhone PWA viewports."
       ],
+      "compactBullets": [
+        "Deployed an installable shared-living PWA with server-resolved membership, PostgreSQL RLS and 12 mobile Playwright checks across Android and iPhone viewports."
+      ],
       "tags": ["TypeScript", "React", "Next.js", "PostgreSQL", "Supabase", "Zod", "Playwright", "PWA", "authentication", "authorization", "RLS", "full-stack"]
     },
     "theory": {
@@ -193,6 +199,9 @@
         "Designed and deployed irishtheorycoach.ie, an independent Category B practice platform with 1,277 questions, timed mocks, road-sign drills, weak-area review and account-access flows.",
         "Built serverless APIs, protected learner/operator routes, content-quality checks, accessibility coverage and a 15-check post-deploy smoke suite for the public release."
       ],
+      "compactBullets": [
+        "Deployed irishtheorycoach.ie with 1,277 practice items, timed mocks, protected learner/operator routes, accessibility coverage and a 15-check post-deploy smoke suite."
+      ],
       "tags": ["JavaScript", "REST APIs", "serverless functions", "PostgreSQL", "Neon", "PWA", "authentication", "authorization", "secure sessions", "accessibility testing", "API testing", "CI/CD", "backend"]
     },
     "roster": {
@@ -205,6 +214,10 @@
       "bullets": [
         "Published selected, sanitised scheduling logic from a private roster system without employer, employee or client data.",
         "Hardened overlap, overnight and multi-day shifts, lifecycle restrictions, deterministic cover ranking and same-name employee matching; 23 tests pass."
+      ],
+      "compactBullets": [
+        "Published a sanitised TypeScript scheduling extract without employer, employee or client data.",
+        "Covered overlap, overnight and multi-day shifts plus deterministic cover ranking with 23 passing Vitest checks on synthetic fixtures."
       ],
       "tags": ["TypeScript", "Vitest", "fixtures", "GitHub Actions", "test automation", "domain modelling", "backend", "privacy"]
     },
@@ -232,7 +245,9 @@
         ["Data and delivery", ["PostgreSQL", "Redis", "Supabase", "Docker", "Docker Compose", "Vercel", "GitHub Actions", "CI/CD"]],
         ["Quality and security", ["Playwright", "Vitest", "Pytest", "API testing", "accessibility testing", "authentication", "authorization", "RLS", "OWASP"]]
       ],
-      "projectOrder": ["vaultwatch", "housefair", "theory"],
+      "projectOrder": ["vaultwatch", "housefair", "theory", "roster"],
+      "projectCount": 4,
+      "compactProjects": true,
       "signals": ["software engineer", "graduate software", "junior software", "typescript", "react", "node.js", "python", "rust", "go", "product engineer"],
       "outputFilename": "Uzair-Waseem-Software-Engineer-CV.pdf",
       "publicFilename": "Uzair-Waseem-CV-Software-Engineer.pdf",
