@@ -3,27 +3,28 @@
 [![Portfolio CI](https://github.com/Assembler-Fourier/uzair-waseem-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Assembler-Fourier/uzair-waseem-portfolio/actions/workflows/ci.yml)
 [![Live site](https://img.shields.io/badge/live-uzairwaseem.com-0f766e)](https://uzairwaseem.com)
 
-Recruiter-focused portfolio for **Uzair Waseem**, a Dublin-based software engineer working with TypeScript, React, Node.js, PostgreSQL and Playwright across tested full-stack products and backend APIs.
+Recruiter-focused portfolio for **Uzair Waseem**, a Dublin-based software engineer working across tested web products, polyglot backend systems, applied AI workflows and security-aware delivery.
 
 ![Uzair Waseem portfolio showing live engineering proof](.github/assets/portfolio-preview.png)
 
 ## Reviewer Path
 
 1. Open the [live portfolio](https://uzairwaseem.com) for the concise hiring overview.
-2. Start with [HouseFair](https://github.com/Assembler-Fourier/housefair-ai), the primary full-stack flagship.
-3. Review the [Roster Command public engineering extract](https://github.com/Assembler-Fourier/employee-roster-command), which contains selected sanitised domain logic and synthetic fixtures rather than the private application.
+2. Start with [VaultWatch](https://github.com/Assembler-Fourier/vaultwatch), the primary polyglot security and applied-AI system.
+3. Review [HouseFair](https://github.com/Assembler-Fourier/housefair-ai) for end-to-end product, data-isolation and mobile PWA evidence.
 4. Inspect the live [Irish Theory Test Coach](https://irishtheorycoach.ie) product and its public engineering evidence.
-5. Review the [QA Automation Lab](https://github.com/Assembler-Fourier/qa-automation-lab) for browser, API, accessibility, mocking and CI evidence.
-6. Download the [one-page software engineering CV](https://uzairwaseem.com/Uzair-Waseem-CV.pdf).
+5. Review the [Roster Command public engineering extract](https://github.com/Assembler-Fourier/employee-roster-command), which contains selected sanitised domain logic and synthetic fixtures rather than the private application.
+6. Use [Doctor System](https://github.com/Assembler-Fourier/doctor-system) as supporting platform evidence; its README preserves upstream Apache-2.0 attribution and distinguishes validated infrastructure from live cloud deployment.
+7. Download the [one-page software engineering CV](https://uzairwaseem.com/Uzair-Waseem-CV.pdf).
 
 ## Public Project Status
 
 | Project | Public boundary | Review path |
 | --- | --- | --- |
+| VaultWatch | Live synthetic showcase; full polyglot stack runs through Docker Compose | Rust, Go, Python/FastAPI, Next.js, PostgreSQL, Redis and cross-language CI |
 | HouseFair | Live free early-access product | App, source, mobile Playwright checks |
-| Roster Command | Public engineering extract; full application remains private | Sanitised logic, synthetic fixtures, 23 tests, separate read-only recruiter demo |
 | Irish Theory Test Coach | Live deployed EdTech platform | Custom domain, 1,277 practice items, protected routes and 15 post-deploy smoke checks |
-| QA Automation Lab | Public CI-backed test suite | 26 contracts, live read-only smoke, isolated local writes, failure artifacts |
+| Roster Command | Public engineering extract; operational application remains private | Sanitised product capture, selected logic, synthetic fixtures, 23 tests and CI |
 
 ## What This Repository Demonstrates
 
@@ -41,7 +42,7 @@ Recruiter-focused portfolio for **Uzair Waseem**, a Dublin-based software engine
 app/
   layout.tsx                   Global metadata and viewport configuration
   page.tsx                     Hiring page, project evidence and JSON-LD
-  projects/[slug]/page.tsx     Four evidence-led case studies
+  projects/[slug]/page.tsx     Five evidence-led case studies
   components/                  Navigation and performance-bounded Three.js scenes
   not-found.tsx                Recruiter-friendly 404
   opengraph-image.tsx          Generated social preview
@@ -73,7 +74,7 @@ Open `http://localhost:3000`. The Playwright configuration starts its own produc
 
 ## CV Generation
 
-The software/backend and QA automation CVs are generated from `scripts/generate_cv.py` and served from `public/`. The main download uses the software version, while the QA-specific route receives distinct QA content. Older role-specific routes remain available so links already submitted to recruiters do not break.
+Software, full-stack, backend, QA, support, security and platform CVs are generated from `scripts/generate_cv.py` and served from `public/`. The main download uses the software version; role-specific routes remain available so links already submitted to recruiters do not break.
 
 The source of truth is `cv/profile.json`. Run `npm run cv:setup` once, `npm run cv:generate` to rebuild the five public role variants, or follow `cv/TAILORING_GUIDE.md` to create a job-specific PDF, DOCX, plain-text copy and match report without inventing unsupported requirements.
 
@@ -84,8 +85,9 @@ python scripts/generate_cv.py
 ## Privacy And Accuracy
 
 - The public portfolio does not publish a personal phone number or residential address.
-- Work-authorisation wording is intentionally absent until the exact current permission is confirmed.
+- Public CVs state the confirmed current permission only: Stamp 1G valid to 30 April 2027. A further year is not presented as already granted.
 - Roster Command is labelled as an engineering extract, not a complete public application.
+- VaultWatch uses synthetic data and distinguishes its Vercel replay showcase from the full Docker Compose architecture.
 - Theory Test Coach is labelled as a live deployed product; paid transactions and learner traction are not claimed without evidence.
 - Experience dates and titles require candidate confirmation before future changes.
 

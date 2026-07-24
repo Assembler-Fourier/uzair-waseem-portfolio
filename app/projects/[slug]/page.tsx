@@ -5,12 +5,77 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "../../components/SiteHeader";
 
 const caseStudies = {
+  vaultwatch: {
+    title: "VaultWatch",
+    label: "Polyglot AI and security operations system",
+    repo: "https://github.com/Assembler-Fourier/vaultwatch",
+    repoLabel: "Review source",
+    live: "https://dashboard-web-three-sable.vercel.app",
+    ci: "https://github.com/Assembler-Fourier/vaultwatch/actions/workflows/ci.yml",
+    image: "/projects/vaultwatch-product.png",
+    imageAlt: "VaultWatch operations dashboard showing a synthetic risk investigation trace and alert",
+    imageMode: "visual-vault",
+    evidence: [
+      ["Architecture", "Four bounded services"],
+      ["Modes", "Showcase and full stack"],
+      ["Delivery", "Cross-language CI"],
+      ["Boundary", "Synthetic data only"]
+    ],
+    architecture: [
+      "Rust risk engine and audit chain",
+      "Go authentication and anomaly gateway",
+      "Python agent orchestration and event fusion",
+      "Next.js operations dashboard"
+    ],
+    problem:
+      "Transaction-risk tools and account-security tools often inspect separate streams. A suspicious transfer can therefore miss the login context that makes an account-takeover pattern visible.",
+    role:
+      "I designed and built the four-service architecture, shared event contracts, public showcase, deterministic replay path, integration workflow and cross-language CI around a synthetic-data-only boundary.",
+    stack: [
+      "Rust and Axum",
+      "Go",
+      "Python and FastAPI",
+      "scikit-learn",
+      "Anthropic SDK",
+      "Next.js and TypeScript",
+      "PostgreSQL",
+      "Redis",
+      "Docker Compose",
+      "GitHub Actions"
+    ],
+    features: [
+      "Deterministic transaction rules and a statistical pre-filter before any model stage",
+      "Tiered triage, tool-using investigation and synthetic compliance drafting",
+      "Account-security event fusion for impossible-travel and brute-force signals",
+      "Argon2id authentication with rotating refresh tokens and reuse detection",
+      "Hash-chained audit records and a live reasoning trace"
+    ],
+    testing: [
+      "CI runs Rust formatting, Clippy and tests; Go build, vet and tests; Python Ruff and Pytest; and Next.js lint and build",
+      "The public showcase falls back to deterministic replay when no Anthropic key is present",
+      "A complete Docker Compose run verifies real HTTP calls across the service boundary",
+      "Integration verification exposed and fixed a Postgres JSON-serialization defect and stale WebSocket cleanup"
+    ],
+    deployment:
+      "The live Vercel showcase is a self-contained TypeScript port that uses the same event shapes and can run without secrets. The full Rust, Go, Python, Postgres, Redis and Next.js system runs through Docker Compose for review.",
+    security:
+      "Every account, identity, transaction and entity graph is synthetic. The system includes adaptive password hashing, rotating JWT refresh tokens, rate limits, anomaly detection and a tamper-evident audit mechanism.",
+    tradeoffs:
+      "Showcase-mode audit history is held in serverless-instance memory and demonstrates the mechanism rather than durable storage. Durable Postgres case history and the file-backed Rust audit chain belong to the full Docker Compose mode.",
+    next: [
+      "Add a hosted full-stack environment with durable managed data stores",
+      "Expand cross-service contract and failure-injection coverage",
+      "Add traces and operational dashboards before any production-style rollout"
+    ],
+    proves:
+      "Polyglot backend engineering, applied AI orchestration, security controls, event-driven integration and honest deployment boundaries."
+  },
   "roster-command": {
     title: "Roster Command",
     label: "Privacy-safe public engineering extract",
     repo: "https://github.com/Assembler-Fourier/employee-roster-command",
     repoLabel: "Review public extract",
-    live: "https://employee-roster-command.vercel.app/?demo=1",
+    live: null,
     ci: "https://github.com/Assembler-Fourier/employee-roster-command/actions/workflows/ci.yml",
     image: "/projects/roster-command-product.png",
     imageAlt: "Roster Command read-only recruiter dashboard with synthetic workforce data",
@@ -47,7 +112,7 @@ const caseStudies = {
       "GitHub Actions runs the same public verification command"
     ],
     deployment:
-      "The public repository is not the complete application. A separate recruiter URL demonstrates a synthetic, read-only boundary; the extract contains selected scheduling logic and no private UI, database or provider integration.",
+      "The public repository is not the complete application. A sanitised capture documents the product boundary, while the operational deployment remains protected behind authentication; no public live product is claimed.",
     security:
       "No employer, employee or client records are included. Employee IDs, deduplication and synthetic fixtures reduce accidental identity ambiguity in the public examples.",
     tradeoffs:
@@ -275,7 +340,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <h1>{study.title}</h1>
             <p>{study.proves}</p>
             <div className="case-actions">
-              <a href={study.live} target="_blank" rel="noopener noreferrer">Open live product</a>
+              {study.live ? <a href={study.live} target="_blank" rel="noopener noreferrer">Open live product</a> : null}
               <a href={study.repo} target="_blank" rel="noopener noreferrer">{study.repoLabel}</a>
               <a href={study.ci} target="_blank" rel="noopener noreferrer">Inspect CI</a>
             </div>
@@ -302,7 +367,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
             </div>
             <div className="case-media-caption">
-              <span>Actual product</span>
+              <span>{study.title === "Roster Command" ? "Sanitised product view" : "Actual product"}</span>
               <strong>{study.title}</strong>
             </div>
           </div>
@@ -357,7 +422,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <span>What this proves</span>
             <h2>{study.proves}</h2>
             <div className="case-actions">
-              <a href={study.live} target="_blank" rel="noopener noreferrer">Try the product</a>
+              {study.live ? <a href={study.live} target="_blank" rel="noopener noreferrer">Try the product</a> : null}
               <a href={study.repo} target="_blank" rel="noopener noreferrer">Read the code</a>
             </div>
           </div>

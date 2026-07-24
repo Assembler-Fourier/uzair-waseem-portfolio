@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
 
 const expectedProjects = [
+  "VaultWatch",
   "HouseFair",
-  "Roster Command",
   "Irish Theory Test Coach",
-  "QA Automation Lab"
+  "Roster Command"
 ];
 
 test.describe("recruiter journey", () => {
@@ -16,14 +16,24 @@ test.describe("recruiter journey", () => {
     });
 
     await page.goto("/");
-    await expect(page.getByRole("heading", { level: 1 })).toContainText("tested full-stack products");
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("tested products");
     await expect(page.locator(".project-card h3")).toHaveText(expectedProjects);
     await expect(page.getByRole("link", { name: /Email me/i })).toHaveAttribute("href", /^mailto:/);
     await expect(page.getByRole("link", { name: /Download CV/i }).first()).toHaveAttribute("href", /\.pdf$/);
     await expect(
       page.getByRole("link", { name: /View Roster Command public engineering extract on GitHub/i })
     ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: /Open VaultWatch live showcase/i })
+    ).toHaveAttribute("href", "https://dashboard-web-three-sable.vercel.app");
     expect(errors).toEqual([]);
+  });
+
+  test("VaultWatch case study states the live and full-stack boundaries", async ({ page }) => {
+    await page.goto("/projects/vaultwatch");
+    await expect(page.getByRole("heading", { level: 1, name: "VaultWatch" })).toBeVisible();
+    await expect(page.getByText("Showcase and full stack", { exact: true })).toBeVisible();
+    await expect(page.getByText("Synthetic data only", { exact: true })).toBeVisible();
   });
 
   for (const viewport of [
@@ -66,6 +76,7 @@ test.describe("3D render envelope", () => {
   ]) {
     test(`${viewport.name} canvases produce nonblank pixels`, async ({ page }, testInfo) => {
       await page.setViewportSize(viewport);
+      await page.emulateMedia({ reducedMotion: "reduce" });
       await page.goto("/");
       const canvases = page.locator("canvas[data-scene]");
       await expect(canvases.first()).toHaveAttribute("data-render-state", "ready", { timeout: 15_000 });

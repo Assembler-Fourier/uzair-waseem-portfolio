@@ -2,3 +2,10 @@ node_modules/
 .next/
 *.log
 uzair_pic.png
+.tmp-pdfs/
+docs/
+output/
+playwright-report/
+test-results/
+tmp/
+scripts/build_candidate_facts_*.py

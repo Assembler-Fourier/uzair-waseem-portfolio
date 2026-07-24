@@ -320,6 +320,13 @@ def build_pdf_story(variant: dict[str, Any], phone: str | None = None) -> list[A
             f'<link href="{candidate["github"]}" color="#2563eb">github.com/Assembler-Fourier</link>',
             styles["contact"],
         ),
+        pdf_paragraph(
+            " | ".join(
+                escape(candidate[key])
+                for key in ("workAuthorization", "availability", "mobility")
+            ),
+            styles["contact"],
+        ),
     ]
 
     add_pdf_section(story, "Profile", styles)
@@ -595,6 +602,14 @@ def build_docx(variant: dict[str, Any], output_path: Path, phone: str | None = N
     links.add_run(" | ")
     add_docx_hyperlink(links, "github.com/Assembler-Fourier", candidate["github"], size=8.6)
 
+    work_status = document.add_paragraph(style="CV Contact")
+    work_status.add_run(
+        " | ".join(
+            candidate[key]
+            for key in ("workAuthorization", "availability", "mobility")
+        )
+    )
+
     add_docx_section(document, "Profile")
     document.add_paragraph(variant["summary"], style="CV Body")
 
@@ -662,6 +677,7 @@ def build_plain_text(variant: dict[str, Any], phone: str | None = None) -> str:
         f"Portfolio: {candidate['portfolio']}",
         f"LinkedIn: {candidate['linkedin']}",
         f"GitHub: {candidate['github']}",
+        f"Work authorization: {candidate['workAuthorization']} | {candidate['availability']} | {candidate['mobility']}",
         "",
         "PROFILE",
         variant["summary"],

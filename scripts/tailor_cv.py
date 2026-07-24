@@ -33,6 +33,10 @@ def main() -> None:
     parser.add_argument("--track", choices=sorted(profile["tracks"]), help="Override automatic track selection.")
     parser.add_argument("--title", default="Target Role", help="Vacancy title used in filenames and reports.")
     parser.add_argument("--company", default="Target Company", help="Company used in filenames and reports.")
+    parser.add_argument(
+        "--headline",
+        help="Optional truthful, job-specific CV headline. Evidence and skills remain truth-locked.",
+    )
     parser.add_argument("--output-dir", type=Path, help="Optional output directory.")
     parser.add_argument("--phone", help="Private phone for this application only; never published by this command.")
     args = parser.parse_args()
@@ -45,6 +49,9 @@ def main() -> None:
         target_title=args.title,
         company=args.company,
     )
+    if args.headline:
+        variant["headline"] = args.headline.strip()
+        report["target"]["headline"] = variant["headline"]
     folder_slug = slugify(f"{args.company}-{args.title}")
     output_dir = args.output_dir or OUTPUT_ROOT / "tailored" / folder_slug
     base_name = slugify(f"Uzair-Waseem-{args.company}-{args.title}-CV")

@@ -5,9 +5,9 @@ const siteUrl = "https://uzairwaseem.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Uzair Waseem | Software Engineer in Dublin",
+  title: "Uzair Waseem | Software, AI & Security Engineer in Dublin",
   description:
-    "Uzair Waseem is a Dublin-based software engineer building full-stack products, backend APIs, QA automation and security-aware delivery workflows with TypeScript, React, Node.js, PostgreSQL and Playwright.",
+    "Uzair Waseem is a Dublin-based software engineer building full-stack products, polyglot backend systems, applied AI workflows and security-aware delivery with TypeScript, Python, Rust, Go and PostgreSQL.",
   applicationName: "Uzair Waseem Portfolio",
   authors: [{ name: "Uzair Waseem", url: siteUrl }],
   creator: "Uzair Waseem",
@@ -37,8 +37,15 @@ export const metadata: Metadata = {
     "TypeScript",
     "Node.js",
     "Python",
+    "Rust",
+    "Go",
+    "FastAPI",
     "Supabase",
+    "Redis",
     "Docker",
+    "Docker Compose",
+    "Kubernetes",
+    "Terraform",
     "GitHub Actions",
     "REST APIs",
     "SQL",
@@ -59,9 +66,9 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "Uzair Waseem | Software Engineer in Dublin",
+    title: "Uzair Waseem | Software, AI & Security Engineer in Dublin",
     description:
-      "Dublin-based software engineer building full-stack products, backend APIs, QA automation and secure delivery workflows.",
+      "Dublin-based software engineer building tested products, polyglot backend systems, applied AI workflows and secure delivery paths.",
     url: siteUrl,
     siteName: "Uzair Waseem Portfolio",
     locale: "en_IE",
@@ -77,9 +84,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Uzair Waseem | Software Engineer in Dublin",
+    title: "Uzair Waseem | Software, AI & Security Engineer in Dublin",
     description:
-      "Dublin-based engineer building tested full-stack products, APIs and automation.",
+      "Dublin-based engineer building tested products, polyglot services, applied AI and automation.",
     images: ["/opengraph-image"]
   }
 };
