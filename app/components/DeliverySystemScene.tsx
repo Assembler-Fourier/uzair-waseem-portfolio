@@ -242,15 +242,15 @@ export default function DeliverySystemScene() {
         pixelVerified = true;
         const gl = renderer.getContext();
         const size = renderer.getDrawingBufferSize(new THREE.Vector2());
-        const x = Math.floor(size.x * 0.18);
-        const y = Math.floor(size.y * 0.12);
-        const width = Math.max(1, Math.floor(size.x * 0.64));
-        const height = Math.max(1, Math.floor(size.y * 0.76));
+        const width = Math.max(1, Math.min(96, size.x));
+        const height = Math.max(1, Math.min(96, size.y));
+        const x = Math.max(0, Math.min(size.x - width, Math.floor(size.x * 0.5 - width / 2)));
+        const y = Math.max(0, Math.min(size.y - height, Math.floor(size.y * 0.5 - height / 2)));
         const pixels = new Uint8Array(width * height * 4);
         gl.readPixels(x, y, width, height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
 
         let signal = 0;
-        for (let index = 3; index < pixels.length; index += 40) {
+        for (let index = 3; index < pixels.length; index += 4) {
           if (pixels[index] > 0) signal += 1;
         }
         renderer.domElement.dataset.pixelSignal = String(signal);

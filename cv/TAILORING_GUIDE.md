@@ -42,7 +42,15 @@ Override automatic track selection only when the vacancy is genuinely cross-func
 npm run cv:tailor -- --job-file job.txt --track backend --title "Junior Backend Engineer" --company "Example Company"
 ```
 
-Supported tracks are `software`, `full-stack`, `backend`, `qa` and `security`.
+Supported tracks are `software`, `full-stack`, `backend`, `qa`, `support`, `platform` and `security`.
+
+For a role whose recruiter-facing title differs from the closest evidence track, add a concise truthful headline:
+
+```powershell
+npm run cv:tailor -- --job-file job.txt --track full-stack --title "Technical Support Engineer" --company "Example Company" --headline "TECHNICAL SUPPORT ENGINEER | WEB, API TROUBLESHOOTING AND AUTOMATION"
+```
+
+The headline changes positioning only. It does not add skills or claims to the evidence bank.
 
 ## Private Phone Number
 

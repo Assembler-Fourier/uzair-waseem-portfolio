@@ -33,12 +33,12 @@ class CvTailoringTests(unittest.TestCase):
         self.assertIn("PostgreSQL", report["matchedVerifiedSkills"])
 
     def test_unsupported_requirements_are_reported_not_added(self) -> None:
-        job = "Build Java Spring Boot services on AWS with Terraform and Kubernetes."
+        job = "Build Ruby on Rails services on AWS with Selenium and Appium."
         variant, report = build_variant(self.profile, job_text=job, requested_track="backend")
-        self.assertEqual(report["unsupportedRequirementsNotAdded"], ["AWS", "Kubernetes", "Terraform", "Java"])
+        self.assertEqual(report["unsupportedRequirementsNotAdded"], ["AWS", "Ruby", "Selenium", "Appium"])
         rendered_skills = " ".join(item for _, items in variant["skillGroups"] for item in items)
-        self.assertNotIn("Kubernetes", rendered_skills)
-        self.assertNotIn("Terraform", rendered_skills)
+        self.assertNotIn("Ruby", rendered_skills)
+        self.assertNotIn("Selenium", rendered_skills)
 
     def test_tailoring_keeps_three_verified_projects(self) -> None:
         job = "Software Engineer with React, Next.js, authentication, Playwright and accessibility testing."
@@ -46,6 +46,21 @@ class CvTailoringTests(unittest.TestCase):
         self.assertEqual(len(variant["projects"]), 3)
         verified_titles = {project["title"] for project in self.profile["projects"].values()}
         self.assertTrue(all(project["title"] in verified_titles for project in variant["projects"]))
+
+    def test_software_cv_leads_with_vaultwatch(self) -> None:
+        variant, _ = build_variant(self.profile, requested_track="software")
+        self.assertEqual(variant["projects"][0]["title"], self.profile["projects"]["vaultwatch"]["title"])
+
+    def test_platform_cv_keeps_doctor_system_attribution_boundary(self) -> None:
+        variant, _ = build_variant(self.profile, requested_track="platform")
+        project = next(
+            project
+            for project in variant["projects"]
+            if project["title"] == self.profile["projects"]["doctor_system"]["title"]
+        )
+        rendered = " ".join([project["title"], *project["bullets"]])
+        self.assertIn("Apache-2.0", rendered)
+        self.assertIn("not a production cloud deployment", rendered)
 
     def test_theory_coach_is_described_as_live_without_traction_claims(self) -> None:
         project = self.profile["projects"]["theory"]

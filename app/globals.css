@@ -1408,6 +1408,10 @@ h1 {
   object-position: center 8%;
 }
 
+.project-visual.visual-vault .product-shot {
+  object-position: center 6%;
+}
+
 .product-shot-overlay {
   position: absolute;
   inset: 0;
@@ -2580,6 +2584,10 @@ h1 {
   object-position: center 8%;
 }
 
+.case-hero-media.visual-vault .product-shot {
+  object-position: center 6%;
+}
+
 .not-found-page {
   position: relative;
   display: grid;
@@ -3632,6 +3640,14 @@ h1 {
 
   .page-progress {
     display: none;
+  }
+
+  .reveal,
+  .project-card.reveal,
+  .hero .reveal {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
   }
 }
 

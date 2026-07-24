@@ -1,6 +1,7 @@
 import Image from "next/image";
 import {
   ArrowUpRight,
+  BrainCircuit,
   BriefcaseBusiness,
   Boxes,
   Braces,
@@ -35,9 +36,12 @@ const stackChips = [
   "TypeScript",
   "React",
   "Next.js",
-  "Node.js",
   "Python",
+  "Rust",
+  "Go",
+  "FastAPI",
   "PostgreSQL",
+  "Redis",
   "Playwright",
   "Docker",
   "CI/CD",
@@ -47,10 +51,10 @@ const stackChips = [
 const proofItems = [
   ["Location", "Dublin, Ireland"],
   ["Product proof", "4 reviewable projects"],
-  ["Backend", "Node.js + PostgreSQL"],
-  ["Quality", "CI + Playwright"],
+  ["Backend", "Rust + Go + Python"],
+  ["Quality", "Cross-language CI"],
   ["Education", "MSc Cybersecurity"],
-  ["Open to", "Ireland / hybrid / remote"]
+  ["Work status", "Stamp 1G · immediate"]
 ];
 
 const deliveryStages = [
@@ -64,30 +68,30 @@ const deliveryStages = [
   {
     icon: Braces,
     number: "02",
-    title: "API",
-    stack: "Node.js + REST",
-    detail: "Typed contracts and validation"
+    title: "Services",
+    stack: "Rust + Go + Python",
+    detail: "Typed APIs and bounded responsibilities"
   },
   {
     icon: Database,
     number: "03",
     title: "Data",
-    stack: "PostgreSQL",
-    detail: "Scoped access and durable state"
+    stack: "PostgreSQL + Redis",
+    detail: "Durable state and event delivery"
   },
   {
     icon: ShieldCheck,
     number: "04",
     title: "Quality",
-    stack: "Playwright + CI",
-    detail: "Automated release confidence"
+    stack: "Tests + multi-language CI",
+    detail: "Automated verification at each layer"
   },
   {
     icon: ServerCog,
     number: "05",
     title: "Delivery",
-    stack: "Docker + cloud",
-    detail: "Observable deployment paths"
+    stack: "Docker Compose + Vercel",
+    detail: "Reviewable full and showcase modes"
   }
 ];
 
@@ -104,8 +108,35 @@ const companies = [
 
 const projects = [
   {
+    title: "VaultWatch",
+    category: "Security + AI · Polyglot operations platform",
+    visual: "vault",
+    summary:
+      "Built a four-service fraud and account-security platform that escalates synthetic transactions from deterministic checks to agentic investigation.",
+    outcome:
+      "The public replay makes the reasoning path inspectable; the full Docker Compose mode connects Rust, Go, Python and Next.js through Postgres and Redis.",
+    proof:
+      "Cross-language GitHub Actions runs Rust, Go, Python and Next.js checks; integration runs surfaced real persistence and WebSocket defects.",
+    status: "Live synthetic showcase · Full stack via Docker Compose",
+    image: "/projects/vaultwatch-product.png",
+    imageAlt: "VaultWatch operations dashboard showing a synthetic risk investigation trace and alert",
+    imageMode: "dashboard",
+    evidence: [
+      ["Architecture", "4 services"],
+      ["CI", "Passing"],
+      ["Modes", "Showcase + full"]
+    ],
+    ci: "https://github.com/Assembler-Fourier/vaultwatch/actions/workflows/ci.yml",
+    stack: ["Rust", "Go", "FastAPI", "Next.js", "PostgreSQL", "Redis", "Docker"],
+    repository: "https://github.com/Assembler-Fourier/vaultwatch",
+    live: "https://dashboard-web-three-sable.vercel.app",
+    primaryLabel: "Live showcase",
+    sourceLabel: "Source",
+    caseStudy: "/projects/vaultwatch"
+  },
+  {
     title: "HouseFair",
-    category: "Flagship · Full-stack shared living product",
+    category: "Full-stack product · Shared living",
     visual: "house",
     summary:
       "Built a mobile-first household workspace for recurring chores, groceries, shared expenses and calmer issue reporting.",
@@ -129,33 +160,6 @@ const projects = [
     primaryLabel: "Live app",
     sourceLabel: "Source",
     caseStudy: "/projects/housefair"
-  },
-  {
-    title: "Roster Command",
-    category: "Public engineering extract · Workforce operations",
-    visual: "roster",
-    summary:
-      "Published selected, sanitised scheduling logic from a private roster system without exposing employer or employee data.",
-    outcome:
-      "The extract demonstrates deterministic cover ranking, overlap handling, availability rules and explainable decisions across edge cases.",
-    proof:
-      "TypeScript domain modules, synthetic fixtures, 23 Vitest checks, architecture notes and GitHub Actions.",
-    status: "Public engineering extract · Synthetic data only",
-    image: "/projects/roster-command-product.png",
-    imageAlt: "Roster Command recruiter demo showing a synthetic read-only workforce operations dashboard",
-    imageMode: "dashboard",
-    evidence: [
-      ["Boundary", "Sanitised extract"],
-      ["CI", "Passing"],
-      ["Tests", "23 passing"]
-    ],
-    ci: "https://github.com/Assembler-Fourier/employee-roster-command/actions/workflows/ci.yml",
-    stack: ["TypeScript", "Vitest", "Domain modeling", "CI", "Synthetic data"],
-    repository: "https://github.com/Assembler-Fourier/employee-roster-command",
-    live: "https://employee-roster-command.vercel.app/?demo=1",
-    primaryLabel: "Recruiter demo",
-    sourceLabel: "Public engineering extract",
-    caseStudy: "/projects/roster-command"
   },
   {
     title: "Irish Theory Test Coach",
@@ -185,31 +189,31 @@ const projects = [
     caseStudy: "/projects/theory-test-coach"
   },
   {
-    title: "QA Automation Lab",
-    category: "QA automation · Release contracts",
-    visual: "qa",
+    title: "Roster Command",
+    category: "Public engineering extract · Workforce operations",
+    visual: "roster",
     summary:
-      "Built a Playwright suite that checks public hiring evidence, live product boundaries and a workflow API without private credentials.",
+      "Published selected, sanitised scheduling logic from a private roster system without exposing employer or employee data.",
     outcome:
-      "The suite separates read-only live checks from isolated local writes and retains traces, screenshots, video and HTML reports on failure.",
+      "The extract demonstrates deterministic cover ranking, overlap handling, availability rules and explainable decisions across edge cases.",
     proof:
-      "Playwright, APIRequestContext, axe-core, page objects, fixtures, route interception, data-driven tests and GitHub Actions.",
-    status: "Public test suite · CI-enabled",
-    image: "/projects/qa-automation-lab-product.png",
-    imageAlt: "Playwright HTML report for the QA Automation Lab release-contract suite",
+      "TypeScript domain modules, synthetic fixtures, 23 Vitest checks, architecture notes and GitHub Actions.",
+    status: "Public engineering extract · Synthetic data only",
+    image: "/projects/roster-command-product.png",
+    imageAlt: "Roster Command recruiter demo showing a synthetic read-only workforce operations dashboard",
     imageMode: "dashboard",
     evidence: [
-      ["Suite", "26 contracts"],
-      ["API", "Read + negative"],
-      ["Evidence", "Trace + report"]
+      ["Boundary", "Sanitised extract"],
+      ["CI", "Passing"],
+      ["Tests", "23 passing"]
     ],
-    ci: "https://github.com/Assembler-Fourier/qa-automation-lab/actions/workflows/ci.yml",
-    stack: ["Playwright", "Node.js", "API testing", "axe-core", "GitHub Actions"],
-    repository: "https://github.com/Assembler-Fourier/qa-automation-lab",
-    live: "https://github.com/Assembler-Fourier/qa-automation-lab/actions/workflows/ci.yml",
-    primaryLabel: "CI runs",
-    sourceLabel: "Test suite",
-    caseStudy: "/projects/qa-automation-lab"
+    ci: "https://github.com/Assembler-Fourier/employee-roster-command/actions/workflows/ci.yml",
+    stack: ["TypeScript", "Vitest", "Domain modeling", "CI", "Synthetic data"],
+    repository: "https://github.com/Assembler-Fourier/employee-roster-command",
+    live: null,
+    primaryLabel: null,
+    sourceLabel: "Public engineering extract",
+    caseStudy: "/projects/roster-command"
   }
 ];
 
@@ -219,21 +223,28 @@ const roles = [
     title: "Full-stack / Backend Engineer",
     fit: "Product UI, APIs, data models and server-side workflows built as one coherent system.",
     tools: "TypeScript, React, Next.js, Node.js, Python, REST APIs, PostgreSQL",
-    proof: "Roster Command, HouseFair and Irish Theory Test Coach"
+    proof: "VaultWatch, HouseFair and Irish Theory Test Coach"
+  },
+  {
+    icon: BrainCircuit,
+    title: "Applied AI / Security Systems Engineer",
+    fit: "Cost-aware agent workflows, deterministic risk gates and explainable security operations interfaces.",
+    tools: "Python, FastAPI, scikit-learn, Anthropic SDK, Rust, Go, Redis, WebSockets",
+    proof: "VaultWatch plus an MSc Cybersecurity"
   },
   {
     icon: Bug,
     title: "QA Automation Engineer",
     fit: "UI and API checks, regression coverage, release gates and failure-focused product thinking.",
     tools: "Playwright, Vitest, Pytest, API testing, accessibility, GitHub Actions",
-    proof: "Mobile regression suites and CI-backed deployment checks"
+    proof: "QA Automation Lab, mobile regression suites and cross-language CI"
   },
   {
-    icon: ShieldCheck,
-    title: "Security-aware Software Engineer",
-    fit: "Authentication, authorization, data isolation and secure delivery inside product engineering.",
-    tools: "Secure SDLC, OWASP, RLS, sessions, CSRF, rate limiting, threat modeling",
-    proof: "MSc Cybersecurity plus documented security boundaries in live products"
+    icon: ServerCog,
+    title: "Platform / Cloud Foundations",
+    fit: "Containerised services, event-driven integration and infrastructure code with explicit deployment boundaries.",
+    tools: "Docker Compose, Kubernetes, Terraform, GitHub Actions, Kafka, RabbitMQ",
+    proof: "VaultWatch and the attributed Doctor System modernisation"
   }
 ];
 
@@ -289,12 +300,19 @@ const keywords = [
   "Next.js",
   "Node.js",
   "Python",
+  "Rust",
+  "Go",
   "FastAPI",
+  "WebSockets",
   "REST APIs",
   "PostgreSQL",
+  "Redis",
   "Supabase",
   "Neon",
   "Docker",
+  "Docker Compose",
+  "Kubernetes",
+  "Terraform",
   "GitHub Actions",
   "Playwright",
   "API testing",
@@ -302,6 +320,8 @@ const keywords = [
   "Stripe",
   "Authentication",
   "Authorization",
+  "Agent orchestration",
+  "Event-driven systems",
   "OWASP",
   "Secure SDLC",
   "Dublin",
@@ -333,6 +353,7 @@ const structuredData = [
       "Software Engineer",
       "Full-stack Software Engineer",
       "Backend Engineer",
+      "Applied AI Engineer",
       "QA Automation Engineer",
       "Security-aware Software Engineer"
     ],
@@ -347,7 +368,7 @@ const structuredData = [
     url: siteUrl,
     inLanguage: "en-IE",
     description:
-      "Portfolio for Uzair Waseem, a Dublin-based software engineer building full-stack products, APIs, QA automation and security-aware delivery workflows."
+      "Portfolio for Uzair Waseem, a Dublin-based software engineer building full-stack products, polyglot backend systems, applied AI workflows and security-aware delivery."
   },
   {
     "@context": "https://schema.org",
@@ -355,7 +376,7 @@ const structuredData = [
     "@id": `${siteUrl}/#profile`,
     url: siteUrl,
     name: "Uzair Waseem | Full-Stack Software Engineer in Dublin",
-    dateModified: "2026-07-15",
+    dateModified: "2026-07-24",
     inLanguage: "en-IE",
     isPartOf: { "@id": `${siteUrl}/#website` },
     mainEntity: { "@id": `${siteUrl}/#person` }
@@ -405,10 +426,10 @@ function Hero() {
           </div>
           <p className="intro-label">Uzair Waseem · Software Engineer</p>
           <h1>
-            Software engineer building <span className="headline-highlight">tested full-stack products</span> and backend APIs.
+            Software engineer building <span className="headline-highlight">tested products</span> and security-aware backend systems.
           </h1>
           <p className="hero-lede">
-            I turn operational problems into reviewable software with TypeScript, React, Node.js, PostgreSQL and Playwright. My cybersecurity MSc strengthens how I approach authentication, data isolation and delivery risk.
+            I turn operational problems into deployed web products and reviewable service architectures with TypeScript, Python, Rust, Go, PostgreSQL, Redis, Docker and automated quality gates.
           </p>
           <div className="stack-chips" aria-label="Core engineering stack">
             {stackChips.map((chip) => (
@@ -460,9 +481,9 @@ function Hero() {
 
 function HeroVisual() {
   const signals = [
-    ["01", "HouseFair", "Full-stack PWA · CI passing"],
-    ["02", "Roster Command", "Privacy-safe logic extract"],
-    ["03", "QA Automation Lab", "Release-contract suite"]
+    ["01", "VaultWatch", "Polyglot security + AI system", "LIVE"],
+    ["02", "HouseFair", "Full-stack PWA · CI passing", "LIVE"],
+    ["03", "Theory Test Coach", "Custom-domain EdTech product", "LIVE"]
   ];
 
   return (
@@ -490,14 +511,14 @@ function HeroVisual() {
         </div>
         <p className="console-label">Proof, not promises</p>
         <div className="signal-list">
-          {signals.map(([number, title, detail], index) => (
+          {signals.map(([number, title, detail, status]) => (
             <div className="proof-signal" key={title}>
               <span>{number}</span>
               <div>
                 <strong>{title}</strong>
                 <small>{detail}</small>
               </div>
-              <b>{index < 2 ? "LIVE" : "2026"}</b>
+              <b>{status}</b>
             </div>
           ))}
         </div>
@@ -548,8 +569,8 @@ function DeliverySystem() {
           </span>
           <h2 id="delivery-system-title">A live architecture, from click to cloud.</h2>
           <p>
-            I work across the delivery path, connecting product interfaces to typed APIs, durable data,
-            automated checks and reviewable deployment paths.
+            I work across the delivery path, connecting product interfaces to bounded services, durable data,
+            automated checks and reviewable full-stack deployment paths.
           </p>
           <dl className="render-budget" aria-label="3D scene performance envelope">
             <div>
@@ -646,16 +667,18 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
           ))}
         </ul>
         <div className="project-actions-row">
-          <a
-            className="project-link"
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Open ${project.title} ${project.primaryLabel.toLowerCase()}`}
-          >
-            {project.primaryLabel}
-            <ArrowUpRight size={16} aria-hidden="true" />
-          </a>
+          {project.live && project.primaryLabel ? (
+            <a
+              className="project-link"
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${project.title} ${project.primaryLabel.toLowerCase()}`}
+            >
+              {project.primaryLabel}
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+          ) : null}
           <a className="project-link ghost" href={project.caseStudy}>
             Case study
             <ArrowUpRight size={16} aria-hidden="true" />
@@ -715,7 +738,7 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
         </div>
       </div>
       <div className="product-shot-label">
-        <span>Actual product</span>
+        <span>{project.title === "Roster Command" ? "Sanitised product view" : "Actual product"}</span>
         <strong>{project.title}</strong>
       </div>
     </a>
@@ -729,7 +752,7 @@ function RoleFit() {
         <SectionHeading
           eyebrow="Role fit"
           title="Focused enough to place quickly. Broad enough to contribute across delivery."
-          text="Primary target: full-stack and backend engineering. Strong adjacent fit: QA automation and security-aware product engineering."
+          text="Primary target: software, full-stack and backend engineering. Applied AI, QA and platform depth are tied to reviewable project evidence."
         />
         <div className="role-grid">
           {roles.map((role) => {
@@ -830,7 +853,7 @@ function ContactCTA() {
           <div className="section-eyebrow"><Mail size={17} aria-hidden="true" />Contact</div>
           <h2>Send me the role. I will map my proof to it quickly.</h2>
           <p>
-            Uzair Waseem is based in Dublin and open to software engineering, full-stack, backend and QA automation opportunities across Ireland, hybrid and remote teams.
+            Uzair Waseem is based in Dublin and open to software engineering, full-stack, backend and applied AI opportunities across Ireland, hybrid and remote teams.
           </p>
         </div>
         <div className="contact-card reveal">

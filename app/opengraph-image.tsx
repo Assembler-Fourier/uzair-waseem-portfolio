@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Uzair Waseem, Dublin software engineer building tested full-stack products and backend APIs";
+export const alt = "Uzair Waseem, Dublin software engineer building tested products and security-aware backend systems";
 
 export const size = {
   width: 1200,
@@ -10,7 +10,7 @@ export const size = {
 
 export const contentType = "image/png";
 
-const stack = ["React", "Next.js", "Node.js", "PostgreSQL", "Playwright", "Secure SDLC"];
+const stack = ["TypeScript", "Python", "Rust", "Go", "PostgreSQL", "Docker"];
 
 export default function Image() {
   return new ImageResponse(
@@ -64,10 +64,10 @@ export default function Image() {
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ maxWidth: 940, fontSize: 72, fontWeight: 900, lineHeight: 0.98 }}>
-            Software engineer building tested full-stack products and backend APIs.
+            Software engineer building tested products and security-aware backend systems.
           </div>
           <div style={{ maxWidth: 920, marginTop: 28, color: "#bad6d2", fontSize: 30 }}>
-            Real products | Live systems | Security-aware delivery
+            Deployed products | Polyglot services | Applied AI
           </div>
         </div>
         <div style={{ display: "flex", gap: 10, color: "#d9fff8", fontSize: 20 }}>

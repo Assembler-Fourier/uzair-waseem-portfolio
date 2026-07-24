@@ -6,7 +6,10 @@
     "email": "uzairwaseem29@gmail.com",
     "portfolio": "https://uzairwaseem.com",
     "linkedin": "https://linkedin.com/in/uzair-waseem",
-    "github": "https://github.com/Assembler-Fourier"
+    "github": "https://github.com/Assembler-Fourier",
+    "workAuthorization": "Stamp 1G permission valid to 30 Apr 2027",
+    "availability": "Immediate start",
+    "mobility": "Open to relocate across Ireland"
   },
   "experience": [
     {
@@ -52,18 +55,32 @@
     {
       "degree": "MSc Cybersecurity",
       "school": "National College of Ireland, Dublin",
-      "period": "2025 - 2026"
+      "period": "2025 - 2026",
+      "awardMonth": "April 2026",
+      "nfqLevel": 9,
+      "result": "Second Class Honours (Masters)",
+      "resultDivision": "H2 (NCI masters scheme; no Grade 1 / Grade 2 division)",
+      "displayResultOnCv": false
     },
     {
       "degree": "BSc Computer Science",
       "school": "FAST NUCES, Pakistan",
-      "period": "2020 - 2024"
+      "period": "2020 - 2024",
+      "gpa": "2.54",
+      "gpaScale": "4.00",
+      "aggregatePercentage": "68.10%",
+      "displayResultOnCv": false
     }
   ],
   "skills": {
     "TypeScript": ["typescript", "ts"],
     "JavaScript": ["javascript", "js", "ecmascript"],
     "Python": ["python"],
+    "Rust": ["rust", "rustlang", "axum"],
+    "Go": ["golang", "go language"],
+    "Java": ["java"],
+    "Spring Boot": ["spring boot", "spring framework"],
+    "C#/.NET": ["c#", ".net", "dotnet"],
     "SQL": ["sql"],
     "React": ["react", "react.js", "reactjs"],
     "Next.js": ["next.js", "nextjs", "next js"],
@@ -74,8 +91,13 @@
     "Node.js": ["node.js", "nodejs", "node js"],
     "REST APIs": ["rest", "rest api", "restful", "api development", "web api"],
     "FastAPI": ["fastapi", "fast api"],
+    "GraphQL": ["graphql"],
+    "WebSockets": ["websocket", "websockets", "real-time streaming"],
     "serverless functions": ["serverless", "vercel functions", "cloud functions"],
     "PostgreSQL": ["postgresql", "postgres"],
+    "Redis": ["redis", "redis pub/sub", "redis pubsub"],
+    "Kafka": ["kafka", "apache kafka"],
+    "RabbitMQ": ["rabbitmq", "amqp"],
     "Supabase": ["supabase"],
     "Neon": ["neon", "neon postgres"],
     "Zod": ["zod", "runtime validation", "schema validation"],
@@ -93,22 +115,60 @@
     "GitHub Actions": ["github actions", "github workflows"],
     "CI/CD": ["ci/cd", "continuous integration", "continuous delivery", "deployment pipeline"],
     "Docker": ["docker", "container", "containerisation", "containerization"],
+    "Docker Compose": ["docker compose", "docker-compose", "multi-container"],
+    "Kubernetes": ["kubernetes", "k8s", "kustomize"],
+    "Terraform": ["terraform", "infrastructure as code", "iac"],
+    "Jenkins": ["jenkins", "jenkinsfile"],
     "Vercel": ["vercel"],
     "Git": ["git", "version control"],
+    "scikit-learn": ["scikit-learn", "sklearn"],
+    "Anthropic SDK": ["anthropic sdk", "claude api", "anthropic api"],
+    "agent orchestration": ["agent orchestration", "agentic workflow", "multi-agent", "tool use"],
+    "event-driven architecture": ["event-driven", "event driven", "pub/sub", "message broker"],
     "authentication": ["authentication", "auth", "identity"],
     "authorization": ["authorization", "authorisation", "access control", "rbac"],
     "RLS": ["row level security", "row-level security", "rls"],
     "secure sessions": ["secure sessions", "session security", "passwordless"],
     "CSRF": ["csrf", "cross-site request forgery"],
     "rate limiting": ["rate limiting", "rate limit"],
+    "JWT": ["jwt", "json web token", "refresh token"],
+    "Argon2id": ["argon2", "argon2id", "password hashing"],
+    "tamper-evident audit": ["tamper-evident", "hash chain", "hash-chained audit"],
     "OWASP": ["owasp", "web security"],
     "secure SDLC": ["secure sdlc", "secure software development", "application security"],
     "threat modelling": ["threat modelling", "threat modeling"],
     "defect investigation": ["defect investigation", "debugging", "root cause analysis", "troubleshooting"],
+    "browser developer tools": ["browser developer tools", "browser dev tools", "developer tools", "devtools"],
     "technical documentation": ["technical documentation", "documentation"],
     "stakeholder delivery": ["stakeholder", "requirements gathering", "cross-functional"]
   },
   "projects": {
+    "vaultwatch": {
+      "title": "VaultWatch - Polyglot AI and Security Operations Platform",
+      "stack": "Rust/Axum, Go, Python/FastAPI, scikit-learn, Next.js/TypeScript, PostgreSQL, Redis, Docker Compose, GitHub Actions",
+      "links": [
+        ["Live showcase", "https://dashboard-web-three-sable.vercel.app"],
+        ["GitHub source", "https://github.com/Assembler-Fourier/vaultwatch"]
+      ],
+      "bullets": [
+        "Built a four-service fraud and account-security platform spanning Rust risk scoring, Go authentication and anomaly detection, Python/FastAPI agent orchestration and a Next.js operations dashboard.",
+        "Added deterministic replay, synthetic-data boundaries and cross-language CI; full Docker Compose verification exposed and fixed persistence-serialization and WebSocket cleanup defects."
+      ],
+      "tags": ["Rust", "Go", "Python", "FastAPI", "scikit-learn", "Anthropic SDK", "agent orchestration", "TypeScript", "Next.js", "PostgreSQL", "Redis", "WebSockets", "Docker", "Docker Compose", "GitHub Actions", "CI/CD", "authentication", "JWT", "Argon2id", "rate limiting", "tamper-evident audit", "event-driven architecture", "backend", "security", "AI"]
+    },
+    "doctor_system": {
+      "title": "Doctor System - Attributed Polyglot Platform Modernisation",
+      "stack": "Java/Spring Boot, C#/.NET, Go, Kafka, RabbitMQ, GraphQL, Docker, Kubernetes, Terraform, Jenkins",
+      "links": [
+        ["Project site", "https://assembler-fourier.github.io/doctor-system/"],
+        ["GitHub source", "https://github.com/Assembler-Fourier/doctor-system"]
+      ],
+      "bullets": [
+        "Modernised an Apache-2.0 prototype into an attributed appointment reference platform with a Java/Spring Boot core, .NET/RabbitMQ notifications and a Go/Kafka audit projection.",
+        "Added GraphQL/REST, container builds, Kubernetes overlays and guarded Terraform plus CI validation; the infrastructure remains a reviewed reference implementation, not a production cloud deployment."
+      ],
+      "tags": ["Java", "Spring Boot", "C#/.NET", "Go", "Kafka", "RabbitMQ", "GraphQL", "Docker", "Docker Compose", "Kubernetes", "Terraform", "Jenkins", "GitHub Actions", "CI/CD", "event-driven architecture", "authentication", "technical documentation", "platform engineering"]
+    },
     "housefair": {
       "title": "HouseFair - Shared-Living Full-Stack Product",
       "stack": "Next.js 16, React 19, TypeScript, Supabase Auth/PostgreSQL/RLS, Zod, Playwright, PWA",
@@ -164,31 +224,31 @@
   },
   "tracks": {
     "software": {
-      "headline": "SOFTWARE ENGINEER | TYPESCRIPT, REACT, NODE.JS AND POSTGRESQL",
-      "summary": "Dublin-based software engineer with remote delivery experience across React and TypeScript products, backend APIs and automated quality workflows. Builds deployed full-stack systems with Node.js, PostgreSQL, Playwright and GitHub Actions; MSc Cybersecurity strengthens authentication, authorization and data-isolation decisions.",
+      "headline": "SOFTWARE ENGINEER | TYPESCRIPT, REACT, PYTHON, RUST AND GO",
+      "summary": "Dublin-based software engineer with remote delivery experience across React and TypeScript products, backend APIs and automated quality workflows. Builds deployed web products and security-aware services with Python/FastAPI, Rust, Go, PostgreSQL, Redis, Docker and cross-language CI; MSc Cybersecurity strengthens authentication and data-isolation decisions.",
       "skillGroups": [
-        ["Languages", ["TypeScript", "JavaScript", "Python", "SQL"]],
-        ["Product engineering", ["React", "Next.js", "Node.js", "REST APIs", "FastAPI", "responsive UI", "PWA"]],
-        ["Data and delivery", ["PostgreSQL", "Supabase", "Neon", "Docker", "Vercel", "GitHub Actions", "CI/CD"]],
+        ["Languages", ["TypeScript", "JavaScript", "Python", "Rust", "Go", "SQL"]],
+        ["Product and services", ["React", "Next.js", "Node.js", "FastAPI", "REST APIs", "WebSockets", "responsive UI"]],
+        ["Data and delivery", ["PostgreSQL", "Redis", "Supabase", "Docker", "Docker Compose", "Vercel", "GitHub Actions", "CI/CD"]],
         ["Quality and security", ["Playwright", "Vitest", "Pytest", "API testing", "accessibility testing", "authentication", "authorization", "RLS", "OWASP"]]
       ],
-      "projectOrder": ["housefair", "theory", "roster"],
-      "signals": ["software engineer", "graduate software", "junior software", "typescript", "react", "node.js", "product engineer"],
+      "projectOrder": ["vaultwatch", "housefair", "theory"],
+      "signals": ["software engineer", "graduate software", "junior software", "typescript", "react", "node.js", "python", "rust", "go", "product engineer"],
       "outputFilename": "Uzair-Waseem-Software-Engineer-CV.pdf",
       "publicFilename": "Uzair-Waseem-CV-Software-Engineer.pdf",
       "subject": "ATS-readable software engineering CV",
-      "keywords": "Software Engineer, TypeScript, React, Next.js, Node.js, PostgreSQL, REST APIs, Playwright, CI/CD"
+      "keywords": "Software Engineer, TypeScript, React, Next.js, Python, Rust, Go, PostgreSQL, REST APIs, Docker, CI/CD"
     },
     "full-stack": {
       "headline": "FULL-STACK ENGINEER | REACT, NEXT.JS, NODE.JS AND POSTGRESQL",
-      "summary": "Dublin-based full-stack engineer with remote delivery experience spanning React interfaces, Node.js APIs, PostgreSQL data models and automated release checks. Ships deployed web products end to end, with Playwright coverage and security-aware authentication and access-control decisions.",
+      "summary": "Dublin-based full-stack engineer with remote delivery experience spanning React interfaces, Node.js and Python APIs, PostgreSQL data models and automated release checks. Ships deployed web products end to end and can move into Rust and Go services when the architecture benefits from bounded, independently tested components.",
       "skillGroups": [
         ["Frontend", ["TypeScript", "React", "Next.js", "JavaScript", "HTML", "CSS", "responsive UI", "PWA"]],
-        ["Backend and data", ["Node.js", "REST APIs", "Python", "FastAPI", "PostgreSQL", "Supabase", "Neon", "Zod"]],
-        ["Testing and delivery", ["Playwright", "Vitest", "API testing", "GitHub Actions", "CI/CD", "Docker", "Vercel"]],
+        ["Backend and data", ["Node.js", "REST APIs", "Python", "FastAPI", "Rust", "Go", "PostgreSQL", "Redis", "Supabase", "Zod"]],
+        ["Testing and delivery", ["Playwright", "Vitest", "Pytest", "API testing", "GitHub Actions", "CI/CD", "Docker", "Vercel"]],
         ["Application security", ["authentication", "authorization", "RLS", "secure sessions", "OWASP"]]
       ],
-      "projectOrder": ["housefair", "theory", "roster"],
+      "projectOrder": ["housefair", "vaultwatch", "theory"],
       "signals": ["full stack", "full-stack", "fullstack", "frontend and backend", "react", "next.js", "node.js"],
       "outputFilename": "Uzair-Waseem-Full-Stack-Engineer-CV.pdf",
       "publicFilename": "Uzair-Waseem-CV-Full-Stack-Engineer.pdf",
@@ -196,20 +256,20 @@
       "keywords": "Full-Stack Engineer, React, Next.js, TypeScript, Node.js, PostgreSQL, REST APIs, Playwright"
     },
     "backend": {
-      "headline": "BACKEND SOFTWARE ENGINEER | NODE.JS, PYTHON, REST APIs AND POSTGRESQL",
-      "summary": "Dublin-based backend-focused software engineer with remote delivery experience across Node.js integrations, REST APIs, PostgreSQL workflows and serverless web products. Builds validated, tested delivery paths with Python, FastAPI, GitHub Actions and security-aware authentication and authorization boundaries.",
+      "headline": "BACKEND SOFTWARE ENGINEER | PYTHON, RUST, GO, APIS AND POSTGRESQL",
+      "summary": "Dublin-based backend-focused software engineer with remote delivery experience across Node.js integrations, REST APIs, PostgreSQL workflows and serverless products. Builds bounded services with Python/FastAPI, Rust and Go, connects PostgreSQL and Redis, and verifies delivery through Docker Compose and cross-language CI.",
       "skillGroups": [
-        ["Languages and APIs", ["TypeScript", "JavaScript", "Python", "SQL", "Node.js", "REST APIs", "FastAPI", "serverless functions"]],
-        ["Data and validation", ["PostgreSQL", "Supabase", "Neon", "Zod", "RLS"]],
-        ["Quality and delivery", ["API testing", "Playwright", "Vitest", "Pytest", "GitHub Actions", "CI/CD", "Docker", "Vercel"]],
-        ["Security", ["authentication", "authorization", "secure sessions", "CSRF", "rate limiting", "OWASP"]]
+        ["Languages and APIs", ["TypeScript", "Python", "Rust", "Go", "SQL", "Node.js", "REST APIs", "FastAPI", "WebSockets"]],
+        ["Data and integration", ["PostgreSQL", "Redis", "Supabase", "Neon", "Zod", "event-driven architecture"]],
+        ["Quality and delivery", ["API testing", "Playwright", "Vitest", "Pytest", "GitHub Actions", "CI/CD", "Docker", "Docker Compose"]],
+        ["Security", ["authentication", "authorization", "JWT", "Argon2id", "rate limiting", "OWASP"]]
       ],
-      "projectOrder": ["theory", "roster", "housefair"],
-      "signals": ["backend", "back-end", "api engineer", "node.js", "python", "fastapi", "postgresql", "serverless", "database"],
+      "projectOrder": ["vaultwatch", "theory", "roster"],
+      "signals": ["backend", "back-end", "api engineer", "node.js", "python", "rust", "go", "fastapi", "postgresql", "redis", "serverless", "database"],
       "outputFilename": "Uzair-Waseem-Backend-Engineer-CV.pdf",
       "publicFilename": "Uzair-Waseem-CV-Backend-Engineer.pdf",
       "subject": "ATS-readable backend software engineering CV",
-      "keywords": "Backend Software Engineer, Node.js, Python, FastAPI, REST APIs, PostgreSQL, SQL, API Testing, CI/CD"
+      "keywords": "Backend Software Engineer, Python, FastAPI, Rust, Go, REST APIs, PostgreSQL, Redis, Docker, CI/CD"
     },
     "qa": {
       "headline": "QA AUTOMATION ENGINEER | PLAYWRIGHT, TYPESCRIPT, API TESTING AND CI/CD",
@@ -220,43 +280,68 @@
         ["Investigation", ["defect investigation", "technical documentation", "REST APIs", "PostgreSQL", "authentication", "authorization"]],
         ["CI and delivery", ["GitHub Actions", "CI/CD", "Node.js", "Docker", "Vercel", "Git"]]
       ],
-      "projectOrder": ["qa_lab", "theory", "housefair"],
+      "projectOrder": ["qa_lab", "vaultwatch", "housefair"],
       "signals": ["qa", "quality assurance", "test automation", "automation engineer", "sdet", "playwright", "api testing", "regression"],
       "outputFilename": "Uzair-Waseem-QA-Automation-CV.pdf",
       "publicFilename": "Uzair-Waseem-CV-QA-Automation-Engineer.pdf",
       "subject": "ATS-readable QA automation and SDET CV",
       "keywords": "QA Automation Engineer, Junior SDET, Playwright, TypeScript, API Testing, Test Automation, Accessibility Testing, GitHub Actions, CI/CD"
     },
-    "security": {
-      "headline": "SECURITY-AWARE SOFTWARE ENGINEER | WEB APPLICATIONS, AUTH AND SECURE DELIVERY",
-      "summary": "Dublin-based software engineer and MSc Cybersecurity candidate building tested web products with explicit authentication, authorization and data-isolation boundaries. Combines TypeScript, React, Node.js and PostgreSQL delivery with OWASP-aware implementation, negative testing and documented release risk.",
+    "support": {
+      "headline": "TECHNICAL SUPPORT ENGINEER | WEB DIAGNOSTICS, REST APIS AND CUSTOMER-FOCUSED DELIVERY",
+      "summary": "Dublin-based software engineer with nearly two years of professional delivery experience across React and TypeScript web products, Node.js API integrations, automated QA and remote stakeholder support. Investigates issues through browser developer tools, application behaviour and API responses; documents findings clearly and builds reliable fixes for web-product workflows.",
       "skillGroups": [
-        ["Software engineering", ["TypeScript", "JavaScript", "React", "Next.js", "Node.js", "REST APIs", "PostgreSQL"]],
-        ["Application security", ["authentication", "authorization", "RLS", "secure sessions", "CSRF", "rate limiting", "OWASP", "secure SDLC", "threat modelling"]],
-        ["Verification", ["Playwright", "API testing", "negative testing", "accessibility testing", "Vitest", "Pytest"]],
-        ["Delivery", ["GitHub Actions", "CI/CD", "Docker", "Vercel", "technical documentation"]]
+        ["Web diagnostics", ["HTML", "CSS", "JavaScript", "browser developer tools", "defect investigation", "REST APIs"]],
+        ["Product engineering", ["TypeScript", "React", "Next.js", "Node.js", "PostgreSQL", "responsive UI"]],
+        ["Quality and delivery", ["Playwright", "API testing", "regression testing", "GitHub Actions", "CI/CD", "Git"]],
+        ["Communication and security", ["technical documentation", "stakeholder delivery", "authentication", "authorization", "OWASP"]]
       ],
-      "projectOrder": ["housefair", "theory", "qa_lab"],
-      "signals": ["application security", "secure software", "security-aware", "secure sdlc", "owasp", "authentication", "authorization", "threat modelling"],
+      "projectOrder": ["theory", "housefair", "qa_lab"],
+      "signals": ["technical support engineer", "support engineer", "software support", "customer support", "troubleshooting", "browser developer tools", "html", "css"],
+      "outputFilename": "Uzair-Waseem-Technical-Support-Engineer-CV.pdf",
+      "publicFilename": "Uzair-Waseem-CV-Technical-Support-Engineer.pdf",
+      "subject": "ATS-readable technical support engineering CV",
+      "keywords": "Technical Support Engineer, HTML, CSS, JavaScript, Browser Developer Tools, REST APIs, Troubleshooting, Technical Documentation, Customer-Focused Delivery"
+    },
+    "platform": {
+      "headline": "PLATFORM SOFTWARE ENGINEER | DOCKER, KUBERNETES, TERRAFORM AND CI/CD",
+      "summary": "Dublin-based software engineer building containerised, multi-service systems with explicit verification and deployment boundaries. Works across Rust, Go, Python, Java and .NET services, event-driven integration, Docker Compose, Kubernetes manifests, guarded Terraform and cross-language CI without overstating reference infrastructure as a live cloud deployment.",
+      "skillGroups": [
+        ["Languages", ["TypeScript", "Python", "Rust", "Go", "Java", "C#/.NET", "SQL"]],
+        ["Services and messaging", ["FastAPI", "Spring Boot", "GraphQL", "WebSockets", "Kafka", "RabbitMQ", "Redis"]],
+        ["Platform and delivery", ["Docker", "Docker Compose", "Kubernetes", "Terraform", "GitHub Actions", "CI/CD", "Jenkins"]],
+        ["Data and security", ["PostgreSQL", "event-driven architecture", "authentication", "authorization", "OWASP", "technical documentation"]]
+      ],
+      "projectOrder": ["vaultwatch", "doctor_system", "housefair"],
+      "signals": ["platform engineer", "devops", "cloud engineer", "docker", "kubernetes", "terraform", "ci/cd", "kafka", "rabbitmq", "java", ".net", "go"],
+      "outputFilename": "Uzair-Waseem-Platform-Software-Engineer-CV.pdf",
+      "publicFilename": "Uzair-Waseem-CV-Platform-Software-Engineer.pdf",
+      "subject": "ATS-readable platform software engineering CV",
+      "keywords": "Platform Software Engineer, Docker, Kubernetes, Terraform, CI/CD, Rust, Go, Python, Java, .NET, Kafka, RabbitMQ"
+    },
+    "security": {
+      "headline": "SECURITY-AWARE SOFTWARE ENGINEER | AUTH, RISK SYSTEMS AND SECURE DELIVERY",
+      "summary": "Dublin-based software engineer and MSc Cybersecurity graduate building tested products with explicit authentication, authorization, risk and data-isolation boundaries. Combines Rust, Go, Python/FastAPI, TypeScript and PostgreSQL delivery with OWASP-aware implementation, negative testing and documented release risk.",
+      "skillGroups": [
+        ["Secure software", ["Rust", "Go", "Python", "FastAPI", "TypeScript", "REST APIs", "PostgreSQL", "Redis"]],
+        ["Application security", ["authentication", "authorization", "JWT", "Argon2id", "RLS", "rate limiting", "OWASP", "secure SDLC", "threat modelling"]],
+        ["Detection and verification", ["scikit-learn", "event-driven architecture", "tamper-evident audit", "Playwright", "API testing", "negative testing", "Pytest"]],
+        ["Delivery", ["GitHub Actions", "CI/CD", "Docker", "Docker Compose", "Vercel", "technical documentation"]]
+      ],
+      "projectOrder": ["vaultwatch", "housefair", "theory"],
+      "signals": ["application security", "secure software", "security-aware", "secure sdlc", "owasp", "authentication", "authorization", "threat modelling", "fraud", "risk engine"],
       "outputFilename": "Uzair-Waseem-Security-Aware-Software-Engineer-CV.pdf",
       "publicFilename": "Uzair-Waseem-CV-Security-Aware-Software-Engineer.pdf",
       "subject": "ATS-readable security-aware software engineering CV",
-      "keywords": "Security-Aware Software Engineer, Application Security, TypeScript, Node.js, PostgreSQL, Authentication, Authorization, OWASP, Secure SDLC"
+      "keywords": "Security-Aware Software Engineer, Application Security, Rust, Go, Python, FastAPI, PostgreSQL, Authentication, Authorization, OWASP, Secure SDLC"
     }
   },
   "unsupportedTerms": {
     "AWS": ["aws", "amazon web services"],
     "Azure": ["azure"],
     "Google Cloud": ["gcp", "google cloud"],
-    "Kubernetes": ["kubernetes", "k8s"],
-    "Terraform": ["terraform"],
-    "Jenkins": ["jenkins"],
-    "Java": ["java", "spring boot", "spring framework"],
-    "C#/.NET": ["c#", ".net", "dotnet", "asp.net"],
-    "Go": ["golang", "go language"],
-    "Kafka": ["kafka"],
-    "RabbitMQ": ["rabbitmq"],
-    "GraphQL": ["graphql"],
+    "PHP": ["php", "laravel"],
+    "Ruby": ["ruby", "ruby on rails"],
     "Cypress": ["cypress"],
     "Selenium": ["selenium"],
     "Cucumber": ["cucumber", "bdd"],
@@ -265,8 +350,11 @@
   "factCheck": [
     "Confirm Outstanding Marketing title, employment basis, dates and every bullet before submitting.",
     "Confirm LocalhostLabs title, employment basis, dates and every bullet before submitting.",
-    "Confirm MSc Cybersecurity completion status and exact dates.",
-    "Add Irish work-permission wording only after checking the current IRP card and expiry date.",
+    "Use April 2026 as the MSc award month; the supplied NCI documents do not state an exact award day.",
+    "Use Second Class Honours (Masters) or H2 for the MSc result; do not translate it into a 2.1, 2.2, Grade 1 or Grade 2.",
+    "Current Stamp 1G expires 30 April 2027. A further 12 months to 30 April 2028 is subject to a separate renewal application and approval.",
+    "Describe VaultWatch data and compliance output as synthetic; distinguish the Vercel replay showcase from the full Docker Compose system.",
+    "Retain Apache-2.0 upstream attribution for Doctor System and do not claim that its validated infrastructure is a live cloud deployment.",
     "Add metrics only when a ticket, report, analytics record or manager can support them."
   ]
 }
