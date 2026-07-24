@@ -53,6 +53,11 @@ def main() -> None:
                 failures.append(f"{track}: live Theory Coach title missing")
             if "irishtheorycoach.ie" not in text:
                 failures.append(f"{track}: canonical Theory Coach URL missing")
+        if track == "software":
+            if "Roster Command - Workforce Scheduling Engineering Extract" not in text:
+                failures.append("software: Roster Command project missing")
+            if text.count("GitHub source") + text.count("Public engineering extract") < 4:
+                failures.append("software: expected four linked engineering projects")
         fingerprints[track] = hashlib.sha256(text.encode("utf-8")).hexdigest()
         output_stem = Path(track_data["outputFilename"]).stem
         docx_path = OUTPUT_ROOT / "cv" / track / f"{output_stem}.docx"

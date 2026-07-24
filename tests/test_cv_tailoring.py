@@ -40,12 +40,12 @@ class CvTailoringTests(unittest.TestCase):
         self.assertNotIn("Ruby", rendered_skills)
         self.assertNotIn("Selenium", rendered_skills)
 
-    def test_tailoring_keeps_three_verified_projects(self) -> None:
-        job = "Software Engineer with React, Next.js, authentication, Playwright and accessibility testing."
-        variant, _ = build_variant(self.profile, job_text=job)
-        self.assertEqual(len(variant["projects"]), 3)
+    def test_generic_software_track_keeps_four_verified_projects(self) -> None:
+        variant, _ = build_variant(self.profile, requested_track="software")
+        self.assertEqual(len(variant["projects"]), 4)
         verified_titles = {project["title"] for project in self.profile["projects"].values()}
         self.assertTrue(all(project["title"] in verified_titles for project in variant["projects"]))
+        self.assertIn(self.profile["projects"]["roster"]["title"], {project["title"] for project in variant["projects"]})
 
     def test_software_cv_leads_with_vaultwatch(self) -> None:
         variant, _ = build_variant(self.profile, requested_track="software")

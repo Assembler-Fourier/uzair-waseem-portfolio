@@ -144,7 +144,8 @@ def rank_projects(
         score += sum(2 for tag in project["tags"] if term_count(job_text, [tag]))
         scores[project_id] = score
     stable_order = list(profile["projects"])
-    return sorted(scores, key=lambda key: (-scores[key], stable_order.index(key)))[:3]
+    project_count = int(track.get("projectCount", 3))
+    return sorted(scores, key=lambda key: (-scores[key], stable_order.index(key)))[:project_count]
 
 
 def build_variant(
@@ -160,11 +161,16 @@ def build_variant(
     unsupported = match_unsupported_terms(profile, job_text)
     project_ids = rank_projects(profile, track, job_text, matched_skills)
 
+    selected_projects = [copy.deepcopy(profile["projects"][project_id]) for project_id in project_ids]
+    if track.get("compactProjects"):
+        for project in selected_projects:
+            project["bullets"] = copy.deepcopy(project.get("compactBullets", project["bullets"][:1]))
+
     variant = {
         **track,
         "track": selected_track,
         "skillGroups": reorder_skill_groups(track, matched_skills),
-        "projects": [copy.deepcopy(profile["projects"][project_id]) for project_id in project_ids],
+        "projects": selected_projects,
         "experience": reorder_experience(profile, matched_skills),
         "education": copy.deepcopy(profile["education"]),
         "candidate": copy.deepcopy(profile["candidate"]),
