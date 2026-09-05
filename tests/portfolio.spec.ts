@@ -22,9 +22,13 @@ test.describe("recruiter journey", () => {
     await expect(page.getByRole("link", { name: /Download CV/i }).first()).toHaveAttribute("href", /\.pdf$/);
     await expect(page.locator("#experience")).toContainText("Octans Digital (OD)");
     await expect(page.locator("#experience")).toContainText("Nov 2020 - Apr 2024");
+    await expect(page.locator("#experience")).toContainText("Control Room Manager");
+    await expect(page.locator("#experience")).toContainText("Threadstone Security Ltd");
+    await expect(page.locator("#experience")).toContainText("Nov 2025 - Present");
     await expect(page.locator("#experience")).not.toContainText("Junior Software Engineer");
     await expect(page.locator("#education")).toContainText("Graduated April 2026");
     await expect(page.locator("#contact")).toContainText("Own car and full Irish driving licence");
+    await expect(page.locator("#contact")).toContainText("up to one week notice");
     await expect(
       page.getByRole("link", { name: /View Roster Command public engineering extract on GitHub/i })
     ).toBeVisible();

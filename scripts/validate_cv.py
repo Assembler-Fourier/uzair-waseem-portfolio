@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import re
@@ -9,10 +10,14 @@ from docx import Document
 from docx.opc.constants import RELATIONSHIP_TYPE
 from pypdf import PdfReader
 
-from cv_engine import OUTPUT_ROOT, PUBLIC_DIR, PUBLIC_VARIANT_DIR, load_profile
+from cv_engine import OUTPUT_ROOT, PUBLIC_DIR, PUBLIC_VARIANT_DIR, build_variant, load_profile
 
 
-PRIVATE_PATTERNS = [r"899739932", r"89\s*973\s*9932", r"K78\s*H9Y9", r"15\s+Aderrig"]
+PRIVATE_PATTERNS = [
+    r"(?:\+353|00353|0)[\s()-]*8[35679](?:[\s()-]*\d){7}\b",
+    r"\b[A-Z]\d{2}\s*[A-Z0-9]{4}\b",
+    r"\b\d{1,4}\s+(?:\w+\s+){0,3}(?:Street|Road|Avenue|Drive|Lane|Court)\b",
+]
 REQUIRED_SECTIONS = ["PROFILE", "PROFESSIONAL EXPERIENCE", "EDUCATION"]
 
 
@@ -22,18 +27,24 @@ def pdf_text(path: Path) -> tuple[PdfReader, str]:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Validate role-specific CVs without changing them.")
+    parser.add_argument("--draft", action="store_true", help="Validate output/cv drafts instead of public PDFs.")
+    args = parser.parse_args()
     profile = load_profile()
     failures: list[str] = []
     fingerprints: dict[str, str] = {}
     results = []
 
     for track, track_data in profile["tracks"].items():
+        variant, _ = build_variant(profile, requested_track=track)
+        expected_link_count = 3 + sum(len(project["links"]) for project in variant["projects"])
         required_sections = [
             *REQUIRED_SECTIONS,
             track_data.get("skillsHeading", "Technical Skills").upper(),
             track_data.get("projectsHeading", "Selected Engineering Projects").upper(),
         ]
-        public_path = PUBLIC_VARIANT_DIR / track_data["publicFilename"]
+        public_path = (OUTPUT_ROOT / "cv" / track / track_data["outputFilename"]
+                       if args.draft else PUBLIC_VARIANT_DIR / track_data["publicFilename"])
         reader, text = pdf_text(public_path)
         if len(reader.pages) != 1:
             failures.append(f"{track}: expected one page, found {len(reader.pages)}")
@@ -44,7 +55,7 @@ def main() -> None:
             for page in reader.pages
             for annotation in (page.get("/Annots") or [])
         )
-        if link_annotations < 8:
+        if link_annotations < expected_link_count:
             failures.append(f"{track}: expected working PDF links, found {link_annotations}")
         for section in required_sections:
             if section not in text:
@@ -59,21 +70,26 @@ def main() -> None:
             "Software Engineer - LocalhostLabs",
             "Graduated April 2026",
             "Own car and full Irish driving licence",
+            "Control Room Manager - Threadstone Security Ltd",
+            "Nov 2025 - Present",
+            "Available with up to one week notice",
+            "Handled assigned software-development tickets, including C# tasks, as part of the engineering team.",
+            "Stamp 1G permission valid to 30 Apr 2027",
         ):
             if confirmed_fact not in text:
                 failures.append(f"{track}: missing confirmed fact {confirmed_fact}")
         if "nearly two years" in text or "Junior Software Engineer - LocalhostLabs" in text:
             failures.append(f"{track}: stale employment wording")
-        if any(project_id == "theory" for project_id in track_data["projectOrder"]):
+        if any(term in text for term in ("Available immediately", "Immediate start", "IELTS", "Apr 2028", "€", "EUR", "salary")):
+            failures.append(f"{track}: unconfirmed, stale or private candidate detail")
+        if any(project["title"] == profile["projects"]["theory"]["title"] for project in variant["projects"]):
             if "Irish Theory Test Coach - Live Deployed EdTech Platform" not in text:
                 failures.append(f"{track}: live Theory Coach title missing")
             if "irishtheorycoach.ie" not in text:
                 failures.append(f"{track}: canonical Theory Coach URL missing")
         if track == "software":
-            if "Roster Command - Workforce Scheduling Engineering Extract" not in text:
-                failures.append("software: Roster Command project missing")
-            if text.count("GitHub source") + text.count("Public engineering extract") < 4:
-                failures.append("software: expected four linked engineering projects")
+            if text.count("GitHub source") + text.count("Public engineering extract") < 3:
+                failures.append("software: expected three linked engineering projects")
         fingerprints[track] = hashlib.sha256(text.encode("utf-8")).hexdigest()
         output_stem = Path(track_data["outputFilename"]).stem
         docx_path = OUTPUT_ROOT / "cv" / track / f"{output_stem}.docx"
@@ -101,7 +117,7 @@ def main() -> None:
                 relation.reltype == RELATIONSHIP_TYPE.HYPERLINK
                 for relation in document.part.rels.values()
             )
-            if hyperlink_count < 8:
+            if hyperlink_count < expected_link_count:
                 failures.append(f"{track}: DOCX has too few working hyperlink relationships")
         results.append(
             {
@@ -117,17 +133,18 @@ def main() -> None:
     if len(set(fingerprints.values())) != len(fingerprints):
         failures.append("Role-specific public CVs are not all distinct")
 
-    master_reader, master_text = pdf_text(PUBLIC_DIR / "Uzair-Waseem-CV.pdf")
-    software_reader, software_text = pdf_text(PUBLIC_VARIANT_DIR / profile["tracks"]["software"]["publicFilename"])
-    if master_text != software_text or len(master_reader.pages) != len(software_reader.pages):
-        failures.append("Master public CV does not match the software track")
+    if not args.draft:
+        master_reader, master_text = pdf_text(PUBLIC_DIR / "Uzair-Waseem-CV.pdf")
+        software_reader, software_text = pdf_text(PUBLIC_VARIANT_DIR / profile["tracks"]["software"]["publicFilename"])
+        if master_text != software_text or len(master_reader.pages) != len(software_reader.pages):
+            failures.append("Master public CV does not match the software track")
 
-    report_path = OUTPUT_ROOT / "cv-validation.json"
+    report_path = OUTPUT_ROOT / ("cv-draft-validation.json" if args.draft else "cv-validation.json")
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(json.dumps({"results": results, "failures": failures}, indent=2) + "\n", encoding="utf-8")
     if failures:
         raise SystemExit("\n".join(failures))
-    print(f"Validated {len(results)} distinct one-page public CVs")
+    print(f"Validated {len(results)} distinct one-page {'draft' if args.draft else 'public'} CVs")
     print(report_path)
 
 

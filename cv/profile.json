@@ -8,11 +8,23 @@
     "linkedin": "https://linkedin.com/in/uzair-waseem",
     "github": "https://github.com/Assembler-Fourier",
     "workAuthorization": "Stamp 1G permission valid to 30 Apr 2027",
-    "availability": "Immediate start",
-    "mobility": "Open to relocate across Ireland",
-    "transport": "Own car and full Irish driving licence"
+    "availability": "Available with up to one week notice",
+    "mobility": "Can relocate across Ireland within one week",
+    "transport": "Own car and full Irish driving licence",
+    "languages": "English, Urdu, Punjabi and Hindi"
   },
   "experience": [
+    {
+      "title": "Control Room Manager",
+      "company": "Threadstone Security Ltd",
+      "period": "Nov 2025 - Present",
+      "bullets": [
+        {
+          "text": "Coordinate staff rosters, employee operations and HR communication for the control room.",
+          "tags": ["roster coordination", "employee operations", "HR coordination"]
+        }
+      ]
+    },
     {
       "title": "Software Engineer (Full-Stack)",
       "company": "Outstanding Marketing",
@@ -59,8 +71,8 @@
       "url": "https://octans.ai",
       "bullets": [
         {
-          "text": "Supported assigned software development tasks across team projects.",
-          "tags": ["software development"]
+          "text": "Handled assigned software-development tickets, including C# tasks, as part of the engineering team.",
+          "tags": ["C#", "software development"]
         }
       ]
     }
@@ -94,7 +106,8 @@
     "Go": ["golang", "go language"],
     "Java": ["java"],
     "Spring Boot": ["spring boot", "spring framework"],
-    "C#/.NET": ["c#", ".net", "dotnet"],
+    "C#": ["c#", "csharp", "c-sharp"],
+    "C#/.NET": [".net", "dotnet"],
     "SQL": ["sql"],
     "React": ["react", "react.js", "reactjs"],
     "Next.js": ["next.js", "nextjs", "next js"],
@@ -156,7 +169,12 @@
     "defect investigation": ["defect investigation", "debugging", "root cause analysis", "troubleshooting"],
     "browser developer tools": ["browser developer tools", "browser dev tools", "developer tools", "devtools"],
     "technical documentation": ["technical documentation", "documentation"],
-    "stakeholder delivery": ["stakeholder", "requirements gathering", "cross-functional"]
+    "stakeholder delivery": ["stakeholder", "requirements gathering", "cross-functional"],
+    "Microsoft Excel": ["microsoft excel", "excel", "spreadsheets"],
+    "Microsoft Word": ["microsoft word", "ms word"],
+    "Microsoft Outlook": ["microsoft outlook", "outlook"],
+    "Microsoft 365": ["microsoft 365", "m365", "office 365"],
+    "Windows troubleshooting": ["windows troubleshooting", "windows support", "windows desktop"]
   },
   "projects": {
     "vaultwatch": {
@@ -262,7 +280,7 @@
         ["Security and auditability", ["authentication", "authorization", "JWT", "rate limiting", "tamper-evident audit", "OWASP", "technical documentation"]]
       ],
       "projectOrder": ["vaultwatch", "theory", "housefair"],
-      "projectCount": 3,
+      "projectCount": 2,
       "signals": ["ai developer", "ai engineer", "artificial intelligence", "llm", "agentic", "agent framework", "agent orchestration", "prompt", "rag", "python", "typescript"],
       "outputFilename": "Uzair-Waseem-AI-Software-Engineer-CV.pdf",
       "publicFilename": "Uzair-Waseem-CV-AI-Software-Engineer.pdf",
@@ -273,13 +291,13 @@
       "headline": "SOFTWARE ENGINEER | TYPESCRIPT, REACT, PYTHON, RUST AND GO",
       "summary": "Dublin-based software engineer with remote delivery experience across React and TypeScript products, backend APIs and automated quality workflows. Builds deployed web products and security-aware services with Python/FastAPI, Rust, Go, PostgreSQL, Redis, Docker and cross-language CI; MSc Cybersecurity strengthens authentication and data-isolation decisions.",
       "skillGroups": [
-        ["Languages", ["TypeScript", "JavaScript", "Python", "Rust", "Go", "SQL"]],
+        ["Languages", ["TypeScript", "JavaScript", "Python", "C#", "Rust", "Go", "SQL"]],
         ["Product and services", ["React", "Next.js", "Node.js", "FastAPI", "REST APIs", "WebSockets", "responsive UI"]],
         ["Data and delivery", ["PostgreSQL", "Redis", "Supabase", "Docker", "Docker Compose", "Vercel", "GitHub Actions", "CI/CD"]],
         ["Quality and security", ["Playwright", "Vitest", "Pytest", "API testing", "accessibility testing", "authentication", "authorization", "RLS", "OWASP"]]
       ],
       "projectOrder": ["vaultwatch", "housefair", "theory", "roster"],
-      "projectCount": 4,
+      "projectCount": 3,
       "compactProjects": true,
       "signals": ["software engineer", "graduate software", "junior software", "typescript", "react", "node.js", "python", "rust", "go", "product engineer"],
       "outputFilename": "Uzair-Waseem-Software-Engineer-CV.pdf",
@@ -297,6 +315,7 @@
         ["Application security", ["authentication", "authorization", "RLS", "secure sessions", "OWASP"]]
       ],
       "projectOrder": ["housefair", "vaultwatch", "theory"],
+      "projectCount": 2,
       "signals": ["full stack", "full-stack", "fullstack", "frontend and backend", "react", "next.js", "node.js"],
       "outputFilename": "Uzair-Waseem-Full-Stack-Engineer-CV.pdf",
       "publicFilename": "Uzair-Waseem-CV-Full-Stack-Engineer.pdf",
@@ -313,6 +332,7 @@
         ["Security", ["authentication", "authorization", "JWT", "Argon2id", "rate limiting", "OWASP"]]
       ],
       "projectOrder": ["vaultwatch", "theory", "roster"],
+      "projectCount": 2,
       "signals": ["backend", "back-end", "api engineer", "node.js", "python", "rust", "go", "fastapi", "postgresql", "redis", "serverless", "database"],
       "outputFilename": "Uzair-Waseem-Backend-Engineer-CV.pdf",
       "publicFilename": "Uzair-Waseem-CV-Backend-Engineer.pdf",
@@ -329,6 +349,7 @@
         ["CI and delivery", ["GitHub Actions", "CI/CD", "Node.js", "Docker", "Vercel", "Git"]]
       ],
       "projectOrder": ["qa_lab", "vaultwatch", "housefair"],
+      "projectCount": 2,
       "signals": ["qa", "quality assurance", "test automation", "automation engineer", "sdet", "playwright", "api testing", "regression"],
       "outputFilename": "Uzair-Waseem-QA-Automation-CV.pdf",
       "publicFilename": "Uzair-Waseem-CV-QA-Automation-Engineer.pdf",
@@ -336,30 +357,33 @@
       "keywords": "QA Automation Engineer, Junior SDET, Playwright, TypeScript, API Testing, Test Automation, Accessibility Testing, GitHub Actions, CI/CD"
     },
     "support": {
-      "headline": "TECHNICAL SUPPORT ENGINEER | WEB DIAGNOSTICS, REST APIS AND CUSTOMER-FOCUSED DELIVERY",
+      "showLanguages": true,
+      "headline": "TECHNICAL SUPPORT ENGINEER | WINDOWS, MICROSOFT 365 AND WEB DIAGNOSTICS",
       "summary": "Dublin-based software engineer moving into technical support, with experience investigating web defects, documenting workflows and coordinating remote delivery. Uses browser developer tools, application behaviour and API responses to diagnose problems and communicate findings. Brings React, TypeScript, Node.js and SQL knowledge to software-product support.",
       "skillGroups": [
         ["Web diagnostics", ["HTML", "CSS", "JavaScript", "browser developer tools", "defect investigation", "REST APIs"]],
-        ["Product engineering", ["TypeScript", "React", "Next.js", "Node.js", "PostgreSQL", "responsive UI"]],
+        ["Desktop and productivity", ["Windows troubleshooting", "Microsoft 365", "Microsoft Excel", "Microsoft Word", "Microsoft Outlook"]],
         ["Quality and delivery", ["Playwright", "API testing", "regression testing", "GitHub Actions", "CI/CD", "Git"]],
         ["Communication and security", ["technical documentation", "stakeholder delivery", "authentication", "authorization", "OWASP"]]
       ],
       "projectOrder": ["theory", "housefair", "qa_lab"],
-      "signals": ["technical support engineer", "support engineer", "software support", "technical support", "troubleshooting", "browser developer tools", "html", "css"],
+      "projectCount": 2,
+      "signals": ["technical support engineer", "support engineer", "software support", "technical support", "desktop support", "service desk", "windows troubleshooting", "microsoft 365", "troubleshooting", "browser developer tools", "html", "css"],
       "outputFilename": "Uzair-Waseem-Technical-Support-Engineer-CV.pdf",
       "publicFilename": "Uzair-Waseem-CV-Technical-Support-Engineer.pdf",
       "subject": "ATS-readable technical support engineering CV",
       "keywords": "Technical Support Engineer, HTML, CSS, JavaScript, Browser Developer Tools, REST APIs, Troubleshooting, Technical Documentation, Customer-Focused Delivery"
     },
     "customer-service": {
+      "showLanguages": true,
       "headline": "CUSTOMER SERVICE AND OPERATIONS | CLEAR COMMUNICATION AND PROBLEM SOLVING",
-      "summary": "Dublin-based professional seeking customer service, administration or operations work. Brings software delivery experience translating stakeholder requests into tasks, investigating issues, documenting processes and keeping colleagues informed. Comfortable learning digital systems and working in a remote team. Available immediately and willing to relocate across Ireland.",
+      "summary": "Dublin-based control room manager seeking customer service, administration or operations work. Coordinates staff rosters, employee operations and HR communication. Brings software delivery experience investigating issues, documenting processes and keeping colleagues informed. Confident with Microsoft 365 and Windows troubleshooting.",
       "skillsHeading": "Transferable Skills",
       "projectsHeading": "Selected Digital Projects",
       "skillGroups": [
-        ["Communication", ["stakeholder requirements", "written progress updates", "technical documentation", "remote teamwork"]],
+        ["Coordination", ["staff rosters", "employee operations", "HR communication", "written progress updates"]],
         ["Problem solving", ["defect investigation", "QA checks", "process documentation", "release handoffs"]],
-        ["Digital skills", ["web applications", "internal dashboards", "automated reporting", "Git", "SQL"]]
+        ["Digital skills", ["Microsoft Excel", "Microsoft Word", "Microsoft Outlook", "Microsoft 365", "Windows troubleshooting"]]
       ],
       "projectOrder": ["theory", "housefair", "roster"],
       "projectCount": 3,
@@ -380,6 +404,7 @@
         ["Data and security", ["PostgreSQL", "event-driven architecture", "authentication", "authorization", "OWASP", "technical documentation"]]
       ],
       "projectOrder": ["vaultwatch", "doctor_system", "housefair"],
+      "projectCount": 2,
       "signals": ["platform engineer", "devops", "cloud engineer", "docker", "kubernetes", "terraform", "ci/cd", "kafka", "rabbitmq", "java", ".net", "go"],
       "outputFilename": "Uzair-Waseem-Platform-Software-Engineer-CV.pdf",
       "publicFilename": "Uzair-Waseem-CV-Platform-Software-Engineer.pdf",
@@ -396,6 +421,7 @@
         ["Delivery", ["GitHub Actions", "CI/CD", "Docker", "Docker Compose", "Vercel", "technical documentation"]]
       ],
       "projectOrder": ["vaultwatch", "housefair", "theory"],
+      "projectCount": 2,
       "signals": ["application security", "secure software", "security-aware", "secure sdlc", "owasp", "authentication", "authorization", "threat modelling", "fraud", "risk engine"],
       "outputFilename": "Uzair-Waseem-Security-Aware-Software-Engineer-CV.pdf",
       "publicFilename": "Uzair-Waseem-CV-Security-Aware-Software-Engineer.pdf",
@@ -414,15 +440,18 @@
     "Cucumber": ["cucumber", "bdd"],
     "Appium": ["appium"],
     "RAG": ["rag", "retrieval augmented generation", "retrieval-augmented generation"],
-    "Microsoft 365": ["microsoft 365", "m365"],
+    "Microsoft 365 administration": ["microsoft 365 administration", "m365 administration", "exchange online administration"],
     "Power Platform": ["power platform", "power automate", "power apps"],
     "GxP": ["gxp", "good practice quality"]
   },
   "factCheck": [
     "Confirm Outstanding Marketing title, employment basis, dates and every bullet before submitting.",
     "User confirmed LocalhostLabs title as Software Engineer; employment basis is not stated.",
-    "User confirmed Octans Digital (OD), Islamabad, Associate Software Engineer, November 2020 to April 2024. Do not infer employment type, hours, technologies or client work from the company website.",
-    "User confirmed immediate availability, relocation across Ireland, own car and full Irish driving licence.",
+    "User confirmed Octans Digital (OD), Islamabad, Associate Software Engineer, November 2020 to April 2024, with personal C# use. Do not label this full-time or infer other technologies, products, metrics or client work from the company website.",
+    "User confirmed current Control Room Manager employment with Threadstone Security Ltd from November 2025 to present, coordinating rosters, employee operations and HR communication. Do not invent operational metrics or software responsibilities for this role.",
+    "User confirmed availability with up to one week notice, relocation across Ireland within one week, own car and full Irish driving licence.",
+    "User speaks English, Urdu, Punjabi and Hindi. Do not infer IELTS overall score, current test validity, CEFR level or native proficiency without confirmed evidence.",
+    "User confirmed use of Excel, Word, Outlook, Microsoft 365 and Windows troubleshooting. Do not infer Microsoft 365 administration, certifications or named ticketing platforms.",
     "Use April 2026 as the MSc award month; the supplied NCI documents do not state an exact award day.",
     "Use Second Class Honours (Masters) or H2 for the MSc result; do not translate it into a 2.1, 2.2, Grade 1 or Grade 2.",
     "Current Stamp 1G expires 30 April 2027. A further 12 months to 30 April 2028 is subject to a separate renewal application and approval.",

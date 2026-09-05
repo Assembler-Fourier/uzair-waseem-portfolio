@@ -254,6 +254,14 @@ const roles = [
 
 const experience = [
   {
+    company: "Threadstone Security Ltd",
+    title: "Control Room Manager",
+    period: "Nov 2025 - Present",
+    bullets: [
+      "Coordinate staff rosters, employee operations and HR communication for the control room."
+    ]
+  },
+  {
     company: "Outstanding Marketing",
     companyUrl: "https://outstanding-marketing.de/en",
     title: "Software Engineer (Full-Stack)",
@@ -284,7 +292,7 @@ const experience = [
     location: "Islamabad · Pakistan",
     period: "Nov 2020 - Apr 2024",
     bullets: [
-      "Supported assigned software development tasks across team projects."
+      "Handled assigned software-development tickets, including C# tasks, as part of the engineering team."
     ]
   }
 ];
@@ -436,7 +444,7 @@ function Hero() {
               <MapPin size={15} aria-hidden="true" />
               Dublin, Ireland
             </span>
-            <span className="eyebrow muted">Immediate start · open to relocate across Ireland</span>
+            <span className="eyebrow muted">Up to one week notice · open to relocate across Ireland</span>
           </div>
           <p className="intro-label">Uzair Waseem · Software Engineer</p>
           <h1>
@@ -798,7 +806,7 @@ function ExperienceTimeline() {
             <BriefcaseBusiness size={17} aria-hidden="true" />
             Experience
           </div>
-          <h2>Software delivery across remote and consultancy teams.</h2>
+          <h2>Software delivery and people-focused operations.</h2>
         </div>
         <div className="timeline">
           {experience.map((item) => (
@@ -806,11 +814,13 @@ function ExperienceTimeline() {
               <div className="timeline-top">
                 <div>
                   <h3>
-                    <a href={item.companyUrl} target="_blank" rel="noopener noreferrer">
-                      {item.company}<ArrowUpRight size={16} aria-hidden="true" />
-                    </a>
+                    {item.companyUrl ? (
+                      <a href={item.companyUrl} target="_blank" rel="noopener noreferrer">
+                        {item.company}<ArrowUpRight size={16} aria-hidden="true" />
+                      </a>
+                    ) : item.company}
                   </h3>
-                  <p>{item.title} · {item.location}</p>
+                  <p>{item.title}{item.location ? ` · ${item.location}` : ""}</p>
                 </div>
                 <span>{item.period}</span>
               </div>
@@ -867,7 +877,7 @@ function ContactCTA() {
           <div className="section-eyebrow"><Mail size={17} aria-hidden="true" />Contact</div>
           <h2>Send me the role. I will map my proof to it quickly.</h2>
           <p>
-            Based in Dublin and available immediately for software engineering, QA, technical support, customer service and operations roles. Open to onsite, hybrid and remote work, and willing to relocate anywhere in Ireland. Own car and full Irish driving licence.
+            Based in Dublin and available with up to one week notice for software engineering, QA, technical support, customer service and operations roles. Open to onsite, hybrid and remote work, and able to relocate anywhere in Ireland within one week. Own car and full Irish driving licence.
           </p>
         </div>
         <div className="contact-card reveal">

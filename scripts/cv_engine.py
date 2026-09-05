@@ -320,6 +320,12 @@ def education_period(education: dict[str, Any]) -> str:
     return period
 
 
+def experience_meta(role: dict[str, Any]) -> str:
+    return " | ".join(value for value in (
+        role.get("location"), role["period"], role.get("url", "").replace("https://", "").rstrip("/")
+    ) if value)
+
+
 def build_pdf_story(variant: dict[str, Any], phone: str | None = None) -> list[Any]:
     styles = pdf_styles()
     candidate = variant["candidate"]
@@ -354,7 +360,7 @@ def build_pdf_story(variant: dict[str, Any], phone: str | None = None) -> list[A
     for role in variant["experience"]:
         block = [
             pdf_paragraph(f"{escape(role['title'])} - {escape(role['company'])}", styles["item"]),
-            pdf_paragraph(f"{escape(role['location'])} | {escape(role['period'])} | {escape(role['url'].replace('https://', '').rstrip('/'))}", styles["meta"]),
+            pdf_paragraph(escape(experience_meta(role)), styles["meta"]),
         ]
         block.extend(pdf_paragraph(f"- {escape(bullet['text'])}", styles["bullet"]) for bullet in role["bullets"])
         story.append(KeepTogether(block))
@@ -377,6 +383,8 @@ def build_pdf_story(variant: dict[str, Any], phone: str | None = None) -> list[A
                 styles["body"],
             )
         )
+    if variant.get("showLanguages") and candidate.get("languages"):
+        story.append(pdf_paragraph(f"<b>Languages:</b> {escape(candidate['languages'])}", styles["body"]))
     story.append(Spacer(1, 2.5))
     return story
 
@@ -390,7 +398,7 @@ def draw_pdf_footer(canvas: Canvas, document: SimpleDocTemplate) -> None:
     canvas.line(document.leftMargin, y + 7, width - document.rightMargin, y + 7)
     canvas.setFont("Helvetica", 7.1)
     canvas.setFillColor(colors.HexColor("#4b5563"))
-    canvas.drawString(document.leftMargin, y - 1, "Dublin, Ireland | Available immediately | Open to relocate")
+    canvas.drawString(document.leftMargin, y - 1, "Dublin, Ireland | Up to one week notice | Open to relocate")
     canvas.drawRightString(width - document.rightMargin, y - 1, "uzairwaseem.com")
     canvas.restoreState()
 
@@ -640,7 +648,7 @@ def build_docx(variant: dict[str, Any], output_path: Path, phone: str | None = N
     for role in variant["experience"]:
         document.add_paragraph(f"{role['title']} - {role['company']}", style="CV Item")
         document.add_paragraph(
-            f"{role['location']} | {role['period']} | {role['url'].replace('https://', '').rstrip('/')}",
+            experience_meta(role),
             style="CV Meta",
         )
         for bullet in role["bullets"]:
@@ -670,9 +678,12 @@ def build_docx(variant: dict[str, Any], output_path: Path, phone: str | None = N
         rest = paragraph.add_run(f" - {education['school']} | {education_period(education)}")
         set_run_font(rest, 9.25)
 
+    if variant.get("showLanguages") and candidate.get("languages"):
+        add_docx_text(document, f"Languages: {candidate['languages']}", "CV Body", bold_prefix="Languages:")
+
     footer = document.sections[0].footer.paragraphs[0]
     footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    footer_run = footer.add_run("Dublin, Ireland | Available immediately | Open to relocate | uzairwaseem.com")
+    footer_run = footer.add_run("Dublin, Ireland | Up to one week notice | Open to relocate | uzairwaseem.com")
     set_run_font(footer_run, 7.4, color="4B5563")
 
     document.save(output_path)
@@ -706,7 +717,7 @@ def build_plain_text(variant: dict[str, Any], phone: str | None = None) -> str:
         lines.extend(
             [
                 f"{role['title']} - {role['company']}",
-                f"{role['location']} | {role['period']} | {role['url']}",
+                experience_meta(role),
             ]
         )
         lines.extend(f"- {bullet['text']}" for bullet in role["bullets"])
@@ -722,6 +733,8 @@ def build_plain_text(variant: dict[str, Any], phone: str | None = None) -> str:
         f"{education['degree']} - {education['school']} | {education_period(education)}"
         for education in variant["education"]
     )
+    if variant.get("showLanguages") and candidate.get("languages"):
+        lines.append(f"Languages: {candidate['languages']}")
     return "\n".join(lines).strip() + "\n"
 
 

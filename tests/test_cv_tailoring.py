@@ -40,15 +40,37 @@ class CvTailoringTests(unittest.TestCase):
             self.assertNotIn("Junior Software Engineer - LocalhostLabs", text)
             self.assertIn("Graduated April 2026", text)
             self.assertIn("Own car and full Irish driving licence", text)
+            self.assertIn("Control Room Manager - Threadstone Security Ltd", text)
+            self.assertIn("Nov 2025 - Present", text)
+            self.assertIn("Available with up to one week notice", text)
+            self.assertNotIn("Available immediately", text)
+            self.assertNotIn("Immediate start", text)
+            self.assertNotIn("salary", text.lower())
+            self.assertNotIn("EUR", text)
             self.assertNotIn("nearly two years", text)
 
     def test_octans_does_not_infer_company_technology_or_employment_type(self) -> None:
         octans = next(role for role in self.profile["experience"] if role["company"] == "Octans Digital (OD)")
         self.assertNotIn("employmentType", octans)
         self.assertEqual(octans["bullets"], [{
-            "text": "Supported assigned software development tasks across team projects.",
-            "tags": ["software development"],
+            "text": "Handled assigned software-development tickets, including C# tasks, as part of the engineering team.",
+            "tags": ["C#", "software development"],
         }])
+
+    def test_confirmed_productivity_skills_and_languages_are_not_overstated(self) -> None:
+        for track in ("support", "customer-service"):
+            variant, report = build_variant(self.profile, job_text="Microsoft 365, Excel, Windows troubleshooting and Microsoft 365 administration", requested_track=track)
+            text = build_plain_text(variant)
+            for skill in ("Microsoft 365", "Microsoft Excel", "Windows troubleshooting"):
+                self.assertIn(skill, text)
+                self.assertIn(skill, report["matchedVerifiedSkills"])
+            self.assertIn("Languages: English, Urdu, Punjabi and Hindi", text)
+            self.assertNotIn("IELTS", text)
+            self.assertIn("Microsoft 365 administration", report["unsupportedRequirementsNotAdded"])
+            self.assertNotIn("native", text.lower())
+            self.assertNotIn("CEFR", text)
+            self.assertNotIn("ServiceNow", text)
+            self.assertEqual(variant["candidate"]["workAuthorization"], "Stamp 1G permission valid to 30 Apr 2027")
 
     def test_empty_evidence_defaults_to_software_track(self) -> None:
         _, report = build_variant(self.profile)
@@ -81,12 +103,12 @@ class CvTailoringTests(unittest.TestCase):
         self.assertNotIn("Ruby", rendered_skills)
         self.assertNotIn("Selenium", rendered_skills)
 
-    def test_generic_software_track_keeps_four_verified_projects(self) -> None:
+    def test_generic_software_track_keeps_three_verified_projects_and_current_role(self) -> None:
         variant, _ = build_variant(self.profile, requested_track="software")
-        self.assertEqual(len(variant["projects"]), 4)
+        self.assertEqual(len(variant["projects"]), 3)
         verified_titles = {project["title"] for project in self.profile["projects"].values()}
         self.assertTrue(all(project["title"] in verified_titles for project in variant["projects"]))
-        self.assertIn(self.profile["projects"]["roster"]["title"], {project["title"] for project in variant["projects"]})
+        self.assertEqual(variant["experience"][0]["company"], "Threadstone Security Ltd")
 
     def test_software_cv_leads_with_vaultwatch(self) -> None:
         variant, _ = build_variant(self.profile, requested_track="software")
