@@ -313,6 +313,13 @@ def contact_text(candidate: dict[str, str], phone: str | None = None) -> str:
     return " | ".join(parts)
 
 
+def education_period(education: dict[str, Any]) -> str:
+    period = education["period"]
+    if education.get("awardMonth"):
+        return f"{period} | Graduated {education['awardMonth']}"
+    return period
+
+
 def build_pdf_story(variant: dict[str, Any], phone: str | None = None) -> list[Any]:
     styles = pdf_styles()
     candidate = variant["candidate"]
@@ -333,12 +340,13 @@ def build_pdf_story(variant: dict[str, Any], phone: str | None = None) -> list[A
             ),
             styles["contact"],
         ),
+        pdf_paragraph(escape(candidate.get("transport", "")), styles["contact"]),
     ]
 
     add_pdf_section(story, "Profile", styles)
     story.append(pdf_paragraph(escape(variant["summary"]), styles["body"]))
 
-    add_pdf_section(story, "Technical Skills", styles)
+    add_pdf_section(story, variant.get("skillsHeading", "Technical Skills"), styles)
     for label, items in variant["skillGroups"]:
         story.append(pdf_paragraph(f"<b>{escape(label)}:</b> {escape(', '.join(items))}", styles["body"]))
 
@@ -351,7 +359,7 @@ def build_pdf_story(variant: dict[str, Any], phone: str | None = None) -> list[A
         block.extend(pdf_paragraph(f"- {escape(bullet['text'])}", styles["bullet"]) for bullet in role["bullets"])
         story.append(KeepTogether(block))
 
-    add_pdf_section(story, "Selected Engineering Projects", styles)
+    add_pdf_section(story, variant.get("projectsHeading", "Selected Engineering Projects"), styles)
     for project in variant["projects"]:
         block = [
             pdf_paragraph(escape(project["title"]), styles["item"]),
@@ -365,7 +373,7 @@ def build_pdf_story(variant: dict[str, Any], phone: str | None = None) -> list[A
     for education in variant["education"]:
         story.append(
             pdf_paragraph(
-                f"<b>{escape(education['degree'])}</b> - {escape(education['school'])} | {escape(education['period'])}",
+                f"<b>{escape(education['degree'])}</b> - {escape(education['school'])} | {escape(education_period(education))}",
                 styles["body"],
             )
         )
@@ -382,7 +390,7 @@ def draw_pdf_footer(canvas: Canvas, document: SimpleDocTemplate) -> None:
     canvas.line(document.leftMargin, y + 7, width - document.rightMargin, y + 7)
     canvas.setFont("Helvetica", 7.1)
     canvas.setFillColor(colors.HexColor("#4b5563"))
-    canvas.drawString(document.leftMargin, y - 1, "Dublin, Ireland | Graduate and junior engineering roles")
+    canvas.drawString(document.leftMargin, y - 1, "Dublin, Ireland | Available immediately | Open to relocate")
     canvas.drawRightString(width - document.rightMargin, y - 1, "uzairwaseem.com")
     canvas.restoreState()
 
@@ -615,11 +623,12 @@ def build_docx(variant: dict[str, Any], output_path: Path, phone: str | None = N
             for key in ("workAuthorization", "availability", "mobility")
         )
     )
+    document.add_paragraph(candidate.get("transport", ""), style="CV Contact")
 
     add_docx_section(document, "Profile")
     document.add_paragraph(variant["summary"], style="CV Body")
 
-    add_docx_section(document, "Technical Skills")
+    add_docx_section(document, variant.get("skillsHeading", "Technical Skills"))
     for label, items in variant["skillGroups"]:
         paragraph = document.add_paragraph(style="CV Body")
         prefix = paragraph.add_run(f"{label}: ")
@@ -637,7 +646,7 @@ def build_docx(variant: dict[str, Any], output_path: Path, phone: str | None = N
         for bullet in role["bullets"]:
             add_docx_bullet(document, bullet["text"], bullet_num_id)
 
-    add_docx_section(document, "Selected Engineering Projects")
+    add_docx_section(document, variant.get("projectsHeading", "Selected Engineering Projects"))
     for project in variant["projects"]:
         document.add_paragraph(project["title"], style="CV Item")
         stack = document.add_paragraph(style="CV Meta")
@@ -658,12 +667,12 @@ def build_docx(variant: dict[str, Any], output_path: Path, phone: str | None = N
         paragraph = document.add_paragraph(style="CV Body")
         degree = paragraph.add_run(education["degree"])
         set_run_font(degree, 9.25, bold=True)
-        rest = paragraph.add_run(f" - {education['school']} | {education['period']}")
+        rest = paragraph.add_run(f" - {education['school']} | {education_period(education)}")
         set_run_font(rest, 9.25)
 
     footer = document.sections[0].footer.paragraphs[0]
     footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    footer_run = footer.add_run("Dublin, Ireland | Graduate and junior engineering roles | uzairwaseem.com")
+    footer_run = footer.add_run("Dublin, Ireland | Available immediately | Open to relocate | uzairwaseem.com")
     set_run_font(footer_run, 7.4, color="4B5563")
 
     document.save(output_path)
@@ -684,11 +693,12 @@ def build_plain_text(variant: dict[str, Any], phone: str | None = None) -> str:
         f"LinkedIn: {candidate['linkedin']}",
         f"GitHub: {candidate['github']}",
         f"Work authorization: {candidate['workAuthorization']} | {candidate['availability']} | {candidate['mobility']}",
+        candidate.get("transport", ""),
         "",
         "PROFILE",
         variant["summary"],
         "",
-        "TECHNICAL SKILLS",
+        variant.get("skillsHeading", "Technical Skills").upper(),
     ]
     lines.extend(f"{label}: {', '.join(items)}" for label, items in variant["skillGroups"])
     lines.extend(["", "PROFESSIONAL EXPERIENCE"])
@@ -701,7 +711,7 @@ def build_plain_text(variant: dict[str, Any], phone: str | None = None) -> str:
         )
         lines.extend(f"- {bullet['text']}" for bullet in role["bullets"])
         lines.append("")
-    lines.append("SELECTED ENGINEERING PROJECTS")
+    lines.append(variant.get("projectsHeading", "Selected Engineering Projects").upper())
     for project in variant["projects"]:
         lines.extend([project["title"], f"Stack: {project['stack']}"])
         lines.extend(f"{label}: {url}" for label, url in project["links"])
@@ -709,7 +719,7 @@ def build_plain_text(variant: dict[str, Any], phone: str | None = None) -> str:
         lines.append("")
     lines.append("EDUCATION")
     lines.extend(
-        f"{education['degree']} - {education['school']} | {education['period']}"
+        f"{education['degree']} - {education['school']} | {education_period(education)}"
         for education in variant["education"]
     )
     return "\n".join(lines).strip() + "\n"

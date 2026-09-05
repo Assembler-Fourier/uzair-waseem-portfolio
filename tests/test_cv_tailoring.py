@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from cv_engine import build_variant, load_profile  # noqa: E402
+from cv_engine import build_plain_text, build_variant, load_profile  # noqa: E402
 
 
 class CvTailoringTests(unittest.TestCase):
@@ -22,6 +22,34 @@ class CvTailoringTests(unittest.TestCase):
         self.assertEqual(report["selectedTrack"], "qa")
         self.assertEqual(variant["projects"][0]["title"], self.profile["projects"]["qa_lab"]["title"])
 
+    def test_customer_service_role_uses_transferable_experience(self) -> None:
+        variant, report = build_variant(self.profile, job_text="Customer service and customer care administrator")
+        self.assertEqual(report["selectedTrack"], "customer-service")
+        text = build_plain_text(variant)
+        self.assertIn("TRANSFERABLE SKILLS", text)
+        self.assertIn("seeking customer service", text)
+        self.assertNotIn("call handling experience", text)
+
+    def test_updated_employment_education_and_mobility_are_on_every_track(self) -> None:
+        for track in self.profile["tracks"]:
+            variant, _ = build_variant(self.profile, requested_track=track)
+            text = build_plain_text(variant)
+            self.assertIn("Associate Software Engineer - Octans Digital (OD)", text)
+            self.assertIn("Nov 2020 - Apr 2024", text)
+            self.assertIn("Software Engineer - LocalhostLabs", text)
+            self.assertNotIn("Junior Software Engineer - LocalhostLabs", text)
+            self.assertIn("Graduated April 2026", text)
+            self.assertIn("Own car and full Irish driving licence", text)
+            self.assertNotIn("nearly two years", text)
+
+    def test_octans_does_not_infer_company_technology_or_employment_type(self) -> None:
+        octans = next(role for role in self.profile["experience"] if role["company"] == "Octans Digital (OD)")
+        self.assertNotIn("employmentType", octans)
+        self.assertEqual(octans["bullets"], [{
+            "text": "Supported assigned software development tasks across team projects.",
+            "tags": ["software development"],
+        }])
+
     def test_empty_evidence_defaults_to_software_track(self) -> None:
         _, report = build_variant(self.profile)
         self.assertEqual(report["selectedTrack"], "software")
@@ -31,6 +59,19 @@ class CvTailoringTests(unittest.TestCase):
         _, report = build_variant(self.profile, job_text=job)
         self.assertEqual(report["selectedTrack"], "backend")
         self.assertIn("PostgreSQL", report["matchedVerifiedSkills"])
+
+    def test_ai_role_selects_truth_locked_ai_track(self) -> None:
+        job = (
+            "Junior AI Developer using Python, TypeScript, LLM APIs, agent frameworks, "
+            "RAG, Azure and Power Platform."
+        )
+        variant, report = build_variant(self.profile, job_text=job)
+        self.assertEqual(report["selectedTrack"], "ai")
+        self.assertEqual(variant["projects"][0]["title"], self.profile["projects"]["vaultwatch"]["title"])
+        self.assertIn("LLM APIs", report["matchedVerifiedSkills"])
+        self.assertIn("agent orchestration", report["matchedVerifiedSkills"])
+        self.assertIn("RAG", report["unsupportedRequirementsNotAdded"])
+        self.assertIn("Azure", report["unsupportedRequirementsNotAdded"])
 
     def test_unsupported_requirements_are_reported_not_added(self) -> None:
         job = "Build Ruby on Rails services on AWS with Selenium and Appium."

@@ -9,7 +9,8 @@
     "github": "https://github.com/Assembler-Fourier",
     "workAuthorization": "Stamp 1G permission valid to 30 Apr 2027",
     "availability": "Immediate start",
-    "mobility": "Open to relocate across Ireland"
+    "mobility": "Open to relocate across Ireland",
+    "transport": "Own car and full Irish driving licence"
   },
   "experience": [
     {
@@ -34,7 +35,7 @@
       ]
     },
     {
-      "title": "Junior Software Engineer",
+      "title": "Software Engineer",
       "company": "LocalhostLabs",
       "location": "Pakistan",
       "period": "Jun 2024 - Dec 2024",
@@ -47,6 +48,19 @@
         {
           "text": "Investigated defects, documented technical workflows and supported Git, QA triage and release handoffs in a consultancy environment.",
           "tags": ["defect investigation", "technical documentation", "Git", "QA"]
+        }
+      ]
+    },
+    {
+      "title": "Associate Software Engineer",
+      "company": "Octans Digital (OD)",
+      "location": "Islamabad, Pakistan",
+      "period": "Nov 2020 - Apr 2024",
+      "url": "https://octans.ai",
+      "bullets": [
+        {
+          "text": "Supported assigned software development tasks across team projects.",
+          "tags": ["software development"]
         }
       ]
     }
@@ -122,8 +136,10 @@
     "Vercel": ["vercel"],
     "Git": ["git", "version control"],
     "scikit-learn": ["scikit-learn", "sklearn"],
-    "Anthropic SDK": ["anthropic sdk", "claude api", "anthropic api"],
-    "agent orchestration": ["agent orchestration", "agentic workflow", "multi-agent", "tool use"],
+    "Anthropic SDK": ["anthropic sdk", "claude api", "anthropic api", "anthropic", "claude"],
+    "LLM APIs": ["llm api", "llm apis", "language model api", "model api"],
+    "agent orchestration": ["agent orchestration", "agentic workflow", "agentic workflows", "agent framework", "agent frameworks", "multi-agent", "tool use", "tool-use loop"],
+    "deterministic replay": ["deterministic replay", "replay provider", "replay mode"],
     "event-driven architecture": ["event-driven", "event driven", "pub/sub", "message broker"],
     "authentication": ["authentication", "auth", "identity"],
     "authorization": ["authorization", "authorisation", "access control", "rbac"],
@@ -151,11 +167,11 @@
         ["GitHub source", "https://github.com/Assembler-Fourier/vaultwatch"]
       ],
       "bullets": [
-        "Built a four-service fraud and account-security platform spanning Rust risk scoring, Go authentication and anomaly detection, Python/FastAPI agent orchestration and a Next.js operations dashboard.",
+        "Built a four-service fraud and account-security platform spanning Rust risk scoring, Go authentication and anomaly detection, and a Python/FastAPI multi-agent pipeline with the Anthropic SDK and bounded tool use, surfaced through a Next.js operations dashboard.",
         "Added deterministic replay, synthetic-data boundaries and cross-language CI; full Docker Compose verification exposed and fixed persistence-serialization and WebSocket cleanup defects."
       ],
       "compactBullets": [
-        "Built a four-service Rust, Go, Python/FastAPI and Next.js security platform with deterministic replay, synthetic-data boundaries, Docker Compose and cross-language CI."
+        "Built a four-service Rust, Go, Python/FastAPI and Next.js security platform with Anthropic SDK agent orchestration, deterministic replay, synthetic-data boundaries and cross-language CI."
       ],
       "tags": ["Rust", "Go", "Python", "FastAPI", "scikit-learn", "Anthropic SDK", "agent orchestration", "TypeScript", "Next.js", "PostgreSQL", "Redis", "WebSockets", "Docker", "Docker Compose", "GitHub Actions", "CI/CD", "authentication", "JWT", "Argon2id", "rate limiting", "tamper-evident audit", "event-driven architecture", "backend", "security", "AI"]
     },
@@ -236,6 +252,23 @@
     }
   },
   "tracks": {
+    "ai": {
+      "headline": "AI SOFTWARE ENGINEER | PYTHON, TYPESCRIPT, LLM APIS AND AGENT ORCHESTRATION",
+      "summary": "Dublin-based software engineer with remote delivery experience in TypeScript products, backend integrations and automated workflows. Independent project VaultWatch adds Python/FastAPI, Anthropic SDK agent orchestration, deterministic replay and tamper-evident audit. MSc Cybersecurity supports secure data handling and reviewable AI workflows.",
+      "skillGroups": [
+        ["AI application", ["Python", "FastAPI", "Anthropic SDK", "LLM APIs", "agent orchestration", "scikit-learn"]],
+        ["Product and data", ["TypeScript", "Next.js", "REST APIs", "WebSockets", "PostgreSQL", "Redis"]],
+        ["Evaluation and delivery", ["deterministic replay", "Pytest", "Vitest", "API testing", "Docker Compose", "GitHub Actions", "CI/CD"]],
+        ["Security and auditability", ["authentication", "authorization", "JWT", "rate limiting", "tamper-evident audit", "OWASP", "technical documentation"]]
+      ],
+      "projectOrder": ["vaultwatch", "theory", "housefair"],
+      "projectCount": 3,
+      "signals": ["ai developer", "ai engineer", "artificial intelligence", "llm", "agentic", "agent framework", "agent orchestration", "prompt", "rag", "python", "typescript"],
+      "outputFilename": "Uzair-Waseem-AI-Software-Engineer-CV.pdf",
+      "publicFilename": "Uzair-Waseem-CV-AI-Software-Engineer.pdf",
+      "subject": "ATS-readable AI software engineering CV",
+      "keywords": "Junior AI Developer, AI Software Engineer, Python, FastAPI, TypeScript, LLM APIs, Anthropic SDK, Agent Orchestration, Deterministic Replay"
+    },
     "software": {
       "headline": "SOFTWARE ENGINEER | TYPESCRIPT, REACT, PYTHON, RUST AND GO",
       "summary": "Dublin-based software engineer with remote delivery experience across React and TypeScript products, backend APIs and automated quality workflows. Builds deployed web products and security-aware services with Python/FastAPI, Rust, Go, PostgreSQL, Redis, Docker and cross-language CI; MSc Cybersecurity strengthens authentication and data-isolation decisions.",
@@ -304,7 +337,7 @@
     },
     "support": {
       "headline": "TECHNICAL SUPPORT ENGINEER | WEB DIAGNOSTICS, REST APIS AND CUSTOMER-FOCUSED DELIVERY",
-      "summary": "Dublin-based software engineer with nearly two years of professional delivery experience across React and TypeScript web products, Node.js API integrations, automated QA and remote stakeholder support. Investigates issues through browser developer tools, application behaviour and API responses; documents findings clearly and builds reliable fixes for web-product workflows.",
+      "summary": "Dublin-based software engineer moving into technical support, with experience investigating web defects, documenting workflows and coordinating remote delivery. Uses browser developer tools, application behaviour and API responses to diagnose problems and communicate findings. Brings React, TypeScript, Node.js and SQL knowledge to software-product support.",
       "skillGroups": [
         ["Web diagnostics", ["HTML", "CSS", "JavaScript", "browser developer tools", "defect investigation", "REST APIs"]],
         ["Product engineering", ["TypeScript", "React", "Next.js", "Node.js", "PostgreSQL", "responsive UI"]],
@@ -312,11 +345,30 @@
         ["Communication and security", ["technical documentation", "stakeholder delivery", "authentication", "authorization", "OWASP"]]
       ],
       "projectOrder": ["theory", "housefair", "qa_lab"],
-      "signals": ["technical support engineer", "support engineer", "software support", "customer support", "troubleshooting", "browser developer tools", "html", "css"],
+      "signals": ["technical support engineer", "support engineer", "software support", "technical support", "troubleshooting", "browser developer tools", "html", "css"],
       "outputFilename": "Uzair-Waseem-Technical-Support-Engineer-CV.pdf",
       "publicFilename": "Uzair-Waseem-CV-Technical-Support-Engineer.pdf",
       "subject": "ATS-readable technical support engineering CV",
       "keywords": "Technical Support Engineer, HTML, CSS, JavaScript, Browser Developer Tools, REST APIs, Troubleshooting, Technical Documentation, Customer-Focused Delivery"
+    },
+    "customer-service": {
+      "headline": "CUSTOMER SERVICE AND OPERATIONS | CLEAR COMMUNICATION AND PROBLEM SOLVING",
+      "summary": "Dublin-based professional seeking customer service, administration or operations work. Brings software delivery experience translating stakeholder requests into tasks, investigating issues, documenting processes and keeping colleagues informed. Comfortable learning digital systems and working in a remote team. Available immediately and willing to relocate across Ireland.",
+      "skillsHeading": "Transferable Skills",
+      "projectsHeading": "Selected Digital Projects",
+      "skillGroups": [
+        ["Communication", ["stakeholder requirements", "written progress updates", "technical documentation", "remote teamwork"]],
+        ["Problem solving", ["defect investigation", "QA checks", "process documentation", "release handoffs"]],
+        ["Digital skills", ["web applications", "internal dashboards", "automated reporting", "Git", "SQL"]]
+      ],
+      "projectOrder": ["theory", "housefair", "roster"],
+      "projectCount": 3,
+      "compactProjects": true,
+      "signals": ["customer service", "customer support", "customer care", "contact centre", "call centre", "administration", "administrator", "operations assistant"],
+      "outputFilename": "Uzair-Waseem-Customer-Service-Operations-CV.pdf",
+      "publicFilename": "Uzair-Waseem-CV-Customer-Service-Operations.pdf",
+      "subject": "ATS-readable customer service and operations CV",
+      "keywords": "Customer Service, Customer Support, Operations, Administration, Communication, Documentation, Problem Solving, Digital Skills"
     },
     "platform": {
       "headline": "PLATFORM SOFTWARE ENGINEER | DOCKER, KUBERNETES, TERRAFORM AND CI/CD",
@@ -360,11 +412,17 @@
     "Cypress": ["cypress"],
     "Selenium": ["selenium"],
     "Cucumber": ["cucumber", "bdd"],
-    "Appium": ["appium"]
+    "Appium": ["appium"],
+    "RAG": ["rag", "retrieval augmented generation", "retrieval-augmented generation"],
+    "Microsoft 365": ["microsoft 365", "m365"],
+    "Power Platform": ["power platform", "power automate", "power apps"],
+    "GxP": ["gxp", "good practice quality"]
   },
   "factCheck": [
     "Confirm Outstanding Marketing title, employment basis, dates and every bullet before submitting.",
-    "Confirm LocalhostLabs title, employment basis, dates and every bullet before submitting.",
+    "User confirmed LocalhostLabs title as Software Engineer; employment basis is not stated.",
+    "User confirmed Octans Digital (OD), Islamabad, Associate Software Engineer, November 2020 to April 2024. Do not infer employment type, hours, technologies or client work from the company website.",
+    "User confirmed immediate availability, relocation across Ireland, own car and full Irish driving licence.",
     "Use April 2026 as the MSc award month; the supplied NCI documents do not state an exact award day.",
     "Use Second Class Honours (Masters) or H2 for the MSc result; do not translate it into a 2.1, 2.2, Grade 1 or Grade 2.",
     "Current Stamp 1G expires 30 April 2027. A further 12 months to 30 April 2028 is subject to a separate renewal application and approval.",

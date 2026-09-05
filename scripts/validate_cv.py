@@ -13,7 +13,7 @@ from cv_engine import OUTPUT_ROOT, PUBLIC_DIR, PUBLIC_VARIANT_DIR, load_profile
 
 
 PRIVATE_PATTERNS = [r"899739932", r"89\s*973\s*9932", r"K78\s*H9Y9", r"15\s+Aderrig"]
-REQUIRED_SECTIONS = ["PROFILE", "TECHNICAL SKILLS", "PROFESSIONAL EXPERIENCE", "SELECTED ENGINEERING PROJECTS", "EDUCATION"]
+REQUIRED_SECTIONS = ["PROFILE", "PROFESSIONAL EXPERIENCE", "EDUCATION"]
 
 
 def pdf_text(path: Path) -> tuple[PdfReader, str]:
@@ -28,6 +28,11 @@ def main() -> None:
     results = []
 
     for track, track_data in profile["tracks"].items():
+        required_sections = [
+            *REQUIRED_SECTIONS,
+            track_data.get("skillsHeading", "Technical Skills").upper(),
+            track_data.get("projectsHeading", "Selected Engineering Projects").upper(),
+        ]
         public_path = PUBLIC_VARIANT_DIR / track_data["publicFilename"]
         reader, text = pdf_text(public_path)
         if len(reader.pages) != 1:
@@ -41,13 +46,24 @@ def main() -> None:
         )
         if link_annotations < 8:
             failures.append(f"{track}: expected working PDF links, found {link_annotations}")
-        for section in REQUIRED_SECTIONS:
+        for section in required_sections:
             if section not in text:
                 failures.append(f"{track}: missing section {section}")
         if any(re.search(pattern, text, re.IGNORECASE) for pattern in PRIVATE_PATTERNS):
             failures.append(f"{track}: public CV contains a private phone/address pattern")
         if "Pre-Launch" in text or "pre-launch" in text:
             failures.append(f"{track}: stale Theory Coach pre-launch label")
+        for confirmed_fact in (
+            "Associate Software Engineer - Octans Digital (OD)",
+            "Nov 2020 - Apr 2024",
+            "Software Engineer - LocalhostLabs",
+            "Graduated April 2026",
+            "Own car and full Irish driving licence",
+        ):
+            if confirmed_fact not in text:
+                failures.append(f"{track}: missing confirmed fact {confirmed_fact}")
+        if "nearly two years" in text or "Junior Software Engineer - LocalhostLabs" in text:
+            failures.append(f"{track}: stale employment wording")
         if any(project_id == "theory" for project_id in track_data["projectOrder"]):
             if "Irish Theory Test Coach - Live Deployed EdTech Platform" not in text:
                 failures.append(f"{track}: live Theory Coach title missing")
@@ -68,7 +84,7 @@ def main() -> None:
             docx_text = "\n".join(paragraph.text for paragraph in document.paragraphs)
             if document.tables:
                 failures.append(f"{track}: DOCX contains tables")
-            for section in REQUIRED_SECTIONS:
+            for section in required_sections:
                 if section not in docx_text:
                     failures.append(f"{track}: DOCX missing section {section}")
             if any(re.search(pattern, docx_text, re.IGNORECASE) for pattern in PRIVATE_PATTERNS):

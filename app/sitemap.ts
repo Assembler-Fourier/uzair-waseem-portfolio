@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   const projectPages = ["vaultwatch", "housefair", "roster-command", "theory-test-coach", "qa-automation-lab"].map((slug) => ({
     url: `https://uzairwaseem.com/projects/${slug}`,
-    lastModified: new Date("2026-07-24"),
+    lastModified: new Date("2026-09-05"),
     changeFrequency: "monthly" as const,
     priority: 0.82
   }));

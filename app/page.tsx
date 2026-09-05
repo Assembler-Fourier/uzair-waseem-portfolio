@@ -103,6 +103,10 @@ const companies = [
   {
     name: "LocalhostLabs",
     url: "https://localhostlabs.tech"
+  },
+  {
+    name: "Octans Digital",
+    url: "https://octans.ai"
   }
 ];
 
@@ -264,13 +268,23 @@ const experience = [
   {
     company: "LocalhostLabs",
     companyUrl: "https://localhostlabs.tech",
-    title: "Junior Software Engineer",
+    title: "Software Engineer",
     location: "Pakistan",
     period: "Jun 2024 - Dec 2024",
     bullets: [
       "Built responsive front-end and back-end features across web applications, APIs and databases.",
       "Fixed defects, documented workflows and supported version control, QA triage and release handoffs.",
       "Worked with product and engineering requirements in a consultancy delivery environment."
+    ]
+  },
+  {
+    company: "Octans Digital (OD)",
+    companyUrl: "https://octans.ai",
+    title: "Associate Software Engineer",
+    location: "Islamabad · Pakistan",
+    period: "Nov 2020 - Apr 2024",
+    bullets: [
+      "Supported assigned software development tasks across team projects."
     ]
   }
 ];
@@ -279,7 +293,7 @@ const education = [
   {
     degree: "MSc Cybersecurity",
     school: "National College of Ireland · Dublin",
-    period: "2025 - 2026",
+    period: "2025 - 2026 · Graduated April 2026",
     focus: "Secure systems, authentication, risk, networks, governance and secure software delivery."
   },
   {
@@ -376,7 +390,7 @@ const structuredData = [
     "@id": `${siteUrl}/#profile`,
     url: siteUrl,
     name: "Uzair Waseem | Full-Stack Software Engineer in Dublin",
-    dateModified: "2026-07-24",
+    dateModified: "2026-09-05",
     inLanguage: "en-IE",
     isPartOf: { "@id": `${siteUrl}/#website` },
     mainEntity: { "@id": `${siteUrl}/#person` }
@@ -422,7 +436,7 @@ function Hero() {
               <MapPin size={15} aria-hidden="true" />
               Dublin, Ireland
             </span>
-            <span className="eyebrow muted">Open to Ireland · hybrid · remote</span>
+            <span className="eyebrow muted">Immediate start · open to relocate across Ireland</span>
           </div>
           <p className="intro-label">Uzair Waseem · Software Engineer</p>
           <h1>
@@ -784,7 +798,7 @@ function ExperienceTimeline() {
             <BriefcaseBusiness size={17} aria-hidden="true" />
             Experience
           </div>
-          <h2>Remote delivery experience, kept concise and verifiable.</h2>
+          <h2>Software delivery across remote and consultancy teams.</h2>
         </div>
         <div className="timeline">
           {experience.map((item) => (
@@ -853,7 +867,7 @@ function ContactCTA() {
           <div className="section-eyebrow"><Mail size={17} aria-hidden="true" />Contact</div>
           <h2>Send me the role. I will map my proof to it quickly.</h2>
           <p>
-            Uzair Waseem is based in Dublin and open to software engineering, full-stack, backend and applied AI opportunities across Ireland, hybrid and remote teams.
+            Based in Dublin and available immediately for software engineering, QA, technical support, customer service and operations roles. Open to onsite, hybrid and remote work, and willing to relocate anywhere in Ireland. Own car and full Irish driving licence.
           </p>
         </div>
         <div className="contact-card reveal">
