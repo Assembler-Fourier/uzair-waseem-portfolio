@@ -3662,3 +3662,18 @@ h1 {
     transform: perspective(1500px) translateY(-5px) rotateX(0) rotateY(0);
   }
 }
+
+/* Developer tools complement the existing product case studies. */
+.engineering-tools { border-top: 1px solid var(--line); }
+.tool-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.tool-card { display: flex; flex-direction: column; min-width: 0; padding: 28px; border: 1px solid var(--line); border-radius: 20px; background: var(--panel); }
+.tool-category { display: flex; align-items: center; gap: 10px; color: var(--teal); font-size: 13px; }
+.tool-category svg { flex-shrink: 0; }
+.tool-card h3 { margin: 22px 0 12px; font-size: 30px; }
+.tool-description { margin: 0; color: var(--text-soft); font-size: 16px; line-height: 1.7; }
+.tool-workflow { margin: 24px 0 16px; padding: 12px 0; border-block: 1px solid var(--line); color: var(--blue); font-size: 14px; line-height: 1.7; }
+.tool-evidence { margin: 0 0 18px; color: var(--text-soft); font-size: 15px; line-height: 1.7; }
+.tool-boundary { padding-top: 16px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.tool-actions { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: auto; padding-top: 20px; }
+.tool-actions .project-link { min-height: 44px; font-size: 14px; }
+@media (max-width: 1000px) { .tool-grid { grid-template-columns: 1fr; } .tool-card { padding: 24px; } }

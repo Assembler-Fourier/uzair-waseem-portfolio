@@ -15,7 +15,8 @@ Recruiter-focused portfolio for **Uzair Waseem**, a Dublin-based software engine
 4. Inspect the live [Irish Theory Test Coach](https://irishtheorycoach.ie) product and its public engineering evidence.
 5. Review the [Roster Command public engineering extract](https://github.com/Assembler-Fourier/employee-roster-command), which contains selected sanitised domain logic and synthetic fixtures rather than the private application.
 6. Use [Doctor System](https://github.com/Assembler-Fourier/doctor-system) as supporting platform evidence; its README preserves upstream Apache-2.0 attribution and distinguishes validated infrastructure from live cloud deployment.
-7. Download the [one-page software engineering CV](https://uzairwaseem.com/Uzair-Waseem-CV.pdf).
+7. Try [DataProof](https://dataproof-quality-workbench.vercel.app), [ContractLens](https://contractlens-api-lab.vercel.app) and [DocuMind](https://documind-rag-assistant.vercel.app) for data-quality, API-contract and document-processing evidence.
+8. Download the [one-page software engineering CV](https://uzairwaseem.com/Uzair-Waseem-CV.pdf).
 
 ## Public Project Status
 
@@ -25,6 +26,9 @@ Recruiter-focused portfolio for **Uzair Waseem**, a Dublin-based software engine
 | HouseFair | Live free early-access product | App, source, mobile Playwright checks |
 | Irish Theory Test Coach | Live deployed EdTech platform | Custom domain, 1,277 practice items, protected routes and 15 post-deploy smoke checks |
 | Roster Command | Public engineering extract; operational application remains private | Sanitised product capture, selected logic, synthetic fixtures, 23 tests and CI |
+| DataProof | Live stateless CSV data-quality workbench | Profiles, reusable contracts, row-level diagnostics, CLI and CI |
+| ContractLens | Live OpenAPI 3.0 contract lab | Response validation, compatibility analysis and executable test exports |
+| DocuMind | Live document workspace; OpenAI requires a visitor key | PDF/DOCX ingestion, BM25 retrieval, citations and provider integration tests |
 
 ## What This Repository Demonstrates
 

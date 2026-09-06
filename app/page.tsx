@@ -50,7 +50,7 @@ const stackChips = [
 
 const proofItems = [
   ["Location", "Dublin, Ireland"],
-  ["Product proof", "4 reviewable projects"],
+  ["Product proof", "7 reviewable projects"],
   ["Backend", "Rust + Go + Python"],
   ["Quality", "Cross-language CI"],
   ["Education", "MSc Cybersecurity"],
@@ -234,14 +234,14 @@ const roles = [
     title: "Applied AI / Security Systems Engineer",
     fit: "Cost-aware agent workflows, deterministic risk gates and explainable security operations interfaces.",
     tools: "Python, FastAPI, scikit-learn, Anthropic SDK, Rust, Go, Redis, WebSockets",
-    proof: "VaultWatch plus an MSc Cybersecurity"
+    proof: "VaultWatch, DocuMind and an MSc Cybersecurity"
   },
   {
     icon: Bug,
     title: "QA Automation Engineer",
     fit: "UI and API checks, regression coverage, release gates and failure-focused product thinking.",
     tools: "Playwright, Vitest, Pytest, API testing, accessibility, GitHub Actions",
-    proof: "QA Automation Lab, mobile regression suites and cross-language CI"
+    proof: "ContractLens, QA Automation Lab and mobile regression suites"
   },
   {
     icon: ServerCog,
@@ -398,7 +398,7 @@ const structuredData = [
     "@id": `${siteUrl}/#profile`,
     url: siteUrl,
     name: "Uzair Waseem | Full-Stack Software Engineer in Dublin",
-    dateModified: "2026-09-05",
+    dateModified: "2026-09-06",
     inLanguage: "en-IE",
     isPartOf: { "@id": `${siteUrl}/#website` },
     mainEntity: { "@id": `${siteUrl}/#person` }
@@ -422,6 +422,7 @@ export default function Home() {
         <ProofStrip />
         <DeliverySystem />
         <SelectedWork />
+        <EngineeringTools />
         <RoleFit />
         <ExperienceTimeline />
         <Education />
@@ -644,6 +645,82 @@ function SelectedWork() {
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const engineeringTools = [
+  {
+    title: "DataProof",
+    category: "Data quality · Python backend",
+    icon: Database,
+    description: "Profile a CSV, define a reusable data contract, and trace failed checks to the exact rows and columns.",
+    workflow: "Upload → profile → validate → export",
+    evidence: "Typed rules, bounded CSV processing, row-level diagnostics and a CLI that can fail a CI job.",
+    boundary: "Request-scoped processing. Uploaded data is not saved as a shared dataset.",
+    stack: ["Python", "FastAPI", "Pydantic", "Data contracts", "CI"],
+    live: "https://dataproof-quality-workbench.vercel.app",
+    repo: "https://github.com/Assembler-Fourier/dataproof-quality-workbench"
+  },
+  {
+    title: "ContractLens",
+    category: "Developer tooling · API quality",
+    icon: Braces,
+    description: "Validate JSON responses against OpenAPI contracts, compare API versions, and export reproducible test fixtures.",
+    workflow: "Load contract → inspect response → compare versions",
+    evidence: "JSON-pointer diagnostics, compatibility rules, local reference resolution and executable test exports.",
+    boundary: "Documented OpenAPI 3.0 subset. Checks supplied contracts and responses without calling target APIs.",
+    stack: ["Python", "FastAPI", "OpenAPI", "JSON Schema", "Contract tests"],
+    live: "https://contractlens-api-lab.vercel.app",
+    repo: "https://github.com/Assembler-Fourier/contractlens-api-lab"
+  },
+  {
+    title: "DocuMind",
+    category: "Applied AI · Document processing",
+    icon: BrainCircuit,
+    description: "Upload PDF, Word or text documents, retrieve relevant passages, and generate answers with inspectable citations.",
+    workflow: "Extract → retrieve → answer with citations",
+    evidence: "BM25 retrieval, bounded document parsing, 22 automated tests and a tested upload-to-citation flow.",
+    boundary: "Evidence mode needs no key. OpenAI generation requires the visitor’s key; documents live in the browser session.",
+    stack: ["Python", "FastAPI", "RAG", "OpenAI", "BM25"],
+    live: "https://documind-rag-assistant.vercel.app",
+    repo: "https://github.com/Assembler-Fourier/documind-rag-assistant"
+  }
+];
+
+function EngineeringTools() {
+  return (
+    <section className="section engineering-tools" id="engineering-tools">
+      <div className="shell">
+        <SectionHeading
+          eyebrow="Engineering tools"
+          title="Test the data. Inspect the contract. Trace the answer."
+          text="Three working tools that make backend correctness, API quality and document retrieval visible. Try a supplied example, then inspect the implementation and tests."
+        />
+        <div className="tool-grid">
+          {engineeringTools.map((tool) => {
+            const Icon = tool.icon;
+            return (
+              <article className="tool-card" key={tool.title}>
+                <div className="tool-category"><Icon size={22} aria-hidden="true" /><span>{tool.category}</span></div>
+                <h3>{tool.title}</h3>
+                <p className="tool-description">{tool.description}</p>
+                <p className="tool-workflow">{tool.workflow}</p>
+                <p className="tool-evidence">{tool.evidence}</p>
+                <ul className="tag-list" aria-label={`${tool.title} technology stack`}>
+                  {tool.stack.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+                <p className="tool-boundary">{tool.boundary}</p>
+                <div className="tool-actions">
+                  <a className="project-link" href={tool.live} target="_blank" rel="noopener noreferrer" aria-label={`Try ${tool.title} live`}>Try the tool <ArrowUpRight size={16} aria-hidden="true" /></a>
+                  <a className="project-link ghost" href={tool.repo} target="_blank" rel="noopener noreferrer" aria-label={`Read ${tool.title} source and architecture`}>Source &amp; architecture</a>
+                  <a className="project-link ghost" href={`${tool.repo}/actions/workflows/ci.yml`} target="_blank" rel="noopener noreferrer" aria-label={`Inspect ${tool.title} CI checks`}>CI checks</a>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
