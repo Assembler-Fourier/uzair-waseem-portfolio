@@ -34,7 +34,7 @@ class CvTailoringTests(unittest.TestCase):
         for track in self.profile["tracks"]:
             variant, _ = build_variant(self.profile, requested_track=track)
             text = build_plain_text(variant)
-            self.assertIn("Associate Software Engineer - Octans Digital (OD)", text)
+            self.assertIn("Software Engineering Roles - Octans Digital (OD)", text)
             self.assertIn("Nov 2020 - Apr 2024", text)
             self.assertIn("Software Engineer - LocalhostLabs", text)
             self.assertNotIn("Junior Software Engineer - LocalhostLabs", text)
@@ -53,7 +53,7 @@ class CvTailoringTests(unittest.TestCase):
         octans = next(role for role in self.profile["experience"] if role["company"] == "Octans Digital (OD)")
         self.assertNotIn("employmentType", octans)
         self.assertEqual(octans["bullets"], [{
-            "text": "Handled assigned software-development tickets, including C# tasks, as part of the engineering team.",
+            "text": "Completed development tickets, including C# tasks, through intern, junior and associate roles alongside Computer Science studies.",
             "tags": ["C#", "software development"],
         }])
 
@@ -108,7 +108,7 @@ class CvTailoringTests(unittest.TestCase):
         self.assertEqual(len(variant["projects"]), 3)
         verified_titles = {project["title"] for project in self.profile["projects"].values()}
         self.assertTrue(all(project["title"] in verified_titles for project in variant["projects"]))
-        self.assertEqual(variant["experience"][0]["company"], "Threadstone Security Ltd")
+        self.assertEqual(variant["experience"][0]["company"], "TalentHunter Ltd")
 
     def test_software_cv_leads_with_vaultwatch(self) -> None:
         variant, _ = build_variant(self.profile, requested_track="software")

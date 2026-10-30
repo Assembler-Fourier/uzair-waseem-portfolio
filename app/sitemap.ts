@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: "https://uzairwaseem.com/",
-      lastModified: new Date("2026-09-06"),
+      lastModified: new Date("2026-10-30"),
       changeFrequency: "weekly",
       priority: 1
     },

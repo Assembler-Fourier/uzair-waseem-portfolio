@@ -97,6 +97,10 @@ const deliveryStages = [
 
 const companies = [
   {
+    name: "TalentHunter",
+    url: "https://talenthunter.me"
+  },
+  {
     name: "Outstanding Marketing",
     url: "https://outstanding-marketing.de/en"
   },
@@ -254,11 +258,22 @@ const roles = [
 
 const experience = [
   {
+    company: "TalentHunter Ltd",
+    companyUrl: "https://talenthunter.me",
+    title: "Software Engineer & QA",
+    period: "Sep 2026 - Present",
+    bullets: [
+      "Contribute to platform development and end-to-end testing across candidate, employer and admin workflows.",
+      "Investigate frontend and backend defects, review code changes and document findings to support release decisions."
+    ]
+  },
+  {
     company: "Threadstone Security Ltd",
     title: "Control Room Manager",
     period: "Nov 2025 - Present",
     bullets: [
-      "Coordinate staff rosters, employee operations and HR communication for the control room."
+      "Coordinate rosters and staffing changes for a security workforce of approximately 300, using a personally developed rostering system.",
+      "Liaise with managers and collect timesheets alongside campus security, CCTV, gate-control and building lock-up duties."
     ]
   },
   {
@@ -288,11 +303,11 @@ const experience = [
   {
     company: "Octans Digital (OD)",
     companyUrl: "https://octans.ai",
-    title: "Associate Software Engineer",
+    title: "Software Engineering Roles",
     location: "Islamabad · Pakistan",
     period: "Nov 2020 - Apr 2024",
     bullets: [
-      "Handled assigned software-development tickets, including C# tasks, as part of the engineering team."
+      "Completed development tickets, including C# tasks, through intern, junior and associate roles alongside Computer Science studies."
     ]
   }
 ];
@@ -362,6 +377,11 @@ const structuredData = [
     mainEntityOfPage: { "@id": `${siteUrl}/#profile` },
     image: `${siteUrl}/uzair-waseem-portrait.jpg`,
     email: contact.email,
+    worksFor: {
+      "@type": "Organization",
+      name: "TalentHunter Ltd",
+      url: "https://talenthunter.me"
+    },
     address: {
       "@type": "PostalAddress",
       addressLocality: "Dublin",
@@ -398,7 +418,7 @@ const structuredData = [
     "@id": `${siteUrl}/#profile`,
     url: siteUrl,
     name: "Uzair Waseem | Full-Stack Software Engineer in Dublin",
-    dateModified: "2026-09-06",
+    dateModified: "2026-10-30",
     inLanguage: "en-IE",
     isPartOf: { "@id": `${siteUrl}/#website` },
     mainEntity: { "@id": `${siteUrl}/#person` }
@@ -452,7 +472,7 @@ function Hero() {
             Software engineer building <span className="headline-highlight">tested products</span> and security-aware backend systems.
           </h1>
           <p className="hero-lede">
-            I turn operational problems into deployed web products and reviewable service architectures with TypeScript, Python, Rust, Go, PostgreSQL, Redis, Docker and automated quality gates.
+            I work in software engineering and QA at TalentHunter, developing and testing recruitment workflows. My independent projects explore TypeScript, Python, Rust, Go, PostgreSQL and Redis through tested products and backend services.
           </p>
           <div className="stack-chips" aria-label="Core engineering stack">
             {stackChips.map((chip) => (

@@ -65,7 +65,7 @@ def main() -> None:
         if "Pre-Launch" in text or "pre-launch" in text:
             failures.append(f"{track}: stale Theory Coach pre-launch label")
         for confirmed_fact in (
-            "Associate Software Engineer - Octans Digital (OD)",
+            "Software Engineering Roles - Octans Digital (OD)",
             "Nov 2020 - Apr 2024",
             "Software Engineer - LocalhostLabs",
             "Graduated April 2026",
@@ -73,10 +73,10 @@ def main() -> None:
             "Control Room Manager - Threadstone Security Ltd",
             "Nov 2025 - Present",
             "Available with up to one week notice",
-            "Handled assigned software-development tickets, including C# tasks, as part of the engineering team.",
+            "Completed development tickets, including C# tasks, through intern, junior and associate roles alongside Computer Science studies.",
             "Stamp 1G permission valid to 30 Apr 2027",
         ):
-            if confirmed_fact not in text:
+            if confirmed_fact not in " ".join(text.split()):
                 failures.append(f"{track}: missing confirmed fact {confirmed_fact}")
         if "nearly two years" in text or "Junior Software Engineer - LocalhostLabs" in text:
             failures.append(f"{track}: stale employment wording")
