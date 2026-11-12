@@ -29,7 +29,7 @@ test.describe("recruiter journey", () => {
     await expect(page.locator("#education")).toContainText("Graduated April 2026");
     await expect(page.locator("#contact")).toContainText("own car and a full Irish driving licence");
     await expect(page.locator("#contact")).toContainText("available immediately");
-    await expect(page.getByText("Stamp 1G · 30 Apr 2027", { exact: true })).toBeVisible();
+    await expect(page.getByText("Stamp 1G · expires 30 April 2028", { exact: true })).toBeVisible();
     await expect(page.locator("body")).not.toContainText("Stamp 1G · immediate");
     await expect(
       page.getByRole("link", { name: /View Roster Command public engineering extract on GitHub/i })

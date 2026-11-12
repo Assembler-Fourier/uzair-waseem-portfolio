@@ -70,7 +70,7 @@ class CvTailoringTests(unittest.TestCase):
             self.assertNotIn("native", text.lower())
             self.assertNotIn("CEFR", text)
             self.assertNotIn("ServiceNow", text)
-            self.assertEqual(variant["candidate"]["workAuthorization"], "Stamp 1G permission valid to 30 Apr 2027")
+            self.assertEqual(variant["candidate"]["workAuthorization"], "Stamp 1G expiry: 30 April 2028")
 
     def test_empty_evidence_defaults_to_software_track(self) -> None:
         _, report = build_variant(self.profile)

@@ -89,7 +89,7 @@ python scripts/generate_cv.py
 ## Privacy And Accuracy
 
 - The public portfolio does not publish a personal phone number or residential address.
-- Public CVs state the confirmed current permission only: Stamp 1G valid to 30 April 2027. A further year is not presented as already granted.
+- Public CVs state Stamp 1G expiry of 30 April 2028, confirmed by the candidate on 12 November 2026.
 - Roster Command is labelled as an engineering extract, not a complete public application.
 - VaultWatch uses synthetic data and distinguishes its Vercel replay showcase from the full Docker Compose architecture.
 - Theory Test Coach is labelled as a live deployed product; paid transactions and learner traction are not claimed without evidence.

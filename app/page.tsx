@@ -54,7 +54,7 @@ const proofItems = [
   ["Backend", "Rust + Go + Python"],
   ["Quality", "Cross-language CI"],
   ["Education", "MSc Cybersecurity"],
-  ["Work status", "Stamp 1G · 30 Apr 2027"]
+  ["Work status", "Stamp 1G · expires 30 April 2028"]
 ];
 
 const deliveryStages = [

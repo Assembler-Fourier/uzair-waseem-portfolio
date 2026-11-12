@@ -74,13 +74,13 @@ def main() -> None:
             "Nov 2025 - Present",
             "Available immediately for IT roles",
             "Completed development tickets, including C# tasks, through intern, junior and associate roles alongside Computer Science studies.",
-            "Stamp 1G permission valid to 30 Apr 2027",
+            "Stamp 1G expiry: 30 April 2028",
         ):
             if confirmed_fact not in " ".join(text.split()):
                 failures.append(f"{track}: missing confirmed fact {confirmed_fact}")
         if "nearly two years" in text or "Junior Software Engineer - LocalhostLabs" in text:
             failures.append(f"{track}: stale employment wording")
-        if any(term in text for term in ("Up to one week notice", "Available with up to one week notice", "IELTS", "Apr 2028", "€", "EUR", "salary")):
+        if any(term in text for term in ("Up to one week notice", "Available with up to one week notice", "IELTS", "€", "EUR", "salary")):
             failures.append(f"{track}: unconfirmed, stale or private candidate detail")
         if any(project["title"] == profile["projects"]["theory"]["title"] for project in variant["projects"]):
             if "Irish Theory Test Coach - Live Deployed EdTech Platform" not in text:
