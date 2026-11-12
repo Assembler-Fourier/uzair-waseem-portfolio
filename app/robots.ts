@@ -5,10 +5,10 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/"
-      }
+        allow: "/",
+      },
     ],
     sitemap: "https://uzairwaseem.com/sitemap.xml",
-    host: "https://uzairwaseem.com"
+    host: "https://uzairwaseem.com",
   };
 }

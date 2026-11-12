@@ -1,92 +1,61 @@
 import { ImageResponse } from "next/og";
-
-export const runtime = "edge";
-export const alt = "Uzair Waseem, Dublin software engineer building tested products and security-aware backend systems";
-
-export const size = {
-  width: 1200,
-  height: 630
-};
-
+export const alt = "Uzair Waseem, software engineer in Dublin, Ireland";
+export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-
-const stack = ["TypeScript", "Python", "Rust", "Go", "PostgreSQL", "Docker"];
-
-export default function Image() {
+export default function OpenGraphImage() {
   return new ImageResponse(
     (
       <div
         style={{
           width: "100%",
           height: "100%",
-          position: "relative",
+          background: "#151d19",
+          color: "#f4f2eb",
           display: "flex",
-          overflow: "hidden",
           flexDirection: "column",
+          padding: 65,
           justifyContent: "space-between",
-          padding: 72,
-          color: "#f8fafc",
-          background: "linear-gradient(135deg, #050812 0%, #09121f 54%, #0d1b24 100%)"
         }}
       >
         <div
           style={{
-            position: "absolute",
-            inset: 0,
-            opacity: 0.18,
-            backgroundImage:
-              "linear-gradient(rgba(94,234,212,.24) 1px, transparent 1px), linear-gradient(90deg, rgba(94,234,212,.24) 1px, transparent 1px)",
-            backgroundSize: "54px 54px"
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
-        />
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          <div
-            style={{
-              width: 62,
-              height: 62,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              border: "2px solid #2dd4bf",
-              borderRadius: 14,
-              color: "#d9fff8",
-              background: "#071018",
-              fontSize: 23,
-              fontWeight: 900
-            }}
-          >
-            UW
-          </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ fontSize: 31, fontWeight: 850 }}>Uzair Waseem</div>
-            <div style={{ color: "#99f6e4", fontSize: 18 }}>Dublin, Ireland</div>
-          </div>
+        >
+          <span style={{ fontSize: 27 }}>Uzair Waseem</span>
+          <span style={{ color: "#b7c4b4", fontSize: 20 }}>
+            Software Engineer / Dublin, Ireland
+          </span>
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ maxWidth: 940, fontSize: 72, fontWeight: 900, lineHeight: 0.98 }}>
-            Software engineer building tested products and security-aware backend systems.
-          </div>
-          <div style={{ maxWidth: 920, marginTop: 28, color: "#bad6d2", fontSize: 30 }}>
-            Deployed products | Polyglot services | Applied AI
-          </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            fontSize: 100,
+            letterSpacing: -6,
+            lineHeight: 1.02,
+          }}
+        >
+          <span>Software.</span>
+          <span style={{ color: "#def58c" }}>With substance.</span>
         </div>
-        <div style={{ display: "flex", gap: 10, color: "#d9fff8", fontSize: 20 }}>
-          {stack.map((item) => (
-            <span
-              key={item}
-              style={{
-                padding: "8px 12px",
-                border: "1px solid rgba(153,246,228,.28)",
-                borderRadius: 7,
-                background: "rgba(7,16,24,.72)"
-              }}
-            >
-              {item}
-            </span>
-          ))}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            paddingTop: 25,
+            borderTop: "1px solid #52624b",
+            fontSize: 22,
+            color: "#b7c4b4",
+          }}
+        >
+          <span>React · TypeScript · Backend APIs · QA</span>
+          <span style={{ color: "#def58c" }}>uzairwaseem.com</span>
         </div>
       </div>
     ),
-    size
+    size,
   );
 }
