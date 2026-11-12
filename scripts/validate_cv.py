@@ -70,9 +70,9 @@ def main() -> None:
             "Software Engineer - LocalhostLabs",
             "Graduated April 2026",
             "Own car and full Irish driving licence",
-            "Control Room Manager - Threadstone Security Ltd",
+            "Control Room Manager (weekends) - Threadstone Security Ltd",
             "Nov 2025 - Present",
-            "Available with up to one week notice",
+            "Available immediately for IT roles",
             "Completed development tickets, including C# tasks, through intern, junior and associate roles alongside Computer Science studies.",
             "Stamp 1G permission valid to 30 Apr 2027",
         ):
@@ -80,7 +80,7 @@ def main() -> None:
                 failures.append(f"{track}: missing confirmed fact {confirmed_fact}")
         if "nearly two years" in text or "Junior Software Engineer - LocalhostLabs" in text:
             failures.append(f"{track}: stale employment wording")
-        if any(term in text for term in ("Available immediately", "Immediate start", "IELTS", "Apr 2028", "€", "EUR", "salary")):
+        if any(term in text for term in ("Up to one week notice", "Available with up to one week notice", "IELTS", "Apr 2028", "€", "EUR", "salary")):
             failures.append(f"{track}: unconfirmed, stale or private candidate detail")
         if any(project["title"] == profile["projects"]["theory"]["title"] for project in variant["projects"]):
             if "Irish Theory Test Coach - Live Deployed EdTech Platform" not in text:

@@ -398,7 +398,7 @@ def draw_pdf_footer(canvas: Canvas, document: SimpleDocTemplate) -> None:
     canvas.line(document.leftMargin, y + 7, width - document.rightMargin, y + 7)
     canvas.setFont("Helvetica", 7.1)
     canvas.setFillColor(colors.HexColor("#4b5563"))
-    canvas.drawString(document.leftMargin, y - 1, "Dublin, Ireland | Up to one week notice | Open to relocate")
+    canvas.drawString(document.leftMargin, y - 1, "Dublin, Ireland | Available immediately | Open to relocate")
     canvas.drawRightString(width - document.rightMargin, y - 1, "uzairwaseem.com")
     canvas.restoreState()
 
@@ -683,7 +683,7 @@ def build_docx(variant: dict[str, Any], output_path: Path, phone: str | None = N
 
     footer = document.sections[0].footer.paragraphs[0]
     footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    footer_run = footer.add_run("Dublin, Ireland | Up to one week notice | Open to relocate | uzairwaseem.com")
+    footer_run = footer.add_run("Dublin, Ireland | Available immediately | Open to relocate | uzairwaseem.com")
     set_run_font(footer_run, 7.4, color="4B5563")
 
     document.save(output_path)

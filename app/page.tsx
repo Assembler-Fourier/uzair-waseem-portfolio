@@ -261,15 +261,15 @@ const experience = [
     company: "TalentHunter Ltd",
     companyUrl: "https://talenthunter.me",
     title: "Software Engineer & QA",
-    period: "Sep 2026 - Present",
+    period: "Sep 2026 - Nov 2026",
     bullets: [
-      "Contribute to platform development and end-to-end testing across candidate, employer and admin workflows.",
-      "Investigate frontend and backend defects, review code changes and document findings to support release decisions."
+      "Contributed to platform development and end-to-end testing across candidate, employer and admin workflows.",
+      "Investigated frontend and backend defects, reviewed code changes and documented findings to support release decisions."
     ]
   },
   {
     company: "Threadstone Security Ltd",
-    title: "Control Room Manager",
+    title: "Control Room Manager (weekends)",
     period: "Nov 2025 - Present",
     bullets: [
       "Coordinate rosters and staffing changes for a security workforce of approximately 300, using a personally developed rostering system.",
@@ -377,11 +377,6 @@ const structuredData = [
     mainEntityOfPage: { "@id": `${siteUrl}/#profile` },
     image: `${siteUrl}/uzair-waseem-portrait.jpg`,
     email: contact.email,
-    worksFor: {
-      "@type": "Organization",
-      name: "TalentHunter Ltd",
-      url: "https://talenthunter.me"
-    },
     address: {
       "@type": "PostalAddress",
       addressLocality: "Dublin",
@@ -465,14 +460,14 @@ function Hero() {
               <MapPin size={15} aria-hidden="true" />
               Dublin, Ireland
             </span>
-            <span className="eyebrow muted">Up to one week notice · open to relocate across Ireland</span>
+            <span className="eyebrow muted">Available immediately · open to relocate across Ireland</span>
           </div>
           <p className="intro-label">Uzair Waseem · Software Engineer</p>
           <h1>
             Software engineer building <span className="headline-highlight">tested products</span> and security-aware backend systems.
           </h1>
           <p className="hero-lede">
-            I work in software engineering and QA at TalentHunter, developing and testing recruitment workflows. My independent projects explore TypeScript, Python, Rust, Go, PostgreSQL and Redis through tested products and backend services.
+            I build React and TypeScript interfaces, backend APIs and automated tests. My recent work at TalentHunter covered recruitment workflows, end-to-end testing and defect investigation. Explore my projects, source code and technical decisions below.
           </p>
           <div className="stack-chips" aria-label="Core engineering stack">
             {stackChips.map((chip) => (
@@ -972,9 +967,9 @@ function ContactCTA() {
       <div className="shell contact-layout">
         <div className="contact-copy reveal">
           <div className="section-eyebrow"><Mail size={17} aria-hidden="true" />Contact</div>
-          <h2>Send me the role. I will map my proof to it quickly.</h2>
+          <h2>Let’s talk about your team.</h2>
           <p>
-            Based in Dublin and available with up to one week notice for software engineering, QA, technical support, customer service and operations roles. Open to onsite, hybrid and remote work, and able to relocate anywhere in Ireland within one week. Own car and full Irish driving licence.
+            Based in Dublin and available immediately for software engineering, QA automation and technical support roles. Open to onsite, hybrid and remote work across Ireland. I can relocate within one week and have my own car and a full Irish driving licence.
           </p>
         </div>
         <div className="contact-card reveal">
