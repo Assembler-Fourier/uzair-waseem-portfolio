@@ -5,30 +5,26 @@
 
 Recruiter-focused portfolio for **Uzair Waseem**, a Dublin-based software engineer working across tested web products, polyglot backend systems, applied AI workflows and security-aware delivery.
 
-A charcoal, warm-ivory and lime interface puts project evidence, experience and contact details first.
+A paper, ink and clay-red interface puts three project stories, experience and contact details first. Typography is self-hosted; the page works without JavaScript.
 
 ## Reviewer Path
 
-1. Open the [live portfolio](https://uzairwaseem.com) for the concise hiring overview.
-2. Explore [VaultWatch](https://github.com/Assembler-Fourier/vaultwatch), the polyglot security and applied-AI system.
-3. Review [HouseFair](https://github.com/Assembler-Fourier/housefair-ai) for end-to-end product, data-isolation and mobile PWA evidence.
-4. Inspect the live [Irish Theory Test Coach](https://irishtheorycoach.ie) product and its public engineering evidence.
-5. Review the [Roster Command public engineering extract](https://github.com/Assembler-Fourier/employee-roster-command), which contains selected sanitised domain logic and synthetic fixtures rather than the private application.
-6. Use [Doctor System](https://github.com/Assembler-Fourier/doctor-system) as supporting platform evidence; its README preserves upstream Apache-2.0 attribution and distinguishes validated infrastructure from live cloud deployment.
-7. Try [DataProof](https://dataproof-quality-workbench.vercel.app), [ContractLens](https://contractlens-api-lab.vercel.app) and [DocuMind](https://documind-rag-assistant.vercel.app) for data-quality, API-contract and document-processing evidence.
-8. Download the [one-page software engineering CV](https://uzairwaseem.com/Uzair-Waseem-CV.pdf).
+1. Explore [HouseFair](https://uzairwaseem.com/projects/housefair), a shared-home product with a public sample tour.
+2. Inspect [Roster Command](https://uzairwaseem.com/projects/roster-command), a sanitised scheduling extract with synthetic examples and explainable rules.
+3. Review [VaultWatch](https://uzairwaseem.com/projects/vaultwatch), a local backend/security workspace with a separate, smaller public showcase.
+4. Read [QA Automation Lab](https://uzairwaseem.com/projects/qa-automation-lab) for browser/API contracts and failure evidence.
+5. Expand Developer tools & more for DataProof, ContractLens, DocuMind and Theory Coach.
+6. Download the [software engineering CV](https://uzairwaseem.com/Uzair-Waseem-CV.pdf).
 
-## Public Project Status
+## Public boundaries
 
-| Project                 | Public boundary                                                          | Review path                                                                           |
-| ----------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
-| VaultWatch              | Live synthetic showcase; full polyglot stack runs through Docker Compose | Rust, Go, Python/FastAPI, Next.js, PostgreSQL, Redis and cross-language CI            |
-| HouseFair               | Live free early-access product                                           | App, source, mobile Playwright checks                                                 |
-| Irish Theory Test Coach | Live deployed EdTech platform                                            | Custom domain, 1,277 practice items, protected routes and 15 post-deploy smoke checks |
-| Roster Command          | Public engineering extract; operational application remains private      | Sanitised product capture, selected logic, synthetic fixtures, 23 tests and CI        |
-| DataProof               | Live stateless CSV data-quality workbench                                | Profiles, reusable contracts, row-level diagnostics, CLI and CI                       |
-| ContractLens            | Live OpenAPI 3.0 contract lab                                            | Response validation, compatibility analysis and executable test exports               |
-| DocuMind                | Live document workspace; OpenAI requires a visitor key                   | PDF/DOCX ingestion, BM25 retrieval, citations and provider integration tests          |
+- HouseFair: sample tour verified; full authenticated, upload, email and payment workflows need separate checks.
+- Roster Command: selected public code and synthetic examples. The scheduling illustration explains overlapping intervals; it is not a live dashboard or availability guarantee.
+- VaultWatch: local polyglot system, normally reviewed through scripted replay. Its public TypeScript showcase omits the full payment policy, durable case history and Go/Redis fusion.
+- QA Lab: read-only live checks and separate isolated regression fixtures. Follow the owning repository's CI links for current results.
+- DataProof and ContractLens: stateless data-quality and API-contract tools with documented scope.
+- DocuMind: lexical evidence retrieval; optional generation requires the visitor's key.
+- Theory Coach: public preview; account, database and payment health remain separate verification steps.
 
 ## What This Repository Demonstrates
 
@@ -47,7 +43,7 @@ app/
   layout.tsx                   Global metadata and viewport configuration
   page.tsx                     Hiring page, project evidence and JSON-LD
   projects/[slug]/page.tsx     Five evidence-led case studies
-  components/                  Shared navigation, footer and interactive work preview
+  components/                  Shared navigation, footer and a labelled scheduling illustration
   not-found.tsx                Recruiter-friendly 404
   opengraph-image.tsx          Generated social preview
   robots.ts / sitemap.ts       Crawl configuration
@@ -92,7 +88,7 @@ python scripts/generate_cv.py
 - Public CVs state Stamp 1G expiry of 30 April 2028, confirmed by the candidate on 12 November 2026.
 - Roster Command is labelled as an engineering extract, not a complete public application.
 - VaultWatch uses synthetic data and distinguishes its Vercel replay showcase from the full Docker Compose architecture.
-- Theory Test Coach is labelled as a live deployed product; paid transactions and learner traction are not claimed without evidence.
+- Theory Test Coach is labelled as a public preview; paid transactions and learner traction are not claimed without evidence.
 - Experience dates and titles require candidate confirmation before future changes.
 
 ## Contact

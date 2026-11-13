@@ -50,12 +50,24 @@ test("recruiter can find work, experience, availability and contact", async ({
     if (message.type() === "error") errors.push(message.text());
   });
   await page.goto("/");
+  await page.evaluate(() => document.fonts.ready);
+  expect(
+    await page.evaluate(() => getComputedStyle(document.body).fontFamily),
+  ).toContain("manrope");
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Software.",
+    "Software engineer.",
   );
-  await expect(page.locator(".project-card h3")).toHaveText(
-    cases.slice(0, 4).map(([, title]) => title),
-  );
+  await expect(page.locator(".project-card h3")).toHaveText([
+    "HouseFair",
+    "Roster Command",
+    "VaultWatch",
+  ]);
+  for (const image of await page.locator(".project-visual img").all()) {
+    await image.scrollIntoViewIfNeeded();
+    await expect
+      .poll(() => image.evaluate((el) => (el as HTMLImageElement).naturalWidth))
+      .toBeGreaterThan(0);
+  }
   await expect(
     page.getByRole("link", { name: /Download CV/i }).first(),
   ).toHaveAttribute("href", "/Uzair-Waseem-CV.pdf");
@@ -91,32 +103,28 @@ test("recruiter can find work, experience, availability and contact", async ({
   expect(errors).toEqual([]);
 });
 
-test("work selector works by pointer and keyboard without losing focus", async ({
+test("project collection and earlier experience expand by keyboard", async ({
   page,
 }) => {
   await page.goto("/");
-  const backend = page.getByRole("button", { name: "Backend", exact: true });
-  await backend.click();
-  await expect(backend).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator(".preview-info a")).toHaveAttribute(
-    "href",
-    "/projects/vaultwatch",
-  );
-  await backend.focus();
-  await page.keyboard.press("Tab");
-  await expect(
-    page.getByRole("button", { name: "QA", exact: true }),
-  ).toBeFocused();
+  const summary = page.locator(".more-projects summary");
+  await summary.focus();
   await page.keyboard.press("Enter");
-  await expect(page.locator(".preview-info a")).toHaveAttribute(
-    "href",
-    "/projects/qa-automation-lab",
-  );
-  await page.getByRole("button", { name: "Full-stack", exact: true }).click();
-  await expect(page.locator(".preview-info a")).toHaveAttribute(
-    "href",
-    "/projects/housefair",
-  );
+  await expect(
+    page.getByRole("link", { name: "Try DataProof", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Irish Theory Test Coach", exact: true }),
+  ).toBeVisible();
+  await page.locator(".earlier-roles summary").click();
+  await expect(
+    page.getByRole("heading", { name: "Octans Digital (OD)" }),
+  ).toBeVisible();
+  await page.locator(".cv-versions summary").click();
+  const result = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(result.violations).toEqual([]);
   await assertNoOverflow(page);
 });
 
@@ -160,13 +168,13 @@ test("skip link and role-specific CVs work by keyboard", async ({
 });
 
 for (const width of [320, 390, 768, 1440]) {
-  test(`homepage fits ${width}px and preview controls remain usable`, async ({
+  test(`homepage fits ${width}px and primary actions remain usable`, async ({
     page,
   }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/");
     await assertNoOverflow(page);
-    for (const button of await page.locator(".preview-tabs button").all()) {
+    for (const button of await page.locator(".hero-actions .button").all()) {
       const box = await button.boundingBox();
       expect(box?.height).toBeGreaterThanOrEqual(43);
       expect(box?.width).toBeGreaterThanOrEqual(43);
@@ -296,12 +304,10 @@ test.describe("progressive enhancement", () => {
     page,
   }) => {
     await page.goto("/");
-    await expect(page.locator(".project-card")).toHaveCount(4);
+    await expect(page.locator(".project-card")).toHaveCount(3);
     await page.locator(".cv-versions summary").click();
     await expect(page.locator(".cv-versions a").first()).toBeVisible();
-    await page
-      .getByRole("link", { name: "Explore the HouseFair case study" })
-      .click();
+    await page.getByRole("link", { name: "HouseFair", exact: true }).click();
     await expect(
       page.getByRole("heading", { name: "HouseFair", exact: true, level: 1 }),
     ).toBeVisible();

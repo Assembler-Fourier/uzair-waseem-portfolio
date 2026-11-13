@@ -4,11 +4,12 @@ import { Maximize2 } from "lucide-react";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "../../components/SiteHeader";
 import { SiteFooter } from "../../components/SiteFooter";
+import { CoverageSketch } from "../../components/CoverageSketch";
 
 const caseStudies = {
   vaultwatch: {
     title: "VaultWatch",
-    label: "Polyglot AI and security operations system",
+    label: "Local fraud and security workspace",
     repo: "https://github.com/Assembler-Fourier/vaultwatch",
     repoLabel: "Review source",
     live: "https://dashboard-web-three-sable.vercel.app",
@@ -49,7 +50,7 @@ const caseStudies = {
       "Tiered triage, tool-using investigation and synthetic compliance drafting",
       "Account-security event fusion for impossible-travel and brute-force signals",
       "Argon2id authentication with rotating refresh tokens and reuse detection",
-      "Hash-chained audit records and a live reasoning trace",
+      "Hash-chained audit records and an investigation event trace",
     ],
     testing: [
       "CI runs Rust formatting, Clippy and tests; Go build, vet and tests; Python Ruff and Pytest; and Next.js lint and build",
@@ -58,11 +59,11 @@ const caseStudies = {
       "Integration verification exposed and fixed a Postgres JSON-serialization defect and stale WebSocket cleanup",
     ],
     deployment:
-      "The live Vercel showcase is a self-contained TypeScript port that uses the same event shapes and can run without secrets. The full Rust, Go, Python, Postgres, Redis and Next.js system runs through Docker Compose for review.",
+      "The public Vercel showcase is a smaller TypeScript application using synthetic events. The full Rust, Go, Python, PostgreSQL, Redis and Next.js system runs locally through Docker Compose.",
     security:
       "Every account, identity, transaction and entity graph is synthetic. The system includes adaptive password hashing, rotating JWT refresh tokens, rate limits, anomaly detection and a tamper-evident audit mechanism.",
     tradeoffs:
-      "Showcase-mode audit history is held in serverless-instance memory and demonstrates the mechanism rather than durable storage. Durable Postgres case history and the file-backed Rust audit chain belong to the full Docker Compose mode.",
+      "The public showcase does not include the full local payment policy, durable PostgreSQL history or Go/Redis security-event fusion. The recommended local mode uses scripted model replay. Paid inference was not exercised in the recorded verification.",
     next: [
       "Add a hosted full-stack environment with durable managed data stores",
       "Expand cross-service contract and failure-injection coverage",
@@ -85,7 +86,7 @@ const caseStudies = {
     evidence: [
       ["Source", "Selected domain logic"],
       ["Delivery", "Automated GitHub Actions"],
-      ["Quality", "23 Vitest checks"],
+      ["Quality", "Edge-case tests"],
       ["Boundary", "Synthetic data only"],
     ],
     architecture: [
@@ -112,17 +113,17 @@ const caseStudies = {
       "Strict invalid date/time and multi-day-shift handling",
     ],
     testing: [
-      "Twenty-three tests cover overlap, overnight and multi-day shifts, invalid inputs and missing end times",
+      "Tests cover overlap, overnight and multi-day shifts, invalid inputs and missing end times",
       "Fixtures cover duplicate records, same-name employees and stable tie-breaking",
       "Type checking and tests run together through the repository check command",
       "GitHub Actions runs the same public verification command",
     ],
     deployment:
-      "The public repository is not the complete application. A sanitised capture documents the product boundary, while the operational deployment remains protected behind authentication; no public live product is claimed.",
+      "The public repository contains selected scheduling rules and synthetic fixtures, not the complete application. The illustration above explains an overlap rule; no public live product is claimed.",
     security:
       "No employer, employee or client records are included. Employee IDs, deduplication and synthetic fixtures reduce accidental identity ambiguity in the public examples.",
     tradeoffs:
-      "The extract proves scheduling decisions and test quality, not the private application's full React, database, authentication or deployment implementation.",
+      "The public extract covers scheduling logic. It does not include the private application or workforce records. Suggestions require human confirmation; timezone and daylight-saving conversion are outside its scope.",
     next: [
       "Add property-based coverage around interval boundaries",
       "Document additional anonymised decision examples",
@@ -133,17 +134,17 @@ const caseStudies = {
   },
   housefair: {
     title: "HouseFair",
-    label: "Flagship full-stack shared-living product",
+    label: "Shared-home product with a public sample tour",
     repo: "https://github.com/Assembler-Fourier/housefair-ai",
     repoLabel: "Review source",
-    live: "https://housemates-sand.vercel.app",
+    live: "https://housemates-sand.vercel.app/demo",
     ci: "https://github.com/Assembler-Fourier/housefair-ai/actions/workflows/ci.yml",
     image: "/projects/housefair-product.jpg",
     imageAlt:
       "HouseFair mobile screens for chores, groceries, money and house planning",
     imageMode: "visual-house",
     evidence: [
-      ["Release", "Free early access"],
+      ["Release", "Public preview"],
       ["Delivery", "Automated GitHub Actions"],
       ["Quality", "Mobile Playwright suite"],
       ["Boundary", "Household-scoped data"],
@@ -182,9 +183,9 @@ const caseStudies = {
       "A successful CI run was recorded on 12 November 2026; use the CI link to inspect the current result",
     ],
     deployment:
-      "Deployed on Vercel as a controlled free early-access build with an installable PWA shell.",
+      "A public preview on Vercel with a sample tour and installable PWA shell.",
     security:
-      "Every commercial request resolves the authenticated user, active household and membership. Zod validation, route authorization, rate limits, private Storage and PostgreSQL RLS create layered boundaries.",
+      "Authenticated routes use household membership checks, with input validation and database access policies. Private storage and PostgreSQL RLS support household data separation.",
     tradeoffs:
       "The public sample tour uses demonstration data. Full authenticated household, email, upload and billing workflows were not fully re-tested in the 12 November review. Paid access remains gated by further verification.",
     next: [
@@ -197,7 +198,7 @@ const caseStudies = {
   },
   "theory-test-coach": {
     title: "Irish Theory Test Coach",
-    label: "Live deployed EdTech platform",
+    label: "Independent learning product preview",
     repo: "https://github.com/Assembler-Fourier/irish-theory-test-coach",
     repoLabel: "Review source",
     live: "https://irishtheorycoach.ie",
@@ -207,8 +208,8 @@ const caseStudies = {
       "Irish Theory Test Coach learner workspace with a protected preview question",
     imageMode: "visual-learning",
     evidence: [
-      ["Content", "1,277 validated items"],
-      ["Quality", "15 post-deploy checks"],
+      ["Content", "1,277 structured items"],
+      ["Quality", "Public smoke checks"],
       ["Domain", "Custom URL active"],
       ["Boundary", "Independent product"],
     ],
@@ -241,12 +242,12 @@ const caseStudies = {
     testing: [
       "The current pipeline validates 1,277 structured practice items",
       "Fifteen post-deploy smoke checks cover the public learner journey and release boundaries",
-      "Payment policy, webhook and entitlement transitions pass mocked automated checks",
+      "Mocked tests cover payment policy, webhook and entitlement transitions",
       "Mobile E2E checks cover learner, paywall, restore and legal routes",
       "Accessibility automation covers ten learner and account states",
     ],
     deployment:
-      "The public product is live at irishtheorycoach.ie. It is an independent practice platform and is not affiliated with RSA or Prometric; this case study does not claim paid transactions or learner traction.",
+      "The public preview is available at irishtheorycoach.ie. It is an independent practice platform and is not affiliated with RSA or Prometric; this case study does not claim paid transactions or learner traction.",
     security:
       "Premium sessions are selected server-side, correct answers are withheld until submission, payments use signed idempotent webhooks, and admin endpoints enforce server-side roles.",
     tradeoffs:
@@ -271,7 +272,7 @@ const caseStudies = {
       "Playwright report showing QA Automation Lab release-contract results",
     imageMode: "visual-qa",
     evidence: [
-      ["Coverage", "26 listed contracts"],
+      ["Coverage", "Browser and API contracts"],
       ["Live policy", "Read-only checks"],
       ["UI", "Route-mocked regression"],
       ["Evidence", "Trace, media and HTML"],
@@ -301,9 +302,9 @@ const caseStudies = {
       "Data-driven filters and project case-study checks",
     ],
     testing: [
-      "Twenty-six tests are listed across five focused files",
-      "Thirteen local SecureTaskOps API/UI checks pass with isolated writes enabled",
-      "Seven live read-only API checks pass while three write checks are intentionally skipped",
+      "Five focused files cover portfolio, API and mocked UI contracts",
+      "The local SecureTaskOps suite covers API and UI behaviour with isolated write fixtures",
+      "Live API checks use read-only requests; write scenarios are intentionally disabled against shared deployments",
       "Dependency audit is available through the repository quality checks",
     ],
     deployment:
@@ -428,7 +429,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       ? "View test runs"
                       : study.title === "VaultWatch"
                         ? "Open showcase"
-                        : "Open live product"}
+                        : study.title === "HouseFair"
+                          ? "Try sample tour"
+                          : "Explore the preview"}
                   </a>
                 ) : null}
                 <a href={study.repo} target="_blank" rel="noopener noreferrer">
@@ -440,30 +443,34 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
             </div>
             <div className={`case-hero-media ${study.imageMode}`}>
-              <div className="product-window">
-                <div className="product-window-bar" aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
-                  <strong>{study.title}</strong>
-                  <Maximize2 size={14} />
+              {study.title === "Roster Command" ? (
+                <CoverageSketch />
+              ) : (
+                <div className="product-window">
+                  <div className="product-window-bar" aria-hidden="true">
+                    <span />
+                    <span />
+                    <span />
+                    <strong>{study.title}</strong>
+                    <Maximize2 size={14} />
+                  </div>
+                  <div className="product-window-screen">
+                    <Image
+                      className="product-shot"
+                      src={study.image}
+                      alt={study.imageAlt}
+                      fill
+                      priority
+                      quality={85}
+                      sizes="(max-width: 860px) calc(100vw - 56px), 520px"
+                    />
+                  </div>
                 </div>
-                <div className="product-window-screen">
-                  <Image
-                    className="product-shot"
-                    src={study.image}
-                    alt={study.imageAlt}
-                    fill
-                    priority
-                    quality={85}
-                    sizes="(max-width: 860px) calc(100vw - 56px), 520px"
-                  />
-                </div>
-              </div>
+              )}
               <div className="case-media-caption">
                 <span>
                   {study.title === "Roster Command"
-                    ? "Sanitised product view"
+                    ? "Illustrated public rule"
                     : "Actual product"}
                 </span>
                 <strong>{study.title}</strong>
@@ -498,7 +505,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <CaseHeading
               number="02"
               title="System and engineering decisions"
-              text="A recruiter-readable map of the product path, followed by the implementation choices behind it."
+              text="How the parts fit together and the decisions behind them."
             />
             <div className="case-system-grid">
               <div
@@ -526,7 +533,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <CaseHeading
               number="03"
               title="Verification and release boundary"
-              text="How the build is checked, delivered and kept honest about what is production-ready."
+              text="Test coverage, deployment setup and current limits."
             />
             <div className="case-two-column">
               <CasePanel title="Automated verification" items={study.testing} />
@@ -539,7 +546,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <CaseHeading
               number="04"
               title="Tradeoffs and next work"
-              text="What remains incomplete is shown deliberately, because engineering judgment includes knowing what not to claim."
+              text="Current constraints and the next improvements."
             />
             <div className="case-two-column">
               <CasePanel title="Current tradeoffs" text={study.tradeoffs} />
@@ -547,7 +554,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
 
             <div className="case-closing">
-              <span>What this proves</span>
+              <span>Engineering focus</span>
               <h2>{study.proves}</h2>
               <div className="case-actions">
                 {study.live ? (
@@ -556,7 +563,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Try the product
+                    {study.title === "QA Automation Lab"
+                      ? "View test runs"
+                      : study.title === "VaultWatch"
+                        ? "Explore the showcase"
+                        : study.title === "HouseFair"
+                          ? "Try sample tour"
+                          : "Explore the preview"}
                   </a>
                 ) : null}
                 <a href={study.repo} target="_blank" rel="noopener noreferrer">

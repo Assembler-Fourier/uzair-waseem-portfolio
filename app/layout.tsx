@@ -1,5 +1,11 @@
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
+const manrope = localFont({
+  src: "../node_modules/@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2",
+  variable: "--font-manrope",
+  display: "swap",
+});
 
 const siteUrl = "https://uzairwaseem.com";
 const title = "Uzair Waseem | Software Engineer in Dublin, Ireland";
@@ -52,7 +58,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#151d19",
+  themeColor: "#f1ede4",
   colorScheme: "light",
 };
 export default function RootLayout({
@@ -60,7 +66,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-IE">
-      <body>{children}</body>
+      <body className={manrope.variable}>{children}</body>
     </html>
   );
 }

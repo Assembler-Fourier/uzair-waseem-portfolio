@@ -9,8 +9,8 @@ export default function OpenGraphImage() {
         style={{
           width: "100%",
           height: "100%",
-          background: "#151d19",
-          color: "#f4f2eb",
+          background: "#182123",
+          color: "#fcfaf5",
           display: "flex",
           flexDirection: "column",
           padding: 65,
@@ -25,7 +25,7 @@ export default function OpenGraphImage() {
           }}
         >
           <span style={{ fontSize: 27 }}>Uzair Waseem</span>
-          <span style={{ color: "#b7c4b4", fontSize: 20 }}>
+          <span style={{ color: "#d3cac0", fontSize: 20 }}>
             Software Engineer / Dublin, Ireland
           </span>
         </div>
@@ -33,26 +33,26 @@ export default function OpenGraphImage() {
           style={{
             display: "flex",
             flexDirection: "column",
-            fontSize: 100,
+            fontSize: 83,
             letterSpacing: -6,
             lineHeight: 1.02,
           }}
         >
-          <span>Software.</span>
-          <span style={{ color: "#def58c" }}>With substance.</span>
+          <span>Software engineer.</span>
+          <span style={{ color: "#f2a78e" }}>Practical by design.</span>
         </div>
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             paddingTop: 25,
-            borderTop: "1px solid #52624b",
+            borderTop: "1px solid #564f49",
             fontSize: 22,
-            color: "#b7c4b4",
+            color: "#d3cac0",
           }}
         >
           <span>React · TypeScript · Backend APIs · QA</span>
-          <span style={{ color: "#def58c" }}>uzairwaseem.com</span>
+          <span style={{ color: "#f2a78e" }}>uzairwaseem.com</span>
         </div>
       </div>
     ),

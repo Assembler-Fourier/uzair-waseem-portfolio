@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Check, Download } from "lucide-react";
 import { SiteHeader } from "./components/SiteHeader";
 import { SiteFooter } from "./components/SiteFooter";
-import { WorkPreview } from "./components/WorkPreview";
+import { CoverageSketch } from "./components/CoverageSketch";
 
 const siteUrl = "https://uzairwaseem.com";
 const contact = {
@@ -16,74 +16,57 @@ const contact = {
 const projects = [
   {
     title: "HouseFair",
-    category: "Full-stack development",
-    summary: "A calmer way to run a shared home.",
+    category: "01 / Full-stack product",
+    summary: "A shared home, without the scattered messages.",
     detail:
-      "Chores, groceries and shared expenses in one mobile-first workspace. Built with household access controls and a public sample tour.",
-    image: "/projects/housefair-product.jpg",
-    imageAlt:
-      "HouseFair mobile screens for chores, groceries and shared expenses",
+      "I built a mobile-first workspace for chores, groceries and shared expenses, with household access controls and a public sample tour.",
+    evidence: "Household-scoped access · Mobile workflows · Browser checks",
     stack: ["Next.js", "TypeScript", "Supabase", "Playwright"],
     boundary:
-      "Sample tour available. Full authenticated workflows are a separate verification step.",
+      "Public preview with sample data. Full authenticated workflows remain a separate verification step.",
     repository: "https://github.com/Assembler-Fourier/housefair-ai",
     live: "https://housemates-sand.vercel.app/demo",
     liveLabel: "Try sample tour",
     caseStudy: "/projects/housefair",
+    image: "/projects/housefair-product.jpg",
+    imageAlt: "HouseFair mobile product screens",
     visual: "house",
   },
   {
-    title: "VaultWatch",
-    category: "Backend & security",
-    summary: "Follow the signal. Understand the risk.",
-    detail:
-      "A fraud and account-security project connecting risk checks, investigation workflows and an operations dashboard.",
-    image: "/projects/vaultwatch-product.png",
-    imageAlt:
-      "VaultWatch dashboard with a synthetic investigation and event trace",
-    stack: ["Rust", "Go", "Python", "PostgreSQL"],
-    boundary:
-      "Synthetic showcase. The complete service stack runs locally with Docker Compose.",
-    repository: "https://github.com/Assembler-Fourier/vaultwatch",
-    live: "https://dashboard-web-three-sable.vercel.app",
-    liveLabel: "Live showcase",
-    caseStudy: "/projects/vaultwatch",
-    visual: "vault",
-  },
-  {
     title: "Roster Command",
-    category: "Practical automation",
-    summary: "Turn coverage gaps into clear decisions.",
+    category: "02 / Operations & automation",
+    summary: "Clearer decisions when a shift needs cover.",
     detail:
-      "Scheduling logic for availability, overlapping shifts and explainable cover ranking, extracted from a private roster system.",
-    image: "/projects/roster-command-product.png",
-    imageAlt:
-      "Roster Command view with synthetic shifts and coverage information",
+      "I extracted scheduling rules from a private roster tool: coverage gaps, overlapping shifts and explainable cover suggestions.",
+    evidence: "Interval validation · Conflict checks · Deterministic ranking",
     stack: ["TypeScript", "Vitest", "Domain modelling"],
     boundary:
-      "Sanitised public extract with synthetic data. Private workforce records stay private.",
+      "Sanitised public code and synthetic examples. Cover suggestions require human confirmation.",
     repository: "https://github.com/Assembler-Fourier/employee-roster-command",
     live: null,
     liveLabel: null,
     caseStudy: "/projects/roster-command",
+    image: "/projects/roster-command-product.png",
+    imageAlt: "Roster Command sanitised product view",
     visual: "roster",
   },
   {
-    title: "QA Automation Lab",
-    category: "Testing & quality",
-    summary: "Make regressions easier to catch.",
+    title: "VaultWatch",
+    category: "03 / Backend & security",
+    summary: "Follow a payment decision across services.",
     detail:
-      "Browser journeys, API contracts and accessibility checks with CI reports and failure evidence that make issues easier to investigate.",
-    image: "/projects/qa-automation-lab-product.png",
-    imageAlt: "Playwright test report with browser and API contract results",
-    stack: ["Playwright", "TypeScript", "API testing", "CI"],
+      "I built a local fraud and account-security workspace with risk checks, investigation events and case history across four services.",
+    evidence: "Rust risk engine · Go gateway · Python orchestration",
+    stack: ["Rust", "Go", "Python", "PostgreSQL"],
     boundary:
-      "Public checks are read-only. Authenticated product tests belong in their own repositories.",
-    repository: "https://github.com/Assembler-Fourier/qa-automation-lab",
-    live: null,
-    liveLabel: null,
-    caseStudy: "/projects/qa-automation-lab",
-    visual: "qa",
+      "Synthetic data. The public TypeScript showcase is smaller than the full local system, which supports scripted model replay.",
+    repository: "https://github.com/Assembler-Fourier/vaultwatch",
+    live: "https://dashboard-web-three-sable.vercel.app",
+    liveLabel: "Open showcase",
+    caseStudy: "/projects/vaultwatch",
+    image: "/projects/vaultwatch-product.png",
+    imageAlt: "VaultWatch synthetic investigation dashboard",
+    visual: "vault",
   },
 ];
 
@@ -255,7 +238,7 @@ const structuredData = {
       "@id": `${siteUrl}/#profile`,
       url: `${siteUrl}/`,
       name: "Uzair Waseem | Software Engineer in Dublin",
-      dateModified: "2026-11-12",
+      dateModified: "2026-11-13",
       inLanguage: "en-IE",
       isPartOf: { "@id": `${siteUrl}/#website` },
       mainEntity: { "@id": `${siteUrl}/#person` },
@@ -291,37 +274,42 @@ export default function Home() {
       <main id="content">
         <div className="hero-zone" id="intro">
           <section className="hero shell" aria-labelledby="hero-title">
-            <div className="hero-copy">
-              <p className="eyebrow">
-                <span className="status-dot" /> Available immediately · Dublin,
-                Ireland
-              </p>
+            <div className="hero-intro">
               <p className="intro-label">
-                Hi, I’m Uzair. Software engineer & problem solver.
+                Uzair Waseem <span>/ Dublin, Ireland</span>
               </p>
-              <h1 id="hero-title">
-                Software.
-                <br />
-                <span>With substance.</span>
-              </h1>
+              <p className="availability-note">
+                <span className="status-dot" /> Available immediately
+              </p>
+            </div>
+            <h1 id="hero-title">
+              Software engineer.
+              <br />
+              <span>Practical by design.</span>
+            </h1>
+            <div className="hero-bottom">
               <p className="hero-lede">
-                From the first interaction to the API behind it.
-                <br className="desktop-break" /> I build thoughtful products,
-                test the details, and make complex workflows feel
-                straightforward.
+                I build web products, backend APIs and tools that make everyday
+                work easier. Full-stack development, careful testing and a
+                security-aware approach.
               </p>
               <div className="hero-actions">
                 <a className="button primary" href="#work">
                   Explore my work
-                  <ArrowDown size={17} aria-hidden="true" />
+                  <ArrowDown size={18} aria-hidden="true" />
                 </a>
                 <a className="button secondary" href={contact.cv} download>
-                  <Download size={17} aria-hidden="true" />
+                  <Download size={18} aria-hidden="true" />
                   Download CV
                 </a>
               </div>
+            </div>
+            <div className="hero-context">
+              <a href="#experience">
+                Recent engineering & QA work at <strong>TalentHunter</strong>
+                <ArrowUpRight size={15} aria-hidden="true" />
+              </a>
               <div className="hero-links">
-                <span>Find me on</span>
                 <a
                   href={contact.github}
                   target="_blank"
@@ -344,34 +332,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <WorkPreview />
           </section>
-          <div className="hero-bottom shell">
-            <span>DESIGN WITH INTENT. BUILD WITH CARE.</span>
-            <span>React · TypeScript · APIs · Automated testing</span>
-            <span>SCROLL TO EXPLORE ↓</span>
-          </div>
-        </div>
-        <div
-          className="availability shell"
-          aria-label="Availability and qualifications"
-        >
-          <div>
-            <span>Ready to contribute</span>
-            <strong>Available immediately</strong>
-          </div>
-          <div>
-            <span>Based in Dublin</span>
-            <strong>Open to roles across Ireland</strong>
-          </div>
-          <div>
-            <span>Education</span>
-            <strong>MSc Cybersecurity</strong>
-          </div>
-          <a href="#contact">
-            Let’s talk
-            <ArrowUpRight size={20} aria-hidden="true" />
-          </a>
         </div>
 
         <section
@@ -382,71 +343,63 @@ export default function Home() {
           <div className="section-heading">
             <div>
               <p className="eyebrow">01 / Selected work</p>
-              <h2 id="work-title">
-                Good ideas.
-                <br />
-                Working products.
-              </h2>
+              <h2 id="work-title">Three problems. Three builds.</h2>
             </div>
             <p>
-              A few projects that show how I build, test and think through the
-              details.
+              Product development, operational rules and backend systems. Here’s
+              what I built and how it works.
             </p>
           </div>
           <div className="project-grid">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <article
                 className={`project-card project-${project.visual}`}
                 key={project.title}
               >
-                <Link
-                  className="project-visual"
-                  href={project.caseStudy}
-                  aria-label={`0${index + 1} Explore the ${project.title} case study`}
-                >
-                  <span className="project-number" aria-hidden="true">
-                    0{index + 1}
-                  </span>
-                  <div
-                    className={
-                      project.visual === "house"
-                        ? "house-phones"
-                        : "project-image"
-                    }
-                  >
-                    {project.visual === "house" ? (
-                      <>
+                <div className="project-visual">
+                  {project.visual === "house" ? (
+                    <div className="house-product">
+                      <span className="product-kicker">
+                        HouseFair / public sample tour
+                      </span>
+                      <div className="house-phones">
                         <div>
                           <Image
                             src="/projects/housefair-tour.jpg"
                             alt="HouseFair sample household overview"
                             fill
-                            sizes="(max-width: 700px) 34vw, 160px"
+                            sizes="(max-width: 700px) 34vw, 180px"
                           />
                         </div>
                         <div>
                           <Image
                             src="/projects/housefair-tasks.jpg"
-                            alt="HouseFair sample task list"
+                            alt="HouseFair sample chores workflow"
                             fill
-                            sizes="(max-width: 700px) 34vw, 160px"
+                            sizes="(max-width: 700px) 34vw, 180px"
                           />
                         </div>
-                      </>
-                    ) : (
-                      <Image
-                        src={project.image}
-                        alt={project.imageAlt}
-                        fill
-                        sizes="(max-width: 700px) 90vw, (max-width: 1200px) 45vw, 530px"
-                        quality={85}
-                      />
-                    )}
-                  </div>
-                  <span className="image-link">
-                    <ArrowUpRight size={20} aria-hidden="true" />
-                  </span>
-                </Link>
+                      </div>
+                    </div>
+                  ) : project.visual === "roster" ? (
+                    <CoverageSketch />
+                  ) : (
+                    <div className="vault-product">
+                      <span className="product-kicker">
+                        VaultWatch / synthetic showcase
+                      </span>
+                      <div className="project-image">
+                        <Image
+                          src={project.image}
+                          alt={project.imageAlt}
+                          fill
+                          sizes="(max-width: 700px) 90vw, 540px"
+                          quality={85}
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
                 <div className="project-content">
                   <p className="eyebrow">{project.category}</p>
                   <h3>
@@ -454,6 +407,7 @@ export default function Home() {
                   </h3>
                   <p className="project-summary">{project.summary}</p>
                   <p>{project.detail}</p>
+                  <p className="project-evidence">{project.evidence}</p>
                   <ul
                     className="tag-list"
                     aria-label={`${project.title} technologies`}
@@ -464,7 +418,7 @@ export default function Home() {
                   </ul>
                   <div className="project-actions">
                     <Link href={project.caseStudy}>
-                      Case study
+                      Read case study
                       <ArrowUpRight size={15} aria-hidden="true" />
                     </Link>
                     {project.live && (
@@ -493,59 +447,52 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <div className="more-work">
+          <div className="quality-feature">
             <div>
-              <p className="eyebrow">Also built</p>
-              <h3>Irish Theory Test Coach</h3>
+              <p className="eyebrow">Testing & quality</p>
+              <h3>QA Automation Lab</h3>
               <p>
-                An independent driving-theory practice product with learner
-                workflows and serverless APIs.
+                Browser journeys, API contracts and accessibility checks, with
+                traces and reports that make failures easier to investigate.
               </p>
+              <span>Playwright · JavaScript · API testing · CI</span>
             </div>
-            <Link href="/projects/theory-test-coach">
-              Read the case study
+            <Link className="text-link" href="/projects/qa-automation-lab">
+              Read the testing case study
               <ArrowUpRight size={18} aria-hidden="true" />
             </Link>
           </div>
         </section>
 
-        <section
-          className="tools-section"
-          id="engineering-tools"
-          aria-labelledby="tools-title"
-        >
-          <div className="shell">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Small tools. Clear purpose.</p>
-                <h2 id="tools-title">Try the engineering.</h2>
-              </div>
-              <p>Explore a sample, inspect the output, then read the code.</p>
-            </div>
+        <section className="tools-section shell" aria-labelledby="tools-title">
+          <details className="more-projects">
+            <summary>
+              <span id="tools-title">Developer tools & more</span>
+              <span>Four focused experiments</span>
+              <span className="details-icon" aria-hidden="true">
+                +
+              </span>
+            </summary>
             <div className="tool-grid">
               {engineeringTools.map((tool) => (
                 <article className="tool-card" key={tool.title}>
                   <p className="eyebrow">{tool.category}</p>
                   <h3>{tool.title}</h3>
                   <p>{tool.description}</p>
-                  <p className="tool-stack">
-                    {tool.stack.slice(0, 3).join(" / ")}
-                  </p>
                   <div className="project-actions">
                     <a
                       href={tool.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`Try it: ${tool.title} live`}
                     >
-                      Try it
+                      Try {tool.title}
                       <ArrowUpRight size={15} aria-hidden="true" />
                     </a>
                     <a
                       href={tool.repo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`Read ${tool.title} source`}
+                      aria-label={`${tool.title} source`}
                     >
                       Source
                       <ArrowUpRight size={15} aria-hidden="true" />
@@ -554,8 +501,25 @@ export default function Home() {
                   <p className="project-boundary">{tool.boundary}</p>
                 </article>
               ))}
+              <article className="tool-card">
+                <p className="eyebrow">Learning product · Public preview</p>
+                <h3>Irish Theory Test Coach</h3>
+                <p>
+                  Driving-theory practice, learner workflows and serverless
+                  APIs.
+                </p>
+                <div className="project-actions">
+                  <Link href="/projects/theory-test-coach">
+                    Read case study
+                    <ArrowUpRight size={15} aria-hidden="true" />
+                  </Link>
+                </div>
+                <p className="project-boundary">
+                  Full account, database and payment health remain unverified.
+                </p>
+              </article>
             </div>
-          </div>
+          </details>
         </section>
 
         <section
@@ -622,45 +586,22 @@ export default function Home() {
           <div className="section shell experience-layout">
             <div>
               <p className="eyebrow">03 / Experience</p>
-              <h2 id="experience-title">
-                Real work.
-                <br />
-                Practical perspective.
-              </h2>
+              <h2 id="experience-title">Experience that shapes the work.</h2>
               <p className="section-intro">
-                Software delivery, quality assurance and hands-on operations.
+                Commercial engineering, QA and hands-on operations. Open to
+                software roles across Ireland.
               </p>
             </div>
             <div className="timeline">
-              {experience.map((item) => (
-                <article className="timeline-card" key={item.company}>
-                  <div className="timeline-top">
-                    <div>
-                      <h3>
-                        {item.companyUrl ? (
-                          <a
-                            href={item.companyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {item.company}
-                            <ArrowUpRight size={15} aria-hidden="true" />
-                          </a>
-                        ) : (
-                          item.company
-                        )}
-                      </h3>
-                      <p className="job-title">{item.title}</p>
-                    </div>
-                    <span>{item.period}</span>
-                  </div>
-                  <ul>
-                    {item.bullets.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
-                    ))}
-                  </ul>
-                </article>
+              {experience.slice(0, 3).map((item) => (
+                <ExperienceEntry key={item.company} item={item} />
               ))}
+              <details className="earlier-roles">
+                <summary>Earlier engineering roles</summary>
+                {experience.slice(3).map((item) => (
+                  <ExperienceEntry key={item.company} item={item} />
+                ))}
+              </details>
             </div>
           </div>
         </section>
@@ -777,5 +718,37 @@ export default function Home() {
       </main>
       <SiteFooter />
     </>
+  );
+}
+
+function ExperienceEntry({ item }: { item: (typeof experience)[number] }) {
+  return (
+    <article className="timeline-card" key={item.company}>
+      <div className="timeline-top">
+        <div>
+          <h3>
+            {item.companyUrl ? (
+              <a
+                href={item.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.company}
+                <ArrowUpRight size={15} aria-hidden="true" />
+              </a>
+            ) : (
+              item.company
+            )}
+          </h3>
+          <p className="job-title">{item.title}</p>
+        </div>
+        <span>{item.period}</span>
+      </div>
+      <ul>
+        {item.bullets.map((bullet) => (
+          <li key={bullet}>{bullet}</li>
+        ))}
+      </ul>
+    </article>
   );
 }

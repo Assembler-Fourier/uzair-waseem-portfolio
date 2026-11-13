@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "qa-automation-lab",
   ].map((slug) => ({
     url: `https://uzairwaseem.com/projects/${slug}`,
-    lastModified: new Date("2026-11-12"),
+    lastModified: new Date("2026-11-13"),
     changeFrequency: "monthly" as const,
     priority: 0.82,
   }));
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: "https://uzairwaseem.com/",
-      lastModified: new Date("2026-11-12"),
+      lastModified: new Date("2026-11-13"),
       changeFrequency: "weekly",
       priority: 1,
     },
