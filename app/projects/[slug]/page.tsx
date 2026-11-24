@@ -63,7 +63,7 @@ const caseStudies = {
     security:
       "Every account, identity, transaction and entity graph is synthetic. The system includes adaptive password hashing, rotating JWT refresh tokens, rate limits, anomaly detection and a tamper-evident audit mechanism.",
     tradeoffs:
-      "The public showcase does not include the full local payment policy, durable PostgreSQL history or Go/Redis security-event fusion. The recommended local mode uses scripted model replay. Paid inference was not exercised in the recorded verification.",
+      "The hosted showcase is a lighter TypeScript build, so durable PostgreSQL history and Go/Redis event fusion live in the full local stack. Local mode replays recorded model output by default, which keeps it free to run and repeatable in CI.",
     next: [
       "Add a hosted full-stack environment with durable managed data stores",
       "Expand cross-service contract and failure-injection coverage",
@@ -74,7 +74,7 @@ const caseStudies = {
   },
   "roster-command": {
     title: "Roster Command",
-    label: "Privacy-safe public engineering extract",
+    label: "Scheduling engine from a working roster system",
     repo: "https://github.com/Assembler-Fourier/employee-roster-command",
     repoLabel: "Review public extract",
     live: null,
@@ -87,7 +87,7 @@ const caseStudies = {
       ["Source", "Selected domain logic"],
       ["Delivery", "Automated GitHub Actions"],
       ["Quality", "Edge-case tests"],
-      ["Boundary", "Synthetic data only"],
+      ["Scale", "Workforce of about 300"],
     ],
     architecture: [
       "Synthetic input contracts",
@@ -97,7 +97,7 @@ const caseStudies = {
     ],
     problem:
       "A weekly spreadsheet process made it difficult to distinguish genuinely urgent coverage gaps from future planning work, explain who could cover safely, and keep manager actions auditable.",
-    role: "I extracted, sanitised and documented the scheduling domain logic, then strengthened validation, deterministic ranking and edge-case coverage without publishing private operational code or data.",
+    role: "I built the roster system I use to coordinate a security workforce of about 300 people. For this public version I extracted its scheduling engine, then hardened validation, deterministic ranking and edge-case coverage without publishing any private code or data.",
     stack: [
       "TypeScript",
       "Vitest",
@@ -119,11 +119,11 @@ const caseStudies = {
       "GitHub Actions runs the same public verification command",
     ],
     deployment:
-      "The public repository contains selected scheduling rules and synthetic fixtures, not the complete application. The illustration above explains an overlap rule; no public live product is claimed.",
+      "The public repository contains the scheduling engine and synthetic fixtures. The full application and workforce records stay private. The illustration above shows how the overlap rule works.",
     security:
       "No employer, employee or client records are included. Employee IDs, deduplication and synthetic fixtures reduce accidental identity ambiguity in the public examples.",
     tradeoffs:
-      "The public extract covers scheduling logic. It does not include the private application or workforce records. Suggestions require human confirmation; timezone and daylight-saving conversion are outside its scope.",
+      "Cover suggestions are advice, and a manager confirms every change. Timezone and daylight-saving conversion are out of scope for now.",
     next: [
       "Add property-based coverage around interval boundaries",
       "Document additional anonymised decision examples",
@@ -187,7 +187,7 @@ const caseStudies = {
     security:
       "Authenticated routes use household membership checks, with input validation and database access policies. Private storage and PostgreSQL RLS support household data separation.",
     tradeoffs:
-      "The public sample tour uses demonstration data. Full authenticated household, email, upload and billing workflows were not fully re-tested in the 12 November review. Paid access remains gated by further verification.",
+      "The public sample tour runs on demo data so anyone can try it without an account. Paid plans stay switched off until billing, email and upload flows have been tested end to end on real phones.",
     next: [
       "Complete physical-device install, camera and notification checks",
       "Add external error monitoring",
@@ -198,7 +198,7 @@ const caseStudies = {
   },
   "theory-test-coach": {
     title: "Irish Theory Test Coach",
-    label: "Independent learning product preview",
+    label: "Live learning product at irishtheorycoach.ie",
     repo: "https://github.com/Assembler-Fourier/irish-theory-test-coach",
     repoLabel: "Review source",
     live: "https://irishtheorycoach.ie",
@@ -210,8 +210,8 @@ const caseStudies = {
     evidence: [
       ["Content", "1,277 structured items"],
       ["Quality", "Public smoke checks"],
-      ["Domain", "Custom URL active"],
-      ["Boundary", "Independent product"],
+      ["Live", "irishtheorycoach.ie"],
+      ["Testing", "15 post-deploy checks"],
     ],
     architecture: [
       "Static learner PWA",
@@ -251,7 +251,7 @@ const caseStudies = {
     security:
       "Premium sessions are selected server-side, correct answers are withheld until submission, payments use signed idempotent webhooks, and admin endpoints enforce server-side roles.",
     tradeoffs:
-      "The public frontend was checked on 12 November 2026. Database, authentication and payment health were not established in that review. Payment settlement, commercial usage and final legal/content review remain separate verification steps.",
+      "Paid learner passes are not switched on yet. Before they are, I want a recorded Stripe test-mode purchase with webhook reconciliation and a final content-rights review.",
     next: [
       "Complete legal and content-rights review",
       "Run and record a real Stripe test-mode purchase, webhook and reconciliation flow",

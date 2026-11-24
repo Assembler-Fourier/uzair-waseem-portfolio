@@ -667,6 +667,34 @@ svg {
 .tool-card > p:not(.eyebrow):not(.project-boundary) {
   font-size: 14px;
 }
+.real-work-section {
+  padding-top: 24px;
+  padding-bottom: 56px;
+}
+.real-work-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 0;
+}
+.real-work-grid .tool-card {
+  display: flex;
+  flex-direction: column;
+}
+.real-work-grid .project-actions {
+  margin-top: auto;
+  padding-top: 20px;
+}
+@media (max-width: 1100px) {
+  .real-work-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 700px) {
+  .real-work-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
 .skills-section {
   display: grid;
   grid-template-columns: 1fr 1fr;

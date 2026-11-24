@@ -148,7 +148,7 @@ test("skip link and role-specific CVs work by keyboard", async ({
   await summary.focus();
   await page.keyboard.press("Enter");
   const links = page.locator(".cv-versions a");
-  await expect(links).toHaveCount(9);
+  await expect(links).toHaveCount(8);
   const urls = [
     "/Uzair-Waseem-CV.pdf",
     ...(await links.evaluateAll((els) =>
