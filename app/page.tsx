@@ -22,8 +22,7 @@ const projects = [
       "I built a mobile-first workspace for chores, groceries and shared expenses, with household access controls and a public sample tour.",
     evidence: "Household-scoped access · Mobile workflows · Browser checks",
     stack: ["Next.js", "TypeScript", "Supabase", "Playwright"],
-    boundary:
-      "Public preview with sample data. Full authenticated workflows remain a separate verification step.",
+    boundary: "The sample tour runs on demo data, so you can try it without an account.",
     repository: "https://github.com/Assembler-Fourier/housefair-ai",
     live: "https://housemates-sand.vercel.app/demo",
     liveLabel: "Try sample tour",
@@ -37,11 +36,11 @@ const projects = [
     category: "02 / Operations & automation",
     summary: "Clearer decisions when a shift needs cover.",
     detail:
-      "I extracted scheduling rules from a private roster tool: coverage gaps, overlapping shifts and explainable cover suggestions.",
+      "I built a roster system to coordinate a security workforce of about 300 people. This is its scheduling engine: coverage gaps, overlapping shifts and cover suggestions that explain themselves.",
     evidence: "Interval validation · Conflict checks · Deterministic ranking",
     stack: ["TypeScript", "Vitest", "Domain modelling"],
     boundary:
-      "Sanitised public code and synthetic examples. Cover suggestions require human confirmation.",
+      "Workforce records stay private. The public code runs on synthetic fixtures.",
     repository: "https://github.com/Assembler-Fourier/employee-roster-command",
     live: null,
     liveLabel: null,
@@ -59,7 +58,7 @@ const projects = [
     evidence: "Rust risk engine · Go gateway · Python orchestration",
     stack: ["Rust", "Go", "Python", "PostgreSQL"],
     boundary:
-      "Synthetic data. The public TypeScript showcase is smaller than the full local system, which supports scripted model replay.",
+      "The hosted showcase uses synthetic data. The full four-service stack runs with Docker Compose.",
     repository: "https://github.com/Assembler-Fourier/vaultwatch",
     live: "https://dashboard-web-three-sable.vercel.app",
     liveLabel: "Open showcase",
@@ -157,8 +156,7 @@ const engineeringTools = [
     workflow: "Upload → profile → validate → export",
     evidence:
       "Typed rules, bounded CSV processing, row-level diagnostics and a CLI that can fail a CI job.",
-    boundary:
-      "Request-scoped processing. Uploaded data is not saved as a shared dataset.",
+    boundary: "Uploads are processed per request and never stored.",
     stack: ["Python", "FastAPI", "Pydantic", "Data contracts", "CI"],
     live: "https://dataproof-quality-workbench.vercel.app",
     repo: "https://github.com/Assembler-Fourier/dataproof-quality-workbench",
@@ -173,7 +171,7 @@ const engineeringTools = [
     evidence:
       "JSON-pointer diagnostics, compatibility rules, local reference resolution and executable test exports.",
     boundary:
-      "Documented OpenAPI 3.0 subset. Checks supplied contracts and responses without calling target APIs.",
+      "Supports a documented OpenAPI 3.0 subset and never calls your API.",
     stack: ["Python", "FastAPI", "OpenAPI", "JSON Schema", "Contract tests"],
     live: "https://contractlens-api-lab.vercel.app",
     repo: "https://github.com/Assembler-Fourier/contractlens-api-lab",
@@ -188,10 +186,46 @@ const engineeringTools = [
     evidence:
       "BM25 retrieval, bounded document parsing, 22 automated tests and a tested upload-to-citation flow.",
     boundary:
-      "Evidence mode needs no key. OpenAI generation requires the visitor’s key; documents live in the browser session.",
+      "Works without an API key. Add your own OpenAI key for generated answers.",
     stack: ["Python", "FastAPI", "RAG", "OpenAI", "BM25"],
     live: "https://documind-rag-assistant.vercel.app",
     repo: "https://github.com/Assembler-Fourier/documind-rag-assistant",
+  },
+];
+
+const realWorkBuilds = [
+  {
+    title: "Irish Theory Test Coach",
+    category: "Live product · irishtheorycoach.ie",
+    description:
+      "Driving-theory practice for Irish learners: timed mock exams, answer coaching, passwordless accounts and 1,277 structured questions.",
+    stack: ["JavaScript", "Vercel Functions", "Neon Postgres", "Stripe"],
+    caseStudy: "/projects/theory-test-coach",
+    live: "https://irishtheorycoach.ie",
+    liveLabel: "Visit site",
+    repo: "https://github.com/Assembler-Fourier/irish-theory-test-coach",
+  },
+  {
+    title: "Check Call Log",
+    category: "Control room tool · Python",
+    description:
+      "Reads the staff roster and builds the night’s check-call list, patrol log and shift log, printed exactly like the paper forms.",
+    stack: ["Python", "Google Sheets", "PDF generation", "Pyodide"],
+    caseStudy: null,
+    live: "https://assembler-fourier.github.io/check-call-log/live/",
+    liveLabel: "Try it in your browser",
+    repo: "https://github.com/Assembler-Fourier/check-call-log",
+  },
+  {
+    title: "BarrierWatcher",
+    category: "Computer vision · Python",
+    description:
+      "Turns a security camera into a gate alarm with local person and vehicle detection, lane alarms and acknowledgement. No cloud subscription.",
+    stack: ["Python", "OpenCV", "ONNX Runtime", "go2rtc"],
+    caseStudy: null,
+    live: "https://assembler-fourier.github.io/c500-guard/",
+    liveLabel: "Open interactive demo",
+    repo: "https://github.com/Assembler-Fourier/c500-guard",
   },
 ];
 
@@ -238,7 +272,7 @@ const structuredData = {
       "@id": `${siteUrl}/#profile`,
       url: `${siteUrl}/`,
       name: "Uzair Waseem | Software Engineer in Dublin",
-      dateModified: "2026-11-13",
+      dateModified: "2026-11-24",
       inLanguage: "en-IE",
       isPartOf: { "@id": `${siteUrl}/#website` },
       mainEntity: { "@id": `${siteUrl}/#person` },
@@ -255,7 +289,6 @@ const cvVariants = [
   ["AI software", "AI-Software-Engineer"],
   ["Platform", "Platform-Software-Engineer"],
   ["Security-aware software", "Security-Aware-Software-Engineer"],
-  ["Customer service & operations", "Customer-Service-Operations"],
 ];
 
 export default function Home() {
@@ -306,7 +339,8 @@ export default function Home() {
             </div>
             <div className="hero-context">
               <a href="#experience">
-                Recent engineering & QA work at <strong>TalentHunter</strong>
+                <strong>MSc Cybersecurity</strong> · Building software since
+                2020
                 <ArrowUpRight size={15} aria-hidden="true" />
               </a>
               <div className="hero-links">
@@ -464,11 +498,66 @@ export default function Home() {
           </div>
         </section>
 
+        <section
+          className="section shell real-work-section"
+          id="more-work"
+          aria-labelledby="real-work-title"
+        >
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">More I’ve shipped</p>
+              <h2 id="real-work-title">Built for real problems.</h2>
+            </div>
+            <p>
+              A live learning product and two security operations tools. Each
+              one has a demo you can open now.
+            </p>
+          </div>
+          <div className="tool-grid real-work-grid">
+            {realWorkBuilds.map((build) => (
+              <article className="tool-card" key={build.title}>
+                <p className="eyebrow">{build.category}</p>
+                <h3>{build.title}</h3>
+                <p>{build.description}</p>
+                <ul
+                  className="tag-list"
+                  aria-label={`${build.title} technologies`}
+                >
+                  {build.stack.map((tag) => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+                <div className="project-actions">
+                  <a href={build.live} target="_blank" rel="noopener noreferrer">
+                    {build.liveLabel}
+                    <ArrowUpRight size={15} aria-hidden="true" />
+                  </a>
+                  {build.caseStudy && (
+                    <Link href={build.caseStudy}>
+                      Case study
+                      <ArrowUpRight size={15} aria-hidden="true" />
+                    </Link>
+                  )}
+                  <a
+                    href={build.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${build.title} source`}
+                  >
+                    Source
+                    <ArrowUpRight size={15} aria-hidden="true" />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="tools-section shell" aria-labelledby="tools-title">
           <details className="more-projects">
             <summary>
-              <span id="tools-title">Developer tools & more</span>
-              <span>Four focused experiments</span>
+              <span id="tools-title">Smaller developer tools</span>
+              <span>Data quality, API contracts and document search</span>
               <span className="details-icon" aria-hidden="true">
                 +
               </span>
@@ -501,23 +590,6 @@ export default function Home() {
                   <p className="project-boundary">{tool.boundary}</p>
                 </article>
               ))}
-              <article className="tool-card">
-                <p className="eyebrow">Learning product · Public preview</p>
-                <h3>Irish Theory Test Coach</h3>
-                <p>
-                  Driving-theory practice, learner workflows and serverless
-                  APIs.
-                </p>
-                <div className="project-actions">
-                  <Link href="/projects/theory-test-coach">
-                    Read case study
-                    <ArrowUpRight size={15} aria-hidden="true" />
-                  </Link>
-                </div>
-                <p className="project-boundary">
-                  Full account, database and payment health remain unverified.
-                </p>
-              </article>
             </div>
           </details>
         </section>
