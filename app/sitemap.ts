@@ -21,6 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
+    {
+      url: "https://uzairwaseem.com/cv",
+      lastModified: new Date("2026-11-25"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     ...projectPages,
   ];
 }

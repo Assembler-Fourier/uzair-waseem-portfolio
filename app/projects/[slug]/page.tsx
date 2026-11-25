@@ -80,6 +80,7 @@ const caseStudies = {
     live: null,
     ci: "https://github.com/Assembler-Fourier/employee-roster-command/actions/workflows/ci.yml",
     image: "/projects/roster-command-product.png",
+    ogImage: "/projects/roster-command-og.png",
     imageAlt:
       "Roster Command read-only recruiter dashboard with synthetic workforce data",
     imageMode: "visual-roster",
@@ -140,6 +141,7 @@ const caseStudies = {
     live: "https://housemates-sand.vercel.app/demo",
     ci: "https://github.com/Assembler-Fourier/housefair-ai/actions/workflows/ci.yml",
     image: "/projects/housefair-product.jpg",
+    ogImage: "/projects/housefair-og.png",
     imageAlt:
       "HouseFair mobile screens for chores, groceries, money and house planning",
     imageMode: "visual-house",
@@ -337,6 +339,10 @@ export async function generateMetadata({ params }: ProjectPageProps) {
   const { slug } = await params;
   const study = caseStudies[slug as keyof typeof caseStudies];
   if (!study) return {};
+  const shareImage =
+    "ogImage" in study
+      ? { url: study.ogImage, width: 1200, height: 630, alt: study.imageAlt }
+      : { url: study.image, alt: study.imageAlt };
 
   return {
     title: `${study.title} | Uzair Waseem Project Case Study`,
@@ -347,13 +353,13 @@ export async function generateMetadata({ params }: ProjectPageProps) {
       description: study.proves,
       url: `https://uzairwaseem.com/projects/${slug}`,
       type: "article",
-      images: [{ url: study.image, alt: study.imageAlt }],
+      images: [shareImage],
     },
     twitter: {
       card: "summary_large_image",
       title: `${study.title} | Uzair Waseem`,
       description: study.proves,
-      images: [study.image],
+      images: [shareImage.url],
     },
   };
 }

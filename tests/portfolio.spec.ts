@@ -314,3 +314,31 @@ test.describe("progressive enhancement", () => {
     await assertNoOverflow(page);
   });
 });
+
+test("CV page links the PDF, shares a preview image and passes accessibility", async ({
+  page,
+  request,
+}) => {
+  await page.goto("/cv");
+  await expect(
+    page.getByRole("heading", { name: "One-page CV.", level: 1 }),
+  ).toBeVisible();
+  await expect(page.getByRole("link", { name: "Download CV" })).toHaveAttribute(
+    "href",
+    "/Uzair-Waseem-CV.pdf",
+  );
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+    "content",
+    /\/og-cv\.png$/,
+  );
+  const image = await request.get("/og-cv.png");
+  expect(image.status()).toBe(200);
+  expect(image.headers()["content-type"]).toContain("image/png");
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("https://uzairwaseem.com/cv");
+  const result = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(result.violations).toEqual([]);
+  await assertNoOverflow(page);
+});
